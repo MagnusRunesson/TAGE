@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include "SDL2/SDL.h"
+#include "FixedPoint.h"
 
 SDL_Window* window;
 SDL_Surface* screenSurface;
@@ -40,6 +41,9 @@ const Uint16 shiftMask[] =
 	0x8610, // Shift 4 bits
 };
 
+FixedPoint fpX;
+FixedPoint fpY;
+FixedPoint fpSpeed;
 
 int gx;
 int gy;
@@ -95,6 +99,10 @@ bool init()
 	gKeyDPadBuff = 0;
 	gx = 10;
 	gy = 10;
+	
+	fpSpeed = FixedPoint( 0, 50 );
+	fpX = 10;
+	fpY = 10;
 	
 	return true;
 }
@@ -286,19 +294,24 @@ bool update()
 	Sint8 padX, padY;
 	Uint16 keys = getPad( &padX, &padY );
 
-	gx += padX;
-	gy += padY;
+	FixedPoint spx = padX;
+	spx *= fpSpeed;
+	FixedPoint spy = padY;
+	spy *= fpSpeed;
+	
+	fpX += spx;
+	fpY += spy;
 
-	if( gx < 0 )	gx = 0;
-	if( gx > mx )	gx = mx;
-	if( gy < 0 )	gy = 0;
-	if( gy > my )	gy = my;
+	if( fpX < 0 )	fpX = 0;
+	if( fpX > mx )	fpX = mx;
+	if( fpY < 0 )	fpY = 0;
+	if( fpY > my )	fpY = my;
 	
 	
 	memcpy( screenBuffer, background, SCREEN_HEIGHT * SCREEN_WIDTH * 2 );
 	int dx, dy;
-	int x = gx;
-	int y = gy;
+	int x = fpX.GetInteger();
+	int y = fpY.GetInteger();
 	for( dy=0; dy<h; dy++ )
 	{
 		for( dx=0; dx<w; dx++ )
