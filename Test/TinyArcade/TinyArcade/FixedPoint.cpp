@@ -9,8 +9,9 @@
 #include "FixedPoint.h"
 
 #define MANTISSA_BITS (16)
+#define MANTISSA_BITS_HALF (MANTISSA_BITS/2)
 #define MANTISSA_VALUES (1<<MANTISSA_BITS)
-#define MANTISSA_MASK (0x8000ffff)
+#define MANTISSA_MASK (MANTISSA_VALUES-1)
 #define INTEGER_BITS (15)
 #define INTEGER_MASK (0xffff0000)
 
@@ -77,10 +78,10 @@ bool FixedPoint::operator > (FixedPoint o)
 
 void FixedPoint::operator *= (int o)
 {
-	m_value *= (o*MANTISSA_VALUES);
+	m_value *= o;
 }
 
 void FixedPoint::operator *= (FixedPoint o)
 {
-	m_value *= o.m_value;
+	m_value = (m_value>>MANTISSA_BITS_HALF) * (o.m_value>>MANTISSA_BITS_HALF);
 }
