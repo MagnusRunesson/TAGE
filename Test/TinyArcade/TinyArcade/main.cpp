@@ -100,7 +100,7 @@ bool init()
 	gx = 10;
 	gy = 10;
 	
-	fpSpeed = FixedPoint( 0, 50 );
+	fpSpeed = FixedPoint( 0, 25 );
 	fpX = 10;
 	fpY = 10;
 	
