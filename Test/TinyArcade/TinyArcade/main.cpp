@@ -16,7 +16,7 @@ SDL_Surface* screenSurface;
 const int SCREEN_WIDTH = 96;
 const int SCREEN_HEIGHT = 64;
 
-const int SCREEN_PIXELSIZE = 10;
+const int SCREEN_PIXELSIZE = 4;
 
 Uint16* screenBuffer;
 Uint16* background;
