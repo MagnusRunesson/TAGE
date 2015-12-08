@@ -11,11 +11,11 @@
 
 int main(int argc, const char * argv[])
 {
-	FILE* f = fopen( "sinetable.cpp", "w" );
+	FILE* f = fopen( "sinetable.h", "w" );
 	
 	fprintf( f, "#include \"types.h\"\n" );
 	fprintf( f, "\n" );
-	fprintf( f, "sint16[] sineTable =\n" );
+	fprintf( f, "sint16 sineTable[] =\n" );
 	fprintf( f, "{\n" );
 	
 	float steps = 256.0f;
