@@ -73,5 +73,4 @@ Image test =
 	96,64,
 	(unsigned short*)&test_pixels,
 	(unsigned char*)0,
-	&imageBlitFullScreen,
 };

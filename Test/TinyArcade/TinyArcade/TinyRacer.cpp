@@ -7,22 +7,24 @@
 //
 
 #include <memory.h>
-#include "TinyRacer.h"
 #include "Screen.h"
 #include "alldata.h"
 #include "types.h"
 #include "FixedPoint.h"
 #include "Joypad.h"
+#include "fpmath.h"
 
 FixedPoint fpX;
 FixedPoint fpY;
 FixedPoint fpSpeed;
+uint8 angle;
 
 void setup()
 {
 	fpSpeed = FixedPoint( 0, 25 );
 	fpX = 10;
 	fpY = 10;
+	angle = 0;
 }
 
 void loop()
@@ -42,14 +44,26 @@ void loop()
 	fpX += spx;
 	fpY += spy;
 	
+	//scbg.Draw( 0, 0 );
+	testtrack.Draw( -20, 0 );
+	
+	//*
 	if( fpX < -10 )	fpX = -10;
-	if( fpX > mx )	fpX = mx;
+	if( fpX > SCREEN_WIDTH-10 )	fpX = SCREEN_WIDTH-10;
 	if( fpY < -10 )	fpY = -10;
-	if( fpY > my )	fpY = my;
-	
-	scbg.Draw( 0, 0 );
-	
+	if( fpY > SCREEN_HEIGHT-1 )	fpY = SCREEN_HEIGHT-1;
 	int x = fpX.GetInteger();
 	int y = fpY.GetInteger();
-	test3.Draw( x, y );
+	carrot_3.DrawAlpha( x, y );
+	/*/
+	if( fpX < 0 )	fpX = 0;
+	if( fpX > 240-SCREEN_WIDTH )	fpX = 240-SCREEN_WIDTH;
+	if( fpY < 0 )	fpY = 0;
+	if( fpY > 240-SCREEN_HEIGHT )	fpY = 240-SCREEN_HEIGHT;
+	int x = fpX.GetInteger();
+	int y = fpY.GetInteger();
+	testtrack.Draw( -x, -y );
+	/**/
+	//rotest.Draw( 64, 32 );
+	angle++;
 }

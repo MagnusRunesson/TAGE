@@ -73,5 +73,4 @@ Image scbg =
 	96,64,
 	(unsigned short*)&scbg_pixels,
 	(unsigned char*)0,
-	&imageBlitFullScreen,
 };
