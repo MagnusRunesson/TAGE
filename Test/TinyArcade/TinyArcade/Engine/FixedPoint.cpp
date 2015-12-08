@@ -8,11 +8,11 @@
 
 #include "FixedPoint.h"
 
-#define MANTISSA_BITS (16)
-#define MANTISSA_BITS_HALF (MANTISSA_BITS/2)
-#define MANTISSA_VALUES (1<<MANTISSA_BITS)
-#define MANTISSA_VALUES_HALF (MANTISSA_VALUES>>1)
-#define MANTISSA_MASK (MANTISSA_VALUES-1)
+#define FRACTION_BITS (16)
+#define FRACTION_BITS_HALF (FRACTION_BITS/2)
+#define FRACTION_VALUES (1<<FRACTION_BITS)
+#define FRACTION_VALUES_HALF (FRACTION_VALUES>>1)
+#define FRACTION_MASK (FRACTION_VALUES-1)
 #define INTEGER_BITS (15)
 #define INTEGER_MASK (0xffff0000)
 
@@ -23,18 +23,18 @@ FixedPoint::FixedPoint()
 
 FixedPoint::FixedPoint( int _int )
 {
-	m_value = _int*MANTISSA_VALUES;
+	m_value = _int*FRACTION_VALUES;
 }
 
-FixedPoint::FixedPoint( int _int, int _mantissaPercentage )
+FixedPoint::FixedPoint( int _int, int _fractionPercentage )
 {
-	int mantissa = (_mantissaPercentage * MANTISSA_VALUES) / 100;
-	m_value = (_int * MANTISSA_VALUES) + mantissa;
+	int fraction = (_fractionPercentage * FRACTION_VALUES) / 100;
+	m_value = (_int * FRACTION_VALUES) + fraction;
 }
 
 void FixedPoint::operator = (int o)
 {
-	m_value = o * MANTISSA_VALUES;
+	m_value = o * FRACTION_VALUES;
 }
 
 void FixedPoint::operator = (FixedPoint o)
@@ -44,7 +44,7 @@ void FixedPoint::operator = (FixedPoint o)
 
 void FixedPoint::operator += (int o)
 {
-	m_value += o * MANTISSA_VALUES;
+	m_value += o * FRACTION_VALUES;
 }
 
 void FixedPoint::operator += (FixedPoint o)
@@ -54,12 +54,12 @@ void FixedPoint::operator += (FixedPoint o)
 
 int FixedPoint::GetInteger()
 {
-	return m_value / MANTISSA_VALUES;
+	return m_value / FRACTION_VALUES;
 }
 
 bool FixedPoint::operator < (int o)
 {
-	return m_value < (o*MANTISSA_VALUES);
+	return m_value < (o*FRACTION_VALUES);
 }
 
 bool FixedPoint::operator < (FixedPoint o)
@@ -69,7 +69,7 @@ bool FixedPoint::operator < (FixedPoint o)
 	
 bool FixedPoint::operator > (int o)
 {
-	return m_value > (o*MANTISSA_VALUES);
+	return m_value > (o*FRACTION_VALUES);
 }
 
 bool FixedPoint::operator > (FixedPoint o)
@@ -84,5 +84,5 @@ void FixedPoint::operator *= (int o)
 
 void FixedPoint::operator *= (FixedPoint o)
 {
-	m_value = (m_value>>MANTISSA_BITS_HALF) * (o.m_value>>MANTISSA_BITS_HALF);
+	m_value = (m_value>>FRACTION_BITS_HALF) * (o.m_value>>FRACTION_BITS_HALF);
 }

@@ -19,7 +19,7 @@ protected:
 public:
 	FixedPoint();
 	FixedPoint( int _int );
-	FixedPoint( int _int, int _mantissaPercentage );
+	FixedPoint( int _int, int _fractionPercentage );
 	void operator = (int o);
 	void operator = (FixedPoint o);
 	void operator += (int o);
