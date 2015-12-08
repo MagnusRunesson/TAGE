@@ -20,7 +20,13 @@ const int PAD_KEYMASK_DPAD_DOWN		= (1<<17);
 const int PAD_KEYMASK_DPAD_LEFT		= (1<<18);
 const int PAD_KEYMASK_DPAD_RIGHT	= (1<<19);
 
-uint8 getPad( sint8* _x, sint8* _y );
-
+//
+//
+//
+void padUpdate();
+uint8 padGet( sint8* _x, sint8* _y );
+uint8 padGetKeys();
+sint8 padGetX();
+sint8 padGetY();
 
 #endif /* Joypad_hpp */

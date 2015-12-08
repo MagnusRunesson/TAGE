@@ -31,6 +31,9 @@ public:
 	void operator *= (int o);
 	void operator *= (FixedPoint o);
 	int GetInteger();
+	
+	//
+	inline int GetDebugRawValue(){ return m_value; };
 };
 
 #endif /* defined(__TinyArcade__FixedPoint__) */

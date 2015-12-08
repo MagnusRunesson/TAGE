@@ -25,7 +25,7 @@ extern void loop();
 SDL_Window* window;
 SDL_Surface* screenSurface;
 
-const int SCREEN_PIXELSIZE = 6;
+const int SCREEN_PIXELSIZE = 2;
 
 uint16* screenBuffer;
 uint16* background;

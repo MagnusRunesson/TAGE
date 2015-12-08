@@ -21,6 +21,7 @@
 #include "carrot_1.h"
 #include "carrot_2.h"
 #include "carrot_3.h"
+#include "testcarbig.h"
 
 #include "testtrack.h"
 

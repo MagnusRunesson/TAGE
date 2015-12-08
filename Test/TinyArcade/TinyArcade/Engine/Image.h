@@ -23,11 +23,13 @@ public:
 	void Draw( int _screenX, int _screenY );
 	void DrawAlpha( int _screenX, int _screenY );
 	void DrawRotated( int _scrX, int _scrY, int _angle, int _scale );
+	void DrawRotatedAlpha( int _scrX, int _scrY, int _angle, int _scale );
 };
 
 void imageBlitFullScreen( Image* _this, int _scrX, int _scrY );
 void imageBlitNoAlpha( Image* _this, int _scrX, int _scrY );
 void imageBlitAlpha( Image *_this, int _scrX, int _scrY );
 void imageBlitRotateNoAlpha( Image *_this, int _scrX, int _angle, int _scale );
+void imageBlitRotateAlpha( Image *_this, int _scrX, int _angle, int _scale );
 
 #endif /* Image_hpp */

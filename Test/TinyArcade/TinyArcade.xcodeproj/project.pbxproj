@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25187C351C16E0CA00C568C9 /* TinyRaceCar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25187C331C16E0CA00C568C9 /* TinyRaceCar.cpp */; settings = {ASSET_TAGS = (); }; };
+		25187C381C16E50E00C568C9 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25187C361C16E50E00C568C9 /* Camera.cpp */; settings = {ASSET_TAGS = (); }; };
+		25187C3B1C16E89700C568C9 /* fp2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25187C391C16E89700C568C9 /* fp2d.cpp */; settings = {ASSET_TAGS = (); }; };
+		25187C3E1C170A9600C568C9 /* testcarbig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25187C3C1C170A9600C568C9 /* testcarbig.cpp */; settings = {ASSET_TAGS = (); }; };
 		254381BC1C16DED3005A8626 /* Joypad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254381BA1C16DED3005A8626 /* Joypad.cpp */; settings = {ASSET_TAGS = (); }; };
 		254381BE1C16DEDD005A8626 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254381BD1C16DEDD005A8626 /* main.cpp */; settings = {ASSET_TAGS = (); }; };
 		254381D51C16DF65005A8626 /* carrot_1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254381C11C16DF65005A8626 /* carrot_1.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -42,6 +46,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		25187C331C16E0CA00C568C9 /* TinyRaceCar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TinyRaceCar.cpp; path = TinyRacer/TinyRaceCar.cpp; sourceTree = "<group>"; };
+		25187C341C16E0CA00C568C9 /* TinyRaceCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TinyRaceCar.h; path = TinyRacer/TinyRaceCar.h; sourceTree = "<group>"; };
+		25187C361C16E50E00C568C9 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Camera.cpp; path = TinyArcade/Engine/Camera.cpp; sourceTree = "<group>"; };
+		25187C371C16E50E00C568C9 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = TinyArcade/Engine/Camera.h; sourceTree = "<group>"; };
+		25187C391C16E89700C568C9 /* fp2d.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fp2d.cpp; path = TinyArcade/Engine/fp2d.cpp; sourceTree = "<group>"; };
+		25187C3A1C16E89700C568C9 /* fp2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fp2d.h; path = TinyArcade/Engine/fp2d.h; sourceTree = "<group>"; };
+		25187C3C1C170A9600C568C9 /* testcarbig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = testcarbig.cpp; path = TinyArcade/TinyRacer/Data/testcarbig.cpp; sourceTree = "<group>"; };
+		25187C3D1C170A9600C568C9 /* testcarbig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = testcarbig.h; path = TinyArcade/TinyRacer/Data/testcarbig.h; sourceTree = "<group>"; };
 		254381BA1C16DED3005A8626 /* Joypad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Joypad.cpp; path = "TinyArcade/Abstraction layer/Joypad.cpp"; sourceTree = "<group>"; };
 		254381BB1C16DED3005A8626 /* Joypad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Joypad.h; path = "TinyArcade/Abstraction layer/Joypad.h"; sourceTree = "<group>"; };
 		254381BD1C16DEDD005A8626 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = TinyArcade/MacOSX/main.cpp; sourceTree = "<group>"; };
@@ -109,6 +121,8 @@
 		2549CDDF1C1047AF009E8088 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				25187C3C1C170A9600C568C9 /* testcarbig.cpp */,
+				25187C3D1C170A9600C568C9 /* testcarbig.h */,
 				254381C01C16DF65005A8626 /* Alldata.h */,
 				254381C11C16DF65005A8626 /* carrot_1.cpp */,
 				254381C21C16DF65005A8626 /* carrot_1.h */,
@@ -137,6 +151,8 @@
 		2549CDE61C1047EC009E8088 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				25187C361C16E50E00C568C9 /* Camera.cpp */,
+				25187C371C16E50E00C568C9 /* Camera.h */,
 				254381E11C16DF9D005A8626 /* BitHelpers.cpp */,
 				254381E21C16DF9D005A8626 /* BitHelpers.h */,
 				254381E31C16DF9D005A8626 /* FixedPoint.cpp */,
@@ -150,6 +166,8 @@
 				254381EB1C16DF9D005A8626 /* Screen.cpp */,
 				254381EC1C16DF9D005A8626 /* Screen.h */,
 				254381ED1C16DF9D005A8626 /* sinetable.h */,
+				25187C391C16E89700C568C9 /* fp2d.cpp */,
+				25187C3A1C16E89700C568C9 /* fp2d.h */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -188,6 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				254381DF1C16DF73005A8626 /* TinyRacer.cpp */,
+				25187C331C16E0CA00C568C9 /* TinyRaceCar.cpp */,
+				25187C341C16E0CA00C568C9 /* TinyRaceCar.h */,
 			);
 			name = TinyRacer;
 			path = TinyArcade;
@@ -256,14 +276,18 @@
 				254381D81C16DF65005A8626 /* rotest.cpp in Sources */,
 				254381DA1C16DF65005A8626 /* test.cpp in Sources */,
 				254381DD1C16DF65005A8626 /* testcar.cpp in Sources */,
+				25187C3B1C16E89700C568C9 /* fp2d.cpp in Sources */,
 				254381DE1C16DF65005A8626 /* testtrack.cpp in Sources */,
 				254381BC1C16DED3005A8626 /* Joypad.cpp in Sources */,
 				254381D61C16DF65005A8626 /* carrot_2.cpp in Sources */,
 				254381D91C16DF65005A8626 /* scbg.cpp in Sources */,
 				254381BE1C16DEDD005A8626 /* main.cpp in Sources */,
 				254381F31C16DF9D005A8626 /* Screen.cpp in Sources */,
+				25187C351C16E0CA00C568C9 /* TinyRaceCar.cpp in Sources */,
+				25187C3E1C170A9600C568C9 /* testcarbig.cpp in Sources */,
 				254381F01C16DF9D005A8626 /* fpmath.cpp in Sources */,
 				254381EF1C16DF9D005A8626 /* FixedPoint.cpp in Sources */,
+				25187C381C16E50E00C568C9 /* Camera.cpp in Sources */,
 				254381DC1C16DF65005A8626 /* test3.cpp in Sources */,
 				254381F21C16DF9D005A8626 /* Image.cpp in Sources */,
 				254381DB1C16DF65005A8626 /* test2.cpp in Sources */,

@@ -14,14 +14,28 @@
 
 class GameObject
 {
-	Image* m_image;
-	int m_x;
-	int m_y;
-	
+	//
+	//
+	//
 public:
 	GameObject( Image* _image );
-	void Update();
-	void Render();
+	virtual void Update();
+	virtual void Render();
+
+	void SetWorldPosition( int _x, int _y );
+	
+	//
+	//
+	//
+protected:
+	//
+	int m_worldPositionX;
+	int m_worldPositionY;
+	
+	//
+	Image* m_image;
+	int m_imageHotspotX;
+	int m_imageHotspotY;
 };
 
 #endif /* GameObject_hpp */
