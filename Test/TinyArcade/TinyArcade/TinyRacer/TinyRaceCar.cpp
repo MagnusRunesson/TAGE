@@ -18,10 +18,10 @@ TinyRaceCar::TinyRaceCar() : GameObject( &testcar )
 {
 	// Unit is pixels per second
 	m_acceleration = FixedPoint( 1, 0 );
-	m_maxSpeed = FixedPoint( 60 );
+	m_maxSpeed = FixedPoint( 30 );
 	m_speedDamping = FixedPoint( 0, 75 );
 	m_brake = FixedPoint( 2, 0 );
-	m_turn = FixedPoint( 90, 0 );
+	m_turn = FixedPoint( 135, 0 );
 
 	// Inverted frames per second, to multiply all the units that are expressed in seconds so they are expressed in frames
 	FixedPoint secondsPerFrame = FixedPoint( 0, 2 );
