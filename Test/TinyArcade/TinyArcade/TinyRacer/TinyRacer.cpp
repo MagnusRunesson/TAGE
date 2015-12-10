@@ -6,9 +6,6 @@
 //  Copyright © 2015 Magnus Runesson. All rights reserved.
 //
 
-// STDC
-#include <memory.h>
-
 // TinyArcade game engine
 #include "Screen.h"
 #include "alldata.h"
@@ -22,7 +19,6 @@
 #include "TinyRaceCar.h"
 
 //
-FixedPoint fpSpeed;
 TinyRaceCar playerCar;
 GameObject coolbackground( &testtrack );
 Camera mainCamera;
@@ -38,23 +34,30 @@ void setup()
 
 void loop()
 {
+	//
+	// Update system stuff
+	//
 	padUpdate();
 	
+	//
+	// Update game logic
+	//
 	
+	// Player car
 	playerCar.Update();
-	
-	//testtrack.Draw( -20, -80 );
 
-	mainCamera.SetWorldPosition(
-								playerCar.GetWorldPositionX()-48,
-								playerCar.GetWorldPositionY()-32 );
+	// Camera should follow player car
+	int camx = playerCar.GetWorldPositionX()-48;
+	int camy = playerCar.GetWorldPositionY()-32;
+	if( camx < 0 ) camx = 0;
+	if( camx > 240-SCREEN_WIDTH ) camx = 240-SCREEN_WIDTH;
+	if( camy < 0 ) camy = 0;
+	if( camy > 240-SCREEN_HEIGHT ) camy = 240-SCREEN_HEIGHT;
+	mainCamera.SetWorldPosition( camx, camy );
+	
+	//
+	// Render
+	//
 	coolbackground.Render();
 	playerCar.Render();
-}
-
-void drawTestCars()
-{
-	//testcar.DrawRotated( 34, 32, 0x40, 0x0100 );
-	//testcarbig.DrawRotatedAlpha( 52, 42, angle>>2, 0x0800 );
-	//testcar.DrawRotated( 70, 32, 0xa0, 0x0100 );
 }
