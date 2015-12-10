@@ -58,34 +58,3 @@ void drawTestCars()
 	//testcarbig.DrawRotatedAlpha( 52, 42, angle>>2, 0x0800 );
 	//testcar.DrawRotated( 70, 32, 0xa0, 0x0100 );
 }
-
-void drawCarGrid()
-{
-	int y = 8;
-	int a = 0x00;
-	testcar.DrawRotatedAlpha( 16, y, a, 0x0100 );
-	carrot_1.DrawRotatedAlpha( 32, y, a, 0x0100 );
-	carrot_2.DrawRotatedAlpha( 48, y, a, 0x0100 );
-	carrot_3.DrawRotatedAlpha( 64, y, a, 0x0100 );
-	
-	y = 22;
-	a = 0x40;
-	testcar.DrawRotatedAlpha( 16, y, a, 0x0100 );
-	carrot_1.DrawRotatedAlpha( 32, y, a, 0x0100 );
-	carrot_2.DrawRotatedAlpha( 48, y, a, 0x0100 );
-	carrot_3.DrawRotatedAlpha( 64, y, a, 0x0100 );
-	
-	y = 36;
-	a = 0x80;
-	testcar.DrawRotatedAlpha( 16, y, a, 0x0100 );
-	carrot_1.DrawRotatedAlpha( 32, y, a, 0x0100 );
-	carrot_2.DrawRotatedAlpha( 48, y, a, 0x0100 );
-	carrot_3.DrawRotatedAlpha( 64, y, a, 0x0100 );
-	
-	y = 50;
-	a = 0xc0;
-	testcar.DrawRotatedAlpha( 16, y, a, 0x0100 );
-	carrot_1.DrawRotatedAlpha( 32, y, a, 0x0100 );
-	carrot_2.DrawRotatedAlpha( 48, y, a, 0x0100 );
-	carrot_3.DrawRotatedAlpha( 64, y, a, 0x0100 );
-}
