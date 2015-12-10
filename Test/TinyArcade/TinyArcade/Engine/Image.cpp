@@ -17,6 +17,65 @@ void imageBlitFullScreen( Image* _this )
 	memcpy( screenBuffer, _this->pixels, SCREEN_HEIGHT * SCREEN_WIDTH * 2 );
 }
 
+bool clip( int _scrX, int _scrY, int _w, int _h, int* _cutLeft, int* _cutTop, int* _newW, int* _newH )
+{
+	bool doClip = false;
+	
+	*_cutLeft = 0;
+	*_cutTop = 0;
+	*_newW = _w;
+	*_newH = _h;
+	
+	int overTheTop = _scrY;
+	if( overTheTop < 0 )
+	{
+		//
+		doClip = true;
+		
+		//
+		*_cutTop = -overTheTop;
+		*_newH += overTheTop;
+		
+		int downTheHole = SCREEN_HEIGHT-*_newH;
+		if( downTheHole < 0 )
+			*_newH += downTheHole;
+	}
+	else
+	{
+		int downTheHole = (_h+_scrY) - SCREEN_HEIGHT;
+		if( downTheHole > 0 )
+		{
+			doClip = true;
+			*_newH -= downTheHole;
+		}
+	}
+	
+	int farLeft = _scrX;
+	if( farLeft < 0 )
+	{
+		doClip = true;
+		
+		*_cutLeft = -farLeft;
+		*_newW += farLeft;
+		
+		int farRight = SCREEN_WIDTH-*_newW;
+		if( farRight < 0 )
+			*_newW += farRight;
+	}
+	else
+	{
+		int farRight = (_w+_scrX) - SCREEN_WIDTH;
+		if( farRight > 0 )
+		{
+			doClip = true;
+			
+			*_newW -= farRight;
+		}
+	}
+	
+	return doClip;
+}
+
 void imageBlitNoAlpha( Image* _this, int _scrX, int _scrY )
 {
 	uint16* src = _this->pixels;
@@ -27,83 +86,21 @@ void imageBlitNoAlpha( Image* _this, int _scrX, int _scrY )
 	int h = _this->h;
 	int w = _this->w;
 	
-	int overTheTop = _scrY;
-	if( overTheTop < 0 )
+	int cutLeft, cutTop;
+	int newW, newH;
+	if( clip( _scrX, _scrY, w, h, &cutLeft, &cutTop, &newW, &newH ))
 	{
-		src -= overTheTop * _this->w;
-		dst -= overTheTop * SCREEN_WIDTH;
-		h += overTheTop;
+		src += (cutTop*_this->w)+cutLeft;
+		dst += (cutTop*SCREEN_WIDTH)+cutLeft;
 		
-		int downTheHole = SCREEN_HEIGHT-h;
-		if( downTheHole < 0 )
-			h += downTheHole;
-	}
-	else
-	{
-		int downTheHole = (h+_scrY) - SCREEN_HEIGHT;
-		if( downTheHole > 0 )
-			h -= downTheHole;
-	}
-
-	int farLeft = _scrX;
-	if( farLeft < 0 )
-	{
-		src -= farLeft;
-		dst -= farLeft;
-		w += farLeft;
-		strideWrite -= farLeft;
-		strideRead -= farLeft;
+		int cutWidth = w-newW;
 		
-		int farRight = SCREEN_WIDTH-w;
-		if( farRight < 0 )
-		{
-			w += farRight;
-			strideRead -= farRight;
-			strideWrite -= farRight;
-		}
+		strideRead += cutWidth;
+		strideWrite += cutWidth;
+		
+		w = newW;
+		h = newH;
 	}
-	else
-	{
-		int farRight = (w+_scrX) - SCREEN_WIDTH;
-		if( farRight > 0 )
-		{
-			w -= farRight;
-			strideRead += farRight;
-			strideWrite += farRight;
-		}
-	}
-	
-	/*                            --> PROPER CLIPPING FOR WHEN THE LEFT OR TOP OF THE IMAGE IS ALSO OFF SCREEN (i.e. big background images) It doesn't work for images smaller than the screen though)
-	int overTheTop = _scrY;
-	if( overTheTop < 0 )
-	{
-		src -= overTheTop * _this->w;
-		dst -= overTheTop * SCREEN_WIDTH;
-		h += overTheTop;
-	}
-	
-	int farLeft = _scrX;
-	if( farLeft < 0 )
-	{
-		src -= farLeft;
-		dst -= farLeft;
-		w += farLeft;
-		strideWrite -= farLeft;
-		strideRead -= farLeft;
-	}
-	
-	int farRight = SCREEN_WIDTH-w;
-	if( farRight < 0 )
-	{
-		w += farRight;
-		strideRead -= farRight;
-		strideWrite -= farRight;
-	}
-	
-	int downTheHole = SCREEN_HEIGHT-h;
-	if( downTheHole < 0 )
-		h += downTheHole;
-	*/
 	
 	int x, y;
 	for( y=0; y<h; y++ )
@@ -129,51 +126,21 @@ void imageBlitAlpha( Image *_this, int _scrX, int _scrY )
 	
 	int h = _this->h;
 	int w = _this->w;
-	
-	int overTheTop = _scrY;
-	if( overTheTop < 0 )
+
+	int cutLeft, cutTop;
+	int newW, newH;
+	if( clip( _scrX, _scrY, w, h, &cutLeft, &cutTop, &newW, &newH ))
 	{
-		src -= overTheTop * _this->w;
-		dst -= overTheTop * SCREEN_WIDTH;
-		h += overTheTop;
+		src += (cutTop*_this->w)+cutLeft;
+		dst += (cutTop*SCREEN_WIDTH)+cutLeft;
 		
-		int downTheHole = SCREEN_HEIGHT-h;
-		if( downTheHole < 0 )
-			h += downTheHole;
-	}
-	else
-	{
-		int downTheHole = (h+_scrY) - SCREEN_HEIGHT;
-		if( downTheHole > 0 )
-			h -= downTheHole;
-	}
-	
-	int farLeft = _scrX;
-	if( farLeft < 0 )
-	{
-		src -= farLeft;
-		dst -= farLeft;
-		w += farLeft;
-		strideWrite -= farLeft;
-		strideRead -= farLeft;
+		int cutWidth = w-newW;
 		
-		int farRight = SCREEN_WIDTH-w;
-		if( farRight < 0 )
-		{
-			w += farRight;
-			strideRead -= farRight;
-			strideWrite -= farRight;
-		}
-	}
-	else
-	{
-		int farRight = (w+_scrX) - SCREEN_WIDTH;
-		if( farRight > 0 )
-		{
-			w -= farRight;
-			strideRead += farRight;
-			strideWrite += farRight;
-		}
+		strideRead += cutWidth;
+		strideWrite += cutWidth;
+		
+		w = newW;
+		h = newH;
 	}
 	
 	int x, y;
@@ -230,6 +197,125 @@ void imageBlitAlpha( Image *_this, int _scrX, int _scrY )
 		dst += strideWrite;
 		src += strideRead;
 		srcalpha += strideRead;
+	}
+}
+
+#define SWAP( x, y ) {int t = x; x=y; y=t; }
+
+void imageBlitQRotateFlipAlpha( Image *_this, int _scrX, int _scrY, bool _flipX, bool _flipY, int _rotate )
+{
+	uint16* src = _this->pixels;
+	uint16* dst = (uint16*)screenBuffer;
+	uint8* srcalpha = _this->alpha;
+	
+	_rotate &= 3;
+	
+	int ryx = 0;
+	int ryy = 0;
+	int strideReadXX = 1;
+	int strideReadXY = 0;
+	int strideReadYX = 0;
+	int strideReadYY = 1;
+
+	switch( _rotate )
+	{
+		case 1:
+			ryx = 0;
+			ryy = _this->h-1;
+			strideReadXX = 0;
+			strideReadXY = 1;
+			strideReadYX = -1;
+			strideReadYY = 0;
+			break;
+
+		case 2:
+			ryx = _this->w-1;
+			ryy = _this->h-1;
+			strideReadXX = -1;
+			strideReadXY = 0;
+			strideReadYX = 0;
+			strideReadYY = -1;
+			break;
+			
+		case 3:
+			ryx = _this->w-1;
+			ryy = 0;
+			strideReadXX = 0;
+			strideReadXY = -1;
+			strideReadYX = 1;
+			strideReadYY = 0;
+			break;
+	}
+	
+	int h = _this->h;
+	int w = _this->w;
+	
+	int x, y;
+	for( y=0; y<h; y++ )
+	{
+		int rxx = ryx;
+		int rxy = ryy;
+		
+		for( x=0; x<w; x++ )
+		{
+			int wrx = _scrX+x;
+			int wry = _scrY+y;
+			if( wrx <= 0 ) continue;
+			if( wrx > SCREEN_WIDTH ) continue;
+			if( wry <= 0 ) continue;
+			if( wry > SCREEN_HEIGHT ) continue;
+
+			rxx += strideReadXX;
+			rxy += strideReadYX;
+			
+			int rdofs = (rxy*w)+rxx;
+			int wrofs = (wry*SCREEN_WIDTH)+wrx;
+
+			uint32 srca = srcalpha[ rdofs ];
+			if( srca == 0 )
+			{
+				// Do nothing
+			} else if( srca == 255 )
+			{
+				// Use full src color
+				dst[ wrofs ] = src[ rdofs ];
+			} else
+			{
+				// Blend
+				uint16 srccol = src[ rdofs ];
+				uint32 srcr = (srccol >> COLORSHIFT_16_R) & COLORWIDTH_16_R;
+				uint32 srcg = (srccol >> COLORSHIFT_16_G) & COLORWIDTH_16_G;
+				uint32 srcb = (srccol >> COLORSHIFT_16_B) & COLORWIDTH_16_B;
+				
+				uint32 dsta = 255-srca;
+				uint16 dstcol = dst[ wrofs ];
+				uint32 dstr = (dstcol >> COLORSHIFT_16_R) & COLORWIDTH_16_R;
+				uint32 dstg = (dstcol >> COLORSHIFT_16_G) & COLORWIDTH_16_G;
+				uint32 dstb = (dstcol >> COLORSHIFT_16_B) & COLORWIDTH_16_B;
+				
+				// Multiply
+				uint32 outr = (((srcr*srca)+(dstr*dsta)) >> 8) & COLORWIDTH_16_R;
+				uint32 outg = (((srcg*srca)+(dstg*dsta)) >> 8) & COLORWIDTH_16_G;
+				uint32 outb = (((srcb*srca)+(dstb*dsta)) >> 8) & COLORWIDTH_16_B;
+				
+				/*
+				 // Additive
+				 uint32 outr = ((srcr*srca)+(dstr<<8)) >> 8;
+				 uint32 outg = ((srcg*srca)+(dstg<<8)) >> 8;
+				 uint32 outb = ((srcb*srca)+(dstb<<8)) >> 8;
+				 if( outr > COLORWIDTH_16_R ) outr = COLORWIDTH_16_R;
+				 if( outg > COLORWIDTH_16_G ) outg = COLORWIDTH_16_G;
+				 if( outb > COLORWIDTH_16_B ) outb = COLORWIDTH_16_B;
+				 */
+				
+				uint16 out = (outr<<COLORSHIFT_16_R) + (outg<<COLORSHIFT_16_G) + (outb<<COLORSHIFT_16_B);
+				
+				dst[ wrofs ] = out;
+			}
+		}
+		
+		ryx += strideReadXY;
+		ryy += strideReadYY;
 	}
 }
 
@@ -478,4 +564,9 @@ void Image::DrawRotated( int _scrX, int _scrY, int _angle, int _scale )
 void Image::DrawRotatedAlpha( int _scrX, int _scrY, int _angle, int _scale )
 {
 	imageBlitRotateAlpha( this, _scrX, _scrY, _angle, _scale );
+}
+
+void Image::DrawQRotateFlipAlpha( int _screenX, int _screenY, bool _flipX, bool _flipY, int _qrot )
+{
+	imageBlitQRotateFlipAlpha( this, _screenX, _screenY, _flipX, _flipY, _qrot );
 }

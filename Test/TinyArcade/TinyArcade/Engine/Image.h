@@ -24,6 +24,7 @@ public:
 	void DrawAlpha( int _screenX, int _screenY );
 	void DrawRotated( int _scrX, int _scrY, int _angle, int _scale );
 	void DrawRotatedAlpha( int _scrX, int _scrY, int _angle, int _scale );
+	void DrawQRotateFlipAlpha( int _screenX, int _screenY, bool _flipX, bool _flipY, int _qrot );
 };
 
 void imageBlitFullScreen( Image* _this, int _scrX, int _scrY );
@@ -31,5 +32,6 @@ void imageBlitNoAlpha( Image* _this, int _scrX, int _scrY );
 void imageBlitAlpha( Image *_this, int _scrX, int _scrY );
 void imageBlitRotateNoAlpha( Image *_this, int _scrX, int _angle, int _scale );
 void imageBlitRotateAlpha( Image *_this, int _scrX, int _angle, int _scale );
+void imageBlitQRotateFlipAlpha( Image *_this, int _scrX, int _scrY, bool _flipX, bool _flipY, int _rotate );
 
 #endif /* Image_hpp */
