@@ -82,6 +82,26 @@ bool FixedPoint::operator > (FixedPoint o)
 	return m_value > o.m_value;
 }
 
+bool FixedPoint::operator <= (int o)
+{
+	return m_value <= (o*FRACTION_VALUES);
+}
+
+bool FixedPoint::operator <= (FixedPoint o)
+{
+	return m_value <= o.m_value;
+}
+
+bool FixedPoint::operator >= (int o)
+{
+	return m_value >= (o*FRACTION_VALUES);
+}
+
+bool FixedPoint::operator >= (FixedPoint o)
+{
+	return m_value >= o.m_value;
+}
+
 void FixedPoint::operator *= (int o)
 {
 	m_value *= o;
