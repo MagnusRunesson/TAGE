@@ -22,11 +22,9 @@
 #include "TinyRaceCar.h"
 
 //
-FixedPoint fpX;
-FixedPoint fpY;
 FixedPoint fpSpeed;
-int angle;
 TinyRaceCar playerCar;
+GameObject coolbackground( &testtrack );
 Camera mainCamera;
 
 void drawCarGrid();
@@ -35,36 +33,23 @@ void setup()
 {
 	Camera::main = &mainCamera;
 	
-	fpSpeed = FixedPoint( 0, 25 );
-	fpX = 10;
-	fpY = 10;
-	angle = 0;
+	playerCar.SetPosition( 10, 10 );
 }
 
 void loop()
 {
-	int y;
-	
 	padUpdate();
 	
 	
 	playerCar.Update();
 	
-	testtrack.Draw( -20, -80 );
+	//testtrack.Draw( -20, -80 );
 
-	//drawCarGrid();
-	
-	if( fpX < -10 )	fpX = -10;
-	if( fpX > SCREEN_WIDTH-10 )	fpX = SCREEN_WIDTH-10;
-	if( fpY < -10 )	fpY = -10;
-	if( fpY > SCREEN_HEIGHT-1 )	fpY = SCREEN_HEIGHT-1;
-	int x = fpX.GetInteger();
-	y = fpY.GetInteger();
-	//mainCamera.SetWorldPosition( x, y );
-	playerCar.SetWorldPosition( x, y );
+	mainCamera.SetWorldPosition(
+								playerCar.GetWorldPositionX()-48,
+								playerCar.GetWorldPositionY()-32 );
+	coolbackground.Render();
 	playerCar.Render();
-
-	angle++;
 }
 
 void drawTestCars()

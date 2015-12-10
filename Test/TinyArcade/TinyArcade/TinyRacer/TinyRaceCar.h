@@ -23,9 +23,12 @@ public:
 	virtual void Render();
 	virtual void Update();
 
+	void SetPosition( int _x, int _y );
+	
 private:
 	// Car properties
 	FixedPoint m_acceleration;
+	FixedPoint m_brake;
 	FixedPoint m_maxSpeed;
 	FixedPoint m_speedDamping;
 	FixedPoint m_turn;
@@ -38,7 +41,10 @@ private:
 	
 	// Render information
 	int m_drawAngle;
-	
+
+	void DoSpeed();
+	void DoTurning();
+
 };
 
 #endif /* TinyRaceCar_hpp */
