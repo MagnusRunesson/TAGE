@@ -19,6 +19,12 @@ fp2d::fp2d( const fp2d& _o )
 	y = _o.y;
 }
 
+fp2d::fp2d( const FixedPoint& _x, const FixedPoint& _y )
+{
+	x = _x;
+	y = _y;
+}
+
 void fp2d::operator += ( const fp2d& _o )
 {
 	x += _o.x;

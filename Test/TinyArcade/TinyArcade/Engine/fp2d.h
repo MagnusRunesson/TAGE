@@ -16,6 +16,7 @@ class fp2d
 public:
 	fp2d();
 	fp2d( const fp2d& _o );
+	fp2d( const FixedPoint& _x, const FixedPoint& _y );
 
 	void operator += ( const fp2d& _o );
 	void operator *= ( const FixedPoint& _o );
