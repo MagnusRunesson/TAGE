@@ -33,11 +33,14 @@ protected:
 	//
 	int m_worldPositionX;
 	int m_worldPositionY;
-	
+
 	//
 	Image* m_image;
 	int m_imageHotspotX;
 	int m_imageHotspotY;
+	
+	//
+	bool m_drawAlpha;
 };
 
 #endif /* GameObject_hpp */
