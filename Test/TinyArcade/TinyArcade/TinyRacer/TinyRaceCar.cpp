@@ -111,46 +111,61 @@ void TinyRaceCar::DoTurning()
 	
 	int a = m_angle.GetInteger();
 	m_drawAngle = 0;
-	while( a >= 79 )
+	while( a >= 85 )
 	{
 		a -= 90;
 		m_drawAngle += 0x40;
 	}
 
-	while( a < -12 )
+	while( a < -2 )
 	{
 		a += 90;
 		m_drawAngle -= 0x40;
 	}
+
+	m_imageHotspotX = 4;
+	m_imageHotspotY = 4;
 	
-	if((a >= -12) && (a < 13))
+	if((a >= -5) && (a < 5))
 	{
-		m_image = &testcar;
-		m_imageHotspotX = 5;
-		m_imageHotspotY = 3;
+		m_image = &tinyracecar_0;
 	}
-	if((a >= 13) && (a < 35))
+	if((a >= 5) && (a < 15))
 	{
-		m_image = &carrot_1;
-		m_imageHotspotX = 6;
-		m_imageHotspotY = 5;
+		m_image = &tinyracecar_10;
 	}
-	if((a >= 35) && (a < 56))
+	if((a >= 15) && (a < 25))
 	{
-		m_image = &carrot_2;
-		m_imageHotspotX = 6;
-		m_imageHotspotY = 6;
+		m_image = &tinyracecar_20;
 	}
-	if((a >= 56) && (a < 79))
+	if((a >= 25) && (a < 35))
 	{
-		m_image = &carrot_3;
-		m_imageHotspotX = 5;
-		m_imageHotspotY = 6;
+		m_image = &tinyracecar_30;
+	}
+	if((a >= 35) && (a < 45))
+	{
+		m_image = &tinyracecar_40;
+	}
+	if((a >= 45) && (a < 55))
+	{
+		m_image = &tinyracecar_50;
+	}
+	if((a >= 55) && (a < 65))
+	{
+		m_image = &tinyracecar_60;
+	}
+	if((a >= 65) && (a < 75))
+	{
+		m_image = &tinyracecar_70;
+	}
+	if((a >= 75) && (a < 85))
+	{
+		m_image = &tinyracecar_80;
 	}
 
 	FixedPoint fpangle = m_angle;
 	fpangle *= FixedPoint( 0, 71 );
-	int fpa = fpangle.GetInteger();
+	int fpa = fpangle.GetInteger()-0x40;
 	
 	m_direction.x = fpcos( fpa );
 	m_direction.x /= 256;

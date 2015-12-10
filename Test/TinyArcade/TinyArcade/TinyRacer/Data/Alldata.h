@@ -22,6 +22,15 @@
 #include "carrot_2.h"
 #include "carrot_3.h"
 #include "testcarbig.h"
+#include "tinyracecar_0.h"
+#include "tinyracecar_10.h"
+#include "tinyracecar_20.h"
+#include "tinyracecar_30.h"
+#include "tinyracecar_40.h"
+#include "tinyracecar_50.h"
+#include "tinyracecar_60.h"
+#include "tinyracecar_70.h"
+#include "tinyracecar_80.h"
 
 #include "testtrack.h"
 

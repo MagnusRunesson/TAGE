@@ -13,11 +13,6 @@
 		25187C3E1C170A9600C568C9 /* testcarbig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25187C3C1C170A9600C568C9 /* testcarbig.cpp */; settings = {ASSET_TAGS = (); }; };
 		254381BC1C16DED3005A8626 /* Joypad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254381BA1C16DED3005A8626 /* Joypad.cpp */; settings = {ASSET_TAGS = (); }; };
 		254381BE1C16DEDD005A8626 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254381BD1C16DEDD005A8626 /* main.cpp */; settings = {ASSET_TAGS = (); }; };
-		254381D51C16DF65005A8626 /* carrot_1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254381C11C16DF65005A8626 /* carrot_1.cpp */; settings = {ASSET_TAGS = (); }; };
-		254381D61C16DF65005A8626 /* carrot_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254381C31C16DF65005A8626 /* carrot_2.cpp */; settings = {ASSET_TAGS = (); }; };
-		254381D71C16DF65005A8626 /* carrot_3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254381C51C16DF65005A8626 /* carrot_3.cpp */; settings = {ASSET_TAGS = (); }; };
-		254381D81C16DF65005A8626 /* rotest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254381C71C16DF65005A8626 /* rotest.cpp */; settings = {ASSET_TAGS = (); }; };
-		254381D91C16DF65005A8626 /* scbg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254381C91C16DF65005A8626 /* scbg.cpp */; settings = {ASSET_TAGS = (); }; };
 		254381DA1C16DF65005A8626 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254381CB1C16DF65005A8626 /* test.cpp */; settings = {ASSET_TAGS = (); }; };
 		254381DB1C16DF65005A8626 /* test2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254381CD1C16DF65005A8626 /* test2.cpp */; settings = {ASSET_TAGS = (); }; };
 		254381DC1C16DF65005A8626 /* test3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254381CF1C16DF65005A8626 /* test3.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -30,6 +25,15 @@
 		254381F11C16DF9D005A8626 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254381E71C16DF9D005A8626 /* GameObject.cpp */; settings = {ASSET_TAGS = (); }; };
 		254381F21C16DF9D005A8626 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254381E91C16DF9D005A8626 /* Image.cpp */; settings = {ASSET_TAGS = (); }; };
 		254381F31C16DF9D005A8626 /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 254381EB1C16DF9D005A8626 /* Screen.cpp */; settings = {ASSET_TAGS = (); }; };
+		2554B3FA1C1991AC00823036 /* tinyracecar_0.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2554B3E81C1991AC00823036 /* tinyracecar_0.cpp */; settings = {ASSET_TAGS = (); }; };
+		2554B3FB1C1991AC00823036 /* tinyracecar_10.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2554B3EA1C1991AC00823036 /* tinyracecar_10.cpp */; settings = {ASSET_TAGS = (); }; };
+		2554B3FC1C1991AC00823036 /* tinyracecar_20.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2554B3EC1C1991AC00823036 /* tinyracecar_20.cpp */; settings = {ASSET_TAGS = (); }; };
+		2554B3FD1C1991AC00823036 /* tinyracecar_30.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2554B3EE1C1991AC00823036 /* tinyracecar_30.cpp */; settings = {ASSET_TAGS = (); }; };
+		2554B3FE1C1991AC00823036 /* tinyracecar_40.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2554B3F01C1991AC00823036 /* tinyracecar_40.cpp */; settings = {ASSET_TAGS = (); }; };
+		2554B3FF1C1991AC00823036 /* tinyracecar_50.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2554B3F21C1991AC00823036 /* tinyracecar_50.cpp */; settings = {ASSET_TAGS = (); }; };
+		2554B4001C1991AC00823036 /* tinyracecar_60.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2554B3F41C1991AC00823036 /* tinyracecar_60.cpp */; settings = {ASSET_TAGS = (); }; };
+		2554B4011C1991AC00823036 /* tinyracecar_70.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2554B3F61C1991AC00823036 /* tinyracecar_70.cpp */; settings = {ASSET_TAGS = (); }; };
+		2554B4021C1991AC00823036 /* tinyracecar_80.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2554B3F81C1991AC00823036 /* tinyracecar_80.cpp */; settings = {ASSET_TAGS = (); }; };
 		259F63A91C11976C005BB009 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259F63A81C11976C005BB009 /* SDL2.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -59,16 +63,6 @@
 		254381BD1C16DEDD005A8626 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = TinyArcade/MacOSX/main.cpp; sourceTree = "<group>"; };
 		254381BF1C16DF15005A8626 /* types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = types.h; path = TinyArcade/MacOSX/types.h; sourceTree = "<group>"; };
 		254381C01C16DF65005A8626 /* Alldata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alldata.h; path = TinyArcade/TinyRacer/Data/Alldata.h; sourceTree = "<group>"; };
-		254381C11C16DF65005A8626 /* carrot_1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = carrot_1.cpp; path = TinyArcade/TinyRacer/Data/carrot_1.cpp; sourceTree = "<group>"; };
-		254381C21C16DF65005A8626 /* carrot_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = carrot_1.h; path = TinyArcade/TinyRacer/Data/carrot_1.h; sourceTree = "<group>"; };
-		254381C31C16DF65005A8626 /* carrot_2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = carrot_2.cpp; path = TinyArcade/TinyRacer/Data/carrot_2.cpp; sourceTree = "<group>"; };
-		254381C41C16DF65005A8626 /* carrot_2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = carrot_2.h; path = TinyArcade/TinyRacer/Data/carrot_2.h; sourceTree = "<group>"; };
-		254381C51C16DF65005A8626 /* carrot_3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = carrot_3.cpp; path = TinyArcade/TinyRacer/Data/carrot_3.cpp; sourceTree = "<group>"; };
-		254381C61C16DF65005A8626 /* carrot_3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = carrot_3.h; path = TinyArcade/TinyRacer/Data/carrot_3.h; sourceTree = "<group>"; };
-		254381C71C16DF65005A8626 /* rotest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = rotest.cpp; path = TinyArcade/TinyRacer/Data/rotest.cpp; sourceTree = "<group>"; };
-		254381C81C16DF65005A8626 /* rotest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rotest.h; path = TinyArcade/TinyRacer/Data/rotest.h; sourceTree = "<group>"; };
-		254381C91C16DF65005A8626 /* scbg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = scbg.cpp; path = TinyArcade/TinyRacer/Data/scbg.cpp; sourceTree = "<group>"; };
-		254381CA1C16DF65005A8626 /* scbg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = scbg.h; path = TinyArcade/TinyRacer/Data/scbg.h; sourceTree = "<group>"; };
 		254381CB1C16DF65005A8626 /* test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test.cpp; path = TinyArcade/TinyRacer/Data/test.cpp; sourceTree = "<group>"; };
 		254381CC1C16DF65005A8626 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = test.h; path = TinyArcade/TinyRacer/Data/test.h; sourceTree = "<group>"; };
 		254381CD1C16DF65005A8626 /* test2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test2.cpp; path = TinyArcade/TinyRacer/Data/test2.cpp; sourceTree = "<group>"; };
@@ -93,6 +87,24 @@
 		254381EB1C16DF9D005A8626 /* Screen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Screen.cpp; path = TinyArcade/Engine/Screen.cpp; sourceTree = "<group>"; };
 		254381EC1C16DF9D005A8626 /* Screen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Screen.h; path = TinyArcade/Engine/Screen.h; sourceTree = "<group>"; };
 		254381ED1C16DF9D005A8626 /* sinetable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sinetable.h; path = TinyArcade/Engine/sinetable.h; sourceTree = "<group>"; };
+		2554B3E81C1991AC00823036 /* tinyracecar_0.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyracecar_0.cpp; path = TinyArcade/TinyRacer/Data/tinyracecar_0.cpp; sourceTree = "<group>"; };
+		2554B3E91C1991AC00823036 /* tinyracecar_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyracecar_0.h; path = TinyArcade/TinyRacer/Data/tinyracecar_0.h; sourceTree = "<group>"; };
+		2554B3EA1C1991AC00823036 /* tinyracecar_10.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyracecar_10.cpp; path = TinyArcade/TinyRacer/Data/tinyracecar_10.cpp; sourceTree = "<group>"; };
+		2554B3EB1C1991AC00823036 /* tinyracecar_10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyracecar_10.h; path = TinyArcade/TinyRacer/Data/tinyracecar_10.h; sourceTree = "<group>"; };
+		2554B3EC1C1991AC00823036 /* tinyracecar_20.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyracecar_20.cpp; path = TinyArcade/TinyRacer/Data/tinyracecar_20.cpp; sourceTree = "<group>"; };
+		2554B3ED1C1991AC00823036 /* tinyracecar_20.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyracecar_20.h; path = TinyArcade/TinyRacer/Data/tinyracecar_20.h; sourceTree = "<group>"; };
+		2554B3EE1C1991AC00823036 /* tinyracecar_30.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyracecar_30.cpp; path = TinyArcade/TinyRacer/Data/tinyracecar_30.cpp; sourceTree = "<group>"; };
+		2554B3EF1C1991AC00823036 /* tinyracecar_30.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyracecar_30.h; path = TinyArcade/TinyRacer/Data/tinyracecar_30.h; sourceTree = "<group>"; };
+		2554B3F01C1991AC00823036 /* tinyracecar_40.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyracecar_40.cpp; path = TinyArcade/TinyRacer/Data/tinyracecar_40.cpp; sourceTree = "<group>"; };
+		2554B3F11C1991AC00823036 /* tinyracecar_40.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyracecar_40.h; path = TinyArcade/TinyRacer/Data/tinyracecar_40.h; sourceTree = "<group>"; };
+		2554B3F21C1991AC00823036 /* tinyracecar_50.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyracecar_50.cpp; path = TinyArcade/TinyRacer/Data/tinyracecar_50.cpp; sourceTree = "<group>"; };
+		2554B3F31C1991AC00823036 /* tinyracecar_50.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyracecar_50.h; path = TinyArcade/TinyRacer/Data/tinyracecar_50.h; sourceTree = "<group>"; };
+		2554B3F41C1991AC00823036 /* tinyracecar_60.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyracecar_60.cpp; path = TinyArcade/TinyRacer/Data/tinyracecar_60.cpp; sourceTree = "<group>"; };
+		2554B3F51C1991AC00823036 /* tinyracecar_60.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyracecar_60.h; path = TinyArcade/TinyRacer/Data/tinyracecar_60.h; sourceTree = "<group>"; };
+		2554B3F61C1991AC00823036 /* tinyracecar_70.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyracecar_70.cpp; path = TinyArcade/TinyRacer/Data/tinyracecar_70.cpp; sourceTree = "<group>"; };
+		2554B3F71C1991AC00823036 /* tinyracecar_70.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyracecar_70.h; path = TinyArcade/TinyRacer/Data/tinyracecar_70.h; sourceTree = "<group>"; };
+		2554B3F81C1991AC00823036 /* tinyracecar_80.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyracecar_80.cpp; path = TinyArcade/TinyRacer/Data/tinyracecar_80.cpp; sourceTree = "<group>"; };
+		2554B3F91C1991AC00823036 /* tinyracecar_80.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyracecar_80.h; path = TinyArcade/TinyRacer/Data/tinyracecar_80.h; sourceTree = "<group>"; };
 		259F63A81C11976C005BB009 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = /Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		25B714C91C08BA9100CE757F /* TinyArcade */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TinyArcade; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -121,19 +133,27 @@
 		2549CDDF1C1047AF009E8088 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				2554B3E81C1991AC00823036 /* tinyracecar_0.cpp */,
+				2554B3E91C1991AC00823036 /* tinyracecar_0.h */,
+				2554B3EA1C1991AC00823036 /* tinyracecar_10.cpp */,
+				2554B3EB1C1991AC00823036 /* tinyracecar_10.h */,
+				2554B3EC1C1991AC00823036 /* tinyracecar_20.cpp */,
+				2554B3ED1C1991AC00823036 /* tinyracecar_20.h */,
+				2554B3EE1C1991AC00823036 /* tinyracecar_30.cpp */,
+				2554B3EF1C1991AC00823036 /* tinyracecar_30.h */,
+				2554B3F01C1991AC00823036 /* tinyracecar_40.cpp */,
+				2554B3F11C1991AC00823036 /* tinyracecar_40.h */,
+				2554B3F21C1991AC00823036 /* tinyracecar_50.cpp */,
+				2554B3F31C1991AC00823036 /* tinyracecar_50.h */,
+				2554B3F41C1991AC00823036 /* tinyracecar_60.cpp */,
+				2554B3F51C1991AC00823036 /* tinyracecar_60.h */,
+				2554B3F61C1991AC00823036 /* tinyracecar_70.cpp */,
+				2554B3F71C1991AC00823036 /* tinyracecar_70.h */,
+				2554B3F81C1991AC00823036 /* tinyracecar_80.cpp */,
+				2554B3F91C1991AC00823036 /* tinyracecar_80.h */,
 				25187C3C1C170A9600C568C9 /* testcarbig.cpp */,
 				25187C3D1C170A9600C568C9 /* testcarbig.h */,
 				254381C01C16DF65005A8626 /* Alldata.h */,
-				254381C11C16DF65005A8626 /* carrot_1.cpp */,
-				254381C21C16DF65005A8626 /* carrot_1.h */,
-				254381C31C16DF65005A8626 /* carrot_2.cpp */,
-				254381C41C16DF65005A8626 /* carrot_2.h */,
-				254381C51C16DF65005A8626 /* carrot_3.cpp */,
-				254381C61C16DF65005A8626 /* carrot_3.h */,
-				254381C71C16DF65005A8626 /* rotest.cpp */,
-				254381C81C16DF65005A8626 /* rotest.h */,
-				254381C91C16DF65005A8626 /* scbg.cpp */,
-				254381CA1C16DF65005A8626 /* scbg.h */,
 				254381CB1C16DF65005A8626 /* test.cpp */,
 				254381CC1C16DF65005A8626 /* test.h */,
 				254381CD1C16DF65005A8626 /* test2.cpp */,
@@ -270,28 +290,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				254381E01C16DF73005A8626 /* TinyRacer.cpp in Sources */,
-				254381D51C16DF65005A8626 /* carrot_1.cpp in Sources */,
 				254381F11C16DF9D005A8626 /* GameObject.cpp in Sources */,
-				254381D71C16DF65005A8626 /* carrot_3.cpp in Sources */,
-				254381D81C16DF65005A8626 /* rotest.cpp in Sources */,
+				2554B3FE1C1991AC00823036 /* tinyracecar_40.cpp in Sources */,
 				254381DA1C16DF65005A8626 /* test.cpp in Sources */,
+				2554B4001C1991AC00823036 /* tinyracecar_60.cpp in Sources */,
+				2554B3FA1C1991AC00823036 /* tinyracecar_0.cpp in Sources */,
+				2554B3FB1C1991AC00823036 /* tinyracecar_10.cpp in Sources */,
 				254381DD1C16DF65005A8626 /* testcar.cpp in Sources */,
 				25187C3B1C16E89700C568C9 /* fp2d.cpp in Sources */,
+				2554B3FD1C1991AC00823036 /* tinyracecar_30.cpp in Sources */,
 				254381DE1C16DF65005A8626 /* testtrack.cpp in Sources */,
 				254381BC1C16DED3005A8626 /* Joypad.cpp in Sources */,
-				254381D61C16DF65005A8626 /* carrot_2.cpp in Sources */,
-				254381D91C16DF65005A8626 /* scbg.cpp in Sources */,
 				254381BE1C16DEDD005A8626 /* main.cpp in Sources */,
 				254381F31C16DF9D005A8626 /* Screen.cpp in Sources */,
 				25187C351C16E0CA00C568C9 /* TinyRaceCar.cpp in Sources */,
+				2554B3FC1C1991AC00823036 /* tinyracecar_20.cpp in Sources */,
 				25187C3E1C170A9600C568C9 /* testcarbig.cpp in Sources */,
 				254381F01C16DF9D005A8626 /* fpmath.cpp in Sources */,
 				254381EF1C16DF9D005A8626 /* FixedPoint.cpp in Sources */,
 				25187C381C16E50E00C568C9 /* Camera.cpp in Sources */,
+				2554B3FF1C1991AC00823036 /* tinyracecar_50.cpp in Sources */,
+				2554B4011C1991AC00823036 /* tinyracecar_70.cpp in Sources */,
 				254381DC1C16DF65005A8626 /* test3.cpp in Sources */,
 				254381F21C16DF9D005A8626 /* Image.cpp in Sources */,
 				254381DB1C16DF65005A8626 /* test2.cpp in Sources */,
 				254381EE1C16DF9D005A8626 /* BitHelpers.cpp in Sources */,
+				2554B4021C1991AC00823036 /* tinyracecar_80.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
