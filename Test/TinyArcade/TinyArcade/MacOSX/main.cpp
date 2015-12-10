@@ -28,7 +28,6 @@ SDL_Surface* screenSurface;
 const int SCREEN_PIXELSIZE = 2;
 
 uint16* screenBuffer;
-uint16* background;
 
 /*
 const Uint16 COLORMASK_16_R = COLORWIDTH_16_R << COLORSHIFT_16_R;
@@ -90,20 +89,6 @@ bool init()
 		screenBuffer[ i ] = i*10;
 	 */
 	
-	background = new Uint16[ SCREEN_WIDTH * SCREEN_HEIGHT ];
-	int x, y;
-	for( y=0; y<SCREEN_HEIGHT; y++ )
-	{
-		for( x=0; x<SCREEN_WIDTH; x++ )
-		{
-			int r = (y/2) & COLORWIDTH_16_R;
-			int g = (63-(y/2)) & COLORWIDTH_16_G;
-			int b = (x/3) & COLORWIDTH_16_B;
-			Uint16 c = (r<<COLORSHIFT_16_R) + (g<<COLORSHIFT_16_G) + (b<<COLORSHIFT_16_B);
-			background[ (y*SCREEN_WIDTH) + x ] = c;
-		}
-	}
-
 	gKeyBuff = 0;
 	gKeyDPadBuff = 0;
 	gx = 10;
@@ -115,7 +100,6 @@ bool init()
 void exit()
 {
 	delete[] screenBuffer;
-	delete[] background;
 	
 	SDL_Quit();
 }
