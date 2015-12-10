@@ -42,6 +42,7 @@ private:
 	// Render information
 	int m_drawAngle;
 
+	void ApplyMovement();
 	void DoSpeed();
 	void DoTurning();
 

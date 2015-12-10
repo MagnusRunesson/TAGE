@@ -31,24 +31,11 @@ TinyRaceCar::TinyRaceCar() : GameObject( &testcar )
 	m_speedDamping *= secondsPerFrame;
 	m_turn *= secondsPerFrame;
 
-	/*
-	int w = 5;
-	int h = 5;
-	int mx = SCREEN_WIDTH - w;
-	int my = SCREEN_HEIGHT - h;
-	
-	sint8 padX, padY;
-	uint16 keys = padGet( &padX, &padY );
-	
-	FixedPoint spx = padX;
-	spx *= fpSpeed;
-	FixedPoint spy = padY;
-	spy *= fpSpeed;
-	
-	fpX += spx;
-	fpY += spy;
-	 */
-	
+	//
+	m_imageHotspotX = 4;
+	m_imageHotspotY = 4;
+
+	//
 	m_drawAngle = 0;
 }
 
@@ -61,35 +48,11 @@ void TinyRaceCar::Update()
 {
 	DoSpeed();
 	DoTurning();
+	ApplyMovement();
 }
 
-void TinyRaceCar::DoSpeed()
+void TinyRaceCar::ApplyMovement()
 {
-	uint8 keys = padGetKeys();
-	if( HasBit( keys, PAD_KEYMASK_SECONDARY ))
-	{
-		if( m_speed > 0 )
-		{
-			m_speed -= m_brake;
-			if( m_speed < 0 )
-				m_speed = 0;
-		}
-	}
-	else if( HasBit( keys, PAD_KEYMASK_PRIMARY ))
-	{
-		m_speed += m_acceleration;
-		if( m_speed > m_maxSpeed )
-			m_speed = m_maxSpeed;
-	} else
-	{
-		if( m_speed > 0 )
-		{
-			m_speed -= m_speedDamping;
-			if( m_speed < 0 )
-				m_speed = 0;
-		}
-	}
-
 	FixedPoint ax = m_direction.x;
 	FixedPoint ay = m_direction.y;
 	ax *= m_speed;
@@ -100,32 +63,68 @@ void TinyRaceCar::DoSpeed()
 	SetWorldPosition( m_position.x.GetInteger(), m_position.y.GetInteger());
 }
 
+void TinyRaceCar::DoSpeed()
+{
+	uint8 keys = padGetKeys();
+	if( HasBit( keys, PAD_KEYMASK_SECONDARY ))
+	{
+		//
+		// Brake button have higher priority than accelerate button
+		//
+		if( m_speed > 0 )
+		{
+			m_speed -= m_brake;
+			if( m_speed < 0 )
+				m_speed = 0;
+		}
+	}
+	else if( HasBit( keys, PAD_KEYMASK_PRIMARY ))
+	{
+		//
+		// Accelerate button
+		//
+		m_speed += m_acceleration;
+		if( m_speed > m_maxSpeed )
+			m_speed = m_maxSpeed;
+	} else
+	{
+		//
+		// No buttons should simply slowly stop the car from moving
+		//
+		if( m_speed > 0 )
+		{
+			m_speed -= m_speedDamping;
+			if( m_speed < 0 )
+				m_speed = 0;
+		}
+	}
+}
+
 void TinyRaceCar::DoTurning()
 {
+	// Turn the car
 	sint8 x = padGetX();
-
 	FixedPoint turnThisFrame = m_turn;
 	turnThisFrame *= x;
-
 	m_angle += turnThisFrame;
+	if( m_angle >= 360 ) m_angle -= 360;
+	if( m_angle < 0 ) m_angle += 360;
 	
+	// Figure out the angle of the sprite
 	int a = m_angle.GetInteger();
 	m_drawAngle = 0;
 	while( a >= 85 )
 	{
 		a -= 90;
-		m_drawAngle += 0x40;
+		m_drawAngle++;
 	}
 
-	while( a < -2 )
+	while( a < -5 )
 	{
 		a += 90;
-		m_drawAngle -= 0x40;
+		m_drawAngle--;
 	}
 
-	m_imageHotspotX = 4;
-	m_imageHotspotY = 4;
-	
 	if((a >= -5) && (a < 5))
 	{
 		m_image = &tinyracecar_0;
@@ -178,7 +177,7 @@ void TinyRaceCar::Render()
 	int x = m_worldPositionX - Camera::main->GetWorldX() - m_imageHotspotX;
 	int y = m_worldPositionY - Camera::main->GetWorldY() - m_imageHotspotY;
 	
-	m_image->DrawRotatedAlpha( x, y, m_drawAngle, 0x0100 );
+	m_image->DrawQRotateFlipAlpha( x, y, false, false, m_drawAngle );
 }
 
 void TinyRaceCar::SetPosition( int _x, int _y )
