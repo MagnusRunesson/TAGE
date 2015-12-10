@@ -135,8 +135,17 @@ void imageBlitAlpha( Image *_this, int _scrX, int _scrY )
 	{
 		src -= overTheTop * _this->w;
 		dst -= overTheTop * SCREEN_WIDTH;
-		srcalpha -= overTheTop * _this->w;
 		h += overTheTop;
+		
+		int downTheHole = SCREEN_HEIGHT-h;
+		if( downTheHole < 0 )
+			h += downTheHole;
+	}
+	else
+	{
+		int downTheHole = (h+_scrY) - SCREEN_HEIGHT;
+		if( downTheHole > 0 )
+			h -= downTheHole;
 	}
 	
 	int farLeft = _scrX;
@@ -144,23 +153,28 @@ void imageBlitAlpha( Image *_this, int _scrX, int _scrY )
 	{
 		src -= farLeft;
 		dst -= farLeft;
-		srcalpha -= farLeft;
 		w += farLeft;
 		strideWrite -= farLeft;
 		strideRead -= farLeft;
+		
+		int farRight = SCREEN_WIDTH-w;
+		if( farRight < 0 )
+		{
+			w += farRight;
+			strideRead -= farRight;
+			strideWrite -= farRight;
+		}
 	}
-	
-	int farRight = (w+_scrX) - SCREEN_WIDTH;
-	if( farRight > 0 )
+	else
 	{
-		w -= farRight;
-		strideRead += farRight;
-		strideWrite += farRight;
+		int farRight = (w+_scrX) - SCREEN_WIDTH;
+		if( farRight > 0 )
+		{
+			w -= farRight;
+			strideRead += farRight;
+			strideWrite += farRight;
+		}
 	}
-	
-	int downTheHole = (h+_scrY) - SCREEN_HEIGHT;
-	if( downTheHole > 0 )
-		h -= downTheHole;
 	
 	int x, y;
 	for( y=0; y<h; y++ )
@@ -408,7 +422,7 @@ void imageBlitRotateAlpha( Image* _this, int _scrX, int _scrY, int _a, int _s )
 				uint32 srcb = (srccol >> COLORSHIFT_16_B) & COLORWIDTH_16_B;
 				
 				uint32 dsta = 255-srca;
-				uint16 dstcol = dst[ wrofs ];
+				uint16 dstcol = dst[ wrofs ];
 				uint32 dstr = (dstcol >> COLORSHIFT_16_R) & COLORWIDTH_16_R;
 				uint32 dstg = (dstcol >> COLORSHIFT_16_G) & COLORWIDTH_16_G;
 				uint32 dstb = (dstcol >> COLORSHIFT_16_B) & COLORWIDTH_16_B;
