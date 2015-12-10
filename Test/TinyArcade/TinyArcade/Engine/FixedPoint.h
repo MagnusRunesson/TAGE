@@ -24,16 +24,20 @@ public:
 	void operator = (FixedPoint o);
 	void operator += (int o);
 	void operator += (FixedPoint o);
+	void operator -= (int o);
+	void operator -= (FixedPoint o);
 	bool operator < (int o);
 	bool operator < (FixedPoint o);
 	bool operator > (int o);
 	bool operator > (FixedPoint o);
 	void operator *= (int o);
 	void operator *= (FixedPoint o);
+	void operator /= (int o);
+	void operator /= (FixedPoint o);
 	int GetInteger();
 	
 	//
-	inline int GetDebugRawValue(){ return m_value; };
+	inline int GetDebugRawValue(){ return m_value; };
 };
 
 #endif /* defined(__TinyArcade__FixedPoint__) */

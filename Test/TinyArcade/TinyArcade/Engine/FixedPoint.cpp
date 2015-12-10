@@ -52,9 +52,14 @@ void FixedPoint::operator += (FixedPoint o)
 	m_value += o.m_value;
 }
 
-int FixedPoint::GetInteger()
+void FixedPoint::operator -= (int o)
 {
-	return m_value / FRACTION_VALUES;
+	m_value -= o * FRACTION_VALUES;
+}
+
+void FixedPoint::operator -= (FixedPoint o)
+{
+	m_value -= o.m_value;
 }
 
 bool FixedPoint::operator < (int o)
@@ -85,4 +90,19 @@ void FixedPoint::operator *= (int o)
 void FixedPoint::operator *= (FixedPoint o)
 {
 	m_value = (m_value>>FRACTION_BITS_HALF) * (o.m_value>>FRACTION_BITS_HALF);
+}
+
+void FixedPoint::operator /= (int o)
+{
+	m_value /= o;
+}
+
+void FixedPoint::operator /= (FixedPoint o)
+{
+	m_value = (m_value<<FRACTION_BITS_HALF) / (o.m_value<<FRACTION_BITS_HALF);
+}
+
+int FixedPoint::GetInteger()
+{
+	return m_value / FRACTION_VALUES;
 }
