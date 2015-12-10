@@ -23,6 +23,8 @@ public:
 	virtual void Render();
 
 	void SetWorldPosition( int _x, int _y );
+	int GetWorldPositionX();
+	int GetWorldPositionY();
 	
 	//
 	//

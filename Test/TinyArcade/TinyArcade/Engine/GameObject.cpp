@@ -38,3 +38,13 @@ void GameObject::SetWorldPosition( int _x, int _y )
 	m_worldPositionX = _x;
 	m_worldPositionY = _y;
 }
+
+int GameObject::GetWorldPositionX()
+{
+	return m_worldPositionX;
+}
+
+int GameObject::GetWorldPositionY()
+{
+	return m_worldPositionY;
+}
