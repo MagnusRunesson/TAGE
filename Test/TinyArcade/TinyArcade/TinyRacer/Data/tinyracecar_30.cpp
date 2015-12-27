@@ -1,6 +1,7 @@
+#include "Types.h"
 #include "Image.h"
 
-unsigned short tinyracecar_30_pixels[] =
+uint16 tinyracecar_30_pixels[] =
 {
 	0x0000,0x0000,0x0000,0xf986,0x0000,0x0000,0x0000,
 	0x0000,0x0000,0x0800,0xa104,0xf986,0xf986,0x0000,
@@ -11,7 +12,7 @@ unsigned short tinyracecar_30_pixels[] =
 	0x0000,0x0000,0x0000,0xf965,0x0000,0x0000,0x0000,
 };
 
-unsigned char tinyracecar_30_alpha[] =
+uint8 tinyracecar_30_alpha[] =
 {
 	0x00,0x00,0x00,0x59,0x00,0x00,0x00,
 	0x00,0x00,0x16,0xf0,0xd9,0x52,0x00,
@@ -25,7 +26,7 @@ unsigned char tinyracecar_30_alpha[] =
 Image tinyracecar_30 =
 {
 	7,7,
-	(unsigned short*)&tinyracecar_30_pixels,
-	(unsigned char*)&tinyracecar_30_alpha,
-	(unsigned char*)"tinyracecar_30",
+	(uint16*)&tinyracecar_30_pixels,
+	(uint8*)&tinyracecar_30_alpha,
+	(uint8*)"tinyracecar_30",
 };
