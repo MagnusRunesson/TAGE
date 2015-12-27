@@ -15,18 +15,24 @@
 #include "types.h"
 #include "SpriteRenderer.h"
 
-class TinyRaceCar : public GameObject
+class TinyRaceCar
 {
 public:
 	TinyRaceCar();
-	virtual ~TinyRaceCar();
 	
-	virtual void Render();
-	virtual void Update();
+	void Create();
+	void Destroy();
+	
+	void PreRender();
+	void Update();
 
 	void SetPosition( int _x, int _y );
+	inline int GetWorldPositionX() { return m_gameObject->GetWorldPositionX(); }
+	inline int GetWorldPositionY() { return m_gameObject->GetWorldPositionY(); }
 	
 private:
+	GameObject* m_gameObject;
+	
 	// Car properties
 	FixedPoint m_acceleration;
 	FixedPoint m_brake;

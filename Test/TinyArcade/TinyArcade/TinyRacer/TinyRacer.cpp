@@ -14,32 +14,36 @@
 #include "Joypad.h"
 #include "fpmath.h"
 #include "Camera.h"
+#include "GameObjectManager.h"
 
 // Project specifics
 #include "TinyRaceCar.h"
 
 //
 TinyRaceCar playerCar;
-GameObject coolbackground( &testtrack );
+GameObject* coolbackground;
 Camera mainCamera;
 
 void drawCarGrid();
 
-bool debug;
+bool debugSpriteRenderer;
 
 void setup()
 {
+	// Create the sprite background
+	coolbackground = gameObjectManager.CreateGameObject( &testtrack );
+
+	// Set up game camera
 	Camera::main = &mainCamera;
-	
+
+	// Setup player car
+	playerCar.Create();
 	playerCar.SetPosition( 10, 10 );
 	
-	debug = true;
-	
-	int i;
-	for( i=0; i<64; i++ )
-	{
-		printf("sprite %i: 0x%016llx\n", i, spriteRenderer.m_sprite[ i ].image );
-	}
+	//
+	// Debug triggers
+	//
+	debugSpriteRenderer = false;
 }
 
 void loop()
@@ -50,13 +54,13 @@ void loop()
 	padUpdate();
 	
 	//
-	// Update game logic
+	// Update all game objects
 	//
-	
-	// Player car
-	playerCar.Update();
+	gameObjectManager.Update();
 
+	//
 	// Camera should follow player car
+	//
 	int camx = playerCar.GetWorldPositionX()-48;
 	int camy = playerCar.GetWorldPositionY()-32;
 	if( camx < 0 ) camx = 0;
@@ -66,12 +70,14 @@ void loop()
 	mainCamera.SetWorldPosition( camx, camy );
 	
 	//
-	// Render
+	// Tell all game objects that it is time to be rendered
 	//
-	coolbackground.Render();
-	playerCar.Render();
-	//spriteRenderer.Draw();
+	gameObjectManager.Render();
 	
+	
+	//
+	// Scanline rendered
+	//
 	unsigned short lineBuffer[ SCREEN_WIDTH ];
 	uint16* screen = screenBuffer;
 
@@ -92,7 +98,20 @@ void loop()
 		for( x=0; x<SCREEN_WIDTH; x++ )
 			*screen++ = lineBuffer[ x ];
 
-		spriteRenderer.NextScanline();
+		spriteRenderer.NextScanline( debugSpriteRenderer );
 		iScanline++;
+	}
+	
+	//
+	// Reset debug triggers
+	//
+	debugSpriteRenderer = false;
+}
+
+void debugTrigger( int _trigger )
+{
+	if( _trigger == 0 )
+	{
+		debugSpriteRenderer = true;
 	}
 }

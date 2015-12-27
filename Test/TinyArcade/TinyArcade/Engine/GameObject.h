@@ -19,13 +19,25 @@ class GameObject
 	//
 	//
 public:
-	GameObject( Image* _image );
-	virtual void Update();
-	virtual void Render();
+	GameObject();
+	void Create( Image* _image );
+	void Destroy();
+	
+	void Update();
+	void Render();
 
+	void SetHotspot( int _x, int _y );
+	
 	void SetWorldPosition( int _x, int _y );
 	int GetWorldPositionX();
 	int GetWorldPositionY();
+	
+	Sprite* GetSprite();
+
+	void* m_customObject;
+	void(*m_customUpdate)(void*);
+	void(*m_customPreRender)(void*);
+	void(*m_customPostRender)(void*);
 	
 	//
 	//

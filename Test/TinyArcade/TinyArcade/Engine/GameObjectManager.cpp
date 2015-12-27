@@ -1,0 +1,60 @@
+//
+//  GameObjectManager.cpp
+//  TinyArcade
+//
+//  Created by Magnus Runesson on 2015-12-27.
+//  Copyright © 2015 Magnus Runesson. All rights reserved.
+//
+
+#include <stdio.h>
+#include "GameObjectManager.h"
+
+GameObjectManager gameObjectManager;
+
+GameObject* GameObjectManager::CreateGameObject( Image* _image )
+{
+	int i;
+	for( i=0; i<MAX_GAMEOBJECTS; i++ )
+	{
+		GameObject* gameObject = &m_gameObjects[ i ];
+		if( gameObject->GetSprite() == NULL )
+		{
+			gameObject->Create( _image );
+			return gameObject;
+		}
+	}
+	
+	printf( "No free game objects!\n" );
+	return NULL;
+}
+
+void GameObjectManager::FreeGameObject( GameObject* _gameObjectInstance )
+{
+	_gameObjectInstance->Destroy();
+}
+
+void GameObjectManager::Update()
+{
+	int i;
+	for( i=0; i<MAX_GAMEOBJECTS; i++ )
+	{
+		GameObject* go = &m_gameObjects[ i ];
+		if( go->GetSprite() != NULL )
+		{
+			go->Update();
+		}
+	}
+}
+
+void GameObjectManager::Render()
+{
+	int i;
+	for( i=0; i<MAX_GAMEOBJECTS; i++ )
+	{
+		GameObject* go = &m_gameObjects[ i ];
+		if( go->GetSprite() != NULL )
+		{
+			go->Render();
+		}
+	}
+}

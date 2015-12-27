@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250268011C304D5B001C5994 /* GameObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250267FF1C304D5B001C5994 /* GameObjectManager.cpp */; settings = {ASSET_TAGS = (); }; };
 		25187C351C16E0CA00C568C9 /* TinyRaceCar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25187C331C16E0CA00C568C9 /* TinyRaceCar.cpp */; settings = {ASSET_TAGS = (); }; };
 		25187C381C16E50E00C568C9 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25187C361C16E50E00C568C9 /* Camera.cpp */; settings = {ASSET_TAGS = (); }; };
 		25187C3B1C16E89700C568C9 /* fp2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25187C391C16E89700C568C9 /* fp2d.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -52,6 +53,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		250267FF1C304D5B001C5994 /* GameObjectManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObjectManager.cpp; path = TinyArcade/Engine/GameObjectManager.cpp; sourceTree = "<group>"; };
+		250268001C304D5B001C5994 /* GameObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObjectManager.h; path = TinyArcade/Engine/GameObjectManager.h; sourceTree = "<group>"; };
 		25187C331C16E0CA00C568C9 /* TinyRaceCar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TinyRaceCar.cpp; path = TinyRacer/TinyRaceCar.cpp; sourceTree = "<group>"; };
 		25187C341C16E0CA00C568C9 /* TinyRaceCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TinyRaceCar.h; path = TinyRacer/TinyRaceCar.h; sourceTree = "<group>"; };
 		25187C361C16E50E00C568C9 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Camera.cpp; path = TinyArcade/Engine/Camera.cpp; sourceTree = "<group>"; };
@@ -187,6 +190,8 @@
 				254381E61C16DF9D005A8626 /* fpmath.h */,
 				254381E71C16DF9D005A8626 /* GameObject.cpp */,
 				254381E81C16DF9D005A8626 /* GameObject.h */,
+				250267FF1C304D5B001C5994 /* GameObjectManager.cpp */,
+				250268001C304D5B001C5994 /* GameObjectManager.h */,
 				254381E91C16DF9D005A8626 /* Image.cpp */,
 				254381EA1C16DF9D005A8626 /* Image.h */,
 				254381EB1C16DF9D005A8626 /* Screen.cpp */,
@@ -313,6 +318,7 @@
 				254381DE1C16DF65005A8626 /* testtrack.cpp in Sources */,
 				254381BC1C16DED3005A8626 /* Joypad.cpp in Sources */,
 				254381BE1C16DEDD005A8626 /* main.cpp in Sources */,
+				250268011C304D5B001C5994 /* GameObjectManager.cpp in Sources */,
 				25DFC19A1C2EF75C00F51F95 /* SpriteRenderer.cpp in Sources */,
 				254381F31C16DF9D005A8626 /* Screen.cpp in Sources */,
 				25187C351C16E0CA00C568C9 /* TinyRaceCar.cpp in Sources */,

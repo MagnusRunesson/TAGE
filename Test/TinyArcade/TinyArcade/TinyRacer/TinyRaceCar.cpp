@@ -14,9 +14,33 @@
 #include "fpmath.h"
 #include "Camera.h"
 #include "SpriteRenderer.h"
+#include "GameObjectManager.h"
 
-TinyRaceCar::TinyRaceCar() : GameObject( &testcar )
+void TinyRaceCar_Update( void* _this )
 {
+	TinyRaceCar* th = (TinyRaceCar*)_this;
+	th->Update();
+}
+
+void TinyRaceCar_PreRender( void* _this )
+{
+	TinyRaceCar* th = (TinyRaceCar*)_this;
+	th->PreRender();
+}
+
+TinyRaceCar::TinyRaceCar()
+{
+	m_gameObject = NULL;
+}
+
+void TinyRaceCar::Create()
+{
+	//
+	m_gameObject = gameObjectManager.CreateGameObject( &testcar );
+	m_gameObject->m_customObject = this;
+	m_gameObject->m_customUpdate = TinyRaceCar_Update;
+	m_gameObject->m_customPreRender = TinyRaceCar_PreRender;
+	
 	// Unit is pixels per second
 	m_acceleration = FixedPoint( 1, 0 );
 	m_maxSpeed = FixedPoint( 30 );
@@ -33,16 +57,10 @@ TinyRaceCar::TinyRaceCar() : GameObject( &testcar )
 	m_turn *= secondsPerFrame;
 
 	//
-	m_imageHotspotX = 4;
-	m_imageHotspotY = 4;
+	m_gameObject->SetHotspot( 4, 4 );
 
 	//
 	m_drawAngle = 0;
-}
-
-TinyRaceCar::~TinyRaceCar()
-{
-	
 }
 
 void TinyRaceCar::Update()
@@ -61,7 +79,7 @@ void TinyRaceCar::ApplyMovement()
 	fp2d add = fp2d( ax, ay );
 	m_position += add;
 	
-	SetWorldPosition( m_position.x.GetInteger(), m_position.y.GetInteger());
+	m_gameObject->SetWorldPosition( m_position.x.GetInteger(), m_position.y.GetInteger());
 }
 
 void TinyRaceCar::DoSpeed()
@@ -128,39 +146,39 @@ void TinyRaceCar::DoTurning()
 
 	if((a >= -5) && (a < 5))
 	{
-		m_sprite->image = &tinyracecar_0;
+		m_gameObject->GetSprite()->image = &tinyracecar_0;
 	}
 	if((a >= 5) && (a < 15))
 	{
-		m_sprite->image = &tinyracecar_10;
+		m_gameObject->GetSprite()->image = &tinyracecar_10;
 	}
 	if((a >= 15) && (a < 25))
 	{
-		m_sprite->image = &tinyracecar_20;
+		m_gameObject->GetSprite()->image = &tinyracecar_20;
 	}
 	if((a >= 25) && (a < 35))
 	{
-		m_sprite->image = &tinyracecar_30;
+		m_gameObject->GetSprite()->image = &tinyracecar_30;
 	}
 	if((a >= 35) && (a < 45))
 	{
-		m_sprite->image = &tinyracecar_40;
+		m_gameObject->GetSprite()->image = &tinyracecar_40;
 	}
 	if((a >= 45) && (a < 55))
 	{
-		m_sprite->image = &tinyracecar_50;
+		m_gameObject->GetSprite()->image = &tinyracecar_50;
 	}
 	if((a >= 55) && (a < 65))
 	{
-		m_sprite->image = &tinyracecar_60;
+		m_gameObject->GetSprite()->image = &tinyracecar_60;
 	}
 	if((a >= 65) && (a < 75))
 	{
-		m_sprite->image = &tinyracecar_70;
+		m_gameObject->GetSprite()->image = &tinyracecar_70;
 	}
 	if((a >= 75) && (a < 85))
 	{
-		m_sprite->image = &tinyracecar_80;
+		m_gameObject->GetSprite()->image = &tinyracecar_80;
 	}
 
 	FixedPoint fpangle = m_angle;
@@ -173,10 +191,11 @@ void TinyRaceCar::DoTurning()
 	m_direction.y /= 256;
 }
 
-void TinyRaceCar::Render()
+void TinyRaceCar::PreRender()
 {
-	GameObject::Render();
-	m_sprite->SetRotation( m_drawAngle );
+	//m_Render();
+	//m_sprite->SetRotation( m_drawAngle );
+	m_gameObject->GetSprite()->SetRotation( m_drawAngle );
 
 	/*
 	int x = m_worldPositionX - Camera::main->GetWorldX() - m_imageHotspotX;
@@ -190,5 +209,5 @@ void TinyRaceCar::SetPosition( int _x, int _y )
 {
 	m_position.x = _x;
 	m_position.y = _y;
-	SetWorldPosition( _x, _y );
+	m_gameObject->SetWorldPosition( _x, _y );
 }

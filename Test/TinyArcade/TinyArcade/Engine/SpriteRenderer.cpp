@@ -95,7 +95,7 @@ void SpriteRenderer::FrameStart()
 	m_scanlineSprites[ iCurr ] = NULL;
 }
 
-void SpriteRenderer::NextScanline()
+void SpriteRenderer::NextScanline( bool _debugPrint )
 {
 	m_currentScanline++;
 	
@@ -154,30 +154,31 @@ void SpriteRenderer::NextScanline()
 		sprite = *potentialSpriteList;
 	}
 	
-	/*
 	//
-	printf( "\n------------[ Scanline: %i\n", m_currentScanline );
-	
-	printf( "Current sprites: \n" );
-	renderSpriteList = m_scanlineSprites;
-	sprite = *renderSpriteList;
-	while( sprite != NULL )
+	if( _debugPrint )
 	{
-		printf( "  Image x=%i, y=%i, w=%i, h=%i, top=%i, bottom=%i, data=0x%016llx\n", sprite->x, sprite->y, sprite->image->w, sprite->image->h, sprite->boundsTop, sprite->boundsBottom, sprite->image->pixels );
-		renderSpriteList++;
+		printf( "\n------------[ Scanline: %i\n", m_currentScanline );
+		
+		printf( "Current sprites: \n" );
+		renderSpriteList = m_scanlineSprites;
 		sprite = *renderSpriteList;
-	}
-	
-	printf( "Upcoming sprites: \n" );
-	renderSpriteList = m_potentialSprites;
-	sprite = *renderSpriteList;
-	while( sprite != NULL )
-	{
-		printf( "  Image x=%i, y=%i, w=%i, h=%i, top=%i, bottom=%i, data=0x%016llx\n", sprite->x, sprite->y, sprite->image->w, sprite->image->h, sprite->boundsTop, sprite->boundsBottom, sprite->image->pixels );
-		renderSpriteList++;
+		while( sprite != NULL )
+		{
+			printf( "  Image x=%i, y=%i, w=%i, h=%i, left=%i, top=%i, right=%i, bottom=%i, data=0x%016llx\n", sprite->x, sprite->y, sprite->image->w, sprite->image->h, sprite->boundsLeft, sprite->boundsTop, sprite->boundsRight, sprite->boundsBottom, sprite->image->pixels );
+			renderSpriteList++;
+			sprite = *renderSpriteList;
+		}
+		
+		printf( "Upcoming sprites: \n" );
+		renderSpriteList = m_potentialSprites;
 		sprite = *renderSpriteList;
+		while( sprite != NULL )
+		{
+			printf( "  Image x=%i, y=%i, w=%i, h=%i, left=%i, top=%i, right=%i, bottom=%i, data=0x%016llx\n", sprite->x, sprite->y, sprite->image->w, sprite->image->h, sprite->boundsLeft, sprite->boundsTop, sprite->boundsRight, sprite->boundsBottom, sprite->image->pixels );
+			renderSpriteList++;
+			sprite = *renderSpriteList;
+		}
 	}
-	 */
 }
 
 Sprite** SpriteRenderer::GetScanlineSprites()

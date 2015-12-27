@@ -27,8 +27,8 @@
 class Sprite
 {
 public:
-	sint8 x;
-	sint8 y;
+	sint16 x;
+	sint16 y;
 	uint16 flags;
 	
 	sint16 boundsLeft;
