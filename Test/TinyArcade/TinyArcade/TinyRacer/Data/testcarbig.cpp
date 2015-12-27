@@ -173,4 +173,5 @@ Image testcarbig =
 	112,80,
 	(unsigned short*)&testcarbig_pixels,
 	(unsigned char*)&testcarbig_alpha,
+	(unsigned char*)"testcarbig",
 };

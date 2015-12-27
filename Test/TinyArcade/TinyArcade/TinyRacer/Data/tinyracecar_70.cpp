@@ -27,4 +27,5 @@ Image tinyracecar_70 =
 	7,7,
 	(unsigned short*)&tinyracecar_70_pixels,
 	(unsigned char*)&tinyracecar_70_alpha,
+	(unsigned char*)"tinyracecar_70",
 };

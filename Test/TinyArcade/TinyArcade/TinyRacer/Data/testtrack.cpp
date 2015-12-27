@@ -493,4 +493,5 @@ Image testtrack =
 	240,240,
 	(unsigned short*)&testtrack_pixels,
 	(unsigned char*)&testtrack_alpha,
+	(unsigned char*)"testtrack",
 };

@@ -9,8 +9,6 @@
 #ifndef Image_hpp
 #define Image_hpp
 
-#include <stdio.h>
-
 class Image
 {
 public:
@@ -18,6 +16,7 @@ public:
 	unsigned short h;
 	unsigned short* pixels;
 	unsigned char* alpha;
+	unsigned char* DEBUG_name;
 
 	void CopyToScreen();
 	void Draw( int _screenX, int _screenY );

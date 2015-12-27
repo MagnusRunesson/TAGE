@@ -77,4 +77,5 @@ Image test3 =
 	32,32,
 	(unsigned short*)&test3_pixels,
 	(unsigned char*)&test3_alpha,
+	(unsigned char*)"test3",
 };

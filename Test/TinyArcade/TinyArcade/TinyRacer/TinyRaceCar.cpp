@@ -13,6 +13,7 @@
 #include "bithelpers.h"
 #include "fpmath.h"
 #include "Camera.h"
+#include "SpriteRenderer.h"
 
 TinyRaceCar::TinyRaceCar() : GameObject( &testcar )
 {
@@ -127,39 +128,39 @@ void TinyRaceCar::DoTurning()
 
 	if((a >= -5) && (a < 5))
 	{
-		m_image = &tinyracecar_0;
+		m_sprite->image = &tinyracecar_0;
 	}
 	if((a >= 5) && (a < 15))
 	{
-		m_image = &tinyracecar_10;
+		m_sprite->image = &tinyracecar_10;
 	}
 	if((a >= 15) && (a < 25))
 	{
-		m_image = &tinyracecar_20;
+		m_sprite->image = &tinyracecar_20;
 	}
 	if((a >= 25) && (a < 35))
 	{
-		m_image = &tinyracecar_30;
+		m_sprite->image = &tinyracecar_30;
 	}
 	if((a >= 35) && (a < 45))
 	{
-		m_image = &tinyracecar_40;
+		m_sprite->image = &tinyracecar_40;
 	}
 	if((a >= 45) && (a < 55))
 	{
-		m_image = &tinyracecar_50;
+		m_sprite->image = &tinyracecar_50;
 	}
 	if((a >= 55) && (a < 65))
 	{
-		m_image = &tinyracecar_60;
+		m_sprite->image = &tinyracecar_60;
 	}
 	if((a >= 65) && (a < 75))
 	{
-		m_image = &tinyracecar_70;
+		m_sprite->image = &tinyracecar_70;
 	}
 	if((a >= 75) && (a < 85))
 	{
-		m_image = &tinyracecar_80;
+		m_sprite->image = &tinyracecar_80;
 	}
 
 	FixedPoint fpangle = m_angle;
@@ -174,10 +175,15 @@ void TinyRaceCar::DoTurning()
 
 void TinyRaceCar::Render()
 {
+	GameObject::Render();
+	m_sprite->SetRotation( m_drawAngle );
+
+	/*
 	int x = m_worldPositionX - Camera::main->GetWorldX() - m_imageHotspotX;
 	int y = m_worldPositionY - Camera::main->GetWorldY() - m_imageHotspotY;
 	
 	m_image->DrawQRotateFlipAlpha( x, y, false, false, m_drawAngle );
+	 */
 }
 
 void TinyRaceCar::SetPosition( int _x, int _y )

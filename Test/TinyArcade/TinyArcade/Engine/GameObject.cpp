@@ -16,10 +16,11 @@ GameObject::GameObject( Image* _image )
 	m_worldPositionY = 0;
 	
 	//
-	m_image = _image;
+	//m_image = _image;
+	m_sprite = spriteRenderer.AllocateSprite( _image );
 	m_imageHotspotX = 0;
 	m_imageHotspotY = 0;
-	m_drawAlpha = false;
+	//m_drawAlpha = false;
 }
 
 void GameObject::Update()
@@ -29,13 +30,15 @@ void GameObject::Update()
 
 void GameObject::Render()
 {
-	int x = m_worldPositionX - Camera::main->GetWorldX() - m_imageHotspotX;
-	int y = m_worldPositionY - Camera::main->GetWorldY() - m_imageHotspotY;
-	
+	m_sprite->x = m_worldPositionX - Camera::main->GetWorldX() - m_imageHotspotX;
+	m_sprite->y = m_worldPositionY - Camera::main->GetWorldY() - m_imageHotspotY;
+
+	/*
 	if( m_drawAlpha )
 		m_image->DrawAlpha( x, y );
 	else
 		m_image->Draw( x, y );
+	 */
 }
 
 void GameObject::SetWorldPosition( int _x, int _y )

@@ -13,6 +13,7 @@
 #include "FixedPoint.h"
 #include "fp2d.h"
 #include "types.h"
+#include "SpriteRenderer.h"
 
 class TinyRaceCar : public GameObject
 {

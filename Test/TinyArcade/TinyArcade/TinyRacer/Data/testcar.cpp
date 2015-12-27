@@ -29,4 +29,5 @@ Image testcar =
 	12,8,
 	(unsigned short*)&testcar_pixels,
 	(unsigned char*)&testcar_alpha,
+	(unsigned char*)"testcar",
 };

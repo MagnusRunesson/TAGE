@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "Image.h"
+#include "SpriteRenderer.h"
 
 class GameObject
 {
@@ -35,7 +36,8 @@ protected:
 	int m_worldPositionY;
 
 	//
-	Image* m_image;
+	//Image* m_image;
+	Sprite* m_sprite;
 	int m_imageHotspotX;
 	int m_imageHotspotY;
 	

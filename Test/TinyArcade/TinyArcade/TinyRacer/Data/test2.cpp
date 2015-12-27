@@ -13,4 +13,5 @@ Image test2 =
 	4,4,
 	(unsigned short*)&test2_pixels,
 	(unsigned char*)0,
+	(unsigned char*)"test2",
 };

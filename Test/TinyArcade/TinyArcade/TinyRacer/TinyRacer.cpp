@@ -25,11 +25,21 @@ Camera mainCamera;
 
 void drawCarGrid();
 
+bool debug;
+
 void setup()
 {
 	Camera::main = &mainCamera;
 	
 	playerCar.SetPosition( 10, 10 );
+	
+	debug = true;
+	
+	int i;
+	for( i=0; i<64; i++ )
+	{
+		printf("sprite %i: 0x%016llx\n", i, spriteRenderer.m_sprite[ i ].image );
+	}
 }
 
 void loop()
@@ -60,4 +70,29 @@ void loop()
 	//
 	coolbackground.Render();
 	playerCar.Render();
+	//spriteRenderer.Draw();
+	
+	unsigned short lineBuffer[ SCREEN_WIDTH ];
+	uint16* screen = screenBuffer;
+
+	spriteRenderer.FrameStart();
+
+	int iScanline = 0;
+	while( iScanline < SCREEN_HEIGHT-1 )
+	{
+		// Clear line buffer
+		int x;
+		for( x=0; x<SCREEN_WIDTH; x++ )
+			lineBuffer[ x ] = 0;
+
+		// Render sprites to line buffer
+		spriteRenderer.RenderScanline( lineBuffer );
+
+		// Copy to screen
+		for( x=0; x<SCREEN_WIDTH; x++ )
+			*screen++ = lineBuffer[ x ];
+
+		spriteRenderer.NextScanline();
+		iScanline++;
+	}
 }
