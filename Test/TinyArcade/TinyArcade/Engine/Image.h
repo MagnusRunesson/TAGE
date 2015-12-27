@@ -9,14 +9,16 @@
 #ifndef Image_hpp
 #define Image_hpp
 
+#include "Types.h"
+
 class Image
 {
 public:
-	unsigned short w;
-	unsigned short h;
-	unsigned short* pixels;
-	unsigned char* alpha;
-	unsigned char* DEBUG_name;
+	uint16 w;
+	uint16 h;
+	uint16* pixels;
+	uint8* alpha;
+	uint8* DEBUG_name;
 
 	void CopyToScreen();
 	void Draw( int _screenX, int _screenY );
