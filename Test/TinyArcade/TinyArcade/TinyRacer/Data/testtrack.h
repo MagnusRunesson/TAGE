@@ -1,6 +1,8 @@
-#ifndef testtrack_data_h
-#define testtrack_data_h
+#ifndef testtrack_tilebank_h
+#define testtrack_tilebank_h
 
-extern Image testtrack;
+#include "Tilebank.h"
 
-#endif // testtrack_data_h
+extern CTileBank testtrack;
+
+#endif // testtrack_tilebank_h
