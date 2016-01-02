@@ -15,6 +15,7 @@
 #include "fpmath.h"
 #include "Camera.h"
 #include "GameObjectManager.h"
+#include "TileRenderer.h"
 
 // Project specifics
 #include "TinyRaceCar.h"
@@ -23,6 +24,7 @@
 TinyRaceCar playerCar;
 GameObject* coolbackground;
 Camera mainCamera;
+TileRenderer* background;
 
 void drawCarGrid();
 
@@ -31,8 +33,10 @@ bool debugSpriteRenderer;
 void setup()
 {
 	// Create the sprite background
-	coolbackground = gameObjectManager.CreateGameObject( &testtrack );
+	//coolbackground = gameObjectManager.CreateGameObject( &testtrack );
 
+	background = new TileRenderer( &testtrack );
+	
 	// Set up game camera
 	Camera::main = &mainCamera;
 
@@ -68,6 +72,7 @@ void loop()
 	if( camy < 0 ) camy = 0;
 	if( camy > 240-SCREEN_HEIGHT ) camy = 240-SCREEN_HEIGHT;
 	mainCamera.SetWorldPosition( camx, camy );
+	background->SetPosition( camx, camy );
 	
 	//
 	// Tell all game objects that it is time to be rendered
@@ -82,6 +87,7 @@ void loop()
 	uint16* screen = screenBuffer;
 
 	spriteRenderer.FrameStart();
+	background->FrameStart();
 
 	int iScanline = 0;
 	while( iScanline < SCREEN_HEIGHT-1 )
@@ -92,6 +98,7 @@ void loop()
 			lineBuffer[ x ] = 0;
 
 		// Render sprites to line buffer
+		background->RenderScanline( lineBuffer );
 		spriteRenderer.RenderScanline( lineBuffer );
 
 		// Copy to screen
@@ -99,6 +106,8 @@ void loop()
 			*screen++ = lineBuffer[ x ];
 
 		spriteRenderer.NextScanline( debugSpriteRenderer );
+		background->NextScanline();
+		
 		iScanline++;
 	}
 	
