@@ -1,5 +1,5 @@
 //
-//  TIleBankRenderer.cpp
+//  TileRenderer.cpp
 //  TinyArcade
 //
 //  Created by Magnus Runesson on 2016-01-02.

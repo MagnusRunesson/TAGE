@@ -1,13 +1,13 @@
 //
-//  TIleBankRenderer.hpp
+//  TileRenderer.hpp
 //  TinyArcade
 //
 //  Created by Magnus Runesson on 2016-01-02.
 //  Copyright © 2016 Magnus Runesson. All rights reserved.
 //
 
-#ifndef TIleBankRenderer_hpp
-#define TIleBankRenderer_hpp
+#ifndef TileRenderer_hpp
+#define TileRenderer_hpp
 
 #include "TileBank.h"
 
@@ -35,4 +35,4 @@ public:
 	void RenderScanline( uint16* _targetBuffer );
 };
 
-#endif /* TIleBankRenderer_hpp */
+#endif /* TileRenderer_hpp */
