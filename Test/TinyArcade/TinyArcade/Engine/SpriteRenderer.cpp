@@ -181,10 +181,10 @@ void SpriteRenderer::NextScanline( bool _debugPrint )
 	}
 }
 
-Sprite** SpriteRenderer::GetScanlineSprites()
+/*Sprite** SpriteRenderer::GetScanlineSprites()
 {
 	return m_scanlineSprites;
-}
+}*/
 
 void SpriteRenderer::RenderScanline( uint16* _targetBuffer )
 {

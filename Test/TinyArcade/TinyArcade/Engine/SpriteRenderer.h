@@ -36,7 +36,6 @@ public:
 	//
 	void FrameStart();
 	void NextScanline( bool _debugPrint = false );
-	Sprite** GetScanlineSprites();
 	void RenderScanline( uint16* _targetBuffer );
 };
 
