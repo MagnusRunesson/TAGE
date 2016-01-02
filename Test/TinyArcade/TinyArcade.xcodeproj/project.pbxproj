@@ -38,6 +38,8 @@
 		2554B4021C1991AC00823036 /* tinyracecar_80.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2554B3F81C1991AC00823036 /* tinyracecar_80.cpp */; settings = {ASSET_TAGS = (); }; };
 		259F63A91C11976C005BB009 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259F63A81C11976C005BB009 /* SDL2.framework */; settings = {ASSET_TAGS = (); }; };
 		25DFC19A1C2EF75C00F51F95 /* SpriteRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25DFC1981C2EF75C00F51F95 /* SpriteRenderer.cpp */; settings = {ASSET_TAGS = (); }; };
+		25F8225C1C3077DA0015943C /* TileBank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25F8225A1C3077DA0015943C /* TileBank.cpp */; settings = {ASSET_TAGS = (); }; };
+		25F822611C385EED0015943C /* TileRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25F8225F1C385EED0015943C /* TileRenderer.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -116,6 +118,10 @@
 		25B714C91C08BA9100CE757F /* TinyArcade */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TinyArcade; sourceTree = BUILT_PRODUCTS_DIR; };
 		25DFC1981C2EF75C00F51F95 /* SpriteRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpriteRenderer.cpp; path = TinyArcade/Engine/SpriteRenderer.cpp; sourceTree = "<group>"; };
 		25DFC1991C2EF75C00F51F95 /* SpriteRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteRenderer.h; path = TinyArcade/Engine/SpriteRenderer.h; sourceTree = "<group>"; };
+		25F8225A1C3077DA0015943C /* TileBank.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileBank.cpp; path = TinyArcade/Engine/TileBank.cpp; sourceTree = "<group>"; };
+		25F8225B1C3077DA0015943C /* TileBank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TileBank.h; path = TinyArcade/Engine/TileBank.h; sourceTree = "<group>"; };
+		25F8225F1C385EED0015943C /* TileRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileRenderer.cpp; path = TinyArcade/Engine/Renderers/TileRenderer.cpp; sourceTree = "<group>"; };
+		25F822601C385EED0015943C /* TileRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TileRenderer.h; path = TinyArcade/Engine/Renderers/TileRenderer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +209,10 @@
 				25DFC1991C2EF75C00F51F95 /* SpriteRenderer.h */,
 				255294091C30422F0086B59A /* Sprite.cpp */,
 				2552940A1C30422F0086B59A /* Sprite.h */,
+				25F8225A1C3077DA0015943C /* TileBank.cpp */,
+				25F8225B1C3077DA0015943C /* TileBank.h */,
+				25F8225F1C385EED0015943C /* TileRenderer.cpp */,
+				25F822601C385EED0015943C /* TileRenderer.h */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -310,11 +320,13 @@
 				2552940B1C30422F0086B59A /* Sprite.cpp in Sources */,
 				254381DA1C16DF65005A8626 /* test.cpp in Sources */,
 				2554B4001C1991AC00823036 /* tinyracecar_60.cpp in Sources */,
+				25F822611C385EED0015943C /* TileRenderer.cpp in Sources */,
 				2554B3FA1C1991AC00823036 /* tinyracecar_0.cpp in Sources */,
 				2554B3FB1C1991AC00823036 /* tinyracecar_10.cpp in Sources */,
 				254381DD1C16DF65005A8626 /* testcar.cpp in Sources */,
 				25187C3B1C16E89700C568C9 /* fp2d.cpp in Sources */,
 				2554B3FD1C1991AC00823036 /* tinyracecar_30.cpp in Sources */,
+				25F8225C1C3077DA0015943C /* TileBank.cpp in Sources */,
 				254381DE1C16DF65005A8626 /* testtrack.cpp in Sources */,
 				254381BC1C16DED3005A8626 /* Joypad.cpp in Sources */,
 				254381BE1C16DEDD005A8626 /* main.cpp in Sources */,
