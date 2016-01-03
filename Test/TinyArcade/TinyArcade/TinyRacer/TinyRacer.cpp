@@ -35,7 +35,7 @@ void setup()
 	// Create the sprite background
 	//coolbackground = gameObjectManager.CreateGameObject( &testtrack );
 
-	background = new TileRenderer( &testtrack, &tracktiles_summer );
+	background = new TileRenderer( &testtrackmini, &tracktiles_mini );
 	
 	// Set up game camera
 	Camera::main = &mainCamera;
