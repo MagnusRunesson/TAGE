@@ -10,19 +10,21 @@
 #define TileRenderer_hpp
 
 #include "TileBank.h"
+#include "TileMap.h"
 
 class TileRenderer
 {
 	int m_x;
 	int m_y;
 	CTileBank* m_pTileBank;
+	CTileMap* m_pTileMap;
 	
 	int m_currentScanline;
 	int m_tileY;
 	int m_pixelY;
 	
 public:
-	TileRenderer( CTileBank* _tileBank );
+	TileRenderer( CTileMap* _tileMap, CTileBank* _tileBank );
 	
 	//
 	void SetPosition( int _x, int _y );
