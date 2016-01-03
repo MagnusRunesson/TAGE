@@ -1,8 +1,12 @@
-#ifndef testtrack_tilebank_h
-#define testtrack_tilebank_h
+//
+// Data file generated from datawork/testtrack.tmx
+//
+#ifndef testtrack_header_
+#define testtrack_header_
 
-#include "Tilebank.h"
+#include "types.h"
+#include "TileMap.h"
 
-extern CTileBank testtrack;
+extern CTileMap testtrack;
 
-#endif // testtrack_tilebank_h
+#endif // testtrack_header_

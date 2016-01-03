@@ -27,6 +27,8 @@
 #include "tinyracecar_70.h"
 #include "tinyracecar_80.h"
 
+#include "tracktiles_summer.h"
+
 #include "testtrack.h"
 
 #endif /* Alldata_h */
