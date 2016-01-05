@@ -26,8 +26,6 @@ GameObject* coolbackground;
 Camera mainCamera;
 TileRenderer* background;
 
-void drawCarGrid();
-
 bool debugSpriteRenderer;
 
 void(*pfnHBlankInterrupt)(int);
