@@ -25,6 +25,13 @@ void TileRenderer::SetPosition( int _x, int _y )
 }
 
 //
+void TileRenderer::GetPosition( int* _x, int* _y )
+{
+	*_x = m_x;
+	*_y = m_y;
+}
+
+//
 // Rendering
 //
 void TileRenderer::FrameStart()

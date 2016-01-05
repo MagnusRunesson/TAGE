@@ -28,6 +28,7 @@ public:
 	
 	//
 	void SetPosition( int _x, int _y );
+	void GetPosition( int* _x, int* _y );
 
 	//
 	// Rendering
