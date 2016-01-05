@@ -30,6 +30,29 @@ void drawCarGrid();
 
 bool debugSpriteRenderer;
 
+void(*pfnHBlankInterrupt)(int);
+
+void HBlankInterrupt( int _scanline )
+{
+	/*
+	if( _scanline < 5 )
+	{
+		int x, y;
+		background->GetPosition( &x, &y );
+		x--;
+		background->SetPosition( x, y );
+	} else if( _scanline > 59 )
+	{
+		int x, y;
+		background->GetPosition( &x, &y );
+		x++;
+		background->SetPosition( x, y );
+	}
+	 */
+	
+	//printf( "Scanline=%i\n", _scanline );
+}
+
 void setup()
 {
 	// Create the sprite background
@@ -48,6 +71,8 @@ void setup()
 	// Debug triggers
 	//
 	debugSpriteRenderer = false;
+	
+	pfnHBlankInterrupt = HBlankInterrupt;
 }
 
 void loop()
@@ -97,6 +122,9 @@ void loop()
 		for( x=0; x<SCREEN_WIDTH; x++ )
 			lineBuffer[ x ] = 0;
 
+		if( pfnHBlankInterrupt != NULL )
+			pfnHBlankInterrupt( iScanline );
+		
 		// Render sprites to line buffer
 		background->RenderScanline( lineBuffer );
 		spriteRenderer.RenderScanline( lineBuffer );
