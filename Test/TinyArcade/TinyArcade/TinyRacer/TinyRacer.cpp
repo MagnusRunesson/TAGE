@@ -28,6 +28,9 @@ TileRenderer* background;
 
 bool debugSpriteRenderer;
 
+#define MAX( a, b ) ((a>b)?a:b)
+#define MIN( a, b ) ((a<b)?a:b)
+
 void(*pfnHBlankInterrupt)(int);
 
 void HBlankInterrupt( int _scanline )
@@ -108,12 +111,30 @@ void loop()
 	//
 	unsigned short lineBuffer[ SCREEN_WIDTH ];
 	uint16* screen = screenBuffer;
+	uint16* mirrorScreen = screen;
 
 	spriteRenderer.FrameStart();
 	background->FrameStart();
 
+
+	// Set this to the number of pixel rows in screen space that should be mirrored to enable the mirror effect
+	int mirrorHeight = 0;
+	
+	/*
+	 
+	 Or use this code to use world space Y coordinate to enable the water effect
+	 
+	int worldMirrorStart = 230;		// Presto
+	int mirrorHeight = (camy+SCREEN_HEIGHT) - worldMirrorStart;
+	if( mirrorHeight < 0 )
+		mirrorHeight = 0;
+	 */
+	
+	int mirrorStart = SCREEN_HEIGHT-mirrorHeight;
+	int copyStart = mirrorStart-mirrorHeight;
+	
 	int iScanline = 0;
-	while( iScanline < SCREEN_HEIGHT-1 )
+	while( iScanline < mirrorStart )
 	{
 		// Clear line buffer
 		int x;
@@ -130,6 +151,25 @@ void loop()
 		// Copy to screen
 		for( x=0; x<SCREEN_WIDTH; x++ )
 			*screen++ = lineBuffer[ x ];
+
+		// Mirror test
+		if( iScanline >= copyStart )
+		{
+			int destY = SCREEN_HEIGHT - (iScanline - copyStart);
+			for( x=0; x<SCREEN_WIDTH; x++ )
+			{
+				uint16 rgb = lineBuffer[ x ];
+				int r = (rgb >> 11);
+				int g = (rgb >> 6) & 0x001f;
+				int b = rgb & 0x001f;
+				
+				int i = (r+g+b)/3;
+				int hi = i>>1;
+				
+				rgb = ((hi << 11) + (hi << 6) + i);
+				mirrorScreen[ ((destY-1)*SCREEN_WIDTH) + x ] = rgb;
+			}
+		}
 
 		spriteRenderer.NextScanline( debugSpriteRenderer );
 		background->NextScanline();
