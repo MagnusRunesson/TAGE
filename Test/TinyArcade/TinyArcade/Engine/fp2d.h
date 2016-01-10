@@ -18,9 +18,12 @@ public:
 	fp2d( const fp2d& _o );
 	fp2d( const FixedPoint& _x, const FixedPoint& _y );
 
+	void operator -= ( const fp2d& _o );
 	void operator += ( const fp2d& _o );
 	void operator *= ( const FixedPoint& _o );
 
+	fp2d operator - (const fp2d& _o );
+	
 	FixedPoint x;
 	FixedPoint y;
 };

@@ -25,6 +25,12 @@ fp2d::fp2d( const FixedPoint& _x, const FixedPoint& _y )
 	y = _y;
 }
 
+void fp2d::operator -= ( const fp2d& _o )
+{
+	x -= _o.x;
+	y -= _o.y;
+}
+
 void fp2d::operator += ( const fp2d& _o )
 {
 	x += _o.x;
@@ -35,4 +41,11 @@ void fp2d::operator *= ( const FixedPoint& _o )
 {
 	x *=_o;
 	y *=_o;
+}
+
+fp2d fp2d::operator - (const fp2d& _o )
+{
+	fp2d ret = *this;
+	ret -= _o;
+	return ret;
 }
