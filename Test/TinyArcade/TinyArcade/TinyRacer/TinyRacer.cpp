@@ -27,6 +27,8 @@ Camera mainCamera;
 TileRenderer* background;
 
 bool debugSpriteRenderer;
+int worldWidth;
+int worldHeight;
 
 #define MAX( a, b ) ((a>b)?a:b)
 #define MIN( a, b ) ((a<b)?a:b)
@@ -59,6 +61,9 @@ void setup()
 	// Create the sprite background
 	//coolbackground = gameObjectManager.CreateGameObject( &testtrack );
 
+	worldWidth = testtrackmini.Width * tracktiles_mini.TileWidth;
+	worldHeight = testtrackmini.Height * tracktiles_mini.TileHeight;
+	
 	background = new TileRenderer( &testtrackmini, &tracktiles_mini );
 	
 	// Set up game camera
@@ -66,7 +71,7 @@ void setup()
 
 	// Setup player car
 	playerCar.Create();
-	playerCar.SetPosition( 10, 10 );
+	playerCar.SetPosition( 25, 75 );
 	
 	//
 	// Debug triggers
@@ -94,9 +99,9 @@ void loop()
 	int camx = playerCar.GetWorldPositionX()-48;
 	int camy = playerCar.GetWorldPositionY()-32;
 	if( camx < 0 ) camx = 0;
-	if( camx > 240-SCREEN_WIDTH ) camx = 240-SCREEN_WIDTH;
+	if( camx > worldWidth-SCREEN_WIDTH ) camx = worldWidth-SCREEN_WIDTH;
 	if( camy < 0 ) camy = 0;
-	if( camy > 240-SCREEN_HEIGHT ) camy = 240-SCREEN_HEIGHT;
+	if( camy > worldHeight-SCREEN_HEIGHT ) camy = worldHeight-SCREEN_HEIGHT;
 	mainCamera.SetWorldPosition( camx, camy );
 	background->SetPosition( camx, camy );
 	
