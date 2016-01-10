@@ -1,0 +1,508 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		258667571C42C47B00081A25 /* TinyRaceCar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667541C42C47B00081A25 /* TinyRaceCar.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667581C42C47B00081A25 /* TinyRacer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667561C42C47B00081A25 /* TinyRacer.cpp */; settings = {ASSET_TAGS = (); }; };
+		2586677E1C42C48D00081A25 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2586675A1C42C48D00081A25 /* test.cpp */; settings = {ASSET_TAGS = (); }; };
+		2586677F1C42C48D00081A25 /* test2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2586675C1C42C48D00081A25 /* test2.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667801C42C48D00081A25 /* test3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2586675E1C42C48D00081A25 /* test3.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667811C42C48D00081A25 /* testcar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667601C42C48D00081A25 /* testcar.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667821C42C48D00081A25 /* testcarbig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667621C42C48D00081A25 /* testcarbig.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667831C42C48D00081A25 /* testtrack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667641C42C48D00081A25 /* testtrack.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667841C42C48D00081A25 /* testtrackmini.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667661C42C48D00081A25 /* testtrackmini.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667851C42C48D00081A25 /* tinyracecar_0.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667681C42C48D00081A25 /* tinyracecar_0.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667861C42C48D00081A25 /* tinyracecar_10.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2586676A1C42C48D00081A25 /* tinyracecar_10.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667871C42C48D00081A25 /* tinyracecar_20.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2586676C1C42C48D00081A25 /* tinyracecar_20.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667881C42C48D00081A25 /* tinyracecar_30.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2586676E1C42C48D00081A25 /* tinyracecar_30.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667891C42C48D00081A25 /* tinyracecar_40.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667701C42C48D00081A25 /* tinyracecar_40.cpp */; settings = {ASSET_TAGS = (); }; };
+		2586678A1C42C48D00081A25 /* tinyracecar_50.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667721C42C48D00081A25 /* tinyracecar_50.cpp */; settings = {ASSET_TAGS = (); }; };
+		2586678B1C42C48D00081A25 /* tinyracecar_60.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667741C42C48D00081A25 /* tinyracecar_60.cpp */; settings = {ASSET_TAGS = (); }; };
+		2586678C1C42C48D00081A25 /* tinyracecar_70.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667761C42C48D00081A25 /* tinyracecar_70.cpp */; settings = {ASSET_TAGS = (); }; };
+		2586678D1C42C48D00081A25 /* tinyracecar_80.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667781C42C48D00081A25 /* tinyracecar_80.cpp */; settings = {ASSET_TAGS = (); }; };
+		2586678E1C42C48D00081A25 /* tracktiles_mini.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2586677A1C42C48D00081A25 /* tracktiles_mini.cpp */; settings = {ASSET_TAGS = (); }; };
+		2586678F1C42C48D00081A25 /* tracktiles_summer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2586677C1C42C48D00081A25 /* tracktiles_summer.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667AE1C42C4A000081A25 /* BitHelpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667901C42C4A000081A25 /* BitHelpers.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667AF1C42C4A000081A25 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667921C42C4A000081A25 /* Camera.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667B01C42C4A000081A25 /* FixedPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667941C42C4A000081A25 /* FixedPoint.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667B11C42C4A000081A25 /* fp2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667961C42C4A000081A25 /* fp2d.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667B21C42C4A000081A25 /* fpmath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667981C42C4A000081A25 /* fpmath.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667B31C42C4A000081A25 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2586679A1C42C4A000081A25 /* GameObject.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667B41C42C4A000081A25 /* GameObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2586679C1C42C4A000081A25 /* GameObjectManager.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667B51C42C4A000081A25 /* GameObjectTemplate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2586679E1C42C4A000081A25 /* GameObjectTemplate.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667B61C42C4A000081A25 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667A01C42C4A000081A25 /* Image.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667B71C42C4A000081A25 /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667A31C42C4A000081A25 /* Screen.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667B81C42C4A000081A25 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667A61C42C4A000081A25 /* Sprite.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667B91C42C4A000081A25 /* SpriteRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667A81C42C4A000081A25 /* SpriteRenderer.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667BA1C42C4A000081A25 /* TileBank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667AA1C42C4A000081A25 /* TileBank.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667BB1C42C4A000081A25 /* TileMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667AC1C42C4A000081A25 /* TileMap.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667BE1C42C4B000081A25 /* Joypad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667BC1C42C4B000081A25 /* Joypad.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667C11C42C4BB00081A25 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667BF1C42C4BB00081A25 /* main.cpp */; settings = {ASSET_TAGS = (); }; };
+		258667C41C42C55F00081A25 /* TileRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667C21C42C55F00081A25 /* TileRenderer.cpp */; settings = {ASSET_TAGS = (); }; };
+		259F63A91C11976C005BB009 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259F63A81C11976C005BB009 /* SDL2.framework */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		25B714C71C08BA9100CE757F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		258667541C42C47B00081A25 /* TinyRaceCar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TinyRaceCar.cpp; sourceTree = SOURCE_ROOT; };
+		258667551C42C47B00081A25 /* TinyRaceCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinyRaceCar.h; sourceTree = SOURCE_ROOT; };
+		258667561C42C47B00081A25 /* TinyRacer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TinyRacer.cpp; sourceTree = SOURCE_ROOT; };
+		258667591C42C48D00081A25 /* Alldata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alldata.h; path = Data/Alldata.h; sourceTree = "<group>"; };
+		2586675A1C42C48D00081A25 /* test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test.cpp; path = Data/test.cpp; sourceTree = "<group>"; };
+		2586675B1C42C48D00081A25 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = test.h; path = Data/test.h; sourceTree = "<group>"; };
+		2586675C1C42C48D00081A25 /* test2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test2.cpp; path = Data/test2.cpp; sourceTree = "<group>"; };
+		2586675D1C42C48D00081A25 /* test2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = test2.h; path = Data/test2.h; sourceTree = "<group>"; };
+		2586675E1C42C48D00081A25 /* test3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test3.cpp; path = Data/test3.cpp; sourceTree = "<group>"; };
+		2586675F1C42C48D00081A25 /* test3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = test3.h; path = Data/test3.h; sourceTree = "<group>"; };
+		258667601C42C48D00081A25 /* testcar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = testcar.cpp; path = Data/testcar.cpp; sourceTree = "<group>"; };
+		258667611C42C48D00081A25 /* testcar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = testcar.h; path = Data/testcar.h; sourceTree = "<group>"; };
+		258667621C42C48D00081A25 /* testcarbig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = testcarbig.cpp; path = Data/testcarbig.cpp; sourceTree = "<group>"; };
+		258667631C42C48D00081A25 /* testcarbig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = testcarbig.h; path = Data/testcarbig.h; sourceTree = "<group>"; };
+		258667641C42C48D00081A25 /* testtrack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = testtrack.cpp; path = Data/testtrack.cpp; sourceTree = "<group>"; };
+		258667651C42C48D00081A25 /* testtrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = testtrack.h; path = Data/testtrack.h; sourceTree = "<group>"; };
+		258667661C42C48D00081A25 /* testtrackmini.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = testtrackmini.cpp; path = Data/testtrackmini.cpp; sourceTree = "<group>"; };
+		258667671C42C48D00081A25 /* testtrackmini.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = testtrackmini.h; path = Data/testtrackmini.h; sourceTree = "<group>"; };
+		258667681C42C48D00081A25 /* tinyracecar_0.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyracecar_0.cpp; path = Data/tinyracecar_0.cpp; sourceTree = "<group>"; };
+		258667691C42C48D00081A25 /* tinyracecar_0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyracecar_0.h; path = Data/tinyracecar_0.h; sourceTree = "<group>"; };
+		2586676A1C42C48D00081A25 /* tinyracecar_10.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyracecar_10.cpp; path = Data/tinyracecar_10.cpp; sourceTree = "<group>"; };
+		2586676B1C42C48D00081A25 /* tinyracecar_10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyracecar_10.h; path = Data/tinyracecar_10.h; sourceTree = "<group>"; };
+		2586676C1C42C48D00081A25 /* tinyracecar_20.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyracecar_20.cpp; path = Data/tinyracecar_20.cpp; sourceTree = "<group>"; };
+		2586676D1C42C48D00081A25 /* tinyracecar_20.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyracecar_20.h; path = Data/tinyracecar_20.h; sourceTree = "<group>"; };
+		2586676E1C42C48D00081A25 /* tinyracecar_30.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyracecar_30.cpp; path = Data/tinyracecar_30.cpp; sourceTree = "<group>"; };
+		2586676F1C42C48D00081A25 /* tinyracecar_30.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyracecar_30.h; path = Data/tinyracecar_30.h; sourceTree = "<group>"; };
+		258667701C42C48D00081A25 /* tinyracecar_40.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyracecar_40.cpp; path = Data/tinyracecar_40.cpp; sourceTree = "<group>"; };
+		258667711C42C48D00081A25 /* tinyracecar_40.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyracecar_40.h; path = Data/tinyracecar_40.h; sourceTree = "<group>"; };
+		258667721C42C48D00081A25 /* tinyracecar_50.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyracecar_50.cpp; path = Data/tinyracecar_50.cpp; sourceTree = "<group>"; };
+		258667731C42C48D00081A25 /* tinyracecar_50.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyracecar_50.h; path = Data/tinyracecar_50.h; sourceTree = "<group>"; };
+		258667741C42C48D00081A25 /* tinyracecar_60.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyracecar_60.cpp; path = Data/tinyracecar_60.cpp; sourceTree = "<group>"; };
+		258667751C42C48D00081A25 /* tinyracecar_60.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyracecar_60.h; path = Data/tinyracecar_60.h; sourceTree = "<group>"; };
+		258667761C42C48D00081A25 /* tinyracecar_70.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyracecar_70.cpp; path = Data/tinyracecar_70.cpp; sourceTree = "<group>"; };
+		258667771C42C48D00081A25 /* tinyracecar_70.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyracecar_70.h; path = Data/tinyracecar_70.h; sourceTree = "<group>"; };
+		258667781C42C48D00081A25 /* tinyracecar_80.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyracecar_80.cpp; path = Data/tinyracecar_80.cpp; sourceTree = "<group>"; };
+		258667791C42C48D00081A25 /* tinyracecar_80.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyracecar_80.h; path = Data/tinyracecar_80.h; sourceTree = "<group>"; };
+		2586677A1C42C48D00081A25 /* tracktiles_mini.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tracktiles_mini.cpp; path = Data/tracktiles_mini.cpp; sourceTree = "<group>"; };
+		2586677B1C42C48D00081A25 /* tracktiles_mini.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tracktiles_mini.h; path = Data/tracktiles_mini.h; sourceTree = "<group>"; };
+		2586677C1C42C48D00081A25 /* tracktiles_summer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tracktiles_summer.cpp; path = Data/tracktiles_summer.cpp; sourceTree = "<group>"; };
+		2586677D1C42C48D00081A25 /* tracktiles_summer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tracktiles_summer.h; path = Data/tracktiles_summer.h; sourceTree = "<group>"; };
+		258667901C42C4A000081A25 /* BitHelpers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BitHelpers.cpp; path = ../../TAGE/Engine/BitHelpers.cpp; sourceTree = "<group>"; };
+		258667911C42C4A000081A25 /* BitHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BitHelpers.h; path = ../../TAGE/Engine/BitHelpers.h; sourceTree = "<group>"; };
+		258667921C42C4A000081A25 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Camera.cpp; path = ../../TAGE/Engine/Camera.cpp; sourceTree = "<group>"; };
+		258667931C42C4A000081A25 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = ../../TAGE/Engine/Camera.h; sourceTree = "<group>"; };
+		258667941C42C4A000081A25 /* FixedPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FixedPoint.cpp; path = ../../TAGE/Engine/FixedPoint.cpp; sourceTree = "<group>"; };
+		258667951C42C4A000081A25 /* FixedPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FixedPoint.h; path = ../../TAGE/Engine/FixedPoint.h; sourceTree = "<group>"; };
+		258667961C42C4A000081A25 /* fp2d.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fp2d.cpp; path = ../../TAGE/Engine/fp2d.cpp; sourceTree = "<group>"; };
+		258667971C42C4A000081A25 /* fp2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fp2d.h; path = ../../TAGE/Engine/fp2d.h; sourceTree = "<group>"; };
+		258667981C42C4A000081A25 /* fpmath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fpmath.cpp; path = ../../TAGE/Engine/fpmath.cpp; sourceTree = "<group>"; };
+		258667991C42C4A000081A25 /* fpmath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fpmath.h; path = ../../TAGE/Engine/fpmath.h; sourceTree = "<group>"; };
+		2586679A1C42C4A000081A25 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObject.cpp; path = ../../TAGE/Engine/GameObject.cpp; sourceTree = "<group>"; };
+		2586679B1C42C4A000081A25 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = ../../TAGE/Engine/GameObject.h; sourceTree = "<group>"; };
+		2586679C1C42C4A000081A25 /* GameObjectManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObjectManager.cpp; path = ../../TAGE/Engine/GameObjectManager.cpp; sourceTree = "<group>"; };
+		2586679D1C42C4A000081A25 /* GameObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObjectManager.h; path = ../../TAGE/Engine/GameObjectManager.h; sourceTree = "<group>"; };
+		2586679E1C42C4A000081A25 /* GameObjectTemplate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObjectTemplate.cpp; path = ../../TAGE/Engine/GameObjectTemplate.cpp; sourceTree = "<group>"; };
+		2586679F1C42C4A000081A25 /* GameObjectTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObjectTemplate.h; path = ../../TAGE/Engine/GameObjectTemplate.h; sourceTree = "<group>"; };
+		258667A01C42C4A000081A25 /* Image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Image.cpp; path = ../../TAGE/Engine/Image.cpp; sourceTree = "<group>"; };
+		258667A11C42C4A000081A25 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Image.h; path = ../../TAGE/Engine/Image.h; sourceTree = "<group>"; };
+		258667A31C42C4A000081A25 /* Screen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Screen.cpp; path = ../../TAGE/Engine/Screen.cpp; sourceTree = "<group>"; };
+		258667A41C42C4A000081A25 /* Screen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Screen.h; path = ../../TAGE/Engine/Screen.h; sourceTree = "<group>"; };
+		258667A51C42C4A000081A25 /* sinetable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sinetable.h; path = ../../TAGE/Engine/sinetable.h; sourceTree = "<group>"; };
+		258667A61C42C4A000081A25 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sprite.cpp; path = ../../TAGE/Engine/Sprite.cpp; sourceTree = "<group>"; };
+		258667A71C42C4A000081A25 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sprite.h; path = ../../TAGE/Engine/Sprite.h; sourceTree = "<group>"; };
+		258667A81C42C4A000081A25 /* SpriteRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpriteRenderer.cpp; path = ../../TAGE/Engine/SpriteRenderer.cpp; sourceTree = "<group>"; };
+		258667A91C42C4A000081A25 /* SpriteRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteRenderer.h; path = ../../TAGE/Engine/SpriteRenderer.h; sourceTree = "<group>"; };
+		258667AA1C42C4A000081A25 /* TileBank.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileBank.cpp; path = ../../TAGE/Engine/TileBank.cpp; sourceTree = "<group>"; };
+		258667AB1C42C4A000081A25 /* TileBank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TileBank.h; path = ../../TAGE/Engine/TileBank.h; sourceTree = "<group>"; };
+		258667AC1C42C4A000081A25 /* TileMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileMap.cpp; path = ../../TAGE/Engine/TileMap.cpp; sourceTree = "<group>"; };
+		258667AD1C42C4A000081A25 /* TileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TileMap.h; path = ../../TAGE/Engine/TileMap.h; sourceTree = "<group>"; };
+		258667BC1C42C4B000081A25 /* Joypad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Joypad.cpp; path = "../../TAGE/Abstraction layer/Joypad.cpp"; sourceTree = "<group>"; };
+		258667BD1C42C4B000081A25 /* Joypad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Joypad.h; path = "../../TAGE/Abstraction layer/Joypad.h"; sourceTree = "<group>"; };
+		258667BF1C42C4BB00081A25 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../TAGE/MacOSX/main.cpp; sourceTree = "<group>"; };
+		258667C01C42C4BB00081A25 /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = types.h; path = ../../TAGE/MacOSX/types.h; sourceTree = "<group>"; };
+		258667C21C42C55F00081A25 /* TileRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileRenderer.cpp; path = ../../TAGE/Engine/Renderers/TileRenderer.cpp; sourceTree = "<group>"; };
+		258667C31C42C55F00081A25 /* TileRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TileRenderer.h; path = ../../TAGE/Engine/Renderers/TileRenderer.h; sourceTree = "<group>"; };
+		259F63A81C11976C005BB009 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = /Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		25B714C91C08BA9100CE757F /* TinyRacer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TinyRacer; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		25B714C61C08BA9100CE757F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				259F63A91C11976C005BB009 /* SDL2.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2549CDDD1C10476A009E8088 /* MacOSX */ = {
+			isa = PBXGroup;
+			children = (
+				258667BF1C42C4BB00081A25 /* main.cpp */,
+				258667C01C42C4BB00081A25 /* types.h */,
+			);
+			name = MacOSX;
+			sourceTree = "<group>";
+		};
+		2549CDDF1C1047AF009E8088 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				258667591C42C48D00081A25 /* Alldata.h */,
+				2586675A1C42C48D00081A25 /* test.cpp */,
+				2586675B1C42C48D00081A25 /* test.h */,
+				2586675C1C42C48D00081A25 /* test2.cpp */,
+				2586675D1C42C48D00081A25 /* test2.h */,
+				2586675E1C42C48D00081A25 /* test3.cpp */,
+				2586675F1C42C48D00081A25 /* test3.h */,
+				258667601C42C48D00081A25 /* testcar.cpp */,
+				258667611C42C48D00081A25 /* testcar.h */,
+				258667621C42C48D00081A25 /* testcarbig.cpp */,
+				258667631C42C48D00081A25 /* testcarbig.h */,
+				258667641C42C48D00081A25 /* testtrack.cpp */,
+				258667651C42C48D00081A25 /* testtrack.h */,
+				258667661C42C48D00081A25 /* testtrackmini.cpp */,
+				258667671C42C48D00081A25 /* testtrackmini.h */,
+				258667681C42C48D00081A25 /* tinyracecar_0.cpp */,
+				258667691C42C48D00081A25 /* tinyracecar_0.h */,
+				2586676A1C42C48D00081A25 /* tinyracecar_10.cpp */,
+				2586676B1C42C48D00081A25 /* tinyracecar_10.h */,
+				2586676C1C42C48D00081A25 /* tinyracecar_20.cpp */,
+				2586676D1C42C48D00081A25 /* tinyracecar_20.h */,
+				2586676E1C42C48D00081A25 /* tinyracecar_30.cpp */,
+				2586676F1C42C48D00081A25 /* tinyracecar_30.h */,
+				258667701C42C48D00081A25 /* tinyracecar_40.cpp */,
+				258667711C42C48D00081A25 /* tinyracecar_40.h */,
+				258667721C42C48D00081A25 /* tinyracecar_50.cpp */,
+				258667731C42C48D00081A25 /* tinyracecar_50.h */,
+				258667741C42C48D00081A25 /* tinyracecar_60.cpp */,
+				258667751C42C48D00081A25 /* tinyracecar_60.h */,
+				258667761C42C48D00081A25 /* tinyracecar_70.cpp */,
+				258667771C42C48D00081A25 /* tinyracecar_70.h */,
+				258667781C42C48D00081A25 /* tinyracecar_80.cpp */,
+				258667791C42C48D00081A25 /* tinyracecar_80.h */,
+				2586677A1C42C48D00081A25 /* tracktiles_mini.cpp */,
+				2586677B1C42C48D00081A25 /* tracktiles_mini.h */,
+				2586677C1C42C48D00081A25 /* tracktiles_summer.cpp */,
+				2586677D1C42C48D00081A25 /* tracktiles_summer.h */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		2549CDE61C1047EC009E8088 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				258667C21C42C55F00081A25 /* TileRenderer.cpp */,
+				258667C31C42C55F00081A25 /* TileRenderer.h */,
+				258667901C42C4A000081A25 /* BitHelpers.cpp */,
+				258667911C42C4A000081A25 /* BitHelpers.h */,
+				258667921C42C4A000081A25 /* Camera.cpp */,
+				258667931C42C4A000081A25 /* Camera.h */,
+				258667941C42C4A000081A25 /* FixedPoint.cpp */,
+				258667951C42C4A000081A25 /* FixedPoint.h */,
+				258667961C42C4A000081A25 /* fp2d.cpp */,
+				258667971C42C4A000081A25 /* fp2d.h */,
+				258667981C42C4A000081A25 /* fpmath.cpp */,
+				258667991C42C4A000081A25 /* fpmath.h */,
+				2586679A1C42C4A000081A25 /* GameObject.cpp */,
+				2586679B1C42C4A000081A25 /* GameObject.h */,
+				2586679C1C42C4A000081A25 /* GameObjectManager.cpp */,
+				2586679D1C42C4A000081A25 /* GameObjectManager.h */,
+				2586679E1C42C4A000081A25 /* GameObjectTemplate.cpp */,
+				2586679F1C42C4A000081A25 /* GameObjectTemplate.h */,
+				258667A01C42C4A000081A25 /* Image.cpp */,
+				258667A11C42C4A000081A25 /* Image.h */,
+				258667A31C42C4A000081A25 /* Screen.cpp */,
+				258667A41C42C4A000081A25 /* Screen.h */,
+				258667A51C42C4A000081A25 /* sinetable.h */,
+				258667A61C42C4A000081A25 /* Sprite.cpp */,
+				258667A71C42C4A000081A25 /* Sprite.h */,
+				258667A81C42C4A000081A25 /* SpriteRenderer.cpp */,
+				258667A91C42C4A000081A25 /* SpriteRenderer.h */,
+				258667AA1C42C4A000081A25 /* TileBank.cpp */,
+				258667AB1C42C4A000081A25 /* TileBank.h */,
+				258667AC1C42C4A000081A25 /* TileMap.cpp */,
+				258667AD1C42C4A000081A25 /* TileMap.h */,
+			);
+			name = Engine;
+			sourceTree = "<group>";
+		};
+		2549CDEE1C104A84009E8088 /* Abstraction layer */ = {
+			isa = PBXGroup;
+			children = (
+				258667BC1C42C4B000081A25 /* Joypad.cpp */,
+				258667BD1C42C4B000081A25 /* Joypad.h */,
+			);
+			name = "Abstraction layer";
+			sourceTree = "<group>";
+		};
+		25B714C01C08BA9100CE757F = {
+			isa = PBXGroup;
+			children = (
+				25B714CB1C08BA9100CE757F /* TinyRacer */,
+				2549CDDF1C1047AF009E8088 /* Data */,
+				2549CDE61C1047EC009E8088 /* Engine */,
+				2549CDEE1C104A84009E8088 /* Abstraction layer */,
+				2549CDDD1C10476A009E8088 /* MacOSX */,
+				25B714CA1C08BA9100CE757F /* Products */,
+				259F63A81C11976C005BB009 /* SDL2.framework */,
+			);
+			sourceTree = "<group>";
+		};
+		25B714CA1C08BA9100CE757F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				25B714C91C08BA9100CE757F /* TinyRacer */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		25B714CB1C08BA9100CE757F /* TinyRacer */ = {
+			isa = PBXGroup;
+			children = (
+				258667541C42C47B00081A25 /* TinyRaceCar.cpp */,
+				258667551C42C47B00081A25 /* TinyRaceCar.h */,
+				258667561C42C47B00081A25 /* TinyRacer.cpp */,
+			);
+			name = TinyRacer;
+			path = TinyRacer;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		25B714C81C08BA9100CE757F /* TinyRacer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 25B714D01C08BA9100CE757F /* Build configuration list for PBXNativeTarget "TinyRacer" */;
+			buildPhases = (
+				25B714C51C08BA9100CE757F /* Sources */,
+				25B714C61C08BA9100CE757F /* Frameworks */,
+				25B714C71C08BA9100CE757F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TinyRacer;
+			productName = TinyRacer;
+			productReference = 25B714C91C08BA9100CE757F /* TinyRacer */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		25B714C11C08BA9100CE757F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Magnus Runesson";
+				TargetAttributes = {
+					25B714C81C08BA9100CE757F = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 25B714C41C08BA9100CE757F /* Build configuration list for PBXProject "TinyRacer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 25B714C01C08BA9100CE757F;
+			productRefGroup = 25B714CA1C08BA9100CE757F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				25B714C81C08BA9100CE757F /* TinyRacer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		25B714C51C08BA9100CE757F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				258667C41C42C55F00081A25 /* TileRenderer.cpp in Sources */,
+				258667891C42C48D00081A25 /* tinyracecar_40.cpp in Sources */,
+				258667B61C42C4A000081A25 /* Image.cpp in Sources */,
+				258667C11C42C4BB00081A25 /* main.cpp in Sources */,
+				258667B21C42C4A000081A25 /* fpmath.cpp in Sources */,
+				258667571C42C47B00081A25 /* TinyRaceCar.cpp in Sources */,
+				258667581C42C47B00081A25 /* TinyRacer.cpp in Sources */,
+				258667811C42C48D00081A25 /* testcar.cpp in Sources */,
+				258667AF1C42C4A000081A25 /* Camera.cpp in Sources */,
+				258667BA1C42C4A000081A25 /* TileBank.cpp in Sources */,
+				258667821C42C48D00081A25 /* testcarbig.cpp in Sources */,
+				2586678C1C42C48D00081A25 /* tinyracecar_70.cpp in Sources */,
+				258667801C42C48D00081A25 /* test3.cpp in Sources */,
+				258667B51C42C4A000081A25 /* GameObjectTemplate.cpp in Sources */,
+				258667851C42C48D00081A25 /* tinyracecar_0.cpp in Sources */,
+				258667B41C42C4A000081A25 /* GameObjectManager.cpp in Sources */,
+				258667BE1C42C4B000081A25 /* Joypad.cpp in Sources */,
+				258667BB1C42C4A000081A25 /* TileMap.cpp in Sources */,
+				2586677E1C42C48D00081A25 /* test.cpp in Sources */,
+				258667841C42C48D00081A25 /* testtrackmini.cpp in Sources */,
+				258667B81C42C4A000081A25 /* Sprite.cpp in Sources */,
+				258667B11C42C4A000081A25 /* fp2d.cpp in Sources */,
+				258667861C42C48D00081A25 /* tinyracecar_10.cpp in Sources */,
+				258667831C42C48D00081A25 /* testtrack.cpp in Sources */,
+				258667881C42C48D00081A25 /* tinyracecar_30.cpp in Sources */,
+				258667AE1C42C4A000081A25 /* BitHelpers.cpp in Sources */,
+				2586678D1C42C48D00081A25 /* tinyracecar_80.cpp in Sources */,
+				258667B31C42C4A000081A25 /* GameObject.cpp in Sources */,
+				258667871C42C48D00081A25 /* tinyracecar_20.cpp in Sources */,
+				2586678A1C42C48D00081A25 /* tinyracecar_50.cpp in Sources */,
+				2586678B1C42C48D00081A25 /* tinyracecar_60.cpp in Sources */,
+				258667B71C42C4A000081A25 /* Screen.cpp in Sources */,
+				258667B01C42C4A000081A25 /* FixedPoint.cpp in Sources */,
+				2586678F1C42C48D00081A25 /* tracktiles_summer.cpp in Sources */,
+				2586678E1C42C48D00081A25 /* tracktiles_mini.cpp in Sources */,
+				2586677F1C42C48D00081A25 /* test2.cpp in Sources */,
+				258667B91C42C4A000081A25 /* SpriteRenderer.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		25B714CE1C08BA9100CE757F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		25B714CF1C08BA9100CE757F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		25B714D11C08BA9100CE757F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		25B714D21C08BA9100CE757F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		25B714C41C08BA9100CE757F /* Build configuration list for PBXProject "TinyRacer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25B714CE1C08BA9100CE757F /* Debug */,
+				25B714CF1C08BA9100CE757F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		25B714D01C08BA9100CE757F /* Build configuration list for PBXNativeTarget "TinyRacer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25B714D11C08BA9100CE757F /* Debug */,
+				25B714D21C08BA9100CE757F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 25B714C11C08BA9100CE757F /* Project object */;
+}
