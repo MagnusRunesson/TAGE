@@ -15,6 +15,9 @@
 #include "types.h"
 #include "bithelpers.h"
 
+#include "timer.h"
+
+
 //
 //
 //
@@ -94,6 +97,8 @@ bool init()
 	gx = 10;
 	gy = 10;
 	
+	timerInit();
+	
 	return true;
 }
 
@@ -158,7 +163,7 @@ void blit_screenBufferToSDL()
 	}
 
 	SDL_UpdateWindowSurface( window );
-	SDL_Delay( 15 );
+	//SDL_Delay( 15 );
 }
 
 const int SDL_KEYCODE_PRIMARY		= SDLK_z;
