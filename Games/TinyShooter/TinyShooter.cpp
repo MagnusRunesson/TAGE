@@ -24,10 +24,16 @@
 //
 Camera mainCamera;
 TileRenderer* background;
+int mapScroll;
 FixedPoint cameraScroll;
 FixedPoint cameraScrollSpeed;
+GameObject* player;
+FixedPoint playerX;
+FixedPoint playerY;
+FixedPoint playerSpeed;
 
 bool debugSpriteRenderer;
+bool doCameraScroll;
 
 int worldWidth;
 
@@ -65,14 +71,30 @@ void setup()
 	background = new TileRenderer( &tilemap_spacebase, &tilebank_spacebase );
 	
 	//
-	// Scrolling a 10 screen wide level (10 screens in total, scrolling 9 screens at 864 pixels) at FixedPoint( 0, 5 ) takes about 5 minutes
+	// Scrolling a 10 screen wide level (10 screens in total, scrolling 9 screens at 864 pixels) at FixedPoint( 0, 5 ) takes about 300 seconds (5 minutes)
 	// Scrolling 1 screen (96 pixels) at FixedPoint( 0, 5 ) takes 35 seconds
+	// Scrolling 1 pixel at FixedPoint( 0, 5 ) takes ~2.8 seconds
+	//
+	// 300/864=0.347
+	// 120/864=0.139
+	// 0.347/0.139=2.496
+	// 2.496*0.05=0.12
+	// So scrolling at FixedPoint( 0, 12 ) should make the level whosh by at 2 minutes
 	//
 	// Set up game camera
 	Camera::main = &mainCamera;
 	cameraScroll = 0;
-	cameraScrollSpeed = FixedPoint( 0, 5 );
+	mapScroll = 0;
+	cameraScrollSpeed = FixedPoint( 0, 12 );
 
+	// Create player game object
+	player = gameObjectManager.CreateGameObject( &sprite_player );
+	playerX = 10;
+	playerY = 29;
+	playerSpeed = FixedPoint( 0, 50 );
+	
+	doCameraScroll = true;
+	
 	pfnHBlankInterrupt = HBlankInterrupt;
 }
 
@@ -90,21 +112,53 @@ void loop()
 	//
 	gameObjectManager.Update();
 
-	if( cameraScroll < worldWidth - 96 )
+	if( doCameraScroll )
 	{
-		cameraScroll += cameraScrollSpeed;
-		if( cameraScroll > worldWidth - 96 )
+		int scrollMax = worldWidth-96;
+		if( mapScroll < scrollMax )
 		{
-			cameraScroll = worldWidth-96;
+			cameraScroll += cameraScrollSpeed;
+			while( cameraScroll >= 1 )
+			{
+				cameraScroll -= 1;
+				
+				playerX += 1;
+				mapScroll++;
+				
+				if( mapScroll > scrollMax )
+				{
+					cameraScroll = scrollMax;
+					doCameraScroll = false;
+				}
+			}
 		}
 	}
 
 	//
 	//
 	//
-	int camx = cameraScroll.GetInteger();
+	int camx = mapScroll;
 	mainCamera.SetWorldPosition( camx, 0 );
 	background->SetPosition( camx, 0 );
+	
+	//
+	int ix = padGetX();
+	if( ix != 0 )
+	{
+		FixedPoint x = ix;
+		x *= playerSpeed;
+		playerX += x;
+	}
+
+	int iy = padGetY();
+	if( iy != 0 )
+	{
+		FixedPoint y = iy;
+		y *= playerSpeed;
+		playerY += y;
+	}
+	
+	player->SetWorldPosition( playerX.GetInteger(), playerY.GetInteger());
 	
 	//
 	// Tell all game objects that it is time to be rendered
