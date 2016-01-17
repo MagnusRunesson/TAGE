@@ -147,10 +147,16 @@ void SpriteRenderer::NextScanline( bool _debugPrint )
 				*removeList = *(removeList+1);
 				removeList++;
 			}
+		} else
+		{
+			// If we added a sprite to the render list we also remove that sprite from the list of
+			// potential sprites. And if we've removed a sprite from the list of potential sprites
+			// then we should not go to the next element in that list. So that is why we only go to
+			// the next element of the list when we have not removed an entry from the list.
+			potentialSpriteList++;
 		}
 		
 		// Next sprite in the potential sprite list
-		potentialSpriteList++;
 		sprite = *potentialSpriteList;
 	}
 	
