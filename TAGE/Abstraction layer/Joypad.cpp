@@ -52,3 +52,19 @@ sint8 padGetY()
 	
 	return ret;
 }
+
+uint8 padGetPressed()
+{
+	uint8 prev = (gkeys>>4) & 0x0f;
+	uint8 curr = (gkeys) & 0x0f;
+	uint8 ret = (prev ^ curr) & curr;
+	return ret;
+}
+
+uint8 padGetReleased()
+{
+	uint8 prev = (gkeys>>4) & 0x0f;
+	uint8 curr = (gkeys) & 0x0f;
+	uint8 ret = (prev ^ curr) & prev;
+	return ret;
+}

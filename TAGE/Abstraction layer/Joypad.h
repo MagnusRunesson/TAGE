@@ -28,5 +28,7 @@ uint8 padGet( sint8* _x, sint8* _y );
 uint8 padGetKeys();
 sint8 padGetX();
 sint8 padGetY();
+uint8 padGetPressed();
+uint8 padGetReleased();
 
 #endif /* Joypad_hpp */
