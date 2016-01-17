@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250DA1AE1C4C363100C664DA /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250DA1AC1C4C363100C664DA /* Timer.cpp */; settings = {ASSET_TAGS = (); }; };
 		258667571C42C47B00081A25 /* TinyRaceCar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667541C42C47B00081A25 /* TinyRaceCar.cpp */; settings = {ASSET_TAGS = (); }; };
 		258667581C42C47B00081A25 /* TinyRacer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258667561C42C47B00081A25 /* TinyRacer.cpp */; settings = {ASSET_TAGS = (); }; };
 		2586677E1C42C48D00081A25 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2586675A1C42C48D00081A25 /* test.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -60,6 +61,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		250DA1AC1C4C363100C664DA /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Timer.cpp; path = "../../TAGE/Abstraction layer/Timer.cpp"; sourceTree = "<group>"; };
+		250DA1AD1C4C363100C664DA /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Timer.h; path = "../../TAGE/Abstraction layer/Timer.h"; sourceTree = "<group>"; };
+		250DA1B01C4C364400C664DA /* Arduino.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Arduino.h; sourceTree = "<group>"; };
+		250DA1B21C4C364400C664DA /* pgmspace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pgmspace.h; sourceTree = "<group>"; };
+		250DA1B31C4C364400C664DA /* pins_arduino.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pins_arduino.h; sourceTree = "<group>"; };
+		250DA1B41C4C364400C664DA /* SPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPI.h; sourceTree = "<group>"; };
+		250DA1B51C4C364400C664DA /* Wire.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wire.h; sourceTree = "<group>"; };
+		250DA1B61C4C364400C664DA /* wiring_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wiring_private.h; sourceTree = "<group>"; };
 		258667541C42C47B00081A25 /* TinyRaceCar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TinyRaceCar.cpp; sourceTree = SOURCE_ROOT; };
 		258667551C42C47B00081A25 /* TinyRaceCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinyRaceCar.h; sourceTree = SOURCE_ROOT; };
 		258667561C42C47B00081A25 /* TinyRacer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TinyRacer.cpp; sourceTree = SOURCE_ROOT; };
@@ -151,6 +160,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		250DA1AF1C4C364400C664DA /* Arduino */ = {
+			isa = PBXGroup;
+			children = (
+				250DA1B01C4C364400C664DA /* Arduino.h */,
+				250DA1B11C4C364400C664DA /* avr */,
+				250DA1B31C4C364400C664DA /* pins_arduino.h */,
+				250DA1B41C4C364400C664DA /* SPI.h */,
+				250DA1B51C4C364400C664DA /* Wire.h */,
+				250DA1B61C4C364400C664DA /* wiring_private.h */,
+			);
+			name = Arduino;
+			path = "../../TAGE/Abstraction layer/Arduino";
+			sourceTree = "<group>";
+		};
+		250DA1B11C4C364400C664DA /* avr */ = {
+			isa = PBXGroup;
+			children = (
+				250DA1B21C4C364400C664DA /* pgmspace.h */,
+			);
+			path = avr;
+			sourceTree = "<group>";
+		};
 		2549CDDD1C10476A009E8088 /* MacOSX */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +276,9 @@
 		2549CDEE1C104A84009E8088 /* Abstraction layer */ = {
 			isa = PBXGroup;
 			children = (
+				250DA1AF1C4C364400C664DA /* Arduino */,
+				250DA1AC1C4C363100C664DA /* Timer.cpp */,
+				250DA1AD1C4C363100C664DA /* Timer.h */,
 				258667BC1C42C4B000081A25 /* Joypad.cpp */,
 				258667BD1C42C4B000081A25 /* Joypad.h */,
 			);
@@ -279,7 +313,6 @@
 				258667551C42C47B00081A25 /* TinyRaceCar.h */,
 				258667561C42C47B00081A25 /* TinyRacer.cpp */,
 			);
-			name = TinyRacer;
 			path = TinyRacer;
 			sourceTree = "<group>";
 		};
@@ -350,6 +383,7 @@
 				258667AF1C42C4A000081A25 /* Camera.cpp in Sources */,
 				258667BA1C42C4A000081A25 /* TileBank.cpp in Sources */,
 				258667821C42C48D00081A25 /* testcarbig.cpp in Sources */,
+				250DA1AE1C4C363100C664DA /* Timer.cpp in Sources */,
 				2586678C1C42C48D00081A25 /* tinyracecar_70.cpp in Sources */,
 				258667801C42C48D00081A25 /* test3.cpp in Sources */,
 				258667B51C42C4A000081A25 /* GameObjectTemplate.cpp in Sources */,
