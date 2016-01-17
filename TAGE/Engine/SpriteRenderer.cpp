@@ -116,15 +116,14 @@ void SpriteRenderer::NextScanline( bool _debugPrint )
 				*removeList = *(removeList+1);
 				removeList++;
 			}
-			
-			// Pick the next sprite
-			sprite = *renderSpriteList;
 		} else
 		{
 			// Next sprite in list
 			renderSpriteList++;
-			sprite = *renderSpriteList;
 		}
+		
+		// Pick the next sprite
+		sprite = *renderSpriteList;
 	}
 
 	//
