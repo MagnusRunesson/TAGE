@@ -21,6 +21,10 @@
 // Project specifics
 #include "alldata.h"
 
+#define NUM_PLAYER_BULLETS (10)
+
+#define FIRE_RATE_DELAY (5)
+
 //
 Camera mainCamera;
 TileRenderer* background;
@@ -28,6 +32,9 @@ int mapScroll;
 FixedPoint cameraScroll;
 FixedPoint cameraScrollSpeed;
 GameObject* player;
+GameObject* playerBullets[ NUM_PLAYER_BULLETS ];
+int nextPlayerBullet;
+int playerFireRateTimer;
 FixedPoint playerX;
 FixedPoint playerY;
 FixedPoint playerSpeed;
@@ -92,6 +99,16 @@ void setup()
 	playerX = 10;
 	playerY = 29;
 	playerSpeed = FixedPoint( 0, 50 );
+	
+	//
+	int i;
+	for( i=0; i<NUM_PLAYER_BULLETS; i++ )
+	{
+		playerBullets[ i ] = gameObjectManager.CreateGameObject( &sprite_pb_01 );
+		playerBullets[ i ]->SetWorldPosition( 0, -1 );
+	}
+
+	nextPlayerBullet = 0;
 	
 	doCameraScroll = true;
 	
@@ -159,6 +176,46 @@ void loop()
 	}
 	
 	player->SetWorldPosition( playerX.GetInteger(), playerY.GetInteger());
+
+	if( playerFireRateTimer > 0 )
+	{
+		playerFireRateTimer--;
+	} else
+	{
+		if( padGetKeys() & PAD_KEYMASK_PRIMARY )
+		{
+			// Prevent shooting too often
+			playerFireRateTimer = FIRE_RATE_DELAY;
+			
+			// Spawn bullet somewhere around the player
+			int x = player->GetWorldPositionX()+7;
+			int y = player->GetWorldPositionY()+4;
+			playerBullets[ nextPlayerBullet ]->SetWorldPosition( x, y );
+			
+			// Go to next bullet instance in a ring buffer of bullets
+			nextPlayerBullet++;
+			if( nextPlayerBullet >= NUM_PLAYER_BULLETS )
+				nextPlayerBullet = 0;
+		}
+	}
+	
+	int i;
+	for( i=0; i<NUM_PLAYER_BULLETS; i++ )
+	{
+		GameObject* bullet = playerBullets[ i ];
+		if( bullet->GetWorldPositionY() >= 0 )
+		{
+			int x = bullet->GetWorldPositionX()+2;
+			if( x >= mapScroll+99 )
+			{
+				bullet->SetWorldPosition( 0, -1 );
+			}
+			else
+			{
+				bullet->SetWorldPosition( x, bullet->GetWorldPositionY());
+			}
+		}
+	}
 	
 	//
 	// Tell all game objects that it is time to be rendered
