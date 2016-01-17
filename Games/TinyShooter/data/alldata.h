@@ -10,6 +10,7 @@
 #define alldata_h
 
 #include "sprite_player.h"
+#include "sprite_pb_01.h"
 
 #include "tilemap_spacebase.h"
 

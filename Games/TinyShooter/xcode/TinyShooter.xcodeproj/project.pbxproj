@@ -30,6 +30,7 @@
 		250DA1971C4A813500C664DA /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250DA1961C4A813500C664DA /* SDL2.framework */; settings = {ASSET_TAGS = (); }; };
 		250DA1991C4A81D600C664DA /* TinyShooter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250DA1981C4A81D600C664DA /* TinyShooter.cpp */; settings = {ASSET_TAGS = (); }; };
 		250DA19C1C4A852200C664DA /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250DA19A1C4A852200C664DA /* Timer.cpp */; settings = {ASSET_TAGS = (); }; };
+		250DA1AB1C4BC19C00C664DA /* sprite_pb_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250DA1A91C4BC19C00C664DA /* sprite_pb_01.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -97,6 +98,8 @@
 		250DA1A61C4A883100C664DA /* SPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SPI.h; path = "../../../TAGE/Abstraction layer/Arduino/SPI.h"; sourceTree = "<group>"; };
 		250DA1A71C4A883100C664DA /* Wire.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Wire.h; path = "../../../TAGE/Abstraction layer/Arduino/Wire.h"; sourceTree = "<group>"; };
 		250DA1A81C4A883100C664DA /* wiring_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = wiring_private.h; path = "../../../TAGE/Abstraction layer/Arduino/wiring_private.h"; sourceTree = "<group>"; };
+		250DA1A91C4BC19C00C664DA /* sprite_pb_01.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_pb_01.cpp; path = ../data/sprite_pb_01.cpp; sourceTree = "<group>"; };
+		250DA1AA1C4BC19C00C664DA /* sprite_pb_01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_pb_01.h; path = ../data/sprite_pb_01.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +205,8 @@
 		250DA18B1C4A7FFF00C664DA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				250DA1A91C4BC19C00C664DA /* sprite_pb_01.cpp */,
+				250DA1AA1C4BC19C00C664DA /* sprite_pb_01.h */,
 				250DA18C1C4A805100C664DA /* sprite_player.cpp */,
 				250DA18D1C4A805100C664DA /* sprite_player.h */,
 				250DA18E1C4A805100C664DA /* tilebank_spacebase.cpp */,
@@ -295,6 +300,7 @@
 				250DA1781C4A7FC400C664DA /* fpmath.cpp in Sources */,
 				250DA17B1C4A7FC400C664DA /* GameObjectTemplate.cpp in Sources */,
 				250DA1811C4A7FC400C664DA /* TileBank.cpp in Sources */,
+				250DA1AB1C4BC19C00C664DA /* sprite_pb_01.cpp in Sources */,
 				250DA1741C4A7FC400C664DA /* BitHelpers.cpp in Sources */,
 				250DA17D1C4A7FC400C664DA /* TileRenderer.cpp in Sources */,
 				250DA17C1C4A7FC400C664DA /* Image.cpp in Sources */,
