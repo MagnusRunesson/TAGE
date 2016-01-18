@@ -255,20 +255,31 @@ void loop()
 	{
 		// Clear line buffer
 		int x;
-		for( x=0; x<SCREEN_WIDTH; x++ )
-			lineBuffer[ x ] = 0;
+		//for( x=0; x<SCREEN_WIDTH; x++ )
+		//	lineBuffer[ x ] = 0;
 
 		if( pfnHBlankInterrupt != NULL )
 			pfnHBlankInterrupt( iScanline );
 		
-		background->BeginScanLine();
-		spriteRenderer.BeginScanLine();
-		
 		// Render sprites to line buffer
-		background->RenderScanline( lineBuffer );
-		spriteRenderer.RenderScanline( lineBuffer );
+		//background->RenderScanline( lineBuffer );
+		//spriteRenderer.RenderScanline( lineBuffer );
 
+		Sprite* renderedSpriteApa;
 		// Copy to screen
+		for( x=0; x<SCREEN_WIDTH; x++ )
+		{
+			uint16 rgb = 0;
+			bool renderedBackground = background->RenderPixel( x, &rgb );
+			bool renderedSprite = spriteRenderer.RenderPixel( x, &rgb, &renderedSpriteApa );
+			if( renderedBackground && renderedSprite )
+			{
+				//printf("collision!\n");
+			}
+			lineBuffer[ x ] = rgb;
+		}
+
+		// Copy from line buffer to "hardware" screen
 		for( x=0; x<SCREEN_WIDTH; x++ )
 			*screen++ = lineBuffer[ x ];
 
