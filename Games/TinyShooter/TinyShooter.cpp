@@ -261,6 +261,9 @@ void loop()
 		if( pfnHBlankInterrupt != NULL )
 			pfnHBlankInterrupt( iScanline );
 		
+		background->BeginScanLine();
+		spriteRenderer.BeginScanLine();
+		
 		// Render sprites to line buffer
 		background->RenderScanline( lineBuffer );
 		spriteRenderer.RenderScanline( lineBuffer );
