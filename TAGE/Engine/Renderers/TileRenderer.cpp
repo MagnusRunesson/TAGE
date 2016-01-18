@@ -6,6 +6,7 @@
 //  Copyright © 2016 Magnus Runesson. All rights reserved.
 //
 
+#include <stdlib.h>
 #include "TileRenderer.h"
 #include "Screen.h"
 
@@ -80,9 +81,12 @@ bool TileRenderer::RenderPixel( int _x, uint16* _pOutPixel )
 	
 	int tileReadOfs = (iTile * m_pTileBank->TileWidth * m_pTileBank->TileHeight) + (pixelY*m_pTileBank->TileWidth) + pixelX;
 	
-	uint8 a = m_pTileBank->Alpha[ tileReadOfs ];
-	if( a == 0 )
-		return false;
+	if( m_pTileBank->Alpha != NULL )
+	{
+		uint8 a = m_pTileBank->Alpha[ tileReadOfs ];
+		if(	a == 0 )
+			return false;
+	}
 	
 	uint16 rgb = m_pTileBank->Pixels[ tileReadOfs ];
 	*_pOutPixel = rgb;
