@@ -51,35 +51,52 @@ void TileRenderer::NextScanline( bool _debugPrint )
 	}
 }
 
+bool TileRenderer::RenderPixel( int _x, uint16* _pOutPixel )
+{
+	int tileX = (m_x+_x) / m_pTileBank->TileWidth;
+	int pixelX = (m_x+_x) % m_pTileBank->TileWidth;
+	
+	int tileMapIndex = (m_tileY * m_pTileMap->Width) + tileX;
+	
+	int iTile = m_pTileMap->Tiles[ tileMapIndex ];
+	bool flipX =(iTile&0x8000) == 0x8000;
+	bool flipY =(iTile&0x4000) == 0x4000;
+	bool flipD = (iTile&0x2000) == 0x2000;
+	iTile &= 0x1fff;
+	
+	// Don't render tile with index 0, for perf
+	if( iTile == 0 )
+		return false;
+	
+	int pixelY = m_pixelY;
+	if( flipX ) pixelX = m_pTileBank->TileWidth - pixelX - 1;
+	if( flipY ) pixelY = m_pTileBank->TileHeight - pixelY - 1;
+	if( flipD )
+	{
+		int t = pixelX;
+		pixelX = pixelY;
+		pixelY = t;
+	}
+	
+	int tileReadOfs = (iTile * m_pTileBank->TileWidth * m_pTileBank->TileHeight) + (pixelY*m_pTileBank->TileWidth) + pixelX;
+	
+	uint8 a = m_pTileBank->Alpha[ tileReadOfs ];
+	if( a == 0 )
+		return false;
+	
+	uint16 rgb = m_pTileBank->Pixels[ tileReadOfs ];
+	*_pOutPixel = rgb;
+	
+	return true;
+}
+
 void TileRenderer::RenderScanline( uint16* _targetBuffer )
 {
-	
+	uint16 rgb;
 	int x;
 	for( x=0; x<SCREEN_WIDTH; x++ )
 	{
-		int tileX = (m_x+x) / m_pTileBank->TileWidth;
-		int pixelX = (m_x+x) % m_pTileBank->TileWidth;
-
-		int tileMapIndex = (m_tileY * m_pTileMap->Width) + tileX;
-		
-		int iTile = m_pTileMap->Tiles[ tileMapIndex ];
-		bool flipX =(iTile&0x8000) == 0x8000;
-		bool flipY =(iTile&0x4000) == 0x4000;
-		bool flipD = (iTile&0x2000) == 0x2000;
-		iTile &= 0x1fff;
-
-		int pixelY = m_pixelY;
-		if( flipX ) pixelX = m_pTileBank->TileWidth - pixelX - 1;
-		if( flipY ) pixelY = m_pTileBank->TileHeight - pixelY - 1;
-		if( flipD )
-		{
-			int t = pixelX;
-			pixelX = pixelY;
-			pixelY = t;
-		}
-		
-		int tileReadOfs = (iTile * m_pTileBank->TileWidth * m_pTileBank->TileHeight) + (pixelY*m_pTileBank->TileWidth) + pixelX;
-		uint16 rgb = m_pTileBank->Pixels[ tileReadOfs ];
-		_targetBuffer[ x ] = rgb;
+		if( RenderPixel( x, &rgb ))
+			_targetBuffer[ x ] = rgb;
 	}
 }

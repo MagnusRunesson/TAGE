@@ -35,6 +35,7 @@ public:
 	//
 	void FrameStart();
 	void NextScanline( bool _debugPrint = false );
+	bool RenderPixel( int _x, uint16* _pOutPixel );
 	void RenderScanline( uint16* _targetBuffer );
 };
 
