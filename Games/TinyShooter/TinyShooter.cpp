@@ -23,7 +23,7 @@
 
 #define NUM_PLAYER_BULLETS (10)
 
-#define FIRE_RATE_DELAY (5)
+#define FIRE_RATE_DELAY (10)
 
 //
 Camera mainCamera;
