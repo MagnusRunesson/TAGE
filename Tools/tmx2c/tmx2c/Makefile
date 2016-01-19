@@ -14,7 +14,7 @@ OBJS=$(CFILES:.cpp=.o)
 all: build
 
 install: build
-	sudo cp tmx2c /usr/bin
+	sudo cp tmx2c /usr/local/bin
 
 build: main.o tinyxml2.o
 	$(LD) $(LDFLAGS) -o tmx2c $(LIBS) $^
