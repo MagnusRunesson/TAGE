@@ -88,7 +88,7 @@ const char* GetTileBankName( const XMLElement* _pElement )
 
 unsigned short* ParseLayerCSV( const char* _pszLayerCSV )
 {
-	printf("ParseLayerCSV data: %s\n", _pszLayerCSV );
+	//printf("ParseLayerCSV data: %s\n", _pszLayerCSV );
 
 	vector<int> retVector;
 
@@ -99,7 +99,7 @@ unsigned short* ParseLayerCSV( const char* _pszLayerCSV )
 	
 	while (ss >> i)
 	{
-		printf("i=%i\n", i );
+		//printf("i=%i\n", i );
 		retVector.push_back(i);
 		
 		if((ss.peek() == ',') || (ss.peek() == 0x0a))
@@ -123,7 +123,7 @@ unsigned short* ParseLayerCSV( const char* _pszLayerCSV )
 		if( flipX ) w |= 0x8000;
 		if( flipY ) w |= 0x4000;
 		if( flipD ) w |= 0x2000;
-		printf( "tile %i=0x%04x\n", i, w );
+		//printf( "tile %i=0x%04x\n", i, w );
 		pret[ i ] = w;
 	}
 	
