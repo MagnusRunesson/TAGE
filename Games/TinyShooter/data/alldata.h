@@ -13,6 +13,7 @@
 #include "sprite_pb_01.h"
 
 #include "tilemap_spacebase.h"
+#include "tilemap_spacebase_background.h"
 
 #include "tilebank_spacebase.h"
 
