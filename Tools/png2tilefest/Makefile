@@ -10,10 +10,10 @@ CFILES=png2tilefest.cpp
 
 OBJS=$(CFILES:.cpp=.o)
 
-all: build
+all: build install
 
 install: build
-	sudo cp png2tilefest /usr/bin
+	sudo cp png2tilefest /usr/local/bin
 	
 build: $(OBJS)
 	$(LD) $(LDFLAGS) -o png2tilefest $(LIBS) $^
