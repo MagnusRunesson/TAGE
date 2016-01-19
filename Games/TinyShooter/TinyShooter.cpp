@@ -28,6 +28,7 @@
 //
 Camera mainCamera;
 TileRenderer* background;
+TileRenderer* playfield;
 int mapScroll;
 FixedPoint cameraScroll;
 FixedPoint cameraScrollSpeed;
@@ -75,7 +76,8 @@ void setup()
 	debugSpriteRenderer = false;
 
 	worldWidth = tilemap_spacebase.Width * tilebank_spacebase.TileWidth;
-	background = new TileRenderer( &tilemap_spacebase, &tilebank_spacebase );
+	playfield = new TileRenderer( &tilemap_spacebase, &tilebank_spacebase );
+	background = new TileRenderer( &tilemap_spacebase_background, &tilebank_spacebase );
 	
 	//
 	// Scrolling a 10 screen wide level (10 screens in total, scrolling 9 screens at 864 pixels) at FixedPoint( 0, 5 ) takes about 300 seconds (5 minutes)
@@ -156,7 +158,8 @@ void loop()
 	//
 	int camx = mapScroll;
 	mainCamera.SetWorldPosition( camx, 0 );
-	background->SetPosition( camx, 0 );
+	playfield->SetPosition( camx, 0 );
+	background->SetPosition( camx>>1, 0 );
 	
 	//
 	int ix = padGetX();
@@ -232,6 +235,7 @@ void loop()
 
 	spriteRenderer.FrameStart();
 	background->FrameStart();
+	playfield->FrameStart();
 
 
 	// Set this to the number of pixel rows in screen space that should be mirrored to enable the mirror effect
@@ -270,7 +274,8 @@ void loop()
 		for( x=0; x<SCREEN_WIDTH; x++ )
 		{
 			uint16 rgb = 0;
-			bool renderedBackground = background->RenderPixel( x, &rgb );
+			background->RenderPixel( x, &rgb );
+			bool renderedBackground = playfield->RenderPixel( x, &rgb );
 			bool renderedSprite = spriteRenderer.RenderPixel( x, &rgb, &renderedSpriteApa );
 			if( renderedBackground && renderedSprite )
 			{
@@ -303,6 +308,7 @@ void loop()
 		}
 
 		spriteRenderer.NextScanline( debugSpriteRenderer );
+		playfield->NextScanline();
 		background->NextScanline();
 		
 		iScanline++;
