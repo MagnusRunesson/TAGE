@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "Image.h"
 #include "SpriteRenderer.h"
+#include "Animation.h"
 
 class GameObject
 {
@@ -21,6 +22,7 @@ class GameObject
 public:
 	GameObject();
 	void Create( Image* _image );
+	void Create( AnimationSequenceDefinition* _animation );
 	void Destroy();
 	
 	void Update();
@@ -32,7 +34,9 @@ public:
 	int GetWorldPositionX();
 	int GetWorldPositionY();
 	
+	bool IsUsed();
 	Sprite* GetSprite();
+	AnimationSequenceDefinition* GetAnimationSequenceDefinition();
 
 	void* m_customObject;
 	void(*m_customUpdate)(void*);
@@ -54,6 +58,10 @@ protected:
 	Sprite* m_sprite;
 	int m_imageHotspotX;
 	int m_imageHotspotY;
+	
+	//
+	Animation m_animation;
+	AnimationSequenceDefinition* m_animationSequenceDefinition;
 	
 	//
 	bool m_drawAlpha;

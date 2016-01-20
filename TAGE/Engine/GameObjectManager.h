@@ -12,12 +12,15 @@
 #include "Types.h"
 #include "GameObject.h"
 
+class Animation;
+
 #define MAX_GAMEOBJECTS (64)
 
 class GameObjectManager
 {
 public:
 	GameObject* CreateGameObject( Image* _image );
+	GameObject* CreateGameObject( AnimationSequenceDefinition* _animationSequenceDefinition );
 	void FreeGameObject( GameObject* _gameObjectInstance );
 	
 	void Update();

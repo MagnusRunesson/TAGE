@@ -17,9 +17,26 @@ GameObject* GameObjectManager::CreateGameObject( Image* _image )
 	for( i=0; i<MAX_GAMEOBJECTS; i++ )
 	{
 		GameObject* gameObject = &m_gameObjects[ i ];
-		if( gameObject->GetSprite() == NULL )
+		if( gameObject->IsUsed() == false )
 		{
 			gameObject->Create( _image );
+			return gameObject;
+		}
+	}
+	
+	printf( "No free game objects!\n" );
+	return NULL;
+}
+
+GameObject* GameObjectManager::CreateGameObject( AnimationSequenceDefinition* _animationSequenceDefinition )
+{
+	int i;
+	for( i=0; i<MAX_GAMEOBJECTS; i++ )
+	{
+		GameObject* gameObject = &m_gameObjects[ i ];
+		if( gameObject->IsUsed() == false )
+		{
+			gameObject->Create( _animationSequenceDefinition );
 			return gameObject;
 		}
 	}

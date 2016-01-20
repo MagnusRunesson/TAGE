@@ -16,6 +16,7 @@ GameObject::GameObject()
 	m_customPreRender = NULL;
 	m_customPostRender = NULL;
 	m_customObject = NULL;
+	m_animation.pSequence = NULL;
 }
 
 void GameObject::Create( Image* _image )
@@ -32,6 +33,13 @@ void GameObject::Create( Image* _image )
 	m_imageHotspotY = 0;
 }
 
+void GameObject::Create( AnimationSequenceDefinition* _animation )
+{
+	m_animationSequenceDefinition = _animation;
+	m_animation.Create( _animation, this );
+	Create( _animation->Frames[ 0 ].sourceImage );
+}
+
 void GameObject::Destroy()
 {
 	spriteRenderer.FreeSprite( m_sprite );
@@ -42,6 +50,9 @@ void GameObject::Update()
 {
 	if( m_customUpdate != NULL )
 		m_customUpdate( m_customObject );
+	
+	if( m_animation.pSequence != NULL )
+		m_animation.Update();
 }
 
 void GameObject::Render()
@@ -79,7 +90,17 @@ int GameObject::GetWorldPositionY()
 	return m_worldPositionY;
 }
 
+bool GameObject::IsUsed()
+{
+	return !((m_sprite==NULL) && (m_animation.pSequence==NULL));
+}
+
 Sprite* GameObject::GetSprite()
 {
 	return m_sprite;
+}
+
+AnimationSequenceDefinition* GameObject::GetAnimationSequenceDefinition()
+{
+	return m_animationSequenceDefinition;
 }
