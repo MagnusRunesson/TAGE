@@ -3,7 +3,7 @@ CONV_SPRITE=png2c
 CONV_BANK=png2tilefest
 
 MAP_FILES=tilemap_spacebase.tmx tilemap_spacebase_background.tmx
-SPRITE_FILES=sprite_player.png sprite_pb_01.png sprite_spacebase_boss_door.png
+SPRITE_FILES=sprite_player.png sprite_pb_01.png sprite_spacebase_boss_door.png sprite_pickup_00.png sprite_pickup_01.png sprite_pickup_02.png sprite_pickup_03.png
 BANK_FILES=tilebank_spacebase.png
 
 CONVERTED_MAP_FILES=$(MAP_FILES:.tmx=.cpp)

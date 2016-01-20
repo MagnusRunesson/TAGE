@@ -11,6 +11,10 @@
 
 #include "sprite_player.h"
 #include "sprite_pb_01.h"
+#include "sprite_pickup_00.h"
+#include "sprite_pickup_01.h"
+#include "sprite_pickup_02.h"
+#include "sprite_pickup_03.h"
 
 #include "tilemap_spacebase.h"
 #include "tilemap_spacebase_background.h"

@@ -17,6 +17,7 @@
 #include "Camera.h"
 #include "GameObjectManager.h"
 #include "TileRenderer.h"
+#include "Animation.h"
 
 // Project specifics
 #include "alldata.h"
@@ -29,6 +30,44 @@
 #define GO_FLAGS_PLAYERBULLET (2)
 #define GO_FLAGS_EXPLOSION (3)
 
+AnimationFrameDefinition testanim_frames[] =
+{
+	{
+		&sprite_pickup_00,
+		65,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_pickup_01,
+		5,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_pickup_02,
+		5,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_pickup_03,
+		5,
+		0,
+		0,
+		0,
+	},
+};
+
+AnimationSequenceDefinition testanim =
+{
+	4,
+	testanim_frames,
+};
+
 //
 Camera mainCamera;
 TileRenderer* background;
@@ -38,6 +77,8 @@ FixedPoint cameraScroll;
 FixedPoint cameraScrollSpeed;
 GameObject* player;
 GameObject* playerBullets[ NUM_PLAYER_BULLETS ];
+GameObject* testanimGO;
+
 int nextPlayerBullet;
 int playerFireRateTimer;
 FixedPoint playerX;
@@ -111,6 +152,9 @@ void setup()
 	player->m_flags = GO_FLAGS_PLAYERSHIP;
 	ResetPlayer();
 	playerSpeed = FixedPoint( 0, 50 );
+	
+	testanimGO = gameObjectManager.CreateGameObject( &testanim );
+	testanimGO->SetWorldPosition( 40, 20 );
 	
 	//
 	int i;
