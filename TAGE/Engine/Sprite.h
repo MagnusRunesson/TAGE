@@ -24,12 +24,15 @@
 #define SPRITE_FLAG_FLIP_X			(1<<3)
 #define SPRITE_FLAG_FLIP_Y			(1<<4)
 
+class GameObject;
+
 class Sprite
 {
 public:
 	sint16 x;
 	sint16 y;
-	uint16 flags;
+	uint8 flags;
+	uint8 collision;
 	
 	sint16 boundsLeft;
 	sint16 boundsRight;
@@ -37,6 +40,7 @@ public:
 	sint16 boundsBottom;
 	
 	Image* image;
+	GameObject* owner;
 	
 	Sprite();
 	

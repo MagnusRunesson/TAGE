@@ -23,9 +23,11 @@ void GameObject::Create( Image* _image )
 	//
 	m_worldPositionX = 0;
 	m_worldPositionY = 0;
+	m_flags = 0;
 	
 	//
 	m_sprite = spriteRenderer.AllocateSprite( _image );
+	m_sprite->owner = this;
 	m_imageHotspotX = 0;
 	m_imageHotspotY = 0;
 }

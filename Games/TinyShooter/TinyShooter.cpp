@@ -25,6 +25,10 @@
 
 #define FIRE_RATE_DELAY (10)
 
+#define GO_FLAGS_PLAYERSHIP (1)
+#define GO_FLAGS_PLAYERBULLET (2)
+#define GO_FLAGS_EXPLOSION (3)
+
 //
 Camera mainCamera;
 TileRenderer* background;
@@ -71,6 +75,12 @@ void HBlankInterrupt( int _scanline )
 	//printf( "Scanline=%i\n", _scanline );
 }
 
+void ResetPlayer()
+{
+	playerX = mapScroll+10;
+	playerY = 29;
+}
+
 void setup()
 {
 	debugSpriteRenderer = false;
@@ -98,16 +108,18 @@ void setup()
 
 	// Create player game object
 	player = gameObjectManager.CreateGameObject( &sprite_player );
-	playerX = 10;
-	playerY = 29;
+	player->m_flags = GO_FLAGS_PLAYERSHIP;
+	ResetPlayer();
 	playerSpeed = FixedPoint( 0, 50 );
 	
 	//
 	int i;
 	for( i=0; i<NUM_PLAYER_BULLETS; i++ )
 	{
-		playerBullets[ i ] = gameObjectManager.CreateGameObject( &sprite_pb_01 );
-		playerBullets[ i ]->SetWorldPosition( 0, -1 );
+		GameObject* pb = gameObjectManager.CreateGameObject( &sprite_pb_01 );
+		pb->SetWorldPosition( 0, -1 );
+		pb->m_flags = GO_FLAGS_PLAYERBULLET;
+		playerBullets[ i ] = pb;
 	}
 
 	nextPlayerBullet = 0;
@@ -279,7 +291,20 @@ void loop()
 			bool renderedSprite = spriteRenderer.RenderPixel( x, &rgb, &renderedSpriteApa );
 			if( renderedBackground && renderedSprite )
 			{
-				//printf("collision!\n");
+				GameObject* go = renderedSpriteApa->owner;
+				int flags = go->m_flags;
+				switch( flags )
+				{
+					case GO_FLAGS_PLAYERSHIP:
+						ResetPlayer();
+						break;
+						
+					case GO_FLAGS_PLAYERBULLET:
+						go->SetWorldPosition( 0, -1 );
+						break;
+				}
+				//printf("collision with %i!\n", renderedSpriteApa->owner->m_flags );
+				
 			}
 			lineBuffer[ x ] = rgb;
 		}

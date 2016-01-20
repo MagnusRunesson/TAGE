@@ -39,6 +39,8 @@ public:
 	void(*m_customPreRender)(void*);
 	void(*m_customPostRender)(void*);
 	
+	int m_flags;
+	
 	//
 	//
 	//

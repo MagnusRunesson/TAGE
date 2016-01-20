@@ -39,6 +39,7 @@ void SpriteRenderer::FreeSprite( Sprite* _spriteInstance )
 {
 	//printf("freeing sprite from image %s\n", _spriteInstance->image->DEBUG_name );
 	_spriteInstance->image = NULL;
+	_spriteInstance->owner = NULL;
 }
 
 void SpriteRenderer::Draw()
