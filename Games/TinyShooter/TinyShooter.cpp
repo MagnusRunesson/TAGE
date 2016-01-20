@@ -154,7 +154,7 @@ void setup()
 	playerSpeed = FixedPoint( 0, 50 );
 	
 	testanimGO = gameObjectManager.CreateGameObject( &testanim );
-	testanimGO->SetWorldPosition( 40, 20 );
+	testanimGO->SetWorldPosition( 80, 20 );
 	
 	//
 	int i;
