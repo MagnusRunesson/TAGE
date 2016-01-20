@@ -207,7 +207,10 @@ bool SpriteRenderer::RenderPixel( int _x, uint16* _pOutPixel, Sprite** _ppOutRen
 			int ofsy = m_currentScanline - sprite->y;
 			int ofs = sprite->GetOffset( ofsx, ofsy );
 			
-			uint8 alpha = sprite->image->alpha[ ofs ];
+			uint8 alpha = 255;
+			if( sprite->image->alpha != NULL )
+				alpha = sprite->image->alpha[ ofs ];
+			
 			uint16 rgb = sprite->image->pixels[ ofs ];
 			if( alpha == 0 )
 			{
