@@ -117,6 +117,7 @@ void setup()
 	
 	testanimGO = gameObjectManager.CreateGameObject( &animation_pickup );
 	testanimGO->SetWorldPosition( 80, 20 );
+	testanimGO->GetAnimation()->Play();
 	
 	//
 	int i;
