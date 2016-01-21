@@ -47,6 +47,12 @@ void SpriteRenderer::FrameStart()
 	m_currentScanline = 0;
 	
 	int i;
+	for( i=0; i<MAX_SPRITES+1; i++ )
+	{
+		m_potentialSprites[ i ] = NULL;
+		m_scanlineSprites[ i ] = NULL;
+	}
+	
 	int iPot = 0;
 	int iCurr = 0;
 	for( i=0; i<MAX_SPRITES; i++ )
@@ -71,9 +77,11 @@ void SpriteRenderer::FrameStart()
 		}
 	}
 
+	/*
 	// NULL terminated lists
 	m_potentialSprites[ iPot ] = NULL;
 	m_scanlineSprites[ iCurr ] = NULL;
+	 */
 }
 
 void SpriteRenderer::NextScanline( bool _debugPrint )
