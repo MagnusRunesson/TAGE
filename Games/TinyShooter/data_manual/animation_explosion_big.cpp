@@ -60,6 +60,7 @@ extern "C" const AnimationSequenceDefinition animation_explosion_big;
 const AnimationSequenceDefinition animation_explosion_big =
 {
 	6,
+	false,
 	animation_explosion_big_frames,
 };
 

@@ -28,6 +28,7 @@ class AnimationSequenceDefinition
 {
 public:
 	int NumFrames;
+	bool Loop;
 	const AnimationFrameDefinition* Frames;
 };
 
@@ -36,11 +37,15 @@ class Animation
 public:
 	GameObject* pTarget;
 	const AnimationSequenceDefinition* pSequence;
+	bool IsPlaying;
 	int FrameIndex;
 	int FrameTime;
 
 	void Create( const AnimationSequenceDefinition* _pSequence, GameObject* _pTarget );
 	void Update();
+	void Reset();
+	void Play();
+	void Stop();
 };
 
 

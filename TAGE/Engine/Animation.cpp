@@ -15,19 +15,52 @@ void Animation::Create( const AnimationSequenceDefinition* _pSequence, GameObjec
 	pSequence = _pSequence;
 	FrameIndex = 0;
 	FrameTime = 0;
+	IsPlaying = false;
+}
+
+void Animation::Reset()
+{
+	FrameIndex = 0;
+	FrameTime = 0;
+}
+
+void Animation::Play()
+{
+	IsPlaying = true;
+}
+
+void Animation::Stop()
+{
+	IsPlaying = false;
 }
 
 void Animation::Update()
 {
-	FrameTime++;
-	int duration = pSequence->Frames[ FrameIndex ].Duration;
-	if( FrameTime >= duration )
+	if( IsPlaying )
 	{
-		FrameIndex++;
-		if( FrameIndex >= pSequence->NumFrames )
-			FrameIndex -= pSequence->NumFrames;
-		FrameTime -= duration;
-		
-		pTarget->GetSprite()->image = pSequence->Frames[ FrameIndex ].sourceImage;
+		FrameTime++;
+		int duration = pSequence->Frames[ FrameIndex ].Duration;
+		if( FrameTime >= duration )
+		{
+			FrameIndex++;
+			if( FrameIndex >= pSequence->NumFrames )
+			{
+				// The end of the sequence. What now?
+				if( pSequence->Loop )
+				{
+					// Loop the loop
+					FrameIndex -= pSequence->NumFrames;
+				} else
+				{
+					IsPlaying = false;
+				}
+			}
+			
+			if( IsPlaying )
+			{
+				FrameTime -= duration;
+				pTarget->GetSprite()->image = pSequence->Frames[ FrameIndex ].sourceImage;
+			}
+		}
 	}
 }
