@@ -351,9 +351,10 @@ void loop()
 	debugSpriteRenderer = false;
 
 	// Spin loop to wait. This is ... not ideal
-	uint32 endTime = micros();
-	uint32 dd = 16667 - (endTime-startTime);
-	delayMicroseconds( dd );
+	sint32 endTime = micros();
+	sint32 dd = 16667 - (endTime-startTime);
+	if( dd > 0 )
+		delayMicroseconds( dd );
 }
 
 void debugTrigger( int _trigger )
