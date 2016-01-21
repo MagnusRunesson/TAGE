@@ -37,6 +37,7 @@ public:
 	bool IsUsed();
 	Sprite* GetSprite();
 	const AnimationSequenceDefinition* GetAnimationSequenceDefinition();
+	Animation* GetAnimation();
 
 	void* m_customObject;
 	void(*m_customUpdate)(void*);

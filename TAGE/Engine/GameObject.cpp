@@ -104,3 +104,8 @@ const AnimationSequenceDefinition* GameObject::GetAnimationSequenceDefinition()
 {
 	return m_animationSequenceDefinition;
 }
+
+Animation* GameObject::GetAnimation()
+{
+	return &m_animation;
+}
