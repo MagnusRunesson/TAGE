@@ -23,9 +23,11 @@
 #include "alldata.h"
 
 #define NUM_PLAYER_BULLETS (10)
+#define NUM_EXPLOSIONS (10)
 
 #define FIRE_RATE_DELAY (10)
 
+#define GO_FLAGS_UNIMPORTANT (0)
 #define GO_FLAGS_PLAYERSHIP (1)
 #define GO_FLAGS_PLAYERBULLET (2)
 #define GO_FLAGS_EXPLOSION (3)
@@ -40,6 +42,9 @@ FixedPoint cameraScrollSpeed;
 GameObject* player;
 GameObject* playerBullets[ NUM_PLAYER_BULLETS ];
 GameObject* testanimGO;
+
+GameObject* explosions[ NUM_EXPLOSIONS ];
+int nextExplosion;
 
 int nextPlayerBullet;
 int playerFireRateTimer;
@@ -130,7 +135,21 @@ void setup()
 	}
 
 	nextPlayerBullet = 0;
+
+	//
+	//
+	//
+	for( i=0; i<NUM_EXPLOSIONS; i++ )
+	{
+		GameObject* pb = gameObjectManager.CreateGameObject( &animation_explosion_big );
+		pb->SetWorldPosition( 0, -10 );
+		pb->SetHotspot( 5, 4 );
+		pb->m_flags = GO_FLAGS_UNIMPORTANT;
+		explosions[ i ] = pb;
+	}
 	
+	nextExplosion = 0;
+
 	doCameraScroll = true;
 	
 	pfnHBlankInterrupt = HBlankInterrupt;
@@ -239,6 +258,15 @@ void loop()
 		}
 	}
 	
+	for( i=0; i<NUM_EXPLOSIONS; i++ )
+	{
+		GameObject* exp = explosions[ i ];
+		if( exp->GetAnimation()->IsPlaying == false )
+		{
+			exp->SetWorldPosition( 0, -10 );
+		}
+	}
+	
 	//
 	// Tell all game objects that it is time to be rendered
 	//
@@ -307,8 +335,20 @@ void loop()
 						break;
 						
 					case GO_FLAGS_PLAYERBULLET:
+					{
+						GameObject* exp = explosions[ nextExplosion ];
+						nextExplosion++;
+						if( nextExplosion >= NUM_EXPLOSIONS )
+							nextExplosion -= NUM_EXPLOSIONS;
+						
+						exp->SetWorldPosition( camx+x, iScanline );
+						exp->GetAnimation()->Reset();
+						exp->GetAnimation()->Play();
+
 						go->SetWorldPosition( 0, -1 );
-						break;
+					}
+						
+					break;
 				}
 				//printf("collision with %i!\n", renderedSpriteApa->owner->m_flags );
 				
