@@ -32,6 +32,10 @@ const int SCREEN_PIXELSIZE = 2;
 
 uint16* screenBuffer;
 
+void audioInit();
+void audioExit();
+
+
 /*
 const Uint16 COLORMASK_16_R = COLORWIDTH_16_R << COLORSHIFT_16_R;
 const Uint16 COLORMASK_16_G = COLORWIDTH_16_R << COLORSHIFT_16_G;
@@ -99,7 +103,32 @@ bool init()
 	
 	timerInit();
 	
+	audioInit();
+	
 	return true;
+}
+
+extern void Audio_Handler_SDL( void *udata, Uint8 *stream, int len );
+
+SDL_AudioDeviceID dev;
+
+void audioInit()
+{
+	SDL_AudioSpec want, have;
+	
+	SDL_memset(&want, 0, sizeof(want)); /* or SDL_zero(want) */
+	want.freq = 11025;
+	want.format = AUDIO_S8;
+	want.channels = 1;
+	want.samples = 4096;
+	want.callback = Audio_Handler_SDL;
+	
+	dev = SDL_OpenAudioDevice( NULL, 0, &want, &have, SDL_AUDIO_ALLOW_FORMAT_CHANGE );
+}
+
+void Audio_Handler_SDL( void *udata, Uint8 *stream, int len )
+{
+	
 }
 
 void exit()
