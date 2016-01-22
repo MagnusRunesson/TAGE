@@ -64,7 +64,7 @@ bool init()
 	
 	printf("init!\n");
 	
-	if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
+	if( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_AUDIO ) < 0 )
 	{
 		printf("Failed to init SDL. Error: %s\n", SDL_GetError());
 		success = false;
@@ -112,6 +112,8 @@ extern void Audio_Handler_SDL( void *udata, Uint8 *stream, int len );
 
 SDL_AudioDeviceID dev;
 
+extern "C" const unsigned char sfx_pew_s8b_pcm_11025hz[];
+
 void audioInit()
 {
 	SDL_AudioSpec want, have;
@@ -124,11 +126,28 @@ void audioInit()
 	want.callback = Audio_Handler_SDL;
 	
 	dev = SDL_OpenAudioDevice( NULL, 0, &want, &have, SDL_AUDIO_ALLOW_FORMAT_CHANGE );
+	
+	SDL_PauseAudioDevice( dev, 0 );
 }
 
 void Audio_Handler_SDL( void *udata, Uint8 *stream, int len )
 {
+	signed char* data = (signed char*)stream;
 	
+	int i;
+	for( i=0; i<len; i++ )
+	{
+		if( i < 1320 )
+			data[ i ] = sfx_pew_s8b_pcm_11025hz[ i ];
+		else
+			data[ i ] = 0;
+		/*
+		signed char d = i;
+		d /= 8;
+		
+		data[ i ] = d;
+		 */
+	}
 }
 
 void exit()
