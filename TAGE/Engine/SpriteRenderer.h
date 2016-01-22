@@ -27,6 +27,7 @@ public:
 	uint8 m_currentScanline;
 	
 	SpriteRenderer();
+	void Reboot();
 	
 	Sprite* AllocateSprite( const Image* _image );
 	void FreeSprite( Sprite* _spriteInstance );

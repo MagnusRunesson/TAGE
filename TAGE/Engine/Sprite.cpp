@@ -11,6 +11,11 @@
 
 Sprite::Sprite()
 {
+	Reboot();
+}
+
+void Sprite::Reboot()
+{
 	x = 127;
 	y = 127;
 	flags = 0;

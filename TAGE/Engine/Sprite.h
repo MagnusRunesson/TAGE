@@ -43,6 +43,7 @@ public:
 	GameObject* owner;
 	
 	Sprite();
+	void Reboot();
 	
 	//
 	void SetRotation( int _rotation );

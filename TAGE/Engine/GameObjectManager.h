@@ -19,6 +19,8 @@ class Animation;
 class GameObjectManager
 {
 public:
+	void Reboot();
+
 	GameObject* CreateGameObject( const Image* _image );
 	GameObject* CreateGameObject( const AnimationSequenceDefinition* _animationSequenceDefinition );
 	void FreeGameObject( GameObject* _gameObjectInstance );

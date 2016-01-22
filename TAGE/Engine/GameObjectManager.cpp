@@ -11,6 +11,18 @@
 
 GameObjectManager gameObjectManager;
 
+void GameObjectManager::Reboot()
+{
+	// Do a full reset of the game object manager. This means to throw out all known game objects, for example
+	
+	int i;
+	for( i=0; i<MAX_GAMEOBJECTS; i++ )
+	{
+		GameObject* gameObject = &m_gameObjects[ i ];
+		gameObject->Reboot();
+	}
+}
+
 GameObject* GameObjectManager::CreateGameObject( const Image* _image )
 {
 	int i;

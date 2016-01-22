@@ -13,7 +13,14 @@ SpriteRenderer spriteRenderer;
 
 SpriteRenderer::SpriteRenderer()
 {
-	
+	Reboot();
+}
+
+void SpriteRenderer::Reboot()
+{
+	int i = 0;
+	for( i=0; i<MAX_SPRITES; i++ )
+		m_sprite[ i ].Reboot();
 }
 
 Sprite* SpriteRenderer::AllocateSprite( const Image* _image )

@@ -11,6 +11,11 @@
 
 GameObject::GameObject()
 {
+	Reboot();
+}
+
+void GameObject::Reboot()
+{
 	m_sprite = NULL;
 	m_customUpdate = NULL;
 	m_customPreRender = NULL;

@@ -21,6 +21,7 @@ class GameObject
 	//
 public:
 	GameObject();
+	void Reboot();
 	void Create( const Image* _image );
 	void Create( const AnimationSequenceDefinition* _animation );
 	void Destroy();
