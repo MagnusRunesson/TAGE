@@ -40,4 +40,6 @@
 #include "animation_pickup.h"
 #include "animation_explosion_big.h"
 
+#include "sfx_pew_s8b_pcm_11025hz.h"
+
 #endif /* alldata_h */
