@@ -58,6 +58,7 @@
 		255853D41C536A5400E1A79A /* animation_pickup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255853D11C536A5400E1A79A /* animation_pickup.cpp */; settings = {ASSET_TAGS = (); }; };
 		255853D71C536A6100E1A79A /* ContextIngame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255853D51C536A6100E1A79A /* ContextIngame.cpp */; settings = {ASSET_TAGS = (); }; };
 		255853DA1C536A8000E1A79A /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255853D81C536A8000E1A79A /* Animation.cpp */; settings = {ASSET_TAGS = (); }; };
+		258062C91C536C3A0027C16F /* AudioHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258062C71C536C3A0027C16F /* AudioHandler.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -181,6 +182,8 @@
 		255853D61C536A6100E1A79A /* ContextIngame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContextIngame.h; path = ../../ContextIngame.h; sourceTree = "<group>"; };
 		255853D81C536A8000E1A79A /* Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Animation.cpp; path = ../../../TAGE/Engine/Animation.cpp; sourceTree = "<group>"; };
 		255853D91C536A8000E1A79A /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animation.h; path = ../../../TAGE/Engine/Animation.h; sourceTree = "<group>"; };
+		258062C71C536C3A0027C16F /* AudioHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioHandler.cpp; path = "../../../TAGE/Abstraction layer/AudioHandler.cpp"; sourceTree = "<group>"; };
+		258062C81C536C3A0027C16F /* AudioHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioHandler.h; path = "../../../TAGE/Abstraction layer/AudioHandler.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +274,8 @@
 			isa = PBXGroup;
 			children = (
 				250DA1A31C4A882900C664DA /* Arduino */,
+				258062C71C536C3A0027C16F /* AudioHandler.cpp */,
+				258062C81C536C3A0027C16F /* AudioHandler.h */,
 				250DA1841C4A7FE300C664DA /* Joypad.cpp */,
 				250DA1851C4A7FE300C664DA /* Joypad.h */,
 				250DA19A1C4A852200C664DA /* Timer.cpp */,
@@ -458,6 +463,7 @@
 				255853BE1C536A3000E1A79A /* sprite_logo_shooter_s.cpp in Sources */,
 				255853BB1C536A3000E1A79A /* sprite_logo_shooter_h.cpp in Sources */,
 				255853CA1C536A3000E1A79A /* sprite_spacebase_boss_door.cpp in Sources */,
+				258062C91C536C3A0027C16F /* AudioHandler.cpp in Sources */,
 				250DA1811C4A7FC400C664DA /* TileBank.cpp in Sources */,
 				255853C71C536A3000E1A79A /* sprite_pickup_02.cpp in Sources */,
 				255853C91C536A3000E1A79A /* sprite_player.cpp in Sources */,
