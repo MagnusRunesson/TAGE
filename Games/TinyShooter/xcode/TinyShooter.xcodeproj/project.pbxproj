@@ -59,6 +59,9 @@
 		255853D71C536A6100E1A79A /* ContextIngame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255853D51C536A6100E1A79A /* ContextIngame.cpp */; settings = {ASSET_TAGS = (); }; };
 		255853DA1C536A8000E1A79A /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255853D81C536A8000E1A79A /* Animation.cpp */; settings = {ASSET_TAGS = (); }; };
 		258062C91C536C3A0027C16F /* AudioHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258062C71C536C3A0027C16F /* AudioHandler.cpp */; settings = {ASSET_TAGS = (); }; };
+		258062CC1C536EBB0027C16F /* AudioMixer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258062CA1C536EBB0027C16F /* AudioMixer.cpp */; settings = {ASSET_TAGS = (); }; };
+		258062CF1C536F000027C16F /* AudioSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258062CD1C536F000027C16F /* AudioSource.cpp */; settings = {ASSET_TAGS = (); }; };
+		258062D21C536F430027C16F /* AudioData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258062D01C536F430027C16F /* AudioData.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -184,6 +187,12 @@
 		255853D91C536A8000E1A79A /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animation.h; path = ../../../TAGE/Engine/Animation.h; sourceTree = "<group>"; };
 		258062C71C536C3A0027C16F /* AudioHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioHandler.cpp; path = "../../../TAGE/Abstraction layer/AudioHandler.cpp"; sourceTree = "<group>"; };
 		258062C81C536C3A0027C16F /* AudioHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioHandler.h; path = "../../../TAGE/Abstraction layer/AudioHandler.h"; sourceTree = "<group>"; };
+		258062CA1C536EBB0027C16F /* AudioMixer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioMixer.cpp; path = ../../../TAGE/Engine/AudioMixer.cpp; sourceTree = "<group>"; };
+		258062CB1C536EBB0027C16F /* AudioMixer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioMixer.h; path = ../../../TAGE/Engine/AudioMixer.h; sourceTree = "<group>"; };
+		258062CD1C536F000027C16F /* AudioSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioSource.cpp; path = ../../../TAGE/Engine/AudioSource.cpp; sourceTree = "<group>"; };
+		258062CE1C536F000027C16F /* AudioSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioSource.h; path = ../../../TAGE/Engine/AudioSource.h; sourceTree = "<group>"; };
+		258062D01C536F430027C16F /* AudioData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioData.cpp; path = ../../../TAGE/Engine/AudioData.cpp; sourceTree = "<group>"; };
+		258062D11C536F430027C16F /* AudioData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioData.h; path = ../../../TAGE/Engine/AudioData.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +275,12 @@
 				250DA1711C4A7FC400C664DA /* TileBank.h */,
 				250DA1721C4A7FC400C664DA /* TileMap.cpp */,
 				250DA1731C4A7FC400C664DA /* TileMap.h */,
+				258062CA1C536EBB0027C16F /* AudioMixer.cpp */,
+				258062CB1C536EBB0027C16F /* AudioMixer.h */,
+				258062CD1C536F000027C16F /* AudioSource.cpp */,
+				258062CE1C536F000027C16F /* AudioSource.h */,
+				258062D01C536F430027C16F /* AudioData.cpp */,
+				258062D11C536F430027C16F /* AudioData.h */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -468,6 +483,7 @@
 				255853C71C536A3000E1A79A /* sprite_pickup_02.cpp in Sources */,
 				255853C91C536A3000E1A79A /* sprite_player.cpp in Sources */,
 				255853C01C536A3000E1A79A /* sprite_logo_tiny_i.cpp in Sources */,
+				258062CC1C536EBB0027C16F /* AudioMixer.cpp in Sources */,
 				250DA1741C4A7FC400C664DA /* BitHelpers.cpp in Sources */,
 				255853DA1C536A8000E1A79A /* Animation.cpp in Sources */,
 				255853C81C536A3000E1A79A /* sprite_pickup_03.cpp in Sources */,
@@ -479,11 +495,13 @@
 				255853B51C536A3000E1A79A /* sprite_explosion_big_01.cpp in Sources */,
 				255853C61C536A3000E1A79A /* sprite_pickup_01.cpp in Sources */,
 				250DA17A1C4A7FC400C664DA /* GameObjectManager.cpp in Sources */,
+				258062D21C536F430027C16F /* AudioData.cpp in Sources */,
 				255853C21C536A3000E1A79A /* sprite_logo_tiny_t.cpp in Sources */,
 				250DA1761C4A7FC400C664DA /* FixedPoint.cpp in Sources */,
 				250DA1991C4A81D600C664DA /* TinyShooter.cpp in Sources */,
 				250DA1821C4A7FC400C664DA /* TileMap.cpp in Sources */,
 				255853C41C536A3000E1A79A /* sprite_pb_01.cpp in Sources */,
+				258062CF1C536F000027C16F /* AudioSource.cpp in Sources */,
 				250DA1801C4A7FC400C664DA /* SpriteRenderer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
