@@ -16,6 +16,13 @@ class AudioSource
 {
 public:
 	const AudioData* pAudioData;
+	uint16 playbackPosition;
+	bool isPlaying;
+	
+	void Reset();
+	void SetData( const AudioData* _pData );
+	void PlayFromBeginning();
+	void Stop();
 };
 
 #endif /* AudioSource_h */
