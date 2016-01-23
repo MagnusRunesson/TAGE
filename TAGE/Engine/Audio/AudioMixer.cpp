@@ -45,6 +45,10 @@ AudioMixer::AudioMixer( int _numChannels, AudioSource* _pChannels, uint32 _outpu
 	for( i=0; i<outputBufferSize; i++ )
 		pOutputBuffer[ i ] = 0;
 
+	// Clear the input channels
+	for( i=0; i<_numChannels; i++ )
+		channel[ i ].Reset();
+	
 	//
 	outputReadPosition = 0;
 	outputWritePosition = 0;
@@ -66,7 +70,38 @@ void AudioMixer::Update()
 	int i=0;
 	while( i<bytesToFill )
 	{
-		pOutputBuffer[ outputWritePosition ] = audiosamples_pew_s8b_pcm_11025hz[ readpos ];
+		int apa = 0;
+		
+		int iChannel;
+		for( iChannel=0; iChannel<NUM_CHANNELS; iChannel++ )
+		{
+			AudioSource* chan = &channel[ iChannel ];
+			const AudioData* data = chan->pAudioData;
+			
+			if( chan->isPlaying )
+			{
+				apa += data->samples[ chan->playbackPosition ];
+				
+				chan->playbackPosition++;
+				if( chan->playbackPosition >= data->length )
+				{
+					if( data->looping )
+					{
+						chan->playbackPosition -= data->length;
+					} else
+					{
+						chan->isPlaying = false;
+					}
+				}
+			}
+		}
+
+		// Clip if needed
+		if( apa > 127 ) apa = 127;
+		if( apa < -127 ) apa = -127;
+
+		// And done
+		pOutputBuffer[ outputWritePosition ] = apa;
 		
 		//
 		outputWritePosition++;
@@ -81,4 +116,9 @@ void AudioMixer::Update()
 		//
 		i++;
 	}
+}
+
+AudioSource* AudioMixer::GetChannel( int _iChannel )
+{
+	return &channel[ _iChannel ];
 }

@@ -42,6 +42,8 @@ public:
 	 */
 	AudioMixer( int _numChannels, AudioSource* _pChannels, uint32 _outputBufferSize, sint8* _pOutputBuffer );
 	void Update();
+	
+	AudioSource* GetChannel( int _channel );
 };
 
 extern AudioMixer audioMixer;
