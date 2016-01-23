@@ -15,7 +15,8 @@ class AudioData
 {
 public:
 	uint32 length;
-	sint8 samples[];
+	bool looping;
+	const sint8* samples;
 };
 
 #endif /* AudioData_h */
