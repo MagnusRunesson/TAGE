@@ -44,6 +44,7 @@ GameObject* player;
 GameObject* playerBullets[ NUM_PLAYER_BULLETS ];
 GameObject* testanimGO;
 AudioSource* sfxPlayerFire;
+AudioSource* sfxPlayerPickup;
 
 GameObject* explosions[ NUM_EXPLOSIONS ];
 int nextExplosion;
@@ -128,6 +129,9 @@ void ingame_setup()
 	
 	sfxPlayerFire = audioMixer.GetChannel( 0 );
 	sfxPlayerFire->SetData( &sfx_player_fire_canon );
+	
+	sfxPlayerPickup = audioMixer.GetChannel( 1 );
+	sfxPlayerPickup->SetData( &sfx_player_pickup );
 	
 	//
 	int i;
@@ -247,6 +251,9 @@ void ingame_loop()
 				nextPlayerBullet = 0;
 		}
 	}
+	
+	if( padGetPressed() & PAD_KEYMASK_SECONDARY )
+		sfxPlayerPickup->PlayFromBeginning();
 	
 	int i;
 	for( i=0; i<NUM_PLAYER_BULLETS; i++ )
