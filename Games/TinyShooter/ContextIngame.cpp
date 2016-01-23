@@ -43,6 +43,7 @@ FixedPoint cameraScrollSpeed;
 GameObject* player;
 GameObject* playerBullets[ NUM_PLAYER_BULLETS ];
 GameObject* testanimGO;
+AudioSource* sfxPlayerFire;
 
 GameObject* explosions[ NUM_EXPLOSIONS ];
 int nextExplosion;
@@ -124,6 +125,9 @@ void ingame_setup()
 	testanimGO = gameObjectManager.CreateGameObject( &animation_pickup );
 	testanimGO->SetWorldPosition( 80, 20 );
 	testanimGO->GetAnimation()->Play();
+	
+	sfxPlayerFire = audioMixer.GetChannel( 0 );
+	sfxPlayerFire->SetData( &sfx_player_fire_canon );
 	
 	//
 	int i;
@@ -233,6 +237,9 @@ void ingame_loop()
 			int x = player->GetWorldPositionX()+7;
 			int y = player->GetWorldPositionY()+4;
 			playerBullets[ nextPlayerBullet ]->SetWorldPosition( x, y );
+			
+			// Play sound effect
+			sfxPlayerFire->PlayFromBeginning();
 			
 			// Go to next bullet instance in a ring buffer of bullets
 			nextPlayerBullet++;
