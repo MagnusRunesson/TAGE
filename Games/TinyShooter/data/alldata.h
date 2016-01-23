@@ -48,7 +48,7 @@
 #include "animation_pickup.h"
 #include "animation_explosion_big.h"
 
-#include "sfx_player_fire_canon.h"
+#include "sfx_player.h"
 
 
 #endif /* alldata_h */
