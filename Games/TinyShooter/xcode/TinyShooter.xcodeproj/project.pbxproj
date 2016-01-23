@@ -26,12 +26,12 @@
 		251488AC1C53912E00B44DE3 /* FixedPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2514888E1C53912E00B44DE3 /* FixedPoint.cpp */; settings = {ASSET_TAGS = (); }; };
 		251488AD1C53912E00B44DE3 /* fp2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 251488901C53912E00B44DE3 /* fp2d.cpp */; settings = {ASSET_TAGS = (); }; };
 		251488AE1C53912E00B44DE3 /* fpmath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 251488921C53912E00B44DE3 /* fpmath.cpp */; settings = {ASSET_TAGS = (); }; };
-		251488AF1C53912E00B44DE3 /* TileRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 251488961C53912E00B44DE3 /* TileRenderer.cpp */; settings = {ASSET_TAGS = (); }; };
 		251488B01C53912E00B44DE3 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 251488991C53912E00B44DE3 /* Camera.cpp */; settings = {ASSET_TAGS = (); }; };
 		251488B11C53912E00B44DE3 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2514889B1C53912E00B44DE3 /* GameObject.cpp */; settings = {ASSET_TAGS = (); }; };
 		251488B21C53912E00B44DE3 /* GameObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2514889D1C53912E00B44DE3 /* GameObjectManager.cpp */; settings = {ASSET_TAGS = (); }; };
 		251488B31C53912E00B44DE3 /* GameObjectTemplate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2514889F1C53912E00B44DE3 /* GameObjectTemplate.cpp */; settings = {ASSET_TAGS = (); }; };
 		251488B61C53915500B44DE3 /* audiosamples_pew_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 251488B41C53915500B44DE3 /* audiosamples_pew_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
+		25505C251C5392A50064434D /* TileRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25505C231C5392A50064434D /* TileRenderer.cpp */; settings = {ASSET_TAGS = (); }; };
 		255853B41C536A3000E1A79A /* sprite_explosion_big_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2558537F1C536A3000E1A79A /* sprite_explosion_big_00.cpp */; settings = {ASSET_TAGS = (); }; };
 		255853B51C536A3000E1A79A /* sprite_explosion_big_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255853811C536A3000E1A79A /* sprite_explosion_big_01.cpp */; settings = {ASSET_TAGS = (); }; };
 		255853B61C536A3000E1A79A /* sprite_explosion_big_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255853831C536A3000E1A79A /* sprite_explosion_big_02.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -120,8 +120,6 @@
 		251488921C53912E00B44DE3 /* fpmath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fpmath.cpp; sourceTree = "<group>"; };
 		251488931C53912E00B44DE3 /* fpmath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fpmath.h; sourceTree = "<group>"; };
 		251488941C53912E00B44DE3 /* sinetable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sinetable.h; sourceTree = "<group>"; };
-		251488961C53912E00B44DE3 /* TileRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TileRenderer.cpp; sourceTree = "<group>"; };
-		251488971C53912E00B44DE3 /* TileRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileRenderer.h; sourceTree = "<group>"; };
 		251488991C53912E00B44DE3 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
 		2514889A1C53912E00B44DE3 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
 		2514889B1C53912E00B44DE3 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
@@ -132,6 +130,8 @@
 		251488A01C53912E00B44DE3 /* GameObjectTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectTemplate.h; sourceTree = "<group>"; };
 		251488B41C53915500B44DE3 /* audiosamples_pew_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_pew_s8b_pcm_11025hz.cpp; path = ../data/audiosamples_pew_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
 		251488B51C53915500B44DE3 /* audiosamples_pew_s8b_pcm_11025hz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audiosamples_pew_s8b_pcm_11025hz.h; path = ../data/audiosamples_pew_s8b_pcm_11025hz.h; sourceTree = "<group>"; };
+		25505C231C5392A50064434D /* TileRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TileRenderer.cpp; sourceTree = "<group>"; };
+		25505C241C5392A50064434D /* TileRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileRenderer.h; sourceTree = "<group>"; };
 		2558537C1C536A3000E1A79A /* alldata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = alldata.h; path = ../data/alldata.h; sourceTree = "<group>"; };
 		2558537F1C536A3000E1A79A /* sprite_explosion_big_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_explosion_big_00.cpp; path = ../data/sprite_explosion_big_00.cpp; sourceTree = "<group>"; };
 		255853801C536A3000E1A79A /* sprite_explosion_big_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_explosion_big_00.h; path = ../data/sprite_explosion_big_00.h; sourceTree = "<group>"; };
@@ -247,7 +247,6 @@
 				2514887D1C53912E00B44DE3 /* BitHelpers.h */,
 				2514887E1C53912E00B44DE3 /* Graphics */,
 				2514888D1C53912E00B44DE3 /* Math */,
-				251488951C53912E00B44DE3 /* Renderers */,
 				251488981C53912E00B44DE3 /* Scene */,
 			);
 			name = Engine;
@@ -381,6 +380,8 @@
 				2514888A1C53912E00B44DE3 /* TileBank.h */,
 				2514888B1C53912E00B44DE3 /* TileMap.cpp */,
 				2514888C1C53912E00B44DE3 /* TileMap.h */,
+				25505C231C5392A50064434D /* TileRenderer.cpp */,
+				25505C241C5392A50064434D /* TileRenderer.h */,
 			);
 			name = Graphics;
 			path = ../../../TAGE/Engine/Graphics;
@@ -399,16 +400,6 @@
 			);
 			name = Math;
 			path = ../../../TAGE/Engine/Math;
-			sourceTree = "<group>";
-		};
-		251488951C53912E00B44DE3 /* Renderers */ = {
-			isa = PBXGroup;
-			children = (
-				251488961C53912E00B44DE3 /* TileRenderer.cpp */,
-				251488971C53912E00B44DE3 /* TileRenderer.h */,
-			);
-			name = Renderers;
-			path = ../../../TAGE/Engine/Renderers;
 			sourceTree = "<group>";
 		};
 		251488981C53912E00B44DE3 /* Scene */ = {
@@ -500,7 +491,6 @@
 				255853B41C536A3000E1A79A /* sprite_explosion_big_00.cpp in Sources */,
 				251488A61C53912E00B44DE3 /* Image.cpp in Sources */,
 				251488AD1C53912E00B44DE3 /* fp2d.cpp in Sources */,
-				251488AF1C53912E00B44DE3 /* TileRenderer.cpp in Sources */,
 				255853BD1C536A3000E1A79A /* sprite_logo_shooter_r.cpp in Sources */,
 				251488AE1C53912E00B44DE3 /* fpmath.cpp in Sources */,
 				255853C11C536A3000E1A79A /* sprite_logo_tiny_n.cpp in Sources */,
@@ -511,6 +501,7 @@
 				255853BF1C536A3000E1A79A /* sprite_logo_shooter_t.cpp in Sources */,
 				255853B71C536A3000E1A79A /* sprite_explosion_big_03.cpp in Sources */,
 				251488A11C53912E00B44DE3 /* AudioData.cpp in Sources */,
+				25505C251C5392A50064434D /* TileRenderer.cpp in Sources */,
 				255853C51C536A3000E1A79A /* sprite_pickup_00.cpp in Sources */,
 				250DA18A1C4A7FF200C664DA /* main.cpp in Sources */,
 				251488A51C53912E00B44DE3 /* Animation.cpp in Sources */,
