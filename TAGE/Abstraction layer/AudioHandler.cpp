@@ -10,7 +10,7 @@
 #include "types.h"
 
 
-extern "C" const unsigned char sfx_pew_s8b_pcm_11025hz[];
+extern "C" const unsigned char audiosamples_pew_s8b_pcm_11025hz[];
 
 void Audio_Handler_SDL( void *udata, uint8 *stream, int len )
 {
@@ -20,7 +20,7 @@ void Audio_Handler_SDL( void *udata, uint8 *stream, int len )
 	for( i=0; i<len; i++ )
 	{
 		if( i < 1320 )
-			data[ i ] = sfx_pew_s8b_pcm_11025hz[ i ];
+			data[ i ] = audiosamples_pew_s8b_pcm_11025hz[ i ];
 		else
 			data[ i ] = 0;
 		/*

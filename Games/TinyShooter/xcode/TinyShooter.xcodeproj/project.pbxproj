@@ -27,7 +27,7 @@
 		250DA1971C4A813500C664DA /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250DA1961C4A813500C664DA /* SDL2.framework */; settings = {ASSET_TAGS = (); }; };
 		250DA1991C4A81D600C664DA /* TinyShooter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250DA1981C4A81D600C664DA /* TinyShooter.cpp */; settings = {ASSET_TAGS = (); }; };
 		250DA19C1C4A852200C664DA /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250DA19A1C4A852200C664DA /* Timer.cpp */; settings = {ASSET_TAGS = (); }; };
-		255853B31C536A3000E1A79A /* sfx_pew_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2558537D1C536A3000E1A79A /* sfx_pew_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
+		251488B61C53915500B44DE3 /* audiosamples_pew_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 251488B41C53915500B44DE3 /* audiosamples_pew_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		255853B41C536A3000E1A79A /* sprite_explosion_big_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2558537F1C536A3000E1A79A /* sprite_explosion_big_00.cpp */; settings = {ASSET_TAGS = (); }; };
 		255853B51C536A3000E1A79A /* sprite_explosion_big_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255853811C536A3000E1A79A /* sprite_explosion_big_01.cpp */; settings = {ASSET_TAGS = (); }; };
 		255853B61C536A3000E1A79A /* sprite_explosion_big_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255853831C536A3000E1A79A /* sprite_explosion_big_02.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -122,9 +122,9 @@
 		250DA1A61C4A883100C664DA /* SPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SPI.h; path = "../../../TAGE/Abstraction layer/Arduino/SPI.h"; sourceTree = "<group>"; };
 		250DA1A71C4A883100C664DA /* Wire.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Wire.h; path = "../../../TAGE/Abstraction layer/Arduino/Wire.h"; sourceTree = "<group>"; };
 		250DA1A81C4A883100C664DA /* wiring_private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = wiring_private.h; path = "../../../TAGE/Abstraction layer/Arduino/wiring_private.h"; sourceTree = "<group>"; };
+		251488B41C53915500B44DE3 /* audiosamples_pew_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_pew_s8b_pcm_11025hz.cpp; path = ../data/audiosamples_pew_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
+		251488B51C53915500B44DE3 /* audiosamples_pew_s8b_pcm_11025hz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audiosamples_pew_s8b_pcm_11025hz.h; path = ../data/audiosamples_pew_s8b_pcm_11025hz.h; sourceTree = "<group>"; };
 		2558537C1C536A3000E1A79A /* alldata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = alldata.h; path = ../data/alldata.h; sourceTree = "<group>"; };
-		2558537D1C536A3000E1A79A /* sfx_pew_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sfx_pew_s8b_pcm_11025hz.cpp; path = ../data/sfx_pew_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
-		2558537E1C536A3000E1A79A /* sfx_pew_s8b_pcm_11025hz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sfx_pew_s8b_pcm_11025hz.h; path = ../data/sfx_pew_s8b_pcm_11025hz.h; sourceTree = "<group>"; };
 		2558537F1C536A3000E1A79A /* sprite_explosion_big_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_explosion_big_00.cpp; path = ../data/sprite_explosion_big_00.cpp; sourceTree = "<group>"; };
 		255853801C536A3000E1A79A /* sprite_explosion_big_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_explosion_big_00.h; path = ../data/sprite_explosion_big_00.h; sourceTree = "<group>"; };
 		255853811C536A3000E1A79A /* sprite_explosion_big_01.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_explosion_big_01.cpp; path = ../data/sprite_explosion_big_01.cpp; sourceTree = "<group>"; };
@@ -312,8 +312,8 @@
 			isa = PBXGroup;
 			children = (
 				2558537C1C536A3000E1A79A /* alldata.h */,
-				2558537D1C536A3000E1A79A /* sfx_pew_s8b_pcm_11025hz.cpp */,
-				2558537E1C536A3000E1A79A /* sfx_pew_s8b_pcm_11025hz.h */,
+				251488B41C53915500B44DE3 /* audiosamples_pew_s8b_pcm_11025hz.cpp */,
+				251488B51C53915500B44DE3 /* audiosamples_pew_s8b_pcm_11025hz.h */,
 				2558537F1C536A3000E1A79A /* sprite_explosion_big_00.cpp */,
 				255853801C536A3000E1A79A /* sprite_explosion_big_00.h */,
 				255853811C536A3000E1A79A /* sprite_explosion_big_01.cpp */,
@@ -473,7 +473,6 @@
 				255853BC1C536A3000E1A79A /* sprite_logo_shooter_o.cpp in Sources */,
 				255853C31C536A3000E1A79A /* sprite_logo_tiny_y.cpp in Sources */,
 				255853CB1C536A3000E1A79A /* tilebank_spacebase.cpp in Sources */,
-				255853B31C536A3000E1A79A /* sfx_pew_s8b_pcm_11025hz.cpp in Sources */,
 				250DA17B1C4A7FC400C664DA /* GameObjectTemplate.cpp in Sources */,
 				255853BE1C536A3000E1A79A /* sprite_logo_shooter_s.cpp in Sources */,
 				255853BB1C536A3000E1A79A /* sprite_logo_shooter_h.cpp in Sources */,
@@ -481,6 +480,7 @@
 				258062C91C536C3A0027C16F /* AudioHandler.cpp in Sources */,
 				250DA1811C4A7FC400C664DA /* TileBank.cpp in Sources */,
 				255853C71C536A3000E1A79A /* sprite_pickup_02.cpp in Sources */,
+				251488B61C53915500B44DE3 /* audiosamples_pew_s8b_pcm_11025hz.cpp in Sources */,
 				255853C91C536A3000E1A79A /* sprite_player.cpp in Sources */,
 				255853C01C536A3000E1A79A /* sprite_logo_tiny_i.cpp in Sources */,
 				258062CC1C536EBB0027C16F /* AudioMixer.cpp in Sources */,
