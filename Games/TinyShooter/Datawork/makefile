@@ -6,7 +6,7 @@ CONV_SFX=bin2c
 MAP_FILES=$(wildcard tilemap_*.tmx)
 SPRITE_FILES=$(wildcard sprite_*.png)
 BANK_FILES=$(wildcard tilebank_*.png)
-SFX_FILES=$(wildcard sfx_*.raw)
+SFX_FILES=$(wildcard audiosamples_*.raw)
 
 CONVERTED_MAP_FILES=$(MAP_FILES:.tmx=.cpp)
 CONVERTED_SPRITE_FILES=$(SPRITE_FILES:.png=.cpp)
@@ -29,6 +29,6 @@ tilebank_%.cpp: tilebank_%.png
 	@echo Converting tilebank $^ with tiles at 4x4 pixels
 	@$(CONV_BANK) $^ ../data/$(subst .png,,$^) $(subst .png,,$^) 4 4 > /dev/null
 
-sfx_%.cpp: sfx_%.raw
-	@echo Converting sound effect $^
+audiosamples_%.cpp: audiosamples_%.raw
+	@echo Converting audio samples $^
 	@$(CONV_SFX) $^ ../data/$(subst .raw,,$^) $(subst .raw,,$^) > /dev/null

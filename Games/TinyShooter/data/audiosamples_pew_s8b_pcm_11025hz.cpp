@@ -1,9 +1,9 @@
 //
-// Generated from source file 'sfx_pew_s8b_pcm_11025hz.raw'
+// Generated from source file 'audiosamples_pew_s8b_pcm_11025hz.raw'
 //
 
-extern "C" const unsigned char sfx_pew_s8b_pcm_11025hz[];
-const unsigned char sfx_pew_s8b_pcm_11025hz[] = {
+extern "C" const unsigned char audiosamples_pew_s8b_pcm_11025hz[];
+const unsigned char audiosamples_pew_s8b_pcm_11025hz[] = {
 	0x00,
 	0xff,
 	0x00,
