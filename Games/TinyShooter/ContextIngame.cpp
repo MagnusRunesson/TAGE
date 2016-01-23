@@ -18,6 +18,7 @@
 #include "GameObjectManager.h"
 #include "TileRenderer.h"
 #include "Animation.h"
+#include "AudioMixer.h"
 
 // Project specifics
 #include "alldata.h"
@@ -391,6 +392,11 @@ void ingame_loop()
 	//
 	debugSpriteRenderer = false;
 
+	//
+	//
+	//
+	audioMixer.Update();
+	
 	// Spin loop to wait. This is ... not ideal
 	sint32 endTime = micros();
 	sint32 dd = 16667 - (endTime-startTime);

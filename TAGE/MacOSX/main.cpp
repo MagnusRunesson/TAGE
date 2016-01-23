@@ -120,7 +120,7 @@ void audioInit()
 	want.freq = 11025;
 	want.format = AUDIO_S8;
 	want.channels = 1;
-	want.samples = 4096;
+	want.samples = 10;
 	want.callback = Audio_Handler_SDL;
 	
 	dev = SDL_OpenAudioDevice( NULL, 0, &want, &have, SDL_AUDIO_ALLOW_FORMAT_CHANGE );
