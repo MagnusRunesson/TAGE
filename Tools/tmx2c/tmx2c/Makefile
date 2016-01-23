@@ -11,7 +11,7 @@ CFILES=main.cpp tinyxml2.cpp
 
 OBJS=$(CFILES:.cpp=.o)
 
-all: build
+all: build install
 
 install: build
 	sudo cp tmx2c /usr/local/bin
