@@ -61,6 +61,7 @@
 		255853D31C536A5400E1A79A /* animation_explosion_big.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255853CF1C536A5400E1A79A /* animation_explosion_big.cpp */; settings = {ASSET_TAGS = (); }; };
 		255853D41C536A5400E1A79A /* animation_pickup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255853D11C536A5400E1A79A /* animation_pickup.cpp */; settings = {ASSET_TAGS = (); }; };
 		255853D71C536A6100E1A79A /* ContextIngame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255853D51C536A6100E1A79A /* ContextIngame.cpp */; settings = {ASSET_TAGS = (); }; };
+		257A4B761C53BA6200E210F4 /* sfx_player_fire_canon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257A4B741C53BA6200E210F4 /* sfx_player_fire_canon.cpp */; settings = {ASSET_TAGS = (); }; };
 		258062C91C536C3A0027C16F /* AudioHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258062C71C536C3A0027C16F /* AudioHandler.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -191,6 +192,8 @@
 		255853D21C536A5400E1A79A /* animation_pickup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = animation_pickup.h; path = ../data_manual/animation_pickup.h; sourceTree = "<group>"; };
 		255853D51C536A6100E1A79A /* ContextIngame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ContextIngame.cpp; path = ../../ContextIngame.cpp; sourceTree = "<group>"; };
 		255853D61C536A6100E1A79A /* ContextIngame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContextIngame.h; path = ../../ContextIngame.h; sourceTree = "<group>"; };
+		257A4B741C53BA6200E210F4 /* sfx_player_fire_canon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sfx_player_fire_canon.cpp; path = ../data_manual/sfx_player_fire_canon.cpp; sourceTree = "<group>"; };
+		257A4B751C53BA6200E210F4 /* sfx_player_fire_canon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sfx_player_fire_canon.h; path = ../data_manual/sfx_player_fire_canon.h; sourceTree = "<group>"; };
 		258062C71C536C3A0027C16F /* AudioHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioHandler.cpp; path = "../../../TAGE/Abstraction layer/AudioHandler.cpp"; sourceTree = "<group>"; };
 		258062C81C536C3A0027C16F /* AudioHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioHandler.h; path = "../../../TAGE/Abstraction layer/AudioHandler.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -425,6 +428,8 @@
 				255853D01C536A5400E1A79A /* animation_explosion_big.h */,
 				255853D11C536A5400E1A79A /* animation_pickup.cpp */,
 				255853D21C536A5400E1A79A /* animation_pickup.h */,
+				257A4B741C53BA6200E210F4 /* sfx_player_fire_canon.cpp */,
+				257A4B751C53BA6200E210F4 /* sfx_player_fire_canon.h */,
 			);
 			name = "Data Manual";
 			sourceTree = "<group>";
@@ -530,6 +535,7 @@
 				251488A31C53912E00B44DE3 /* AudioSource.cpp in Sources */,
 				255853B91C536A3000E1A79A /* sprite_explosion_big_05.cpp in Sources */,
 				255853B81C536A3000E1A79A /* sprite_explosion_big_04.cpp in Sources */,
+				257A4B761C53BA6200E210F4 /* sfx_player_fire_canon.cpp in Sources */,
 				255853CD1C536A3000E1A79A /* tilemap_spacebase.cpp in Sources */,
 				251488A71C53912E00B44DE3 /* Screen.cpp in Sources */,
 				255853B51C536A3000E1A79A /* sprite_explosion_big_01.cpp in Sources */,

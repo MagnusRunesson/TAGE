@@ -9,6 +9,9 @@
 #ifndef alldata_h
 #define alldata_h
 
+//
+// Data files generate from other formats
+//
 #include "sprite_player.h"
 #include "sprite_pb_01.h"
 #include "sprite_pickup_00.h"
@@ -37,9 +40,15 @@
 
 #include "tilebank_spacebase.h"
 
+#include "audiosamples_pew_s8b_pcm_11025hz.h"
+
+//
+// Manually entered data
+//
 #include "animation_pickup.h"
 #include "animation_explosion_big.h"
 
-#include "audiosamples_pew_s8b_pcm_11025hz.h"
+#include "sfx_player_fire_canon.h"
+
 
 #endif /* alldata_h */
