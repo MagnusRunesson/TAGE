@@ -332,21 +332,17 @@ void ingame_loop()
 	int mirrorStart = SCREEN_HEIGHT-mirrorHeight;
 	int copyStart = mirrorStart-mirrorHeight;
 	
+	Sprite* lastCollisionBullet = NULL;
+	
 	int iScanline = 0;
 	while( iScanline < mirrorStart )
 	{
-		// Clear line buffer
 		int x;
-		//for( x=0; x<SCREEN_WIDTH; x++ )
-		//	lineBuffer[ x ] = 0;
 
+		//
 		if( pfnHBlankInterrupt != NULL )
 			pfnHBlankInterrupt( iScanline );
 		
-		// Render sprites to line buffer
-		//background->RenderScanline( lineBuffer );
-		//spriteRenderer.RenderScanline( lineBuffer );
-
 		// Copy to screen
 		for( x=0; x<SCREEN_WIDTH; x++ )
 		{
@@ -365,34 +361,67 @@ void ingame_loop()
 				if( renderedBackground )
 				{
 					// Which kind of sprites was rendered on the same pixel as the background?
+					
+					//
+					// Player collided with a wall
+					//
 					if( spriteCollisionMask & SPRITE_COLLISION_MASK_PLAYERSHIP )
 						ResetPlayer();
 					
+					//
+					// Player bullet collided with a wall
+					//
 					if( spriteCollisionMask & SPRITE_COLLISION_MASK_PLAYERBULLET )
 					{
-						GameObject* bulletGO = spriteRenderer.m_collisionSprites[ SPRITE_COLLISION_INDEX_PLAYERBULLET ]->owner;
-						bulletGO->SetWorldPosition( 0, -1 );
+						Sprite* bulletSprite = spriteRenderer.m_collisionSprites[ SPRITE_COLLISION_INDEX_PLAYERBULLET ];
 						
-						GameObject* exp = explosions[ nextExplosion ];
-						nextExplosion++;
-						if( nextExplosion >= NUM_EXPLOSIONS )
-							nextExplosion -= NUM_EXPLOSIONS;
-						
-						exp->SetWorldPosition( camx+x, iScanline );
-						exp->GetAnimation()->Reset();
-						exp->GetAnimation()->Play();
+						if( bulletSprite != lastCollisionBullet )
+						{
+							lastCollisionBullet = bulletSprite;
+							
+							GameObject* bulletGO = bulletSprite->owner;
+							bulletGO->SetWorldPosition( 0, -1 );
+							
+							GameObject* exp = explosions[ nextExplosion ];
+							nextExplosion++;
+							if( nextExplosion >= NUM_EXPLOSIONS )
+								nextExplosion -= NUM_EXPLOSIONS;
+							
+							exp->SetWorldPosition( camx+x, iScanline );
+							exp->GetAnimation()->Reset();
+							exp->GetAnimation()->Play();
+						}
 					}
-					
-					//printf("collision with %i!\n", renderedSpriteApa->owner->m_flags );
 				}
 				else
 				{
+					//
+					// Player vs. pickup
+					//
 					int mask = (SPRITE_COLLISION_MASK_PLAYERSHIP | SPRITE_COLLISION_MASK_PICKUP);
 					if( (spriteCollisionMask & mask) == mask )
 					{
 						sfxPlayerPickup->PlayFromBeginning();
 						GameObject* pickupGO = spriteRenderer.m_collisionSprites[ SPRITE_COLLISION_INDEX_PICKUP ]->owner;
 						pickupGO->SetWorldPosition( 0, -10 );
+					}
+					
+					//
+					// Player vs. enemy (and enemy bullet, same collision mask)
+					//
+					mask = (SPRITE_COLLISION_MASK_PLAYERSHIP | SPRITE_COLLISION_MASK_PLAYERSHIP);
+					if( (spriteCollisionMask & mask) == mask )
+					{
+						
+					}
+					
+					//
+					// Player bullet vs. enemy
+					//
+					mask = (SPRITE_COLLISION_MASK_PLAYERBULLET | SPRITE_COLLISION_MASK_ENEMY);
+					if( (spriteCollisionMask & mask) == mask )
+					{
+						
 					}
 				}
 			}
