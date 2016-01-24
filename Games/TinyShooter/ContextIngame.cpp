@@ -28,10 +28,22 @@
 
 #define FIRE_RATE_DELAY (10)
 
-#define GO_FLAGS_UNIMPORTANT (0)
-#define GO_FLAGS_PLAYERSHIP (1)
-#define GO_FLAGS_PLAYERBULLET (2)
-#define GO_FLAGS_EXPLOSION (3)
+#define GO_FLAGS_UNIMPORTANT	(0)
+#define GO_FLAGS_PLAYERSHIP		(1)
+#define GO_FLAGS_PLAYERBULLET	(2)
+#define GO_FLAGS_ENEMY			(3)
+
+#define SPRITE_COLLISION_INDEX_UNIMPORTANT	(0)
+#define SPRITE_COLLISION_INDEX_PLAYERSHIP	(1)
+#define SPRITE_COLLISION_INDEX_PLAYERBULLET	(2)
+#define SPRITE_COLLISION_INDEX_ENEMY		(3)
+#define SPRITE_COLLISION_INDEX_PICKUP		(4)
+
+#define SPRITE_COLLISION_MASK_UNIMPORTANT	(1<<SPRITE_COLLISION_INDEX_UNIMPORTANT)
+#define SPRITE_COLLISION_MASK_PLAYERSHIP	(1<<SPRITE_COLLISION_INDEX_PLAYERSHIP)
+#define SPRITE_COLLISION_MASK_PLAYERBULLET	(1<<SPRITE_COLLISION_INDEX_PLAYERBULLET)
+#define SPRITE_COLLISION_MASK_ENEMY			(1<<SPRITE_COLLISION_INDEX_ENEMY)
+#define SPRITE_COLLISION_MASK_PICKUP		(1<<SPRITE_COLLISION_INDEX_PICKUP)
 
 //
 Camera mainCamera;
@@ -120,12 +132,14 @@ void ingame_setup()
 	// Create player game object
 	player = gameObjectManager.CreateGameObject( &sprite_player );
 	player->m_flags = GO_FLAGS_PLAYERSHIP;
+	player->GetSprite()->collisionIndex = SPRITE_COLLISION_INDEX_PLAYERSHIP;
 	ResetPlayer();
 	playerSpeed = FixedPoint( 0, 50 );
 	
 	testanimGO = gameObjectManager.CreateGameObject( &animation_pickup );
 	testanimGO->SetWorldPosition( 80, 20 );
 	testanimGO->GetAnimation()->Play();
+	testanimGO->GetSprite()->collisionIndex = SPRITE_COLLISION_INDEX_PICKUP;
 	
 	sfxPlayerFire = audioMixer.GetChannel( 0 );
 	sfxPlayerFire->SetData( &sfx_player_fire_canon );
@@ -140,6 +154,7 @@ void ingame_setup()
 		GameObject* pb = gameObjectManager.CreateGameObject( &sprite_pb_01 );
 		pb->SetWorldPosition( 0, -1 );
 		pb->m_flags = GO_FLAGS_PLAYERBULLET;
+		pb->GetSprite()->collisionIndex = SPRITE_COLLISION_INDEX_PLAYERBULLET;
 		playerBullets[ i ] = pb;
 	}
 
@@ -154,6 +169,7 @@ void ingame_setup()
 		pb->SetWorldPosition( 0, -10 );
 		pb->SetHotspot( 5, 4 );
 		pb->m_flags = GO_FLAGS_UNIMPORTANT;
+		pb->GetSprite()->collisionIndex = SPRITE_COLLISION_INDEX_UNIMPORTANT;
 		explosions[ i ] = pb;
 	}
 	
@@ -331,26 +347,32 @@ void ingame_loop()
 		//background->RenderScanline( lineBuffer );
 		//spriteRenderer.RenderScanline( lineBuffer );
 
-		Sprite* renderedSpriteApa;
 		// Copy to screen
 		for( x=0; x<SCREEN_WIDTH; x++ )
 		{
+			uint8 spriteCollisionMask;
 			uint16 rgb = 0;
 			background->RenderPixel( x, &rgb );
 			bool renderedBackground = playfield->RenderPixel( x, &rgb );
-			bool renderedSprite = spriteRenderer.RenderPixel( x, &rgb, &renderedSpriteApa );
-			if( renderedBackground && renderedSprite )
+			bool renderedSprite = spriteRenderer.RenderPixel( x, &rgb, &spriteCollisionMask );
+
+			if( renderedSprite )
 			{
-				GameObject* go = renderedSpriteApa->owner;
-				int flags = go->m_flags;
-				switch( flags )
+				// A sprite was rendered on this pixel
+				// Find out if:
+				// 1. It was rendered on the same pixel as the background. In that case things might happen. Player death, player bullet death, etc..
+				// 2. Multiple sprites was rendered on the same pixel. In that case things might happen. Player death, enemy death, player pickup, etc..
+				if( renderedBackground )
 				{
-					case GO_FLAGS_PLAYERSHIP:
+					// Which kind of sprites was rendered on the same pixel as the background?
+					if( spriteCollisionMask & SPRITE_COLLISION_MASK_PLAYERSHIP )
 						ResetPlayer();
-						break;
-						
-					case GO_FLAGS_PLAYERBULLET:
+					
+					if( spriteCollisionMask & SPRITE_COLLISION_MASK_PLAYERBULLET )
 					{
+						GameObject* bulletGO = spriteRenderer.m_collisionSprites[ SPRITE_COLLISION_INDEX_PLAYERBULLET ]->owner;
+						bulletGO->SetWorldPosition( 0, -1 );
+						
 						GameObject* exp = explosions[ nextExplosion ];
 						nextExplosion++;
 						if( nextExplosion >= NUM_EXPLOSIONS )
@@ -359,14 +381,20 @@ void ingame_loop()
 						exp->SetWorldPosition( camx+x, iScanline );
 						exp->GetAnimation()->Reset();
 						exp->GetAnimation()->Play();
-
-						go->SetWorldPosition( 0, -1 );
 					}
-						
-					break;
+					
+					//printf("collision with %i!\n", renderedSpriteApa->owner->m_flags );
 				}
-				//printf("collision with %i!\n", renderedSpriteApa->owner->m_flags );
-				
+				else
+				{
+					int mask = (SPRITE_COLLISION_MASK_PLAYERSHIP | SPRITE_COLLISION_MASK_PICKUP);
+					if( (spriteCollisionMask & mask) == mask )
+					{
+						sfxPlayerPickup->PlayFromBeginning();
+						GameObject* pickupGO = spriteRenderer.m_collisionSprites[ SPRITE_COLLISION_INDEX_PICKUP ]->owner;
+						pickupGO->SetWorldPosition( 0, -10 );
+					}
+				}
 			}
 			lineBuffer[ x ] = rgb;
 		}

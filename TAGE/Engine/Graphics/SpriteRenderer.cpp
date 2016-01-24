@@ -187,8 +187,11 @@ void SpriteRenderer::NextScanline( bool _debugPrint )
 	return m_scanlineSprites;
 }*/
 
-bool SpriteRenderer::RenderPixel( int _x, uint16* _pOutPixel, Sprite** _ppOutRenderedSprite )
+bool SpriteRenderer::RenderPixel( int _x, uint16* _pOutPixel, uint8* _pOutCollisionMask )
 {
+	// Clear collision mask
+	*_pOutCollisionMask = 0;
+	
 	bool didRender = false;
 	
 	Sprite** sprites = m_scanlineSprites;
@@ -214,7 +217,8 @@ bool SpriteRenderer::RenderPixel( int _x, uint16* _pOutPixel, Sprite** _ppOutRen
 			{
 				// Full overdraw
 				*_pOutPixel = rgb;
-				*_ppOutRenderedSprite = sprite;
+				*_pOutCollisionMask |= (1<<sprite->collisionIndex);
+				m_collisionSprites[ sprite->collisionIndex ] = sprite;
 				didRender = true;
 			}
 			else
@@ -265,8 +269,8 @@ void SpriteRenderer::RenderScanline( uint16* _targetBuffer )
 	int x;
 	for( x=0; x<SCREEN_WIDTH; x++ )
 	{
-		Sprite* renderedSprite;
-		if( RenderPixel( x, &_targetBuffer[ x ], &renderedSprite ))
+		uint8 collisionMask;
+		if( RenderPixel( x, &_targetBuffer[ x ], &collisionMask ))
 		{
 			
 		}

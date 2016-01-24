@@ -23,6 +23,7 @@ public:
 	Sprite* m_potentialSprites[ MAX_SPRITES+1 ];	// And so is this
 	
 	Sprite m_sprite[ MAX_SPRITES ];
+	Sprite* m_collisionSprites[ 8 ];
 
 	uint8 m_currentScanline;
 	
@@ -35,7 +36,7 @@ public:
 	//
 	void FrameStart();
 	void NextScanline( bool _debugPrint = false );
-	bool RenderPixel( int _x, uint16* _pOutPixel, Sprite** _ppOutRenderedSprite );
+	bool RenderPixel( int _x, uint16* _pOutPixel, uint8* _pOutCollisionMask );
 	void RenderScanline( uint16* _targetBuffer );
 };
 

@@ -32,7 +32,7 @@ public:
 	sint16 x;
 	sint16 y;
 	uint8 flags;
-	uint8 collision;
+	uint8 collisionIndex;
 	
 	sint16 boundsLeft;
 	sint16 boundsRight;
