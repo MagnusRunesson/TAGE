@@ -23,8 +23,9 @@
 // Project specifics
 #include "alldata.h"
 
-#define NUM_PLAYER_BULLETS (10)
-#define NUM_EXPLOSIONS (10)
+#define NUM_PLAYER_BULLETS	(10)
+#define NUM_EXPLOSIONS		(10)
+#define NUM_ENEMIES			(10)
 
 #define FIRE_RATE_DELAY (10)
 
@@ -60,6 +61,9 @@ AudioSource* sfxPlayerPickup;
 
 GameObject* explosions[ NUM_EXPLOSIONS ];
 int nextExplosion;
+
+GameObject* enemies[ NUM_ENEMIES ];
+int nextEnemy;
 
 int nextPlayerBullet;
 int playerFireRateTimer;
@@ -160,6 +164,7 @@ void ingame_setup()
 
 	nextPlayerBullet = 0;
 
+	
 	//
 	//
 	//
@@ -174,6 +179,21 @@ void ingame_setup()
 	}
 	
 	nextExplosion = 0;
+
+	
+	for( i=0; i<NUM_ENEMIES; i++ )
+	{
+		GameObject* pb = gameObjectManager.CreateGameObject( &animation_enemy_saucer );
+		pb->SetWorldPosition( 100+(i*20), 30 );
+		pb->SetHotspot( 0, 0 );
+		pb->GetAnimation()->Play();
+		pb->m_flags = GO_FLAGS_ENEMY;
+		pb->GetSprite()->collisionIndex = SPRITE_COLLISION_INDEX_ENEMY;
+		enemies[ i ] = pb;
+	}
+	
+	nextEnemy = 0;
+	
 
 	doCameraScroll = true;
 	
@@ -421,7 +441,27 @@ void ingame_loop()
 					mask = (SPRITE_COLLISION_MASK_PLAYERBULLET | SPRITE_COLLISION_MASK_ENEMY);
 					if( (spriteCollisionMask & mask) == mask )
 					{
+						Sprite* bulletSprite = spriteRenderer.m_collisionSprites[ SPRITE_COLLISION_INDEX_PLAYERBULLET ];
 						
+						if( bulletSprite != lastCollisionBullet )
+						{
+							lastCollisionBullet = bulletSprite;
+							
+							GameObject* bulletGO = bulletSprite->owner;
+							bulletGO->SetWorldPosition( 0, -1 );
+							
+							GameObject* enemyGO = spriteRenderer.m_collisionSprites[ SPRITE_COLLISION_INDEX_ENEMY ]->owner;
+							enemyGO->SetWorldPosition( 0, -30 );
+							
+							GameObject* exp = explosions[ nextExplosion ];
+							nextExplosion++;
+							if( nextExplosion >= NUM_EXPLOSIONS )
+								nextExplosion -= NUM_EXPLOSIONS;
+							
+							exp->SetWorldPosition( camx+x, iScanline );
+							exp->GetAnimation()->Reset();
+							exp->GetAnimation()->Play();
+						}
 					}
 				}
 			}

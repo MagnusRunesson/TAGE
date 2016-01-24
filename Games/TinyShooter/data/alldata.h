@@ -34,6 +34,8 @@
 #include "sprite_logo_shooter_t.h"
 #include "sprite_logo_shooter_e.h"
 #include "sprite_logo_shooter_r.h"
+#include "sprite_enemy_saucer_00.h"
+#include "sprite_enemy_saucer_01.h"
 
 #include "tilemap_spacebase.h"
 #include "tilemap_spacebase_background.h"
@@ -47,6 +49,7 @@
 //
 #include "animation_pickup.h"
 #include "animation_explosion_big.h"
+#include "animation_enemy_saucer.h"
 
 #include "sfx_player.h"
 
