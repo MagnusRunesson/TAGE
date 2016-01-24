@@ -189,7 +189,7 @@ void WriteCHeader( FILE* _pFile, const char* _pszInFileName, const char* _pszSym
 
 void WriteTiles( FILE* _pFile, CTileMap* _pTileMap, const char* _pszSymbolBase )
 {
-	fprintf( _pFile, "uint16 %s[] =\n", GetTilesSymbol( _pszSymbolBase ));
+	fprintf( _pFile, "const uint16 %s[] =\n", GetTilesSymbol( _pszSymbolBase ));
 	fprintf( _pFile, "{\n" );
 	int x, y;
 	int i = 0;
@@ -209,7 +209,8 @@ void WriteTiles( FILE* _pFile, CTileMap* _pTileMap, const char* _pszSymbolBase )
 
 void WriteTileMap( FILE* _pFile, CTileMap* _pTileMap, const char* _pszSymbolBase )
 {
-	fprintf( _pFile, "CTileMap %s =\n", _pszSymbolBase );
+	fprintf( _pFile, "extern \"C\" const CTileMap %s;\n", _pszSymbolBase );
+	fprintf( _pFile, "const CTileMap %s =\n", _pszSymbolBase );
 	fprintf( _pFile, "{\n" );
 	fprintf( _pFile, "\t%i,%i,\n", _pTileMap->Width, _pTileMap->Height );
 	fprintf( _pFile, "\t0,\n" ); // Padding
@@ -245,7 +246,7 @@ void WriteHFile( FILE* _pFile, const char* _pszInFileName, const char* _pszSymbo
 	fprintf( _pFile, "#include \"types.h\"\n" );
 	fprintf( _pFile, "#include \"TileMap.h\"\n" );
 	fprintf( _pFile, "\n" );
-	fprintf( _pFile, "extern CTileMap %s;\n", GetTileMapSymbol( _pszSymbolBase ));
+	fprintf( _pFile, "extern \"C\" const CTileMap %s;\n", GetTileMapSymbol( _pszSymbolBase ));
 	fprintf( _pFile, "\n" );
 	fprintf( _pFile, "#endif // %s_header_\n", _pszSymbolBase );
 }
