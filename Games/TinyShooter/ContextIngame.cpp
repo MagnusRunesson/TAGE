@@ -429,10 +429,29 @@ void ingame_loop()
 					//
 					// Player vs. enemy (and enemy bullet, same collision mask)
 					//
-					mask = (SPRITE_COLLISION_MASK_PLAYERSHIP | SPRITE_COLLISION_MASK_PLAYERSHIP);
+					mask = (SPRITE_COLLISION_MASK_PLAYERSHIP | SPRITE_COLLISION_MASK_ENEMY);
 					if( (spriteCollisionMask & mask) == mask )
 					{
+						Sprite* enemySprite = spriteRenderer.m_collisionSprites[ SPRITE_COLLISION_INDEX_ENEMY ];
 						
+						if( enemySprite != lastCollisionBullet )
+						{
+							lastCollisionBullet = enemySprite;
+							
+							GameObject* enemyGO = enemySprite->owner;
+							enemyGO->SetWorldPosition( 0, -10 );
+							
+							ResetPlayer();
+							
+							GameObject* exp = explosions[ nextExplosion ];
+							nextExplosion++;
+							if( nextExplosion >= NUM_EXPLOSIONS )
+								nextExplosion -= NUM_EXPLOSIONS;
+							
+							exp->SetWorldPosition( camx+x, iScanline );
+							exp->GetAnimation()->Reset();
+							exp->GetAnimation()->Play();
+						}
 					}
 					
 					//
