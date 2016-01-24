@@ -1,7 +1,7 @@
 #include "Types.h"
 #include "Image.h"
 
-uint16 sprite_pickup_02_pixels[] =
+const uint16 sprite_pickup_02_pixels[] =
 {
 	0x0000,0xeda9,0xeda9,0xe4c1,0x0000,
 	0xeda9,0x923e,0xffff,0xffff,0xe4c1,
@@ -10,7 +10,7 @@ uint16 sprite_pickup_02_pixels[] =
 	0x0000,0xe4c1,0xbbc0,0xbbc0,0x0000,
 };
 
-uint8 sprite_pickup_02_alpha[] =
+const uint8 sprite_pickup_02_alpha[] =
 {
 	0x00,0xff,0xff,0xff,0x00,
 	0xff,0xff,0xff,0xff,0xff,
@@ -19,7 +19,8 @@ uint8 sprite_pickup_02_alpha[] =
 	0x00,0xff,0xff,0xff,0x00,
 };
 
-Image sprite_pickup_02 =
+extern "C" const Image sprite_pickup_02;
+const Image sprite_pickup_02 =
 {
 	5,5,
 	(uint16*)&sprite_pickup_02_pixels,

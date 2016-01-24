@@ -1,7 +1,7 @@
 #include "Types.h"
 #include "Image.h"
 
-uint16 sprite_spacebase_boss_door_pixels[] =
+const uint16 sprite_spacebase_boss_door_pixels[] =
 {
 	0x3120,0x3120,0x3120,0x0000,0x0000,
 	0x3120,0xf620,0xf620,0x3120,0x0000,
@@ -15,7 +15,7 @@ uint16 sprite_spacebase_boss_door_pixels[] =
 	0x3120,0x3120,0x3120,0x3120,0x3120,
 };
 
-uint8 sprite_spacebase_boss_door_alpha[] =
+const uint8 sprite_spacebase_boss_door_alpha[] =
 {
 	0xff,0xff,0xff,0x00,0x00,
 	0xff,0xff,0xff,0xff,0x00,
@@ -29,7 +29,8 @@ uint8 sprite_spacebase_boss_door_alpha[] =
 	0xff,0xff,0xff,0xff,0xff,
 };
 
-Image sprite_spacebase_boss_door =
+extern "C" const Image sprite_spacebase_boss_door;
+const Image sprite_spacebase_boss_door =
 {
 	5,10,
 	(uint16*)&sprite_spacebase_boss_door_pixels,

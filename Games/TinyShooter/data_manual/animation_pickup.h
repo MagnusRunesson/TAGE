@@ -11,6 +11,6 @@
 
 class AnimationSequenceDefinition;
 
-extern AnimationSequenceDefinition animation_pickup;
+extern "C" const AnimationSequenceDefinition animation_pickup;
 
 #endif /* defined(__TinyShooter__animation_pickup__) */

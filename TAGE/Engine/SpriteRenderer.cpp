@@ -16,7 +16,7 @@ SpriteRenderer::SpriteRenderer()
 	
 }
 
-Sprite* SpriteRenderer::AllocateSprite( Image* _image )
+Sprite* SpriteRenderer::AllocateSprite( const Image* _image )
 {
 	//printf("Allocating sprite from image \"%s\"\n", _image->DEBUG_name );
 	
@@ -40,26 +40,6 @@ void SpriteRenderer::FreeSprite( Sprite* _spriteInstance )
 	//printf("freeing sprite from image %s\n", _spriteInstance->image->DEBUG_name );
 	_spriteInstance->image = NULL;
 	_spriteInstance->owner = NULL;
-}
-
-void SpriteRenderer::Draw()
-{
-	int i = 0;
-	for( i=0; i<MAX_SPRITES; i++ )
-	{
-		Sprite* sprite = &m_sprite[ i ];
-		if( sprite->image != NULL )
-		{
-			int rotation = sprite->flags & SPRITE_FLAG_ROTATE_MASK;
-			if( rotation == 0 )
-			{
-				sprite->image->DrawAlpha( sprite->x, sprite->y );
-			} else
-			{
-				
-			}
-		}
-	}
 }
 
 void SpriteRenderer::FrameStart()

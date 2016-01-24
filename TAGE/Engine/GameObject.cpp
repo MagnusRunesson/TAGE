@@ -19,7 +19,7 @@ GameObject::GameObject()
 	m_animation.pSequence = NULL;
 }
 
-void GameObject::Create( Image* _image )
+void GameObject::Create( const Image* _image )
 {
 	//
 	m_worldPositionX = 0;
@@ -33,7 +33,7 @@ void GameObject::Create( Image* _image )
 	m_imageHotspotY = 0;
 }
 
-void GameObject::Create( AnimationSequenceDefinition* _animation )
+void GameObject::Create( const AnimationSequenceDefinition* _animation )
 {
 	m_animationSequenceDefinition = _animation;
 	m_animation.Create( _animation, this );
@@ -100,7 +100,7 @@ Sprite* GameObject::GetSprite()
 	return m_sprite;
 }
 
-AnimationSequenceDefinition* GameObject::GetAnimationSequenceDefinition()
+const AnimationSequenceDefinition* GameObject::GetAnimationSequenceDefinition()
 {
 	return m_animationSequenceDefinition;
 }

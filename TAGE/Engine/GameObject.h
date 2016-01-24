@@ -21,8 +21,8 @@ class GameObject
 	//
 public:
 	GameObject();
-	void Create( Image* _image );
-	void Create( AnimationSequenceDefinition* _animation );
+	void Create( const Image* _image );
+	void Create( const AnimationSequenceDefinition* _animation );
 	void Destroy();
 	
 	void Update();
@@ -36,7 +36,7 @@ public:
 	
 	bool IsUsed();
 	Sprite* GetSprite();
-	AnimationSequenceDefinition* GetAnimationSequenceDefinition();
+	const AnimationSequenceDefinition* GetAnimationSequenceDefinition();
 
 	void* m_customObject;
 	void(*m_customUpdate)(void*);
@@ -61,7 +61,7 @@ protected:
 	
 	//
 	Animation m_animation;
-	AnimationSequenceDefinition* m_animationSequenceDefinition;
+	const AnimationSequenceDefinition* m_animationSequenceDefinition;
 	
 	//
 	bool m_drawAlpha;

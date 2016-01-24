@@ -10,7 +10,7 @@
 #include "animation.h"
 #include "alldata.h"
 
-AnimationFrameDefinition animation_explosion_big_frames[] =
+const AnimationFrameDefinition animation_explosion_big_frames[] =
 {
 	{
 		&sprite_explosion_big_00,
@@ -56,7 +56,8 @@ AnimationFrameDefinition animation_explosion_big_frames[] =
 	},
 };
 
-AnimationSequenceDefinition animation_explosion_big =
+extern "C" const AnimationSequenceDefinition animation_explosion_big;
+const AnimationSequenceDefinition animation_explosion_big =
 {
 	6,
 	animation_explosion_big_frames,

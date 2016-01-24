@@ -39,7 +39,7 @@ public:
 	sint16 boundsTop;
 	sint16 boundsBottom;
 	
-	Image* image;
+	const Image* image;
 	GameObject* owner;
 	
 	Sprite();

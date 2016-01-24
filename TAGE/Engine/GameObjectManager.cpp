@@ -11,7 +11,7 @@
 
 GameObjectManager gameObjectManager;
 
-GameObject* GameObjectManager::CreateGameObject( Image* _image )
+GameObject* GameObjectManager::CreateGameObject( const Image* _image )
 {
 	int i;
 	for( i=0; i<MAX_GAMEOBJECTS; i++ )
@@ -28,7 +28,7 @@ GameObject* GameObjectManager::CreateGameObject( Image* _image )
 	return NULL;
 }
 
-GameObject* GameObjectManager::CreateGameObject( AnimationSequenceDefinition* _animationSequenceDefinition )
+GameObject* GameObjectManager::CreateGameObject( const AnimationSequenceDefinition* _animationSequenceDefinition )
 {
 	int i;
 	for( i=0; i<MAX_GAMEOBJECTS; i++ )

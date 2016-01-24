@@ -10,7 +10,7 @@
 #include "TileRenderer.h"
 #include "Screen.h"
 
-TileRenderer::TileRenderer( CTileMap* _pTileMap, CTileBank* _tileBank )
+TileRenderer::TileRenderer( const CTileMap* _pTileMap, const CTileBank* _tileBank )
 {
 	m_pTileBank = _tileBank;
 	m_pTileMap = _pTileMap;

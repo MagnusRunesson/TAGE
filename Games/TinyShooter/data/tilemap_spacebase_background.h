@@ -7,6 +7,6 @@
 #include "types.h"
 #include "TileMap.h"
 
-extern CTileMap tilemap_spacebase_background;
+extern "C" const CTileMap tilemap_spacebase_background;
 
 #endif // tilemap_spacebase_background_header_

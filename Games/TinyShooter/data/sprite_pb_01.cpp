@@ -1,17 +1,18 @@
 #include "Types.h"
 #include "Image.h"
 
-uint16 sprite_pb_01_pixels[] =
+const uint16 sprite_pb_01_pixels[] =
 {
 	0x90e4,0xf626,0xffff,
 };
 
-uint8 sprite_pb_01_alpha[] =
+const uint8 sprite_pb_01_alpha[] =
 {
 	0xff,0xff,0xff,
 };
 
-Image sprite_pb_01 =
+extern "C" const Image sprite_pb_01;
+const Image sprite_pb_01 =
 {
 	3,1,
 	(uint16*)&sprite_pb_01_pixels,

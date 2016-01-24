@@ -10,7 +10,7 @@
 #include "animation.h"
 #include "alldata.h"
 
-AnimationFrameDefinition animation_pickup_frames[] =
+const AnimationFrameDefinition animation_pickup_frames[] =
 {
 	{
 		&sprite_pickup_00,
@@ -42,7 +42,8 @@ AnimationFrameDefinition animation_pickup_frames[] =
 	},
 };
 
-AnimationSequenceDefinition animation_pickup =
+extern "C" const AnimationSequenceDefinition animation_pickup;
+const AnimationSequenceDefinition animation_pickup =
 {
 	4,
 	animation_pickup_frames,

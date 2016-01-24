@@ -9,7 +9,7 @@
 #include "GameObject.h"
 #include "Animation.h"
 
-void Animation::Create( AnimationSequenceDefinition* _pSequence, GameObject* _pTarget )
+void Animation::Create( const AnimationSequenceDefinition* _pSequence, GameObject* _pTarget )
 {
 	pTarget = _pTarget;
 	pSequence = _pSequence;

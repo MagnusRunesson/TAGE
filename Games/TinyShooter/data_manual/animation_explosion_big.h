@@ -11,6 +11,6 @@
 
 class AnimationSequenceDefinition;
 
-extern AnimationSequenceDefinition animation_explosion_big;
+extern "C" const AnimationSequenceDefinition animation_explosion_big;
 
 #endif /* defined(__TinyShooter__animation_explosion_big__) */

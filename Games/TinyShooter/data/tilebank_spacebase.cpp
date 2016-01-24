@@ -1,6 +1,6 @@
 #include "Tilebank.h"
 
-uint16 tilebank_spacebase_pixels[] =
+const uint16 tilebank_spacebase_pixels[] =
 {
 	// Tile 0
 	0x0000,0x0000,0x0000,0x0000,
@@ -1540,7 +1540,7 @@ uint16 tilebank_spacebase_pixels[] =
 
 };
 
-uint8 tilebank_spacebase_alpha[] =
+const uint8 tilebank_spacebase_alpha[] =
 {
 	// Tile 0
 	0x00,0x00,0x00,0x00,
@@ -3080,7 +3080,8 @@ uint8 tilebank_spacebase_alpha[] =
 
 };
 
-CTileBank tilebank_spacebase =
+extern "C" const CTileBank tilebank_spacebase;
+const CTileBank tilebank_spacebase =
 {
 	4,4,
 	256,

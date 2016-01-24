@@ -17,7 +17,7 @@ class Image;
 class AnimationFrameDefinition
 {
 public:
-	Image* sourceImage;
+	const Image* sourceImage;
 	uint8 Duration;
 	uint8 Flags;
 	sint8 HotspotX;
@@ -28,18 +28,18 @@ class AnimationSequenceDefinition
 {
 public:
 	int NumFrames;
-	AnimationFrameDefinition* Frames;
+	const AnimationFrameDefinition* Frames;
 };
 
 class Animation
 {
 public:
 	GameObject* pTarget;
-	AnimationSequenceDefinition* pSequence;
+	const AnimationSequenceDefinition* pSequence;
 	int FrameIndex;
 	int FrameTime;
 
-	void Create( AnimationSequenceDefinition* _pSequence, GameObject* _pTarget );
+	void Create( const AnimationSequenceDefinition* _pSequence, GameObject* _pTarget );
 	void Update();
 };
 

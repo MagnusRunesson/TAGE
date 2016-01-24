@@ -16,15 +16,15 @@ class TileRenderer
 {
 	int m_x;
 	int m_y;
-	CTileBank* m_pTileBank;
-	CTileMap* m_pTileMap;
+	const CTileBank* m_pTileBank;
+	const CTileMap* m_pTileMap;
 	
 	int m_currentScanline;
 	int m_tileY;
 	int m_pixelY;
 	
 public:
-	TileRenderer( CTileMap* _tileMap, CTileBank* _tileBank );
+	TileRenderer( const CTileMap* _tileMap, const CTileBank* _tileBank );
 	
 	//
 	void SetPosition( int _x, int _y );

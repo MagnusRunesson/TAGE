@@ -3,6 +3,6 @@
 
 #include "Tilebank.h"
 
-extern CTileBank tilebank_spacebase;
+extern "C" const CTileBank tilebank_spacebase;
 
 #endif // tilebank_spacebase_tilebank_h

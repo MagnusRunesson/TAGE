@@ -12,6 +12,8 @@
 #include "screen.h"
 #include "fpmath.h"
 
+#if 0
+
 void imageBlitFullScreen( Image* _this )
 {
 	memcpy( screenBuffer, _this->pixels, SCREEN_HEIGHT * SCREEN_WIDTH * 2 );
@@ -570,3 +572,5 @@ void Image::DrawQRotateFlipAlpha( int _screenX, int _screenY, bool _flipX, bool 
 {
 	imageBlitQRotateFlipAlpha( this, _screenX, _screenY, _flipX, _flipY, _qrot );
 }
+
+#endif

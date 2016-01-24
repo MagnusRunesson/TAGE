@@ -28,10 +28,8 @@ public:
 	
 	SpriteRenderer();
 	
-	Sprite* AllocateSprite( Image* _image );
+	Sprite* AllocateSprite( const Image* _image );
 	void FreeSprite( Sprite* _spriteInstance );
-	
-	void Draw();
 
 	//
 	void FrameStart();
