@@ -15,6 +15,12 @@
 #include "sprite_pickup_01.h"
 #include "sprite_pickup_02.h"
 #include "sprite_pickup_03.h"
+#include "sprite_explosion_big_00.h"
+#include "sprite_explosion_big_01.h"
+#include "sprite_explosion_big_02.h"
+#include "sprite_explosion_big_03.h"
+#include "sprite_explosion_big_04.h"
+#include "sprite_explosion_big_05.h"
 
 #include "tilemap_spacebase.h"
 #include "tilemap_spacebase_background.h"
