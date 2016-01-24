@@ -30,44 +30,6 @@
 #define GO_FLAGS_PLAYERBULLET (2)
 #define GO_FLAGS_EXPLOSION (3)
 
-AnimationFrameDefinition testanim_frames[] =
-{
-	{
-		&sprite_pickup_00,
-		65,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_pickup_01,
-		5,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_pickup_02,
-		5,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_pickup_03,
-		5,
-		0,
-		0,
-		0,
-	},
-};
-
-AnimationSequenceDefinition testanim =
-{
-	4,
-	testanim_frames,
-};
-
 //
 Camera mainCamera;
 TileRenderer* background;
@@ -153,7 +115,7 @@ void setup()
 	ResetPlayer();
 	playerSpeed = FixedPoint( 0, 50 );
 	
-	testanimGO = gameObjectManager.CreateGameObject( &testanim );
+	testanimGO = gameObjectManager.CreateGameObject( &animation_pickup );
 	testanimGO->SetWorldPosition( 80, 20 );
 	
 	//
