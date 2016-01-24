@@ -30,7 +30,7 @@ void writePixel( FILE* f, unsigned char* source )
 
 int writePixels( FILE* f, char* _symbolNameBase, SDL_Surface* image, int tileWidth, int tileHeight )
 {
-	fprintf( f, "uint16 %s_pixels[] =\n{\n", _symbolNameBase );
+	fprintf( f, "const uint16 %s_pixels[] =\n{\n", _symbolNameBase );
 	
 	unsigned char* pixels = (unsigned char*)image->pixels;
 	int itile=0;
@@ -64,7 +64,7 @@ int writePixels( FILE* f, char* _symbolNameBase, SDL_Surface* image, int tileWid
 
 void writeAlpha( FILE* f, char* _symbolNameBase, SDL_Surface* image, int tileWidth, int tileHeight )
 {
-	fprintf( f, "uint8 %s_alpha[] =\n{\n", _symbolNameBase );
+	fprintf( f, "const uint8 %s_alpha[] =\n{\n", _symbolNameBase );
 	
 	unsigned char* pixels = (unsigned char*)image->pixels;
 	int itile=0;
@@ -97,7 +97,8 @@ void writeAlpha( FILE* f, char* _symbolNameBase, SDL_Surface* image, int tileWid
 
 void writeTileBank( FILE* f, char* _symbolNameBase, SDL_Surface* _image, int tileWidth, int tileHeight, int numTiles )
 {
-	fprintf( f, "CTileBank %s =\n{\n", _symbolNameBase );
+	fprintf( f, "extern \"C\" const CTileBank %s;\n", _symbolNameBase );
+	fprintf( f, "const CTileBank %s =\n{\n", _symbolNameBase );
 	fprintf( f, "\t%i,%i,\n", tileWidth, tileHeight );
 	fprintf( f, "\t%i,\n", numTiles );
 	fprintf( f, "\t(uint16*)&%s_pixels,\n", _symbolNameBase );
@@ -136,7 +137,7 @@ void writeHeaderFile( FILE* f, char* _symbolNameBase, SDL_Surface* _image )
 	fprintf( f, "\n" );
 	fprintf( f, "#include \"Tilebank.h\"\n" );
 	fprintf( f, "\n" );
-	fprintf( f, "extern CTileBank %s;\n", _symbolNameBase );
+	fprintf( f, "extern \"C\" const CTileBank %s;\n", _symbolNameBase );
 	fprintf( f, "\n" );
 	fprintf( f, "#endif // %s_tilebank_h\n", _symbolNameBase );
 }
