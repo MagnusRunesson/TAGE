@@ -63,7 +63,7 @@ void SpriteRenderer::FrameStart()
 			{
 				m_potentialSprites[ iPot ] = sprite;
 				iPot++;
-			} else if( sprite->boundsBottom >= 0 )
+			} else if( sprite->boundsBottom > 0 )
 			{
 				m_scanlineSprites[ iCurr ] = sprite;
 				iCurr++;
