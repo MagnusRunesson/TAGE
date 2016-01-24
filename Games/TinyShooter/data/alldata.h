@@ -28,5 +28,6 @@
 #include "tilebank_spacebase.h"
 
 #include "animation_pickup.h"
+#include "animation_explosion_big.h"
 
 #endif /* alldata_h */
