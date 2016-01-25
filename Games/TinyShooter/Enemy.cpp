@@ -57,6 +57,7 @@ void Enemy::Update()
 		if( HitTimer == 0 )
 		{
 			// No more hit for the enemy
+			pTargetGameObject->GetSprite()->flags &= ~SPRITE_FLAG_DRAWWHITE;
 		}
 	}
 }
@@ -69,9 +70,11 @@ bool Enemy::Hit()
 	if( Health <= 1 )
 		return true;
 	
+	pTargetGameObject->GetSprite()->flags |= SPRITE_FLAG_DRAWWHITE;
+	
 	//
 	Health--;
-	HitTimer = 1;
+	HitTimer = 3;
 	
 	//
 	return false;
