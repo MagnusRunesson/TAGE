@@ -12,6 +12,6 @@
 const EnemyDefinition enemy_saucer_easy =
 {
 	&animation_enemy_saucer,
-	2,
+	3,
 	0
 };
