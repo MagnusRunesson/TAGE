@@ -22,29 +22,8 @@
 
 // Project specifics
 #include "alldata.h"
-
-#define NUM_PLAYER_BULLETS	(10)
-#define NUM_EXPLOSIONS		(10)
-#define NUM_ENEMIES			(10)
-
-#define FIRE_RATE_DELAY (10)
-
-#define GO_FLAGS_UNIMPORTANT	(0)
-#define GO_FLAGS_PLAYERSHIP		(1)
-#define GO_FLAGS_PLAYERBULLET	(2)
-#define GO_FLAGS_ENEMY			(3)
-
-#define SPRITE_COLLISION_INDEX_UNIMPORTANT	(0)
-#define SPRITE_COLLISION_INDEX_PLAYERSHIP	(1)
-#define SPRITE_COLLISION_INDEX_PLAYERBULLET	(2)
-#define SPRITE_COLLISION_INDEX_ENEMY		(3)
-#define SPRITE_COLLISION_INDEX_PICKUP		(4)
-
-#define SPRITE_COLLISION_MASK_UNIMPORTANT	(1<<SPRITE_COLLISION_INDEX_UNIMPORTANT)
-#define SPRITE_COLLISION_MASK_PLAYERSHIP	(1<<SPRITE_COLLISION_INDEX_PLAYERSHIP)
-#define SPRITE_COLLISION_MASK_PLAYERBULLET	(1<<SPRITE_COLLISION_INDEX_PLAYERBULLET)
-#define SPRITE_COLLISION_MASK_ENEMY			(1<<SPRITE_COLLISION_INDEX_ENEMY)
-#define SPRITE_COLLISION_MASK_PICKUP		(1<<SPRITE_COLLISION_INDEX_PICKUP)
+#include "Enemy.h"
+#include "ContextIngame.h"
 
 //
 Camera mainCamera;
@@ -62,7 +41,7 @@ AudioSource* sfxPlayerPickup;
 GameObject* explosions[ NUM_EXPLOSIONS ];
 int nextExplosion;
 
-GameObject* enemies[ NUM_ENEMIES ];
+Enemy enemyObjects[ NUM_ENEMIES ];
 int nextEnemy;
 
 int nextPlayerBullet;
@@ -183,13 +162,9 @@ void ingame_setup()
 	
 	for( i=0; i<NUM_ENEMIES; i++ )
 	{
-		GameObject* pb = gameObjectManager.CreateGameObject( &animation_enemy_saucer );
-		pb->SetWorldPosition( 100+(i*20), 30 );
-		pb->SetHotspot( 0, 0 );
-		pb->GetAnimation()->Play();
-		pb->m_flags = GO_FLAGS_ENEMY;
-		pb->GetSprite()->collisionIndex = SPRITE_COLLISION_INDEX_ENEMY;
-		enemies[ i ] = pb;
+		Enemy* pEnemyObject = &enemyObjects[ i ];
+		pEnemyObject->SetDefinition( &enemy_saucer_easy );
+		pEnemyObject->pTargetGameObject->SetWorldPosition( 100+(i*20), 30 );
 	}
 	
 	nextEnemy = 0;
@@ -470,7 +445,9 @@ void ingame_loop()
 							bulletGO->SetWorldPosition( 0, -1 );
 							
 							GameObject* enemyGO = spriteRenderer.m_collisionSprites[ SPRITE_COLLISION_INDEX_ENEMY ]->owner;
-							enemyGO->SetWorldPosition( 0, -30 );
+							Enemy* enemy = (Enemy*)enemyGO->m_customObject;
+							if( enemy->Hit())
+								enemyGO->SetWorldPosition( 0, -30 );
 							
 							GameObject* exp = explosions[ nextExplosion ];
 							nextExplosion++;

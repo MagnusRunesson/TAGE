@@ -53,5 +53,6 @@
 
 #include "sfx_player.h"
 
+#include "enemy_definitions.h"
 
 #endif /* alldata_h */
