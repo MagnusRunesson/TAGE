@@ -23,6 +23,7 @@
 #define SPRITE_FLAG_ROTATE_270		(3<<SPRITE_FLAG_ROTATE_BASE)
 #define SPRITE_FLAG_FLIP_X			(1<<3)
 #define SPRITE_FLAG_FLIP_Y			(1<<4)
+#define SPRITE_FLAG_DRAWWHITE		(1<<5)
 
 class GameObject;
 

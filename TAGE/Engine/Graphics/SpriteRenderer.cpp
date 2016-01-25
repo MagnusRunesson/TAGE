@@ -210,6 +210,9 @@ bool SpriteRenderer::RenderPixel( int _x, uint16* _pOutPixel, uint8* _pOutCollis
 				alpha = sprite->image->alpha[ ofs ];
 			
 			uint16 rgb = sprite->image->pixels[ ofs ];
+			if( sprite->flags & SPRITE_FLAG_DRAWWHITE )
+				rgb = 0xffff;
+			
 			if( alpha == 0 )
 			{
 				// Skip
