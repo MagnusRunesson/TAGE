@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25A64D6F1C386D58009F4D3B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25A64D6E1C386D58009F4D3B /* main.cpp */; };
-		25A64D771C386D67009F4D3B /* tinyxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25A64D751C386D67009F4D3B /* tinyxml2.cpp */; settings = {ASSET_TAGS = (); }; };
+		25CFB4C71C57576A005E9E35 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CFB4C41C57576A005E9E35 /* main.cpp */; settings = {ASSET_TAGS = (); }; };
+		25CFB4C81C57576A005E9E35 /* tinyxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CFB4C51C57576A005E9E35 /* tinyxml2.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,9 +25,9 @@
 
 /* Begin PBXFileReference section */
 		25A64D6B1C386D58009F4D3B /* tmx2c */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tmx2c; sourceTree = BUILT_PRODUCTS_DIR; };
-		25A64D6E1C386D58009F4D3B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		25A64D751C386D67009F4D3B /* tinyxml2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml2.cpp; sourceTree = "<group>"; };
-		25A64D761C386D67009F4D3B /* tinyxml2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml2.h; sourceTree = "<group>"; };
+		25CFB4C41C57576A005E9E35 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = SOURCE_ROOT; };
+		25CFB4C51C57576A005E9E35 /* tinyxml2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml2.cpp; sourceTree = SOURCE_ROOT; };
+		25CFB4C61C57576A005E9E35 /* tinyxml2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml2.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +60,9 @@
 		25A64D6D1C386D58009F4D3B /* tmx2c */ = {
 			isa = PBXGroup;
 			children = (
-				25A64D6E1C386D58009F4D3B /* main.cpp */,
-				25A64D751C386D67009F4D3B /* tinyxml2.cpp */,
-				25A64D761C386D67009F4D3B /* tinyxml2.h */,
+				25CFB4C41C57576A005E9E35 /* main.cpp */,
+				25CFB4C51C57576A005E9E35 /* tinyxml2.cpp */,
+				25CFB4C61C57576A005E9E35 /* tinyxml2.h */,
 			);
 			path = tmx2c;
 			sourceTree = "<group>";
@@ -123,8 +123,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25A64D771C386D67009F4D3B /* tinyxml2.cpp in Sources */,
-				25A64D6F1C386D58009F4D3B /* main.cpp in Sources */,
+				25CFB4C81C57576A005E9E35 /* tinyxml2.cpp in Sources */,
+				25CFB4C71C57576A005E9E35 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +241,7 @@
 				25A64D741C386D58009F4D3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
