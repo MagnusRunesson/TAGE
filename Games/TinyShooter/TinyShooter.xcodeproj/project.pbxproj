@@ -7,68 +7,70 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		250DA1971C4A813500C664DA /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250DA1961C4A813500C664DA /* SDL2.framework */; settings = {ASSET_TAGS = (); }; };
-		25CB2CEE1C57561700BC35A1 /* ContextIngame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CE81C57561700BC35A1 /* ContextIngame.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2CEF1C57561700BC35A1 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CEA1C57561700BC35A1 /* Enemy.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2CF01C57561700BC35A1 /* TinyShooter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CED1C57561700BC35A1 /* TinyShooter.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D2E1C57561F00BC35A1 /* audiosamples_pew_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CF21C57561F00BC35A1 /* audiosamples_pew_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D2F1C57561F00BC35A1 /* audiosamples_pickup_s8b_pcm_11025.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CF41C57561F00BC35A1 /* audiosamples_pickup_s8b_pcm_11025.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D301C57561F00BC35A1 /* sprite_enemy_saucer_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CF61C57561F00BC35A1 /* sprite_enemy_saucer_00.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D311C57561F00BC35A1 /* sprite_enemy_saucer_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CF81C57561F00BC35A1 /* sprite_enemy_saucer_01.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D321C57561F00BC35A1 /* sprite_explosion_big_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CFA1C57561F00BC35A1 /* sprite_explosion_big_00.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D331C57561F00BC35A1 /* sprite_explosion_big_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CFC1C57561F00BC35A1 /* sprite_explosion_big_01.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D341C57561F00BC35A1 /* sprite_explosion_big_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CFE1C57561F00BC35A1 /* sprite_explosion_big_02.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D351C57561F00BC35A1 /* sprite_explosion_big_03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D001C57561F00BC35A1 /* sprite_explosion_big_03.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D361C57561F00BC35A1 /* sprite_explosion_big_04.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D021C57561F00BC35A1 /* sprite_explosion_big_04.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D371C57561F00BC35A1 /* sprite_explosion_big_05.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D041C57561F00BC35A1 /* sprite_explosion_big_05.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D381C57561F00BC35A1 /* sprite_logo_shooter_e.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D061C57561F00BC35A1 /* sprite_logo_shooter_e.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D391C57561F00BC35A1 /* sprite_logo_shooter_h.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D081C57561F00BC35A1 /* sprite_logo_shooter_h.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D3A1C57561F00BC35A1 /* sprite_logo_shooter_o.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D0A1C57561F00BC35A1 /* sprite_logo_shooter_o.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D3B1C57561F00BC35A1 /* sprite_logo_shooter_r.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D0C1C57561F00BC35A1 /* sprite_logo_shooter_r.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D3C1C57561F00BC35A1 /* sprite_logo_shooter_s.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D0E1C57561F00BC35A1 /* sprite_logo_shooter_s.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D3D1C57561F00BC35A1 /* sprite_logo_shooter_t.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D101C57561F00BC35A1 /* sprite_logo_shooter_t.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D3E1C57561F00BC35A1 /* sprite_logo_tiny_i.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D121C57561F00BC35A1 /* sprite_logo_tiny_i.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D3F1C57561F00BC35A1 /* sprite_logo_tiny_n.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D141C57561F00BC35A1 /* sprite_logo_tiny_n.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D401C57561F00BC35A1 /* sprite_logo_tiny_t.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D161C57561F00BC35A1 /* sprite_logo_tiny_t.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D411C57561F00BC35A1 /* sprite_logo_tiny_y.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D181C57561F00BC35A1 /* sprite_logo_tiny_y.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D421C57561F00BC35A1 /* sprite_pb_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D1A1C57561F00BC35A1 /* sprite_pb_01.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D431C57561F00BC35A1 /* sprite_pickup_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D1C1C57561F00BC35A1 /* sprite_pickup_00.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D441C57561F00BC35A1 /* sprite_pickup_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D1E1C57561F00BC35A1 /* sprite_pickup_01.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D451C57561F00BC35A1 /* sprite_pickup_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D201C57561F00BC35A1 /* sprite_pickup_02.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D461C57561F00BC35A1 /* sprite_pickup_03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D221C57561F00BC35A1 /* sprite_pickup_03.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D471C57561F00BC35A1 /* sprite_player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D241C57561F00BC35A1 /* sprite_player.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D481C57561F00BC35A1 /* sprite_spacebase_boss_door.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D261C57561F00BC35A1 /* sprite_spacebase_boss_door.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D491C57561F00BC35A1 /* tilebank_spacebase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D281C57561F00BC35A1 /* tilebank_spacebase.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D4A1C57561F00BC35A1 /* tilemap_spacebase_background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D2A1C57561F00BC35A1 /* tilemap_spacebase_background.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D4B1C57561F00BC35A1 /* tilemap_spacebase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D2C1C57561F00BC35A1 /* tilemap_spacebase.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D561C57563F00BC35A1 /* animation_enemy_saucer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D4C1C57563F00BC35A1 /* animation_enemy_saucer.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D571C57563F00BC35A1 /* animation_explosion_big.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D4E1C57563F00BC35A1 /* animation_explosion_big.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D581C57563F00BC35A1 /* animation_pickup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D501C57563F00BC35A1 /* animation_pickup.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D591C57563F00BC35A1 /* enemy_definitions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D521C57563F00BC35A1 /* enemy_definitions.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D5A1C57563F00BC35A1 /* sfx_player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D541C57563F00BC35A1 /* sfx_player.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D861C57565100BC35A1 /* AudioData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D5C1C57565100BC35A1 /* AudioData.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D871C57565100BC35A1 /* AudioMixer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D5E1C57565100BC35A1 /* AudioMixer.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D881C57565100BC35A1 /* AudioSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D601C57565100BC35A1 /* AudioSource.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D891C57565100BC35A1 /* BitHelpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D621C57565100BC35A1 /* BitHelpers.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D8A1C57565100BC35A1 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D651C57565100BC35A1 /* Animation.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D8B1C57565100BC35A1 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D671C57565100BC35A1 /* Image.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D8C1C57565100BC35A1 /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D691C57565100BC35A1 /* Screen.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D8D1C57565100BC35A1 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D6B1C57565100BC35A1 /* Sprite.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D8E1C57565100BC35A1 /* SpriteRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D6D1C57565100BC35A1 /* SpriteRenderer.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D8F1C57565100BC35A1 /* TileBank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D6F1C57565100BC35A1 /* TileBank.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D901C57565100BC35A1 /* TileMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D711C57565100BC35A1 /* TileMap.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D911C57565100BC35A1 /* TileRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D731C57565100BC35A1 /* TileRenderer.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D921C57565100BC35A1 /* FixedPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D761C57565100BC35A1 /* FixedPoint.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D931C57565100BC35A1 /* fp2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D781C57565100BC35A1 /* fp2d.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D941C57565100BC35A1 /* fpmath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D7A1C57565100BC35A1 /* fpmath.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D951C57565100BC35A1 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D7E1C57565100BC35A1 /* Camera.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D961C57565100BC35A1 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D801C57565100BC35A1 /* GameObject.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D971C57565100BC35A1 /* GameObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D821C57565100BC35A1 /* GameObjectManager.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D981C57565100BC35A1 /* GameObjectTemplate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D841C57565100BC35A1 /* GameObjectTemplate.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2D9B1C57565900BC35A1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D991C57565900BC35A1 /* main.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2DAA1C57566100BC35A1 /* AudioHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2DA41C57566100BC35A1 /* AudioHandler.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2DAB1C57566100BC35A1 /* Joypad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2DA61C57566100BC35A1 /* Joypad.cpp */; settings = {ASSET_TAGS = (); }; };
-		25CB2DAC1C57566100BC35A1 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2DA81C57566100BC35A1 /* Timer.cpp */; settings = {ASSET_TAGS = (); }; };
+		250DA1971C4A813500C664DA /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250DA1961C4A813500C664DA /* SDL2.framework */; };
+		25CB2CEE1C57561700BC35A1 /* ContextIngame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CE81C57561700BC35A1 /* ContextIngame.cpp */; };
+		25CB2CEF1C57561700BC35A1 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CEA1C57561700BC35A1 /* Enemy.cpp */; };
+		25CB2CF01C57561700BC35A1 /* TinyShooter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CED1C57561700BC35A1 /* TinyShooter.cpp */; };
+		25CB2D2E1C57561F00BC35A1 /* audiosamples_pew_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CF21C57561F00BC35A1 /* audiosamples_pew_s8b_pcm_11025hz.cpp */; };
+		25CB2D2F1C57561F00BC35A1 /* audiosamples_pickup_s8b_pcm_11025.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CF41C57561F00BC35A1 /* audiosamples_pickup_s8b_pcm_11025.cpp */; };
+		25CB2D301C57561F00BC35A1 /* sprite_enemy_saucer_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CF61C57561F00BC35A1 /* sprite_enemy_saucer_00.cpp */; };
+		25CB2D311C57561F00BC35A1 /* sprite_enemy_saucer_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CF81C57561F00BC35A1 /* sprite_enemy_saucer_01.cpp */; };
+		25CB2D321C57561F00BC35A1 /* sprite_explosion_big_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CFA1C57561F00BC35A1 /* sprite_explosion_big_00.cpp */; };
+		25CB2D331C57561F00BC35A1 /* sprite_explosion_big_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CFC1C57561F00BC35A1 /* sprite_explosion_big_01.cpp */; };
+		25CB2D341C57561F00BC35A1 /* sprite_explosion_big_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CFE1C57561F00BC35A1 /* sprite_explosion_big_02.cpp */; };
+		25CB2D351C57561F00BC35A1 /* sprite_explosion_big_03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D001C57561F00BC35A1 /* sprite_explosion_big_03.cpp */; };
+		25CB2D361C57561F00BC35A1 /* sprite_explosion_big_04.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D021C57561F00BC35A1 /* sprite_explosion_big_04.cpp */; };
+		25CB2D371C57561F00BC35A1 /* sprite_explosion_big_05.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D041C57561F00BC35A1 /* sprite_explosion_big_05.cpp */; };
+		25CB2D381C57561F00BC35A1 /* sprite_logo_shooter_e.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D061C57561F00BC35A1 /* sprite_logo_shooter_e.cpp */; };
+		25CB2D391C57561F00BC35A1 /* sprite_logo_shooter_h.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D081C57561F00BC35A1 /* sprite_logo_shooter_h.cpp */; };
+		25CB2D3A1C57561F00BC35A1 /* sprite_logo_shooter_o.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D0A1C57561F00BC35A1 /* sprite_logo_shooter_o.cpp */; };
+		25CB2D3B1C57561F00BC35A1 /* sprite_logo_shooter_r.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D0C1C57561F00BC35A1 /* sprite_logo_shooter_r.cpp */; };
+		25CB2D3C1C57561F00BC35A1 /* sprite_logo_shooter_s.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D0E1C57561F00BC35A1 /* sprite_logo_shooter_s.cpp */; };
+		25CB2D3D1C57561F00BC35A1 /* sprite_logo_shooter_t.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D101C57561F00BC35A1 /* sprite_logo_shooter_t.cpp */; };
+		25CB2D3E1C57561F00BC35A1 /* sprite_logo_tiny_i.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D121C57561F00BC35A1 /* sprite_logo_tiny_i.cpp */; };
+		25CB2D3F1C57561F00BC35A1 /* sprite_logo_tiny_n.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D141C57561F00BC35A1 /* sprite_logo_tiny_n.cpp */; };
+		25CB2D401C57561F00BC35A1 /* sprite_logo_tiny_t.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D161C57561F00BC35A1 /* sprite_logo_tiny_t.cpp */; };
+		25CB2D411C57561F00BC35A1 /* sprite_logo_tiny_y.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D181C57561F00BC35A1 /* sprite_logo_tiny_y.cpp */; };
+		25CB2D421C57561F00BC35A1 /* sprite_pb_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D1A1C57561F00BC35A1 /* sprite_pb_01.cpp */; };
+		25CB2D431C57561F00BC35A1 /* sprite_pickup_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D1C1C57561F00BC35A1 /* sprite_pickup_00.cpp */; };
+		25CB2D441C57561F00BC35A1 /* sprite_pickup_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D1E1C57561F00BC35A1 /* sprite_pickup_01.cpp */; };
+		25CB2D451C57561F00BC35A1 /* sprite_pickup_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D201C57561F00BC35A1 /* sprite_pickup_02.cpp */; };
+		25CB2D461C57561F00BC35A1 /* sprite_pickup_03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D221C57561F00BC35A1 /* sprite_pickup_03.cpp */; };
+		25CB2D471C57561F00BC35A1 /* sprite_player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D241C57561F00BC35A1 /* sprite_player.cpp */; };
+		25CB2D481C57561F00BC35A1 /* sprite_spacebase_boss_door.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D261C57561F00BC35A1 /* sprite_spacebase_boss_door.cpp */; };
+		25CB2D491C57561F00BC35A1 /* tilebank_spacebase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D281C57561F00BC35A1 /* tilebank_spacebase.cpp */; };
+		25CB2D4A1C57561F00BC35A1 /* tilemap_spacebase_background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D2A1C57561F00BC35A1 /* tilemap_spacebase_background.cpp */; };
+		25CB2D4B1C57561F00BC35A1 /* tilemap_spacebase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D2C1C57561F00BC35A1 /* tilemap_spacebase.cpp */; };
+		25CB2D561C57563F00BC35A1 /* animation_enemy_saucer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D4C1C57563F00BC35A1 /* animation_enemy_saucer.cpp */; };
+		25CB2D571C57563F00BC35A1 /* animation_explosion_big.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D4E1C57563F00BC35A1 /* animation_explosion_big.cpp */; };
+		25CB2D581C57563F00BC35A1 /* animation_pickup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D501C57563F00BC35A1 /* animation_pickup.cpp */; };
+		25CB2D591C57563F00BC35A1 /* enemy_definitions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D521C57563F00BC35A1 /* enemy_definitions.cpp */; };
+		25CB2D5A1C57563F00BC35A1 /* sfx_player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D541C57563F00BC35A1 /* sfx_player.cpp */; };
+		25CB2D861C57565100BC35A1 /* AudioData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D5C1C57565100BC35A1 /* AudioData.cpp */; };
+		25CB2D871C57565100BC35A1 /* AudioMixer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D5E1C57565100BC35A1 /* AudioMixer.cpp */; };
+		25CB2D881C57565100BC35A1 /* AudioSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D601C57565100BC35A1 /* AudioSource.cpp */; };
+		25CB2D891C57565100BC35A1 /* BitHelpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D621C57565100BC35A1 /* BitHelpers.cpp */; };
+		25CB2D8A1C57565100BC35A1 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D651C57565100BC35A1 /* Animation.cpp */; };
+		25CB2D8B1C57565100BC35A1 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D671C57565100BC35A1 /* Image.cpp */; };
+		25CB2D8C1C57565100BC35A1 /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D691C57565100BC35A1 /* Screen.cpp */; };
+		25CB2D8D1C57565100BC35A1 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D6B1C57565100BC35A1 /* Sprite.cpp */; };
+		25CB2D8E1C57565100BC35A1 /* SpriteRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D6D1C57565100BC35A1 /* SpriteRenderer.cpp */; };
+		25CB2D8F1C57565100BC35A1 /* TileBank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D6F1C57565100BC35A1 /* TileBank.cpp */; };
+		25CB2D901C57565100BC35A1 /* TileMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D711C57565100BC35A1 /* TileMap.cpp */; };
+		25CB2D911C57565100BC35A1 /* TileRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D731C57565100BC35A1 /* TileRenderer.cpp */; };
+		25CB2D921C57565100BC35A1 /* FixedPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D761C57565100BC35A1 /* FixedPoint.cpp */; };
+		25CB2D931C57565100BC35A1 /* fp2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D781C57565100BC35A1 /* fp2d.cpp */; };
+		25CB2D941C57565100BC35A1 /* fpmath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D7A1C57565100BC35A1 /* fpmath.cpp */; };
+		25CB2D951C57565100BC35A1 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D7E1C57565100BC35A1 /* Camera.cpp */; };
+		25CB2D961C57565100BC35A1 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D801C57565100BC35A1 /* GameObject.cpp */; };
+		25CB2D971C57565100BC35A1 /* GameObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D821C57565100BC35A1 /* GameObjectManager.cpp */; };
+		25CB2D981C57565100BC35A1 /* GameObjectTemplate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D841C57565100BC35A1 /* GameObjectTemplate.cpp */; };
+		25CB2D9B1C57565900BC35A1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D991C57565900BC35A1 /* main.cpp */; };
+		25CB2DAA1C57566100BC35A1 /* AudioHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2DA41C57566100BC35A1 /* AudioHandler.cpp */; };
+		25CB2DAB1C57566100BC35A1 /* Joypad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2DA61C57566100BC35A1 /* Joypad.cpp */; };
+		25CB2DAC1C57566100BC35A1 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2DA81C57566100BC35A1 /* Timer.cpp */; };
+		25D7B2601C57985800759E1B /* enemy_paths.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D7B25E1C57985800759E1B /* enemy_paths.cpp */; };
+		25D7B2631C57990200759E1B /* PathFollower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D7B2611C57990200759E1B /* PathFollower.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -216,6 +218,11 @@
 		25CB2DA71C57566100BC35A1 /* Joypad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Joypad.h; path = "../../TAGE/Abstraction layer/Joypad.h"; sourceTree = "<group>"; };
 		25CB2DA81C57566100BC35A1 /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Timer.cpp; path = "../../TAGE/Abstraction layer/Timer.cpp"; sourceTree = "<group>"; };
 		25CB2DA91C57566100BC35A1 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Timer.h; path = "../../TAGE/Abstraction layer/Timer.h"; sourceTree = "<group>"; };
+		25D7B25D1C57976200759E1B /* Path.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Path.h; path = src/Path.h; sourceTree = SOURCE_ROOT; };
+		25D7B25E1C57985800759E1B /* enemy_paths.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = enemy_paths.cpp; path = data_manual/enemy_paths.cpp; sourceTree = "<group>"; };
+		25D7B25F1C57985800759E1B /* enemy_paths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = enemy_paths.h; path = data_manual/enemy_paths.h; sourceTree = "<group>"; };
+		25D7B2611C57990200759E1B /* PathFollower.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PathFollower.cpp; path = src/PathFollower.cpp; sourceTree = SOURCE_ROOT; };
+		25D7B2621C57990200759E1B /* PathFollower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PathFollower.h; path = src/PathFollower.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +268,9 @@
 				25CB2CEB1C57561700BC35A1 /* Enemy.h */,
 				25CB2CEC1C57561700BC35A1 /* EnemyDefinition.h */,
 				25CB2CED1C57561700BC35A1 /* TinyShooter.cpp */,
+				25D7B25D1C57976200759E1B /* Path.h */,
+				25D7B2611C57990200759E1B /* PathFollower.cpp */,
+				25D7B2621C57990200759E1B /* PathFollower.h */,
 			);
 			path = TinyShooter;
 			sourceTree = "<group>";
@@ -382,6 +392,8 @@
 				25CB2D531C57563F00BC35A1 /* enemy_definitions.h */,
 				25CB2D541C57563F00BC35A1 /* sfx_player.cpp */,
 				25CB2D551C57563F00BC35A1 /* sfx_player.h */,
+				25D7B25E1C57985800759E1B /* enemy_paths.cpp */,
+				25D7B25F1C57985800759E1B /* enemy_paths.h */,
 			);
 			name = "Data Manual";
 			sourceTree = "<group>";
@@ -555,6 +567,7 @@
 				25CB2D3A1C57561F00BC35A1 /* sprite_logo_shooter_o.cpp in Sources */,
 				25CB2D451C57561F00BC35A1 /* sprite_pickup_02.cpp in Sources */,
 				25CB2D3E1C57561F00BC35A1 /* sprite_logo_tiny_i.cpp in Sources */,
+				25D7B2631C57990200759E1B /* PathFollower.cpp in Sources */,
 				25CB2D311C57561F00BC35A1 /* sprite_enemy_saucer_01.cpp in Sources */,
 				25CB2D981C57565100BC35A1 /* GameObjectTemplate.cpp in Sources */,
 				25CB2D951C57565100BC35A1 /* Camera.cpp in Sources */,
@@ -594,6 +607,7 @@
 				25CB2D8B1C57565100BC35A1 /* Image.cpp in Sources */,
 				25CB2CEE1C57561700BC35A1 /* ContextIngame.cpp in Sources */,
 				25CB2D891C57565100BC35A1 /* BitHelpers.cpp in Sources */,
+				25D7B2601C57985800759E1B /* enemy_paths.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
