@@ -7,6 +7,8 @@
 //
 
 #include <stdlib.h>
+#include "Engine/Graphics/TileBank.h"
+#include "Engine/Graphics/TileMap.h"
 #include "Engine/Graphics/TileRenderer.h"
 #include "Engine/Graphics/Screen.h"
 

@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 Magnus Runesson. All rights reserved.
 //
 
+#include <stdlib.h>
 #include "Enemy.h"
 #include "EnemyDefinition.h"
 #include "GameObject.h"

@@ -9,10 +9,10 @@
 #ifndef SpriteRenderer_hpp
 #define SpriteRenderer_hpp
 
-#include <stdio.h>
 #include "Engine/Types.h"
 #include "Engine/Graphics/Sprite.h"
-#include "Engine/Graphics/Image.h"
+
+class Image;
 
 #define MAX_SPRITES (64)
 

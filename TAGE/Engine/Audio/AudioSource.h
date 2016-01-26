@@ -10,7 +10,8 @@
 #define AudioSource_h
 
 #include "Engine/Types.h"
-#include "Engine/Audio/AudioData.h"
+
+class AudioData;
 
 class AudioSource
 {

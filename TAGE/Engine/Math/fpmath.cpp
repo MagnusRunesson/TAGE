@@ -6,7 +6,6 @@
 //  Copyright © 2015 Magnus Runesson. All rights reserved.
 //
 
-#include <stdio.h>
 #include "Engine/Math/fpmath.h"
 
 #include "sinetable.h"

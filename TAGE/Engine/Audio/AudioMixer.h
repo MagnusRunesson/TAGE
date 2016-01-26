@@ -10,7 +10,8 @@
 #define AudioMixer_h
 
 #include "Engine/Types.h"
-#include "Engine/Audio/AudioSource.h"
+
+class AudioSource;
 
 class AudioMixer
 {

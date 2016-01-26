@@ -8,6 +8,7 @@
 
 #include "Engine/Audio/AudioMixer.h"
 #include "Engine/Audio/AudioSource.h"
+#include "Engine/Audio/AudioData.h"
 
 // This specify the number of input channels. In theory there can be as many input channels
 // as you'd like, just make sure not too many are playing at the same time. For example, you

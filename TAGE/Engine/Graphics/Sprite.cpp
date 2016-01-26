@@ -6,8 +6,9 @@
 //  Copyright © 2015 Magnus Runesson. All rights reserved.
 //
 
-#include <stdio.h>
+#include <stdlib.h>
 #include "Engine/Graphics/Sprite.h"
+#include "Engine/Graphics/Image.h"
 
 Sprite::Sprite()
 {

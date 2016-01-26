@@ -6,6 +6,7 @@
 //  Copyright © 2016 Magnus Runesson. All rights reserved.
 //
 
+#include <stdlib.h>
 #include "PathFollower.h"
 
 PathFollower::PathFollower()

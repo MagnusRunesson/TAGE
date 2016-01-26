@@ -19,6 +19,7 @@
 #include "TileRenderer.h"
 #include "Animation.h"
 #include "AudioMixer.h"
+#include "AudioSource.h"
 
 // Project specifics
 #include "alldata.h"

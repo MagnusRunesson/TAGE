@@ -9,8 +9,6 @@
 #ifndef __TinyArcade__FixedPoint__
 #define __TinyArcade__FixedPoint__
 
-#include <stdio.h>
-
 class FixedPoint
 {
 protected:

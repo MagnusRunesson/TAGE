@@ -9,10 +9,12 @@
 #ifndef GameObject_hpp
 #define GameObject_hpp
 
-#include <stdio.h>
-#include "Engine/Graphics/Image.h"
 #include "Engine/Graphics/SpriteRenderer.h"
 #include "Engine/Graphics/Animation.h"
+
+class Image;
+class Animation;
+class AnimationSequenceDefinition;
 
 class GameObject
 {
