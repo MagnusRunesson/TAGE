@@ -28,7 +28,7 @@ void writePixel( FILE* f, unsigned char* source )
 	fprintf( f, "0x%04x,", outcol );
 }
 
-int writePixels( FILE* f, char* _symbolNameBase, SDL_Surface* image, int tileWidth, int tileHeight )
+int writePixels( FILE* f, char* _symbolNameBase, SDL_Surface* image, int tileWidth, int tileHeight, int* _pTotalOutputSize )
 {
 	fprintf( f, "const uint16 %s_pixels[] =\n{\n", _symbolNameBase );
 	
@@ -50,6 +50,7 @@ int writePixels( FILE* f, char* _symbolNameBase, SDL_Surface* image, int tileWid
 				{
 					int rofs = (((y+ty)*image->w)+(x+tx))*4;
 					writePixel( f, &pixels[ rofs ]);
+					*_pTotalOutputSize += 2;
 				}
 				fprintf( f, "\n" );
 			}
@@ -62,7 +63,7 @@ int writePixels( FILE* f, char* _symbolNameBase, SDL_Surface* image, int tileWid
 	return itile;
 }
 
-void writeAlpha( FILE* f, char* _symbolNameBase, SDL_Surface* image, int tileWidth, int tileHeight )
+void writeAlpha( FILE* f, char* _symbolNameBase, SDL_Surface* image, int tileWidth, int tileHeight, int* _pTotalOutputSize )
 {
 	fprintf( f, "const uint8 %s_alpha[] =\n{\n", _symbolNameBase );
 	
@@ -85,6 +86,7 @@ void writeAlpha( FILE* f, char* _symbolNameBase, SDL_Surface* image, int tileWid
 					int rofs = (((y+ty)*image->w)+(x+tx))*4;
 					unsigned char a = pixels[ rofs+3 ];
 					fprintf( f, "0x%02x,", a );
+					*_pTotalOutputSize+=1;
 				}
 				fprintf( f, "\n" );
 			}
@@ -145,11 +147,11 @@ void writeHeaderFile( FILE* f, char* _symbolNameBase, SDL_Surface* _image )
 SDL_Surface* LoadImage( char* _fileName )
 {
 	SDL_Surface* image = IMG_Load( _fileName );
-	printf("Image=0x%016llx\n", (long long)image );
+	//printf("Image=0x%016llx\n", (long long)image );
 	bool isAlpha = SDL_ISPIXELFORMAT_ALPHA( image->format->format );
 	bool isIndexed = SDL_ISPIXELFORMAT_INDEXED( image->format->format );
 	
-	printf("w=%i, h=%i, bpp=%i, format=%i, isAlpha=%s, isIndexed=%s\n", image->w, image->h, image->format->BitsPerPixel, image->format->format, isAlpha?"Yes":"No", isIndexed?"Yes":"No" );
+	//printf("w=%i, h=%i, bpp=%i, format=%i, isAlpha=%s, isIndexed=%s\n", image->w, image->h, image->format->BitsPerPixel, image->format->format, isAlpha?"Yes":"No", isIndexed?"Yes":"No" );
 	
 	return image;
 }
@@ -187,7 +189,7 @@ int main( int _numargs, char** _apszArgh )
 	int tileWidth = atoi( _apszArgh[ 4 ]);
 	int tileHeight = atoi( _apszArgh[ 5 ]);
 
-	printf("tile width=%i, height=%i\n", tileWidth, tileHeight );
+	//printf("tile width=%i, height=%i\n", tileWidth, tileHeight );
 
 	//
 	SDL_Surface* image = LoadImage( pszInFileName );
@@ -197,10 +199,12 @@ int main( int _numargs, char** _apszArgh )
 	//
 	FILE* f = openOutfileC( pszOutFilenameBase );
 	
+	int totalOutputSize = 0;
+	
 	writeHeader( f, pszSymbolNameBase, image );
-	int numTiles = writePixels( f, pszSymbolNameBase, image, tileWidth, tileHeight );
+	int numTiles = writePixels( f, pszSymbolNameBase, image, tileWidth, tileHeight, &totalOutputSize );
 	if( SDL_ISPIXELFORMAT_ALPHA( image->format->format ))
-		writeAlpha( f, pszSymbolNameBase, image, tileWidth, tileHeight );
+		writeAlpha( f, pszSymbolNameBase, image, tileWidth, tileHeight, &totalOutputSize );
 	writeTileBank( f, pszSymbolNameBase, image, tileWidth, tileHeight, numTiles );
 	
 	fclose( f );
@@ -213,5 +217,7 @@ int main( int _numargs, char** _apszArgh )
 	writeHeaderFile( f, pszSymbolNameBase, image );
 	fclose( f );
 
+	printf("Total output size: %i\n", totalOutputSize );
+	
 	return 0;
 }

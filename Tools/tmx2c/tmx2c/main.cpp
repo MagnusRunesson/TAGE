@@ -76,7 +76,7 @@ const char* GetTileBankName( const XMLElement* _pElement )
 			// "source" attribute, i.e. the name of the tilebank
 			//
 			const char* ret = attribute->Value();
-			printf("Tileset name: %s\n", ret );
+			//printf("Tileset name: %s\n", ret );
 			return ret;
 		}
 		
@@ -107,7 +107,7 @@ unsigned short* ParseLayerCSV( const char* _pszLayerCSV )
 	}
 	
 	int size = (int)retVector.size();
-	printf("return size=%i\n", size );
+	//printf("return size=%i\n", size );
 	
 	unsigned short* pret = new unsigned short[ size ];
 	
@@ -134,10 +134,10 @@ CTileMap* ParseLayerElement( const XMLElement* _pElement )
 {
 	CTileMap* ret = new CTileMap();
 
-	printf("element=%s\n", _pElement->Value());
+	//printf("element=%s\n", _pElement->Value());
 	ret->Width = _pElement->IntAttribute( "width" );
 	ret->Height = _pElement->IntAttribute( "height" );
-	printf( "Map width=%i, height=%i\n", ret->Width, ret->Height );
+	//printf( "Map width=%i, height=%i\n", ret->Width, ret->Height );
 	
 	const XMLElement* dataElement = _pElement->FirstChildElement();
 	ret->Tiles = ParseLayerCSV( dataElement->GetText());
@@ -147,14 +147,14 @@ CTileMap* ParseLayerElement( const XMLElement* _pElement )
 
 CScene* ParseMapElement( const XMLElement* _pElement )
 {
-	printf("Parsing map node, woop!\n");
+	//printf("Parsing map node, woop!\n");
 
 	CScene* ret = new CScene();
 	
 	const XMLElement* child = _pElement->FirstChildElement();
 	while( child != NULL )
 	{
-		printf("Child: %s\n", child->Name());
+		//printf("Child: %s\n", child->Name());
 
 		if( 0 == strcmp( "tileset", child->Name()))
 			ret->TileBankName = GetTileBankName( child );
@@ -187,7 +187,7 @@ void WriteCHeader( FILE* _pFile, const char* _pszInFileName, const char* _pszSym
 	fprintf( _pFile, "\n" );
 }
 
-void WriteTiles( FILE* _pFile, CTileMap* _pTileMap, const char* _pszSymbolBase )
+void WriteTiles( FILE* _pFile, CTileMap* _pTileMap, const char* _pszSymbolBase, int* _pTotalOutputSize )
 {
 	fprintf( _pFile, "const uint16 %s[] =\n", GetTilesSymbol( _pszSymbolBase ));
 	fprintf( _pFile, "{\n" );
@@ -199,6 +199,7 @@ void WriteTiles( FILE* _pFile, CTileMap* _pTileMap, const char* _pszSymbolBase )
 		for( x=0; x<_pTileMap->Width; x++ )
 		{
 			fprintf( _pFile, "%i,", _pTileMap->Tiles[ i ]-1);
+			*_pTotalOutputSize += 2;
 			i++;
 		}
 		fprintf( _pFile, "\n" );
@@ -279,7 +280,7 @@ int main( int _numArgs, const char * _apszArg[])
 	const XMLElement* element = mapDocument.FirstChildElement();
 	while( element != NULL )
 	{
-		printf( "element: %s\n", element->Value());
+		//printf( "element: %s\n", element->Value());
 		if( strcmp( "map", element->Value()) == 0 )
 		{
 			//
@@ -292,12 +293,14 @@ int main( int _numArgs, const char * _apszArg[])
 	
 	FILE* f;
 
+	int totalOutputSize = 0;
+	
 	//
 	// Write C file
 	//
 	f = OpenCFile( pszOutFileNameBase );
 	WriteCHeader( f, pszInFileName, pszOutSymbolName );
-	WriteTiles( f, scene->TileMap, pszOutSymbolName );
+	WriteTiles( f, scene->TileMap, pszOutSymbolName, &totalOutputSize );
 	WriteTileMap( f, scene->TileMap, pszOutSymbolName );
 	fclose( f );
 
@@ -307,6 +310,7 @@ int main( int _numArgs, const char * _apszArg[])
 	f = OpenHFile( pszOutFileNameBase );
 	WriteHFile( f, pszInFileName, pszOutSymbolName );
 	fclose( f );
-	
+
+	printf( "Total output size: %i\n", totalOutputSize );
 	return 0;
 }

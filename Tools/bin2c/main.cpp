@@ -80,6 +80,8 @@ int main( int argc, const char * argv[])
 	fprintf( f, "\n" );
 	fclose( f );
 	
+	printf( "Total output size: %i\n", size );
+	
 	// insert code here...
     return 0;
 }
