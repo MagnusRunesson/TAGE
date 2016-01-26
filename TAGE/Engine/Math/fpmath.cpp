@@ -7,8 +7,7 @@
 //
 
 #include "Engine/Math/fpmath.h"
-
-#include "sinetable.h"
+#include "Engine/Math/sinetable.h"
 
 
 sint16 fpsin( int _angle )
