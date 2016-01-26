@@ -24,3 +24,6 @@ Tools/tmx2c/tmx2c.xcodeproj/project.xcworkspace/xcuserdata
 Games/TinyShooter/xcode/TinyShooter.xcodeproj/xcuserdata
 Games/TinyShooter/xcode/TinyShooter.xcodeproj/project.xcworkspace/xcuserdata
 *.o
+Tools/bin2c/bin2c
+Tools/png2tilefest/png2tilefest
+Tools/tmx2c/tmx2c
