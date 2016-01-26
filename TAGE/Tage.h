@@ -35,7 +35,8 @@
 #include "Engine/Scene/GameObjectManager.h"
 #include "Engine/Scene/GameObjectTemplate.h"
 
-// 
+//
+#include "Engine/Types.h"
 #include "Engine/BitHelpers.h"
 
 #endif

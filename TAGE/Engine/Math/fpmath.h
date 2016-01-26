@@ -9,7 +9,7 @@
 #ifndef fpmath_hpp
 #define fpmath_hpp
 
-#include "types.h"
+#include "Engine/Types.h"
 
 sint16 fpsin( int _angle );
 sint16 fpcos( int _angle );

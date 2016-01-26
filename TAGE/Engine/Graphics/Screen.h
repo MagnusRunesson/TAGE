@@ -9,7 +9,7 @@
 #ifndef Screen_hpp
 #define Screen_hpp
 
-#include "types.h"
+#include "Engine/Types.h"
 
 const int SCREEN_WIDTH = 96;
 const int SCREEN_HEIGHT = 64;

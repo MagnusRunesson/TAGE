@@ -9,7 +9,7 @@
 #ifndef TileMap_hpp
 #define TileMap_hpp
 
-#include "types.h"
+#include "Engine/Types.h"
 
 class CTileMap
 {

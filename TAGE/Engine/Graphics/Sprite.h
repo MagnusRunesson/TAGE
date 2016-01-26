@@ -9,7 +9,7 @@
 #ifndef Sprite_hpp
 #define Sprite_hpp
 
-#include "Types.h"
+#include "Engine/Types.h"
 #include "Engine/Graphics/Image.h"
 
 //

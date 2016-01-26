@@ -87,6 +87,7 @@
 
 /* Begin PBXFileReference section */
 		250239FF1C57D0BC00543762 /* Tage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Tage.h; path = ../../TAGE/Tage.h; sourceTree = "<group>"; };
+		25023A001C57D41000543762 /* Types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Types.h; path = ../../TAGE/Engine/Types.h; sourceTree = "<group>"; };
 		250DA14A1C4A7F7E00C664DA /* TinyShooter */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TinyShooter; sourceTree = BUILT_PRODUCTS_DIR; };
 		250DA1961C4A813500C664DA /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = /Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		25CB2CE81C57561700BC35A1 /* ContextIngame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ContextIngame.cpp; path = src/ContextIngame.cpp; sourceTree = SOURCE_ROOT; };
@@ -206,7 +207,6 @@
 		25CB2D841C57565100BC35A1 /* GameObjectTemplate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectTemplate.cpp; sourceTree = "<group>"; };
 		25CB2D851C57565100BC35A1 /* GameObjectTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectTemplate.h; sourceTree = "<group>"; };
 		25CB2D991C57565900BC35A1 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../TAGE/MacOSX/main.cpp; sourceTree = "<group>"; };
-		25CB2D9A1C57565900BC35A1 /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = types.h; path = ../../TAGE/MacOSX/types.h; sourceTree = "<group>"; };
 		25CB2D9D1C57566100BC35A1 /* Arduino.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arduino.h; sourceTree = "<group>"; };
 		25CB2D9F1C57566100BC35A1 /* pgmspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pgmspace.h; sourceTree = "<group>"; };
 		25CB2DA01C57566100BC35A1 /* pins_arduino.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pins_arduino.h; sourceTree = "<group>"; };
@@ -283,6 +283,7 @@
 				25CB2D5B1C57565100BC35A1 /* Audio */,
 				25CB2D621C57565100BC35A1 /* BitHelpers.cpp */,
 				25CB2D631C57565100BC35A1 /* BitHelpers.h */,
+				25023A001C57D41000543762 /* Types.h */,
 				25CB2D641C57565100BC35A1 /* Graphics */,
 				25CB2D751C57565100BC35A1 /* Math */,
 				25CB2D7D1C57565100BC35A1 /* Scene */,
@@ -308,7 +309,6 @@
 			isa = PBXGroup;
 			children = (
 				25CB2D991C57565900BC35A1 /* main.cpp */,
-				25CB2D9A1C57565900BC35A1 /* types.h */,
 			);
 			name = MacOSX;
 			sourceTree = "<group>";

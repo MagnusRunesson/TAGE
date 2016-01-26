@@ -9,7 +9,7 @@
 #ifndef Image_hpp
 #define Image_hpp
 
-#include "Types.h"
+#include "Engine/Types.h"
 
 class Image
 {

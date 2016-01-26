@@ -9,7 +9,7 @@
 #ifndef GameObjectTemplate_hpp
 #define GameObjectTemplate_hpp
 
-#include "types.h"
+#include "Engine/Types.h"
 #include "Engine/Graphics/Image.h"
 
 class CGameObjectTemplate

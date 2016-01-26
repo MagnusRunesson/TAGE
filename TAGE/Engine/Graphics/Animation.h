@@ -9,7 +9,7 @@
 #ifndef __TinyShooter__ImageAnimation__
 #define __TinyShooter__ImageAnimation__
 
-#include "types.h"
+#include "Engine/Types.h"
 
 class GameObject;
 class Image;

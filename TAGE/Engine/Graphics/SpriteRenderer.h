@@ -10,7 +10,7 @@
 #define SpriteRenderer_hpp
 
 #include <stdio.h>
-#include "Types.h"
+#include "Engine/Types.h"
 #include "Engine/Graphics/Sprite.h"
 #include "Engine/Graphics/Image.h"
 
