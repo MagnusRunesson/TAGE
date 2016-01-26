@@ -86,6 +86,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		250239FF1C57D0BC00543762 /* Tage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Tage.h; path = ../../TAGE/Tage.h; sourceTree = "<group>"; };
 		250DA14A1C4A7F7E00C664DA /* TinyShooter */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TinyShooter; sourceTree = BUILT_PRODUCTS_DIR; };
 		250DA1961C4A813500C664DA /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = /Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		25CB2CE81C57561700BC35A1 /* ContextIngame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ContextIngame.cpp; path = src/ContextIngame.cpp; sourceTree = SOURCE_ROOT; };
@@ -240,6 +241,7 @@
 		250DA1411C4A7F7E00C664DA = {
 			isa = PBXGroup;
 			children = (
+				250239FF1C57D0BC00543762 /* Tage.h */,
 				250DA14C1C4A7F7E00C664DA /* TinyShooter */,
 				250DA18B1C4A7FFF00C664DA /* Data */,
 				255853CE1C536A4200E1A79A /* Data Manual */,
