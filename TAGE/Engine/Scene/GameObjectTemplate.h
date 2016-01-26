@@ -17,7 +17,7 @@ class CGameObjectTemplate
 public:
 	sint16 WorldPosX;
 	sint16 WorldPosY;
-	Image* Image;
+	Image* pImage;
 };
 
 #endif /* GameObjectTemplate_hpp */
