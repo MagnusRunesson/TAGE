@@ -6,8 +6,8 @@
 //  Copyright © 2015 Magnus Runesson. All rights reserved.
 //
 
-#include "GameObject.h"
-#include "Camera.h"
+#include "Engine/Scene/GameObject.h"
+#include "Engine/Scene/Camera.h"
 
 GameObject::GameObject()
 {

@@ -10,9 +10,9 @@
 #define GameObject_hpp
 
 #include <stdio.h>
-#include "Image.h"
-#include "SpriteRenderer.h"
-#include "Animation.h"
+#include "Engine/Graphics/Image.h"
+#include "Engine/Graphics/SpriteRenderer.h"
+#include "Engine/Graphics/Animation.h"
 
 class GameObject
 {
