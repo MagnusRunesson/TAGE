@@ -7,8 +7,7 @@
 //
 
 #include <stdio.h>
-#include "fpmath.h"
-#include "Image.h"
+#include "Engine/Math/fpmath.h"
 
 #include "sinetable.h"
 

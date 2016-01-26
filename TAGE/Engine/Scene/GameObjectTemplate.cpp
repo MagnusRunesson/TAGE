@@ -6,4 +6,4 @@
 //  Copyright © 2016 Magnus Runesson. All rights reserved.
 //
 
-#include "GameObjectTemplate.h"
+#include "Engine/Scene/GameObjectTemplate.h"

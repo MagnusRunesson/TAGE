@@ -10,7 +10,7 @@
 #define GameObjectTemplate_hpp
 
 #include "types.h"
-#include "Image.h"
+#include "Engine/Graphics/Image.h"
 
 class CGameObjectTemplate
 {

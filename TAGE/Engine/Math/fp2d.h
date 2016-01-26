@@ -9,7 +9,7 @@
 #ifndef fp2d_hpp
 #define fp2d_hpp
 
-#include "FixedPoint.h"
+#include "Engine/Math/FixedPoint.h"
 
 class fp2d
 {

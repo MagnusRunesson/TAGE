@@ -7,7 +7,7 @@
 //
 
 #include <stdio.h>
-#include "Sprite.h"
+#include "Engine/Graphics/Sprite.h"
 
 Sprite::Sprite()
 {

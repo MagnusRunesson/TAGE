@@ -6,7 +6,7 @@
 //  Copyright © 2015 Magnus Runesson. All rights reserved.
 //
 
-#include "Camera.h"
+#include "Engine/Scene/Camera.h"
 
 //
 //

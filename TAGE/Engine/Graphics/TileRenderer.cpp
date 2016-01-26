@@ -7,8 +7,8 @@
 //
 
 #include <stdlib.h>
-#include "TileRenderer.h"
-#include "Screen.h"
+#include "Engine/Graphics/TileRenderer.h"
+#include "Engine/Graphics/Screen.h"
 
 TileRenderer::TileRenderer( const CTileMap* _pTileMap, const CTileBank* _tileBank )
 {

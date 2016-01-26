@@ -7,7 +7,7 @@
 //
 
 #include <stdio.h>
-#include "GameObjectManager.h"
+#include "Engine/Scene/GameObjectManager.h"
 
 GameObjectManager gameObjectManager;
 

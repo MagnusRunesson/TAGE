@@ -10,7 +10,7 @@
 #define Sprite_hpp
 
 #include "Types.h"
-#include "Image.h"
+#include "Engine/Graphics/Image.h"
 
 //
 // Sprite flags

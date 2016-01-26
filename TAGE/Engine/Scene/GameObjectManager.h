@@ -10,7 +10,7 @@
 #define GameObjectManager_hpp
 
 #include "Types.h"
-#include "GameObject.h"
+#include "Engine/Scene/GameObject.h"
 
 class Animation;
 

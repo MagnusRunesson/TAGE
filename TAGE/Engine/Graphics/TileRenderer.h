@@ -9,8 +9,8 @@
 #ifndef TileRenderer_hpp
 #define TileRenderer_hpp
 
-#include "TileBank.h"
-#include "TileMap.h"
+#include "Engine/Graphics/TileBank.h"
+#include "Engine/Graphics/TileMap.h"
 
 class TileRenderer
 {

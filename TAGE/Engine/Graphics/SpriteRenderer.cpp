@@ -6,8 +6,8 @@
 //  Copyright © 2015 Magnus Runesson. All rights reserved.
 //
 
-#include "SpriteRenderer.h"
-#include "Screen.h"
+#include "Engine/Graphics/SpriteRenderer.h"
+#include "Engine/Graphics/Screen.h"
 
 SpriteRenderer spriteRenderer;
 

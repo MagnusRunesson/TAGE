@@ -8,9 +8,9 @@
 
 #include <memory.h>
 #include "types.h"
-#include "Image.h"
-#include "screen.h"
-#include "fpmath.h"
+#include "Engine/Graphics/Image.h"
+#include "Engine/Graphics/screen.h"
+#include "Engine/Math/fpmath.h"
 
 #if 0
 

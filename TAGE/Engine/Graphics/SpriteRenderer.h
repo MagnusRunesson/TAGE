@@ -11,8 +11,8 @@
 
 #include <stdio.h>
 #include "Types.h"
-#include "Sprite.h"
-#include "Image.h"
+#include "Engine/Graphics/Sprite.h"
+#include "Engine/Graphics/Image.h"
 
 #define MAX_SPRITES (64)
 

@@ -6,8 +6,8 @@
 //  Copyright (c) 2016 Magnus Runesson. All rights reserved.
 //
 
-#include "GameObject.h"
-#include "Animation.h"
+#include "Engine/Scene/GameObject.h"
+#include "Engine/Graphics/Animation.h"
 
 void Animation::Create( const AnimationSequenceDefinition* _pSequence, GameObject* _pTarget )
 {

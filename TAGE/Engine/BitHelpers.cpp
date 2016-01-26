@@ -6,7 +6,7 @@
 //  Copyright © 2015 Magnus Runesson. All rights reserved.
 //
 
-#include "BitHelpers.h"
+#include "Engine/BitHelpers.h"
 
 /*
 void SetBit( int* _value, int _bitMask )

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Magnus Runesson. All rights reserved.
 //
 
-#include "FixedPoint.h"
+#include "Engine/Math/FixedPoint.h"
 
 #define FRACTION_BITS (16)
 #define FRACTION_BITS_HALF (FRACTION_BITS/2)
