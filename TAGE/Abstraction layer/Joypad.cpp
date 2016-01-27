@@ -6,9 +6,9 @@
 //  Copyright © 2015 Magnus Runesson. All rights reserved.
 //
 
-#include "types.h"
-#include "Joypad.h"
-#include "bithelpers.h"
+#include "Engine/Types.h"
+#include "Abstraction Layer/Joypad.h"
+#include "Engine/BitHelpers.h"
 
 extern int gKeyDPadBuff;
 

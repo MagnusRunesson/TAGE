@@ -6,7 +6,6 @@
 //  Copyright © 2015 Magnus Runesson. All rights reserved.
 //
 
-#include <memory.h>
 #include "Engine/Types.h"
 #include "Engine/Graphics/Image.h"
 #include "Engine/Graphics/screen.h"

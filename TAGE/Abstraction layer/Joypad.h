@@ -9,7 +9,7 @@
 #ifndef Joypad_hpp
 #define Joypad_hpp
 
-#include "types.h"
+#include "Engine/Types.h"
 
 const int PAD_KEYMASK_PRIMARY		= (1<<0);
 const int PAD_KEYMASK_SECONDARY		= (1<<1);
