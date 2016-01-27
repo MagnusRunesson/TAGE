@@ -8,6 +8,6 @@
 
 #include "src/ContextIngame.cpp"
 #include "src/Enemy.cpp"
-#include "src/TageEntrypoint.cpp"
+#include "src/TinyShooter.cpp"
 #include "src/PathFollower.cpp"
 #include "data/alldata.cpp"
