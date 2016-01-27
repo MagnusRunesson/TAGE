@@ -182,8 +182,8 @@ void WriteCHeader( FILE* _pFile, const char* _pszInFileName, const char* _pszSym
 	fprintf( _pFile, "// Data file generated from %s\n", _pszInFileName );
 	fprintf( _pFile, "//\n" );
 	fprintf( _pFile, "\n" );
-	fprintf( _pFile, "#include \"types.h\"\n" );
-	fprintf( _pFile, "#include \"TileMap.h\"\n" );
+	fprintf( _pFile, "#include \"Engine/Types.h\"\n" );
+	fprintf( _pFile, "#include \"Engine/Graphics/TileMap.h\"\n" );
 	fprintf( _pFile, "\n" );
 }
 
@@ -244,8 +244,8 @@ void WriteHFile( FILE* _pFile, const char* _pszInFileName, const char* _pszSymbo
 	fprintf( _pFile, "#ifndef %s_header_\n", _pszSymbolBase );
 	fprintf( _pFile, "#define %s_header_\n", _pszSymbolBase );
 	fprintf( _pFile, "\n" );
-	fprintf( _pFile, "#include \"types.h\"\n" );
-	fprintf( _pFile, "#include \"TileMap.h\"\n" );
+	fprintf( _pFile, "#include \"Engine/Types.h\"\n" );
+	fprintf( _pFile, "#include \"Engine/Graphics/TileMap.h\"\n" );
 	fprintf( _pFile, "\n" );
 	fprintf( _pFile, "extern \"C\" const CTileMap %s;\n", GetTileMapSymbol( _pszSymbolBase ));
 	fprintf( _pFile, "\n" );

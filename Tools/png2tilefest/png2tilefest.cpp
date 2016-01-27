@@ -11,7 +11,7 @@
 
 void writeHeader( FILE* f, char* _symbolNameBase, SDL_Surface* image )
 {
-	fprintf( f, "#include \"Tilebank.h\"\n\n" );
+	fprintf( f, "#include \"Engine/Graphics/Tilebank.h\"\n\n" );
 }
 
 void writePixel( FILE* f, unsigned char* source )
@@ -137,7 +137,7 @@ void writeHeaderFile( FILE* f, char* _symbolNameBase, SDL_Surface* _image )
 	fprintf( f, "#ifndef %s_tilebank_h\n", _symbolNameBase );
 	fprintf( f, "#define %s_tilebank_h\n", _symbolNameBase );
 	fprintf( f, "\n" );
-	fprintf( f, "#include \"Tilebank.h\"\n" );
+	fprintf( f, "#include \"Engine/Graphics/Tilebank.h\"\n" );
 	fprintf( f, "\n" );
 	fprintf( f, "extern \"C\" const CTileBank %s;\n", _symbolNameBase );
 	fprintf( f, "\n" );
