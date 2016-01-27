@@ -24,17 +24,17 @@
 
 #include "src/ContextIngame.h"
 
-void setup()
+void tage_setup()
 {
 	ingame_setup();
 }
 
-void loop()
+void tage_loop()
 {
 	ingame_loop();
 }
 
-void debugTrigger( int _trigger )
+void tage_debugTrigger( int _trigger )
 {
 	ingame_debugTrigger( _trigger );
 }

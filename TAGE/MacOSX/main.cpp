@@ -21,9 +21,9 @@
 //
 //
 //
-extern void setup();
-extern void loop();
-extern void debugTrigger( int );
+extern void tage_setup();
+extern void tage_loop();
+extern void tage_debugTrigger( int );
 
 SDL_Window* window;
 SDL_Surface* screenSurface;
@@ -230,16 +230,16 @@ bool DoSDL()
 				case SDL_KEYCODE_DPAD_LEFT:		SetBit( gKeyDPadBuff, PAD_KEYMASK_DPAD_LEFT );		break;
 				case SDL_KEYCODE_DPAD_RIGHT:	SetBit( gKeyDPadBuff, PAD_KEYMASK_DPAD_RIGHT );		break;
 					
-				case SDLK_0: debugTrigger( 0 ); break;
-				case SDLK_1: debugTrigger( 0 ); break;
-				case SDLK_2: debugTrigger( 0 ); break;
-				case SDLK_3: debugTrigger( 0 ); break;
-				case SDLK_4: debugTrigger( 0 ); break;
-				case SDLK_5: debugTrigger( 0 ); break;
-				case SDLK_6: debugTrigger( 0 ); break;
-				case SDLK_7: debugTrigger( 0 ); break;
-				case SDLK_8: debugTrigger( 0 ); break;
-				case SDLK_9: debugTrigger( 0 ); break;
+				case SDLK_0: tage_debugTrigger( 0 ); break;
+				case SDLK_1: tage_debugTrigger( 0 ); break;
+				case SDLK_2: tage_debugTrigger( 0 ); break;
+				case SDLK_3: tage_debugTrigger( 0 ); break;
+				case SDLK_4: tage_debugTrigger( 0 ); break;
+				case SDLK_5: tage_debugTrigger( 0 ); break;
+				case SDLK_6: tage_debugTrigger( 0 ); break;
+				case SDLK_7: tage_debugTrigger( 0 ); break;
+				case SDLK_8: tage_debugTrigger( 0 ); break;
+				case SDLK_9: tage_debugTrigger( 0 ); break;
 			}
 		}
 		else if( e.type == SDL_KEYUP )
@@ -265,7 +265,7 @@ bool update()
 {
 	bool quit = DoSDL();
 
-	loop();
+	tage_loop();
 	
 	blit_screenBufferToSDL();
 	
@@ -277,7 +277,7 @@ int main(int argc, const char * argv[])
 
 	if( init() == true )
 	{
-		setup();	// Call Arduino like code
+		tage_setup();	// Call Arduino like code
 		
 		// Main loop woot!
 		while( update());
