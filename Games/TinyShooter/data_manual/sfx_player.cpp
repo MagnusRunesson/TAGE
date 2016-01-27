@@ -6,8 +6,8 @@
 //  Copyright © 2016 Magnus Runesson. All rights reserved.
 //
 
-#include "sfx_player.h"
-#include "AudioData.h"
+#include "data_manual/sfx_player.h"
+#include "Engine/Audio/AudioData.h"
 
 extern "C" const sint8 audiosamples_pew_s8b_pcm_11025hz[];
 const AudioData sfx_player_fire_canon =

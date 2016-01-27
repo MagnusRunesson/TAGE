@@ -707,6 +707,7 @@
 				HEADER_SEARCH_PATHS = (
 					../../TAGE/,
 					"../../TAGE/Abstraction\\ layer/Arduino",
+					.,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -723,6 +724,7 @@
 				HEADER_SEARCH_PATHS = (
 					../../TAGE/,
 					"../../TAGE/Abstraction\\ layer/Arduino",
+					.,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";

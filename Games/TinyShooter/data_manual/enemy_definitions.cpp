@@ -6,8 +6,8 @@
 //  Copyright (c) 2016 Magnus Runesson. All rights reserved.
 //
 
-#include "Image.h"
-#include "alldata.h"
+#include "Engine/Graphics/Image.h"
+#include "data/alldata.h"
 
 const EnemyDefinition enemy_saucer_easy =
 {

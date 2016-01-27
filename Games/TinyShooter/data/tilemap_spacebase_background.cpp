@@ -2,8 +2,8 @@
 // Data file generated from tilemap_spacebase_background.tmx
 //
 
-#include "types.h"
-#include "TileMap.h"
+#include "Engine/Types.h"
+#include "Engine/Graphics/TileMap.h"
 
 const uint16 tilemap_spacebase_background_tiles[] =
 {

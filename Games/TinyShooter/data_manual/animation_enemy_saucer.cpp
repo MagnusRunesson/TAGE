@@ -6,9 +6,9 @@
 //  Copyright (c) 2016 Magnus Runesson. All rights reserved.
 //
 
-#include "types.h"
-#include "animation.h"
-#include "alldata.h"
+#include "Engine/Types.h"
+#include "Engine/Graphics/Animation.h"
+#include "Data/alldata.h"
 
 const AnimationFrameDefinition animation_enemy_saucer_frames[] =
 {

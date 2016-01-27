@@ -9,20 +9,20 @@
 #include "Arduino.h"
 
 // TinyArcade game engine
-#include "Screen.h"
-#include "types.h"
-#include "FixedPoint.h"
-#include "Joypad.h"
-#include "fpmath.h"
-#include "Camera.h"
-#include "GameObjectManager.h"
-#include "TileRenderer.h"
-#include "Animation.h"
+#include "Engine/Graphics/Screen.h"
+#include "Engine/types.h"
+#include "Engine/Math/FixedPoint.h"
+#include "Abstraction layer/Joypad.h"
+#include "Engine/Math/fpmath.h"
+#include "Engine/Scene/Camera.h"
+#include "Engine/Scene/GameObjectManager.h"
+#include "Engine/Graphics/TileRenderer.h"
+#include "Engine/Graphics/Animation.h"
 
 // Project specifics
-#include "alldata.h"
+#include "Data/alldata.h"
 
-#include "ContextIngame.h"
+#include "src/ContextIngame.h"
 
 void setup()
 {

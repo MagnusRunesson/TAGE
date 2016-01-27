@@ -9,7 +9,7 @@
 #ifndef Path_h
 #define Path_h
 
-#include "types.h"
+#include "Engine/types.h"
 
 class PathPoint
 {

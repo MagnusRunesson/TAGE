@@ -1,5 +1,5 @@
-#include "Types.h"
-#include "Image.h"
+#include "Engine/Types.h"
+#include "Engine/Graphics/Image.h"
 
 const uint16 sprite_spacebase_boss_door_pixels[] =
 {

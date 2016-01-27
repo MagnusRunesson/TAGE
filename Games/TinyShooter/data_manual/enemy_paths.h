@@ -9,8 +9,8 @@
 #ifndef enemy_paths_hpp
 #define enemy_paths_hpp
 
-#include "types.h"
-#include "Path.h"
+#include "Engine/Types.h"
+#include "src/Path.h"
 
 extern "C" const Path path_straight_right_to_left;
 

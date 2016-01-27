@@ -7,11 +7,11 @@
 //
 
 #include <stdlib.h>
-#include "Enemy.h"
-#include "EnemyDefinition.h"
-#include "GameObject.h"
-#include "GameObjectManager.h"
-#include "ContextIngame.h"
+#include "src/Enemy.h"
+#include "src/EnemyDefinition.h"
+#include "Engine/Scene/GameObject.h"
+#include "Engine/Scene/GameObjectManager.h"
+#include "src/ContextIngame.h"
 
 void enemyUpdatePipe( void* _pData )
 {

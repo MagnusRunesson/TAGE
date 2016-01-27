@@ -9,7 +9,7 @@
 #ifndef __TinyShooter__Enemy__
 #define __TinyShooter__Enemy__
 
-#include "types.h"
+#include "Engine/types.h"
 
 class GameObject;
 class EnemyDefinition;

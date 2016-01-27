@@ -1,5 +1,5 @@
-#include "Types.h"
-#include "Image.h"
+#include "Engine/Types.h"
+#include "Engine/Graphics/Image.h"
 
 const uint16 sprite_pickup_00_pixels[] =
 {

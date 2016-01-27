@@ -9,7 +9,7 @@
 #ifndef TinyShooter_EnemyDefinition_h
 #define TinyShooter_EnemyDefinition_h
 
-#include "types.h"
+#include "Engine/types.h"
 
 class AnimationSequenceDefinition;
 

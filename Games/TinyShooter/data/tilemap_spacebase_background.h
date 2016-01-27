@@ -4,8 +4,8 @@
 #ifndef tilemap_spacebase_background_header_
 #define tilemap_spacebase_background_header_
 
-#include "types.h"
-#include "TileMap.h"
+#include "Engine/Types.h"
+#include "Engine/Graphics/TileMap.h"
 
 extern "C" const CTileMap tilemap_spacebase_background;
 

@@ -9,9 +9,9 @@
 #ifndef PathFollower_hpp
 #define PathFollower_hpp
 
-#include "types.h"
-#include "Path.h"
-#include "fp2d.h"
+#include "Engine/types.h"
+#include "src/Path.h"
+#include "Engine/Math/fp2d.h"
 
 class PathFollower
 {

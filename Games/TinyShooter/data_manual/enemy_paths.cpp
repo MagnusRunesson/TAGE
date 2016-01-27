@@ -6,7 +6,7 @@
 //  Copyright © 2016 Magnus Runesson. All rights reserved.
 //
 
-#include "enemy_paths.h"
+#include "data_manual/enemy_paths.h"
 
 const PathPoint pathpoints_straight_right_to_left[] =
 {
