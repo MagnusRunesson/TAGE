@@ -10,6 +10,8 @@
 #include "Abstraction Layer/Joypad.h"
 #include "Engine/BitHelpers.h"
 
+#ifdef TAGE_TARGET_MACOSX
+
 extern int gKeyDPadBuff;
 
 
@@ -68,3 +70,47 @@ uint8 padGetReleased()
 	uint8 ret = (prev ^ curr) & prev;
 	return ret;
 }
+
+#else
+
+void padUpdate()
+{
+}
+
+uint8 padGet( sint8* _x, sint8* _y )
+{
+	*_x = 0;
+	*_y = 0;
+	
+	return 0;
+}
+
+uint8 padGetKeys()
+{
+	return 0;
+}
+
+sint8 padGetX()
+{
+	return 0;
+}
+
+sint8 padGetY()
+{
+	return 0;
+}
+
+uint8 padGetPressed()
+{
+	return 0;
+}
+
+uint8 padGetReleased()
+{
+	return 0;
+}
+
+uint16* screenBuffer;
+
+
+#endif

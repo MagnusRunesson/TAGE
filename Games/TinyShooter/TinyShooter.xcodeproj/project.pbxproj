@@ -704,6 +704,7 @@
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = TAGE_TARGET_MACOSX;
 				HEADER_SEARCH_PATHS = (
 					../../TAGE/,
 					"../../TAGE/Abstraction\\ layer/Arduino",
@@ -721,6 +722,7 @@
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = TAGE_TARGET_MACOSX;
 				HEADER_SEARCH_PATHS = (
 					../../TAGE/,
 					"../../TAGE/Abstraction\\ layer/Arduino",
