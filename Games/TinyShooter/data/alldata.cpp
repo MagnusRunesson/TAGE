@@ -45,6 +45,11 @@
 #include "data/sprite_logo_shooter_r.cpp"
 #include "data/sprite_enemy_saucer_00.cpp"
 #include "data/sprite_enemy_saucer_01.cpp"
+#include "data/sprite_impact_bullet_00.cpp"
+#include "data/sprite_impact_bullet_01.cpp"
+#include "data/sprite_impact_bullet_02.cpp"
+#include "data/sprite_impact_bullet_03.cpp"
+#include "data/sprite_impact_bullet_04.cpp"
 
 #include "data/tilemap_spacebase.cpp"
 #include "data/tilemap_spacebase_background.cpp"
@@ -60,6 +65,7 @@
 #include "data_manual/animation_pickup.cpp"
 #include "data_manual/animation_explosion_big.cpp"
 #include "data_manual/animation_explosion_medium.cpp"
+#include "data_manual/animation_impact_bullet.cpp"
 #include "data_manual/animation_enemy_saucer.cpp"
 
 #include "data_manual/sfx_player.cpp"
