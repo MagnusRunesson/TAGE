@@ -59,7 +59,7 @@
 //
 #include "data_manual/animation_pickup.cpp"
 #include "data_manual/animation_explosion_big.cpp"
-#include "data_manual/animation_explosion_medium.h"
+#include "data_manual/animation_explosion_medium.cpp"
 #include "data_manual/animation_enemy_saucer.cpp"
 
 #include "data_manual/sfx_player.cpp"
