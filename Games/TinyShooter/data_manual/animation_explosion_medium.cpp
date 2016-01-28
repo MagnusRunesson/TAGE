@@ -79,7 +79,7 @@ const AnimationFrameDefinition animation_explosion_medium_frames[] =
 
 const AnimationSequenceDefinition animation_explosion_medium =
 {
-	6,
+	9,
 	false,
 	animation_explosion_medium_frames,
 };
