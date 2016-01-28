@@ -150,7 +150,7 @@ void ingame_setup()
 	//
 	for( i=0; i<NUM_EXPLOSIONS; i++ )
 	{
-		GameObject* pb = gameObjectManager.CreateGameObject( &animation_explosion_big );
+		GameObject* pb = gameObjectManager.CreateGameObject( &animation_explosion_medium );
 		pb->SetWorldPosition( 0, -10 );
 		pb->SetHotspot( 5, 4 );
 		pb->m_flags = GO_FLAGS_UNIMPORTANT;
@@ -377,15 +377,6 @@ void ingame_loop()
 							
 							GameObject* bulletGO = bulletSprite->owner;
 							bulletGO->SetWorldPosition( 0, -1 );
-							
-							GameObject* exp = explosions[ nextExplosion ];
-							nextExplosion++;
-							if( nextExplosion >= NUM_EXPLOSIONS )
-								nextExplosion -= NUM_EXPLOSIONS;
-							
-							exp->SetWorldPosition( camx+x, iScanline );
-							exp->GetAnimation()->Reset();
-							exp->GetAnimation()->Play();
 						}
 					}
 				}
@@ -419,6 +410,7 @@ void ingame_loop()
 							
 							ResetPlayer();
 							
+							/*
 							GameObject* exp = explosions[ nextExplosion ];
 							nextExplosion++;
 							if( nextExplosion >= NUM_EXPLOSIONS )
@@ -427,6 +419,7 @@ void ingame_loop()
 							exp->SetWorldPosition( camx+x, iScanline );
 							exp->GetAnimation()->Reset();
 							exp->GetAnimation()->Play();
+							 */
 						}
 					}
 					
@@ -448,8 +441,20 @@ void ingame_loop()
 							GameObject* enemyGO = spriteRenderer.m_collisionSprites[ SPRITE_COLLISION_INDEX_ENEMY ]->owner;
 							Enemy* enemy = (Enemy*)enemyGO->m_customObject;
 							if( enemy->Hit())
+							{
+								GameObject* exp = explosions[ nextExplosion ];
+								nextExplosion++;
+								if( nextExplosion >= NUM_EXPLOSIONS )
+									nextExplosion -= NUM_EXPLOSIONS;
+								
+								exp->SetWorldPosition( camx+x, iScanline );
+								exp->GetAnimation()->Reset();
+								exp->GetAnimation()->Play();
+
 								enemyGO->SetWorldPosition( 0, -30 );
+							}
 							
+							/*
 							GameObject* exp = explosions[ nextExplosion ];
 							nextExplosion++;
 							if( nextExplosion >= NUM_EXPLOSIONS )
@@ -458,6 +463,7 @@ void ingame_loop()
 							exp->SetWorldPosition( camx+x, iScanline );
 							exp->GetAnimation()->Reset();
 							exp->GetAnimation()->Play();
+							 */
 						}
 					}
 				}
