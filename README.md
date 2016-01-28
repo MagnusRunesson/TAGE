@@ -22,6 +22,4 @@ A 2D game engine written for the TinyArcade platform ( https://www.tiny-circuits
 - GenerateSine - Generate a sine table
 - png2tilefest - Takes a PNG file and generate a tile bank in C code, that can be included in the built executable
 - tmx2c - Takes a TMX file ( http://www.mapeditor.org ) and generate a tile map in C code, that can be included in the built executable. Will also generate a scene file, so game objects placed via Tiled can be spawned.
-
-# External tools
-- png2c - https://github.com/MagnusRunesson/png2c - Takes a PNG file and generate a RGB565 image in C code, that can be included in the built executable
+- png2c - Takes a PNG file and generate a RGB565 image in C code, that can be included in the built executable
