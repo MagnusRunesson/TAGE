@@ -14,6 +14,10 @@ A 2D game engine written for the TinyArcade platform ( https://www.tiny-circuits
 - The concept of game object keep track of individual .. well .. objects in the game, such as the player, enemies, NPC's, bullets, etc. Things that move independantly of each other and of the tiled background
 - There is a camera that can pan around on the tile background and on game objects. Game objects always relate to the camera, and not the screen
 
+# Audio
+- Mix multiple channels of sound effects into one
+- Currently playback in mono at 11025 Hz
+
 # Maths
 - Simple 16:16 fixed point class with some operators
 - Simple 2D vector based on the fixed point class, with some operators
