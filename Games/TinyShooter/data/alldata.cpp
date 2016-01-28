@@ -6,6 +6,9 @@
 //  Copyright © 2016 Magnus Runesson. All rights reserved.
 //
 
+// This space is intentionally left blank, so we flip between the
+// source file and the header file and see if the includes match
+
 //
 // Data files generate from other formats
 //
@@ -21,6 +24,15 @@
 #include "data/sprite_explosion_big_03.cpp"
 #include "data/sprite_explosion_big_04.cpp"
 #include "data/sprite_explosion_big_05.cpp"
+#include "data/sprite_explosion_medium_00.cpp"
+#include "data/sprite_explosion_medium_01.cpp"
+#include "data/sprite_explosion_medium_02.cpp"
+#include "data/sprite_explosion_medium_03.cpp"
+#include "data/sprite_explosion_medium_04.cpp"
+#include "data/sprite_explosion_medium_05.cpp"
+#include "data/sprite_explosion_medium_06.cpp"
+#include "data/sprite_explosion_medium_07.cpp"
+#include "data/sprite_explosion_medium_08.cpp"
 #include "data/sprite_logo_tiny_t.cpp"
 #include "data/sprite_logo_tiny_i.cpp"
 #include "data/sprite_logo_tiny_n.cpp"
@@ -47,6 +59,7 @@
 //
 #include "data_manual/animation_pickup.cpp"
 #include "data_manual/animation_explosion_big.cpp"
+#include "data_manual/animation_explosion_medium.h"
 #include "data_manual/animation_enemy_saucer.cpp"
 
 #include "data_manual/sfx_player.cpp"
