@@ -320,7 +320,7 @@ void ingame_loop()
 							
 							playerReset( mapScroll );
 							
-							explosionsSpawn( camx+x, iScanline );
+							explosionsSpawn( camx+x, iScanline, EXPLOSION_TYPE_DEBRIS );
 						}
 					}
 
@@ -342,7 +342,7 @@ void ingame_loop()
 							Enemy* enemy = (Enemy*)enemyGO->m_customObject;
 							if( enemy->Hit())
 							{
-								explosionsSpawn( camx+x, iScanline );
+								explosionsSpawn( camx+x, iScanline, EXPLOSION_TYPE_NORMAL );
 								enemyGO->SetEnabled( false );
 							}
 						}

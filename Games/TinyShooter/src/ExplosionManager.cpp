@@ -52,7 +52,7 @@ void explosionsUpdate()
 }
 
 
-void explosionsSpawn( int _worldX, int _worldY )
+void explosionsSpawn( int _worldX, int _worldY, int _explosionType )
 {
 	GameObject* exp = explosions[ nextExplosion ];
 	nextExplosion++;
@@ -60,6 +60,16 @@ void explosionsSpawn( int _worldX, int _worldY )
 		nextExplosion -= NUM_EXPLOSIONS;
 	
 	exp->SetEnabled( true );
+	switch( _explosionType )
+	{
+		case EXPLOSION_TYPE_NORMAL:
+			exp->GetAnimation()->pSequence = &animation_explosion_medium;
+			break;
+			
+		case EXPLOSION_TYPE_DEBRIS:
+			exp->GetAnimation()->pSequence = &animation_explosion_big;
+			break;
+	}
 	exp->SetWorldPosition( _worldX, _worldY );
 	exp->GetAnimation()->Reset();
 	exp->GetAnimation()->Play();
