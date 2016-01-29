@@ -63,11 +63,11 @@ void explosionsSpawn( int _worldX, int _worldY, int _explosionType )
 	switch( _explosionType )
 	{
 		case EXPLOSION_TYPE_NORMAL:
-			exp->GetAnimation()->pSequence = &animation_explosion_medium;
+			exp->GetAnimation()->SetSequence( &animation_explosion_medium );
 			break;
 			
 		case EXPLOSION_TYPE_DEBRIS:
-			exp->GetAnimation()->pSequence = &animation_explosion_big;
+			exp->GetAnimation()->SetSequence( &animation_explosion_big );
 			break;
 	}
 	exp->SetWorldPosition( _worldX, _worldY );
