@@ -26,7 +26,8 @@ class PathFollower
 	fp2d m_currentTo;
 	
 	// This interpolates from one node to the next (m_currentFrom to m_currentTo)
-	FixedPoint m_currentTime;
+	FixedPoint m_currentDistance;
+	FixedPoint m_currentInterpolationLength;
 	
 	//
 	fp2d m_currentPosition;
@@ -38,6 +39,9 @@ public:
 	void Update();
 	
 	fp2d GetCurrentPosition();
+
+private:
+	void GotoNode( int _index, FixedPoint _timeOverflow );
 };
 
 #endif /* PathFollower_hpp */
