@@ -6,6 +6,7 @@
 //  Copyright © 2015 Magnus Runesson. All rights reserved.
 //
 
+#include <stdio.h>
 #include "Arduino.h"
 
 // TinyArcade game engine
@@ -25,6 +26,8 @@
 #include "data/alldata.h"
 #include "src/Enemy.h"
 #include "src/ContextIngame.h"
+#include "src/Path.h"
+#include "src/PathFollower.h"
 
 //
 Camera mainCamera;
@@ -88,8 +91,31 @@ void ResetPlayer()
 	playerY = 29;
 }
 
+const PathPoint testPath_nodes[] = {
+	{ 0, 0 },
+	{ 10, 0 },
+};
+
+const Path testPath = {
+	sizeof( testPath_nodes ) / sizeof( PathPoint ),
+	testPath_nodes,
+};
+
 void ingame_setup()
 {
+	/*
+	PathFollower janne;
+
+	janne.SetPath( &testPath, 1, 0, 0 );
+
+	int l;
+	for( l=0; l<10; l++ )
+	{
+		janne.Update();
+		printf( "Janne x=%i y=%i\n", janne.GetCurrentPosition().x.GetInteger(), janne.GetCurrentPosition().y.GetInteger() );
+	}
+	 */
+	
 	debugSpriteRenderer = false;
 
 	worldWidth = tilemap_spacebase.Width * tilebank_spacebase.TileWidth;
