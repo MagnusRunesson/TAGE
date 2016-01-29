@@ -191,7 +191,8 @@ void ingame_setup()
 	{
 		Enemy* pEnemyObject = &enemyObjects[ i ];
 		pEnemyObject->SetDefinition( &enemy_saucer_easy );
-		pEnemyObject->pTargetGameObject->SetWorldPosition( 100+(i*20), 30 );
+		pEnemyObject->m_movementDirection.x = FixedPoint( 0, -50 );
+		pEnemyObject->SetWorldPosition( 100+(i*20), 30 );
 	}
 	
 	nextEnemy = 0;
@@ -448,7 +449,7 @@ void ingame_loop()
 							 */
 						}
 					}
-					
+
 					//
 					// Player bullet vs. enemy
 					//
@@ -477,7 +478,7 @@ void ingame_loop()
 								exp->GetAnimation()->Reset();
 								exp->GetAnimation()->Play();
 
-								enemyGO->SetWorldPosition( 0, -30 );
+								enemyGO->SetEnabled( false );
 							}
 							
 							/*

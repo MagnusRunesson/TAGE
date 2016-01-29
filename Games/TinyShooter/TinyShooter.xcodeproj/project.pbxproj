@@ -18,6 +18,7 @@
 		2505C22B1C5A376D00E46CDF /* sprite_explosion_medium_08.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2505C2211C5A376D00E46CDF /* sprite_explosion_medium_08.cpp */; };
 		2505C22E1C5A378D00E46CDF /* animation_explosion_medium.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2505C22C1C5A378D00E46CDF /* animation_explosion_medium.cpp */; };
 		250DA1971C4A813500C664DA /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250DA1961C4A813500C664DA /* SDL2.framework */; };
+		255A0E281C5BC974000F77D4 /* EnemyMovements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255A0E261C5BC974000F77D4 /* EnemyMovements.cpp */; settings = {ASSET_TAGS = (); }; };
 		25678FF41C57D86E00B2C95E /* sinetable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25678FF31C57D86E00B2C95E /* sinetable.cpp */; settings = {ASSET_TAGS = (); }; };
 		25B7B13F1C5A859F00355A54 /* sprite_impact_bullet_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B7B1351C5A859F00355A54 /* sprite_impact_bullet_00.cpp */; settings = {ASSET_TAGS = (); }; };
 		25B7B1401C5A859F00355A54 /* sprite_impact_bullet_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B7B1371C5A859F00355A54 /* sprite_impact_bullet_01.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -127,6 +128,8 @@
 		2505C22D1C5A378D00E46CDF /* animation_explosion_medium.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = animation_explosion_medium.h; path = data_manual/animation_explosion_medium.h; sourceTree = "<group>"; };
 		250DA14A1C4A7F7E00C664DA /* TinyShooter */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TinyShooter; sourceTree = BUILT_PRODUCTS_DIR; };
 		250DA1961C4A813500C664DA /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = /Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		255A0E261C5BC974000F77D4 /* EnemyMovements.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EnemyMovements.cpp; path = src/EnemyMovements.cpp; sourceTree = SOURCE_ROOT; };
+		255A0E271C5BC974000F77D4 /* EnemyMovements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnemyMovements.h; path = src/EnemyMovements.h; sourceTree = SOURCE_ROOT; };
 		25678FF31C57D86E00B2C95E /* sinetable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sinetable.cpp; sourceTree = "<group>"; };
 		25B7B1351C5A859F00355A54 /* sprite_impact_bullet_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_impact_bullet_00.cpp; path = data/sprite_impact_bullet_00.cpp; sourceTree = "<group>"; };
 		25B7B1361C5A859F00355A54 /* sprite_impact_bullet_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_impact_bullet_00.h; path = data/sprite_impact_bullet_00.h; sourceTree = "<group>"; };
@@ -323,6 +326,8 @@
 				25D7B25D1C57976200759E1B /* Path.h */,
 				25D7B2611C57990200759E1B /* PathFollower.cpp */,
 				25D7B2621C57990200759E1B /* PathFollower.h */,
+				255A0E261C5BC974000F77D4 /* EnemyMovements.cpp */,
+				255A0E271C5BC974000F77D4 /* EnemyMovements.h */,
 			);
 			path = TinyShooter;
 			sourceTree = "<group>";
@@ -654,6 +659,7 @@
 				2505C22A1C5A376D00E46CDF /* sprite_explosion_medium_07.cpp in Sources */,
 				25CB2D441C57561F00BC35A1 /* sprite_pickup_01.cpp in Sources */,
 				25CB2D3A1C57561F00BC35A1 /* sprite_logo_shooter_o.cpp in Sources */,
+				255A0E281C5BC974000F77D4 /* EnemyMovements.cpp in Sources */,
 				25CB2D451C57561F00BC35A1 /* sprite_pickup_02.cpp in Sources */,
 				25CB2D3E1C57561F00BC35A1 /* sprite_logo_tiny_i.cpp in Sources */,
 				25D7B2631C57990200759E1B /* PathFollower.cpp in Sources */,

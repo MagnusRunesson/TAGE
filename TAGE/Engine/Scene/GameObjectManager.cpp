@@ -8,6 +8,8 @@
 
 #include <stdio.h>
 #include "Engine/Scene/GameObjectManager.h"
+#include "Engine/Scene/GameObject.h"
+#include "Engine/BitHelpers.h"
 
 GameObjectManager gameObjectManager;
 
@@ -68,7 +70,7 @@ void GameObjectManager::Update()
 	for( i=0; i<MAX_GAMEOBJECTS; i++ )
 	{
 		GameObject* go = &m_gameObjects[ i ];
-		if( go->GetSprite() != NULL )
+		if( HasBit( go->m_systemFlags, GO_SYSTEMFLAG_ENABLED ))
 		{
 			go->Update();
 		}
@@ -81,7 +83,7 @@ void GameObjectManager::Render()
 	for( i=0; i<MAX_GAMEOBJECTS; i++ )
 	{
 		GameObject* go = &m_gameObjects[ i ];
-		if( go->GetSprite() != NULL )
+		if( HasBit( go->m_systemFlags, GO_SYSTEMFLAG_ENABLED ))
 		{
 			go->Render();
 		}

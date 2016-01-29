@@ -8,10 +8,12 @@
 
 #include "Engine/Graphics/Image.h"
 #include "data/alldata.h"
+#include "src/EnemyMovements.h"
 
 const EnemyDefinition enemy_saucer_easy =
 {
 	&animation_enemy_saucer,
 	3,
-	0
+	0,
+	&EnemyMovement_00_FollowDirection,
 };

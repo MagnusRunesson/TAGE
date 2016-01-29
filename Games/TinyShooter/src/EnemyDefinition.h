@@ -10,6 +10,7 @@
 #define TinyShooter_EnemyDefinition_h
 
 #include "Engine/types.h"
+#include "src/Enemy.h"
 
 class AnimationSequenceDefinition;
 
@@ -21,6 +22,7 @@ public:
 	const AnimationSequenceDefinition* pAnimationDefinition;
 	uint8 StartHealth;
 	uint8 MovementDefinition;
+	void(*pfnMovement)( Enemy* _pTarget );
 };
 
 #endif

@@ -12,6 +12,8 @@
 #include "Engine/Graphics/SpriteRenderer.h"
 #include "Engine/Graphics/Animation.h"
 
+#define GO_SYSTEMFLAG_ENABLED		(1<<0)
+
 class Image;
 class Animation;
 class AnimationSequenceDefinition;
@@ -28,6 +30,10 @@ public:
 	void Create( const AnimationSequenceDefinition* _animation );
 	void Destroy();
 	
+	//
+	void SetEnabled( bool _enabled );
+	
+	//
 	void Update();
 	void Render();
 
@@ -48,6 +54,7 @@ public:
 	void(*m_customPostRender)(void*);
 	
 	int m_flags;
+	uint32 m_systemFlags;
 	
 	//
 	//

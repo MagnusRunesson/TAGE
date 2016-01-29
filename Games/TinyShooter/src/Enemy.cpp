@@ -20,6 +20,7 @@ void enemyUpdatePipe( void* _pData )
 
 Enemy::Enemy()
 {
+	isAlive = false;
 	pTargetGameObject = NULL;
 }
 
@@ -46,8 +47,13 @@ void Enemy::SetDefinition( const EnemyDefinition* _pEnemyDefinition )
 	// Play the requested animation
 	pTargetGameObject->GetAnimation()->Play();
 
+	//
 	Health = _pEnemyDefinition->StartHealth;
 	HitTimer = 0;
+	pfnMovementUpdate = _pEnemyDefinition->pfnMovement;
+	
+	// Wake up the enemy
+	isAlive = true;
 }
 
 void Enemy::Update()
@@ -61,6 +67,10 @@ void Enemy::Update()
 			pTargetGameObject->GetSprite()->flags &= ~SPRITE_FLAG_DRAWWHITE;
 		}
 	}
+	
+	// Update movement
+	pfnMovementUpdate( this );
+	pTargetGameObject->SetWorldPosition( m_worldPosition.x.GetInteger(), m_worldPosition.y.GetInteger());
 }
 
 bool Enemy::Hit()
@@ -79,4 +89,17 @@ bool Enemy::Hit()
 	
 	//
 	return false;
+}
+
+void Enemy::SetWorldPosition( const fp2d& _worldPosition )
+{
+	m_worldPosition = _worldPosition;
+	pTargetGameObject->SetWorldPosition( m_worldPosition.x.GetInteger(), m_worldPosition.y.GetInteger());
+}
+
+void Enemy::SetWorldPosition( int _x, int _y )
+{
+	m_worldPosition.x = _x;
+	m_worldPosition.y = _y;
+	pTargetGameObject->SetWorldPosition( _x, _y );
 }

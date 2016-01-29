@@ -25,6 +25,7 @@ class Image;
 #define SPRITE_FLAG_FLIP_X			(1<<3)
 #define SPRITE_FLAG_FLIP_Y			(1<<4)
 #define SPRITE_FLAG_DRAWWHITE		(1<<5)
+#define SPRITE_FLAG_ENABLED			(1<<7)
 
 class GameObject;
 

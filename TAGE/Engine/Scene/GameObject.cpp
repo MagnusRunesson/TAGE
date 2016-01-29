@@ -11,6 +11,7 @@
 #include "Engine/Scene/Camera.h"
 #include "Engine/Graphics/Image.h"
 #include "Engine/Graphics/Animation.h"
+#include "Engine/BitHelpers.h"
 
 GameObject::GameObject()
 {
@@ -39,6 +40,8 @@ void GameObject::Create( const Image* _image )
 	m_sprite->owner = this;
 	m_imageHotspotX = 0;
 	m_imageHotspotY = 0;
+	
+	SetEnabled( true );
 }
 
 void GameObject::Create( const AnimationSequenceDefinition* _animation )
@@ -52,6 +55,22 @@ void GameObject::Destroy()
 {
 	spriteRenderer.FreeSprite( m_sprite );
 	m_sprite = NULL;
+	SetEnabled( false );
+}
+
+void GameObject::SetEnabled( bool _enabled )
+{
+	
+	if( _enabled )
+	{
+		SetBit( m_systemFlags, GO_SYSTEMFLAG_ENABLED );
+		m_sprite->SetFlags( SPRITE_FLAG_ENABLED );
+	}
+	else
+	{
+		ClrBit( m_systemFlags, GO_SYSTEMFLAG_ENABLED );
+		m_sprite->ClrFlags( SPRITE_FLAG_ENABLED );
+	}
 }
 
 void GameObject::Update()

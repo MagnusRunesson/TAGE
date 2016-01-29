@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include "Engine/Graphics/Sprite.h"
 #include "Engine/Graphics/Image.h"
+#include "Engine/BitHelpers.h"
 
 Sprite::Sprite()
 {
@@ -21,6 +22,7 @@ void Sprite::Reboot()
 	y = 127;
 	flags = 0;
 	image = NULL;
+	ClrFlags( SPRITE_FLAG_ENABLED );
 }
 
 void Sprite::SetRotation( int _rotation )
@@ -34,6 +36,11 @@ void Sprite::SetRotation( int _rotation )
 //
 void Sprite::PreRender()
 {
+	// Should this sprite even render?
+	if( !HasBit( flags, SPRITE_FLAG_ENABLED))
+		return;
+	
+	//
 	int rotation = (flags & SPRITE_FLAG_ROTATE_MASK) >> SPRITE_FLAG_ROTATE_BASE;
 	int w, h;
 	if( rotation & 1 )

@@ -10,6 +10,7 @@
 #include "Engine/Graphics/SpriteRenderer.h"
 #include "Engine/Graphics/Screen.h"
 #include "Engine/Graphics/Image.h"
+#include "Engine/BitHelpers.h"
 
 SpriteRenderer spriteRenderer;
 
@@ -36,6 +37,7 @@ Sprite* SpriteRenderer::AllocateSprite( const Image* _image )
 		if( sprite->image == NULL )
 		{
 			sprite->image = _image;
+			SetBit( sprite->flags, SPRITE_FLAG_ENABLED );
 			//printf("using index %i\n", i );
 			return sprite;
 		}
@@ -49,6 +51,7 @@ void SpriteRenderer::FreeSprite( Sprite* _spriteInstance )
 	//printf("freeing sprite from image %s\n", _spriteInstance->image->DEBUG_name );
 	_spriteInstance->image = NULL;
 	_spriteInstance->owner = NULL;
+	ClrBit( _spriteInstance->flags, SPRITE_FLAG_ENABLED );
 }
 
 void SpriteRenderer::FrameStart()
@@ -68,7 +71,7 @@ void SpriteRenderer::FrameStart()
 	{
 		Sprite* sprite = &m_sprite[ i ];
 		//printf("Sprite index %i. Image=0x%016llx\n", i, sprite->image );
-		if( sprite->image != NULL )
+		if( HasBit( sprite->flags, SPRITE_FLAG_ENABLED ) && (sprite->image != NULL))
 		{
 			// Refresh sprite bounds and other render related flags
 			sprite->PreRender();
