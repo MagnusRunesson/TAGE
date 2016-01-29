@@ -22,7 +22,7 @@ public:
 	void operator += ( const fp2d& _o );
 	void operator *= ( const FixedPoint& _o );
 
-	fp2d operator - (const fp2d& _o );
+	fp2d operator - (const fp2d& _o ) const;
 	
 	FixedPoint x;
 	FixedPoint y;
