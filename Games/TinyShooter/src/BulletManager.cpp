@@ -8,6 +8,8 @@
 
 #include "Engine/Scene/GameObjectManager.h"
 #include "Engine/Scene/GameObject.h"
+#include "Engine/Audio/AudioSource.h"
+#include "Engine/Audio/AudioMixer.h"
 #include "src/BulletManager.h"
 #include "src/ContextIngame.h"
 #include "data/alldata.h"
@@ -16,6 +18,7 @@
 
 GameObject* playerBullets[ NUM_PLAYER_BULLETS ];
 int nextPlayerBullet;
+AudioSource* sfxPlayerFire;
 
 void playerBulletsInit()
 {
@@ -30,6 +33,10 @@ void playerBulletsInit()
 		playerBullets[ i ] = pb;
 	}
 	nextPlayerBullet = 0;
+
+	// Setup sound effect for player bullets
+	sfxPlayerFire = audioMixer.GetChannel( 0 );
+	sfxPlayerFire->SetData( &sfx_player_fire_canon );
 }
 
 void playerBulletSpawn( int _worldX, int _worldY )
@@ -38,6 +45,9 @@ void playerBulletSpawn( int _worldX, int _worldY )
 	GameObject* pb = playerBullets[ nextPlayerBullet ];
 	pb->SetWorldPosition( _worldX, _worldY );
 	pb->SetEnabled( true );
+	
+	// Play sound effect
+	sfxPlayerFire->PlayFromBeginning();
 	
 	// Go to next bullet instance in a ring buffer of bullets
 	nextPlayerBullet++;

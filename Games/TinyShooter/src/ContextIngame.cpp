@@ -30,6 +30,7 @@
 #include "src/PathFollower.h"
 #include "src/ExplosionManager.h"
 #include "src/BulletManager.h"
+#include "src/Player.h"
 
 //
 Camera mainCamera;
@@ -38,18 +39,11 @@ TileRenderer* playfield;
 int mapScroll;
 FixedPoint cameraScroll;
 FixedPoint cameraScrollSpeed;
-GameObject* player;
 GameObject* testanimGO;
-AudioSource* sfxPlayerFire;
 AudioSource* sfxPlayerPickup;
 
 Enemy enemyObjects[ NUM_ENEMIES ];
 int nextEnemy;
-
-int playerFireRateTimer;
-FixedPoint playerX;
-FixedPoint playerY;
-FixedPoint playerSpeed;
 
 bool debugSpriteRenderer;
 bool doCameraScroll;
@@ -80,12 +74,6 @@ void HBlankInterrupt( int _scanline )
 	 */
 	
 	//printf( "Scanline=%i\n", _scanline );
-}
-
-void ResetPlayer()
-{
-	playerX = mapScroll+10;
-	playerY = 29;
 }
 
 const PathPoint testPath_nodes[] = {
@@ -136,27 +124,17 @@ void ingame_setup()
 	mapScroll = 0;
 	cameraScrollSpeed = FixedPoint( 0, 12 );
 
-	// Create player game object
-	player = gameObjectManager.CreateGameObject( &sprite_player );
-	player->m_flags = GO_FLAGS_PLAYERSHIP;
-	player->GetSprite()->collisionIndex = SPRITE_COLLISION_INDEX_PLAYERSHIP;
-	ResetPlayer();
-	playerSpeed = FixedPoint( 0, 50 );
+	playerInit();
 	
 	testanimGO = gameObjectManager.CreateGameObject( &animation_pickup );
 	testanimGO->SetWorldPosition( 80, 20 );
 	testanimGO->GetAnimation()->Play();
 	testanimGO->GetSprite()->collisionIndex = SPRITE_COLLISION_INDEX_PICKUP;
 	
-	sfxPlayerFire = audioMixer.GetChannel( 0 );
-	sfxPlayerFire->SetData( &sfx_player_fire_canon );
-	
 	sfxPlayerPickup = audioMixer.GetChannel( 1 );
 	sfxPlayerPickup->SetData( &sfx_player_pickup );
 	
 	playerBulletsInit();
-
-
 	explosionsInit();
 	
 	int i;
@@ -164,7 +142,7 @@ void ingame_setup()
 	{
 		Enemy* pEnemyObject = &enemyObjects[ i ];
 		pEnemyObject->SetDefinition( &enemy_sparrow );
-		pEnemyObject->m_movementDirection.x = FixedPoint( 0, -(50-i*2) );
+		pEnemyObject->m_movementDirection.x = FixedPoint( 0, -(50-i*5) );
 		pEnemyObject->m_movementDirection.y = FixedPoint( 0, -i*3 );
 		pEnemyObject->SetWorldPosition( 96+(i*2), 50 );
 	}
@@ -201,7 +179,7 @@ void ingame_loop()
 			{
 				cameraScroll -= 1;
 				
-				playerX += 1;
+				playerCameraMove( 1 );
 				mapScroll++;
 				
 				if( mapScroll > scrollMax )
@@ -221,48 +199,7 @@ void ingame_loop()
 	playfield->SetPosition( camx, 0 );
 	background->SetPosition( camx>>1, 0 );
 	
-	//
-	int ix = padGetX();
-	if( ix != 0 )
-	{
-		FixedPoint x = ix;
-		x *= playerSpeed;
-		playerX += x;
-	}
-
-	int iy = padGetY();
-	if( iy != 0 )
-	{
-		FixedPoint y = iy;
-		y *= playerSpeed;
-		playerY += y;
-	}
-	
-	player->SetWorldPosition( playerX.GetInteger(), playerY.GetInteger());
-
-	if( playerFireRateTimer > 0 )
-	{
-		playerFireRateTimer--;
-	} else
-	{
-		if( padGetKeys() & PAD_KEYMASK_PRIMARY )
-		{
-			// Prevent shooting too often
-			playerFireRateTimer = FIRE_RATE_DELAY;
-			
-			// Spawn bullet somewhere around the player
-			int x = player->GetWorldPositionX()+7;
-			int y = player->GetWorldPositionY()+4;
-			playerBulletSpawn( x, y );
-			
-			// Play sound effect
-			sfxPlayerFire->PlayFromBeginning();
-			
-		}
-	}
-	
-	if( padGetPressed() & PAD_KEYMASK_SECONDARY )
-		sfxPlayerPickup->PlayFromBeginning();
+	playerUpdate();
 	
 	playerBulletsUpdate( mapScroll );
 	
@@ -336,7 +273,7 @@ void ingame_loop()
 					// Player collided with a wall
 					//
 					if( spriteCollisionMask & SPRITE_COLLISION_MASK_PLAYERSHIP )
-						ResetPlayer();
+						playerReset( mapScroll );
 					
 					//
 					// Player bullet collided with a wall
@@ -379,9 +316,9 @@ void ingame_loop()
 							lastCollisionBullet = enemySprite;
 							
 							GameObject* enemyGO = enemySprite->owner;
-							enemyGO->SetWorldPosition( 0, -10 );
+							enemyGO->SetEnabled( false );
 							
-							ResetPlayer();
+							playerReset( mapScroll );
 							
 							explosionsSpawn( camx+x, iScanline );
 						}
