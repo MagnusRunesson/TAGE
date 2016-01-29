@@ -10,4 +10,5 @@
 #include "src/Enemy.cpp"
 #include "src/TinyShooter.cpp"
 #include "src/PathFollower.cpp"
+#include "src/EnemyMovements.cpp"
 #include "data/alldata.cpp"
