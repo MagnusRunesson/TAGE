@@ -185,14 +185,14 @@ void ingame_setup()
 	}
 	
 	nextExplosion = 0;
-
 	
 	for( i=0; i<NUM_ENEMIES; i++ )
 	{
 		Enemy* pEnemyObject = &enemyObjects[ i ];
-		pEnemyObject->SetDefinition( &enemy_saucer_easy );
-		pEnemyObject->m_movementDirection.x = FixedPoint( 0, -50 );
-		pEnemyObject->SetWorldPosition( 100+(i*20), 30 );
+		pEnemyObject->SetDefinition( &enemy_sparrow );
+		pEnemyObject->m_movementDirection.x = FixedPoint( 0, -(50-i*2) );
+		pEnemyObject->m_movementDirection.y = FixedPoint( 0, -i*3 );
+		pEnemyObject->SetWorldPosition( 96+(i*2), 50 );
 	}
 	
 	nextEnemy = 0;
