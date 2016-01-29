@@ -20,6 +20,10 @@
 		250DA1971C4A813500C664DA /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250DA1961C4A813500C664DA /* SDL2.framework */; };
 		255A0E281C5BC974000F77D4 /* EnemyMovements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255A0E261C5BC974000F77D4 /* EnemyMovements.cpp */; settings = {ASSET_TAGS = (); }; };
 		25678FF41C57D86E00B2C95E /* sinetable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25678FF31C57D86E00B2C95E /* sinetable.cpp */; settings = {ASSET_TAGS = (); }; };
+		25A495B21C5BD433003CA51C /* sprite_enemy_sparrow_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25A495AA1C5BD433003CA51C /* sprite_enemy_sparrow_00.cpp */; settings = {ASSET_TAGS = (); }; };
+		25A495B31C5BD433003CA51C /* sprite_enemy_sparrow_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25A495AC1C5BD433003CA51C /* sprite_enemy_sparrow_01.cpp */; settings = {ASSET_TAGS = (); }; };
+		25A495B41C5BD433003CA51C /* sprite_enemy_sparrow_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25A495AE1C5BD433003CA51C /* sprite_enemy_sparrow_02.cpp */; settings = {ASSET_TAGS = (); }; };
+		25A495B51C5BD433003CA51C /* sprite_enemy_sparrow_03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25A495B01C5BD433003CA51C /* sprite_enemy_sparrow_03.cpp */; settings = {ASSET_TAGS = (); }; };
 		25B7B13F1C5A859F00355A54 /* sprite_impact_bullet_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B7B1351C5A859F00355A54 /* sprite_impact_bullet_00.cpp */; settings = {ASSET_TAGS = (); }; };
 		25B7B1401C5A859F00355A54 /* sprite_impact_bullet_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B7B1371C5A859F00355A54 /* sprite_impact_bullet_01.cpp */; settings = {ASSET_TAGS = (); }; };
 		25B7B1411C5A859F00355A54 /* sprite_impact_bullet_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B7B1391C5A859F00355A54 /* sprite_impact_bullet_02.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -131,6 +135,14 @@
 		255A0E261C5BC974000F77D4 /* EnemyMovements.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EnemyMovements.cpp; path = src/EnemyMovements.cpp; sourceTree = SOURCE_ROOT; };
 		255A0E271C5BC974000F77D4 /* EnemyMovements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnemyMovements.h; path = src/EnemyMovements.h; sourceTree = SOURCE_ROOT; };
 		25678FF31C57D86E00B2C95E /* sinetable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sinetable.cpp; sourceTree = "<group>"; };
+		25A495AA1C5BD433003CA51C /* sprite_enemy_sparrow_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_sparrow_00.cpp; path = data/sprite_enemy_sparrow_00.cpp; sourceTree = "<group>"; };
+		25A495AB1C5BD433003CA51C /* sprite_enemy_sparrow_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_sparrow_00.h; path = data/sprite_enemy_sparrow_00.h; sourceTree = "<group>"; };
+		25A495AC1C5BD433003CA51C /* sprite_enemy_sparrow_01.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_sparrow_01.cpp; path = data/sprite_enemy_sparrow_01.cpp; sourceTree = "<group>"; };
+		25A495AD1C5BD433003CA51C /* sprite_enemy_sparrow_01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_sparrow_01.h; path = data/sprite_enemy_sparrow_01.h; sourceTree = "<group>"; };
+		25A495AE1C5BD433003CA51C /* sprite_enemy_sparrow_02.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_sparrow_02.cpp; path = data/sprite_enemy_sparrow_02.cpp; sourceTree = "<group>"; };
+		25A495AF1C5BD433003CA51C /* sprite_enemy_sparrow_02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_sparrow_02.h; path = data/sprite_enemy_sparrow_02.h; sourceTree = "<group>"; };
+		25A495B01C5BD433003CA51C /* sprite_enemy_sparrow_03.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_sparrow_03.cpp; path = data/sprite_enemy_sparrow_03.cpp; sourceTree = "<group>"; };
+		25A495B11C5BD433003CA51C /* sprite_enemy_sparrow_03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_sparrow_03.h; path = data/sprite_enemy_sparrow_03.h; sourceTree = "<group>"; };
 		25B7B1351C5A859F00355A54 /* sprite_impact_bullet_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_impact_bullet_00.cpp; path = data/sprite_impact_bullet_00.cpp; sourceTree = "<group>"; };
 		25B7B1361C5A859F00355A54 /* sprite_impact_bullet_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_impact_bullet_00.h; path = data/sprite_impact_bullet_00.h; sourceTree = "<group>"; };
 		25B7B1371C5A859F00355A54 /* sprite_impact_bullet_01.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_impact_bullet_01.cpp; path = data/sprite_impact_bullet_01.cpp; sourceTree = "<group>"; };
@@ -390,6 +402,14 @@
 				25CB2CF71C57561F00BC35A1 /* sprite_enemy_saucer_00.h */,
 				25CB2CF81C57561F00BC35A1 /* sprite_enemy_saucer_01.cpp */,
 				25CB2CF91C57561F00BC35A1 /* sprite_enemy_saucer_01.h */,
+				25A495AA1C5BD433003CA51C /* sprite_enemy_sparrow_00.cpp */,
+				25A495AB1C5BD433003CA51C /* sprite_enemy_sparrow_00.h */,
+				25A495AC1C5BD433003CA51C /* sprite_enemy_sparrow_01.cpp */,
+				25A495AD1C5BD433003CA51C /* sprite_enemy_sparrow_01.h */,
+				25A495AE1C5BD433003CA51C /* sprite_enemy_sparrow_02.cpp */,
+				25A495AF1C5BD433003CA51C /* sprite_enemy_sparrow_02.h */,
+				25A495B01C5BD433003CA51C /* sprite_enemy_sparrow_03.cpp */,
+				25A495B11C5BD433003CA51C /* sprite_enemy_sparrow_03.h */,
 				25CB2CFA1C57561F00BC35A1 /* sprite_explosion_big_00.cpp */,
 				25CB2CFB1C57561F00BC35A1 /* sprite_explosion_big_00.h */,
 				25CB2CFC1C57561F00BC35A1 /* sprite_explosion_big_01.cpp */,
@@ -688,19 +708,23 @@
 				25CB2D361C57561F00BC35A1 /* sprite_explosion_big_04.cpp in Sources */,
 				25CB2D411C57561F00BC35A1 /* sprite_logo_tiny_y.cpp in Sources */,
 				25CB2D341C57561F00BC35A1 /* sprite_explosion_big_02.cpp in Sources */,
+				25A495B31C5BD433003CA51C /* sprite_enemy_sparrow_01.cpp in Sources */,
 				25B7B1421C5A859F00355A54 /* sprite_impact_bullet_03.cpp in Sources */,
 				25CB2D941C57565100BC35A1 /* fpmath.cpp in Sources */,
 				2505C2251C5A376D00E46CDF /* sprite_explosion_medium_02.cpp in Sources */,
+				25A495B51C5BD433003CA51C /* sprite_enemy_sparrow_03.cpp in Sources */,
 				25CB2DAA1C57566100BC35A1 /* AudioHandler.cpp in Sources */,
 				25CB2D321C57561F00BC35A1 /* sprite_explosion_big_00.cpp in Sources */,
 				25CB2D8E1C57565100BC35A1 /* SpriteRenderer.cpp in Sources */,
 				25CB2D871C57565100BC35A1 /* AudioMixer.cpp in Sources */,
 				25CB2CEF1C57561700BC35A1 /* Enemy.cpp in Sources */,
+				25A495B41C5BD433003CA51C /* sprite_enemy_sparrow_02.cpp in Sources */,
 				25CB2D861C57565100BC35A1 /* AudioData.cpp in Sources */,
 				25CB2D8C1C57565100BC35A1 /* Screen.cpp in Sources */,
 				25CB2DAB1C57566100BC35A1 /* Joypad.cpp in Sources */,
 				25B7B1431C5A859F00355A54 /* sprite_impact_bullet_04.cpp in Sources */,
 				25678FF41C57D86E00B2C95E /* sinetable.cpp in Sources */,
+				25A495B21C5BD433003CA51C /* sprite_enemy_sparrow_00.cpp in Sources */,
 				25CB2D2F1C57561F00BC35A1 /* audiosamples_pickup_s8b_pcm_11025.cpp in Sources */,
 				25CB2D3B1C57561F00BC35A1 /* sprite_logo_shooter_r.cpp in Sources */,
 				25CB2D331C57561F00BC35A1 /* sprite_explosion_big_01.cpp in Sources */,

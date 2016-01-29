@@ -12,5 +12,6 @@
 class AnimationSequenceDefinition;
 
 extern "C" const AnimationSequenceDefinition animation_enemy_saucer;
+extern "C" const AnimationSequenceDefinition animation_enemy_sparrow;
 
 #endif /* defined(__TinyShooter__animation_enemy_saucer__) */

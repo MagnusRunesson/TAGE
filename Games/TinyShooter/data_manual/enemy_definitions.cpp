@@ -17,3 +17,13 @@ const EnemyDefinition enemy_saucer_easy =
 	0,
 	&EnemyMovement_00_FollowDirection,
 };
+
+
+
+const EnemyDefinition enemy_sparrow =
+{
+	&animation_enemy_sparrow,
+	1,
+	0,
+	&EnemyMovement_00_FollowDirection,
+};

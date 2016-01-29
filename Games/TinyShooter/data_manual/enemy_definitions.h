@@ -12,5 +12,6 @@
 #include "src/EnemyDefinition.h"
 
 extern "C" const EnemyDefinition enemy_saucer_easy;
+extern "C" const EnemyDefinition enemy_sparrow;
 
 #endif /* defined(__TinyShooter__EnemyDefinitions__) */
