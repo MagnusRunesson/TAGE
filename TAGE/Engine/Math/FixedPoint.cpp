@@ -194,7 +194,11 @@ FixedPoint FixedPoint::operator / (int o) const
 
 FixedPoint FixedPoint::operator / (FixedPoint o) const
 {
-	return (m_value<<FRACTION_BITS_HALF) / (o.m_value<<FRACTION_BITS_HALF);
+	int left = m_value<<FRACTION_BITS_HALF;
+	int right = o.m_value;
+	right <<= FRACTION_BITS_HALF;
+	return left / right;
+	//return (m_value<<FRACTION_BITS_HALF) / (o.m_value<<FRACTION_BITS_HALF);
 }
 
 
