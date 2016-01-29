@@ -31,6 +31,7 @@
 #include "src/ExplosionManager.h"
 #include "src/BulletManager.h"
 #include "src/Player.h"
+#include "src/EnemyManager.h"
 
 //
 Camera mainCamera;
@@ -42,8 +43,6 @@ FixedPoint cameraScrollSpeed;
 GameObject* testanimGO;
 AudioSource* sfxPlayerPickup;
 
-Enemy enemyObjects[ NUM_ENEMIES ];
-int nextEnemy;
 
 bool debugSpriteRenderer;
 bool doCameraScroll;
@@ -136,20 +135,12 @@ void ingame_setup()
 	
 	playerBulletsInit();
 	explosionsInit();
-	
-	int i;
-	for( i=0; i<NUM_ENEMIES; i++ )
-	{
-		Enemy* pEnemyObject = &enemyObjects[ i ];
-		pEnemyObject->SetDefinition( &enemy_sparrow );
-		pEnemyObject->m_movementDirection.x = FixedPoint( 0, -(50-i*5) );
-		pEnemyObject->m_movementDirection.y = FixedPoint( 0, -i*3 );
-		pEnemyObject->SetWorldPosition( 96+(i*2), 50 );
-	}
-	
-	nextEnemy = 0;
-	
+	enemyManagerInit();
 
+	int i;
+	for( i=0; i<5; i++ )
+		enemySpawn( &enemy_sparrow, 96+(i*3), 50-(i*2), new fp2d( FixedPoint( 0, -(40-(i*6))), FixedPoint( 0, -i*6 )));
+		
 	doCameraScroll = true;
 	
 	pfnHBlankInterrupt = HBlankInterrupt;
@@ -315,8 +306,7 @@ void ingame_loop()
 						{
 							lastCollisionBullet = enemySprite;
 							
-							GameObject* enemyGO = enemySprite->owner;
-							enemyGO->SetEnabled( false );
+							ENEMY_FROM_SPRITE( enemySprite )->Kill();
 							
 							playerReset( mapScroll );
 							

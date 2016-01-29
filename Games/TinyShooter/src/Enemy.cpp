@@ -41,7 +41,7 @@ void Enemy::SetDefinition( const EnemyDefinition* _pEnemyDefinition )
 		// If we've already allocated a game object for this enemy we can simply modify that game object
 		
 		// Change the animation properly here
-
+		pTargetGameObject->GetAnimation()->SetSequence( _pEnemyDefinition->pAnimationDefinition );
 	}
 
 	// Play the requested animation
@@ -89,6 +89,11 @@ bool Enemy::Hit()
 	
 	//
 	return false;
+}
+
+void Enemy::Kill()
+{
+	pTargetGameObject->SetEnabled( false );
 }
 
 void Enemy::SetWorldPosition( const fp2d& _worldPosition )

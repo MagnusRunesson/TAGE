@@ -8,6 +8,7 @@
 
 #include "src/ContextIngame.cpp"
 #include "src/Enemy.cpp"
+#include "src/EnemyManager.cpp"
 #include "src/TinyShooter.cpp"
 #include "src/PathFollower.cpp"
 #include "src/EnemyMovements.cpp"

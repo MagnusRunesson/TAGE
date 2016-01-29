@@ -12,6 +12,8 @@
 #include "Engine/types.h"
 #include "Engine/Math/fp2d.h"
 
+#define ENEMY_FROM_SPRITE( spr ) ((Enemy*)(spr->owner->m_customObject))
+
 class GameObject;
 class EnemyDefinition;
 
@@ -37,7 +39,8 @@ public:
 	void Update();
 	void(*pfnMovementUpdate)( Enemy* _pTarget );
 
-	bool Hit();	// Return true when the enemy have reached 0 health. Return false if the enemy keeps on living.
+	bool Hit();		// Return true when the enemy have reached 0 health. Return false if the enemy keeps on living.
+	void Kill();	// Kill the enemy and return the instance to the enemy manager so a new enemy can take its place.
 };
 
 #endif /* defined(__TinyShooter__Enemy__) */

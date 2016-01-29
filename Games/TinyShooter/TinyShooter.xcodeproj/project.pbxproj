@@ -31,6 +31,7 @@
 		25B7B1431C5A859F00355A54 /* sprite_impact_bullet_04.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B7B13D1C5A859F00355A54 /* sprite_impact_bullet_04.cpp */; settings = {ASSET_TAGS = (); }; };
 		25B7B1461C5A85C300355A54 /* animation_impact_bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B7B1441C5A85C300355A54 /* animation_impact_bullet.cpp */; settings = {ASSET_TAGS = (); }; };
 		25C651241C5C034A004727FD /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25C651221C5C034A004727FD /* Player.cpp */; settings = {ASSET_TAGS = (); }; };
+		25C651271C5C0F62004727FD /* EnemyManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25C651251C5C0F62004727FD /* EnemyManager.cpp */; settings = {ASSET_TAGS = (); }; };
 		25CB2CEE1C57561700BC35A1 /* ContextIngame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CE81C57561700BC35A1 /* ContextIngame.cpp */; };
 		25CB2CEF1C57561700BC35A1 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CEA1C57561700BC35A1 /* Enemy.cpp */; };
 		25CB2CF01C57561700BC35A1 /* TinyShooter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CED1C57561700BC35A1 /* TinyShooter.cpp */; };
@@ -160,6 +161,8 @@
 		25B7B1451C5A85C300355A54 /* animation_impact_bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = animation_impact_bullet.h; path = data_manual/animation_impact_bullet.h; sourceTree = "<group>"; };
 		25C651221C5C034A004727FD /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Player.cpp; path = src/Player.cpp; sourceTree = SOURCE_ROOT; };
 		25C651231C5C034A004727FD /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = src/Player.h; sourceTree = SOURCE_ROOT; };
+		25C651251C5C0F62004727FD /* EnemyManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EnemyManager.cpp; path = src/EnemyManager.cpp; sourceTree = SOURCE_ROOT; };
+		25C651261C5C0F62004727FD /* EnemyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnemyManager.h; path = src/EnemyManager.h; sourceTree = SOURCE_ROOT; };
 		25CB2CE81C57561700BC35A1 /* ContextIngame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ContextIngame.cpp; path = src/ContextIngame.cpp; sourceTree = SOURCE_ROOT; };
 		25CB2CE91C57561700BC35A1 /* ContextIngame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContextIngame.h; path = src/ContextIngame.h; sourceTree = SOURCE_ROOT; };
 		25CB2CEA1C57561700BC35A1 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Enemy.cpp; path = src/Enemy.cpp; sourceTree = SOURCE_ROOT; };
@@ -355,6 +358,8 @@
 				25DAD6D11C5BDFAB00BE7096 /* BulletManager.h */,
 				25C651221C5C034A004727FD /* Player.cpp */,
 				25C651231C5C034A004727FD /* Player.h */,
+				25C651251C5C0F62004727FD /* EnemyManager.cpp */,
+				25C651261C5C0F62004727FD /* EnemyManager.h */,
 			);
 			path = TinyShooter;
 			sourceTree = "<group>";
@@ -697,6 +702,7 @@
 				25CB2D441C57561F00BC35A1 /* sprite_pickup_01.cpp in Sources */,
 				25CB2D3A1C57561F00BC35A1 /* sprite_logo_shooter_o.cpp in Sources */,
 				255A0E281C5BC974000F77D4 /* EnemyMovements.cpp in Sources */,
+				25C651271C5C0F62004727FD /* EnemyManager.cpp in Sources */,
 				25CB2D451C57561F00BC35A1 /* sprite_pickup_02.cpp in Sources */,
 				25CB2D3E1C57561F00BC35A1 /* sprite_logo_tiny_i.cpp in Sources */,
 				25D7B2631C57990200759E1B /* PathFollower.cpp in Sources */,
