@@ -32,6 +32,7 @@ public:
 	
 	//
 	void SetEnabled( bool _enabled );
+	bool IsEnabled();
 	
 	//
 	void Update();

@@ -73,6 +73,11 @@ void GameObject::SetEnabled( bool _enabled )
 	}
 }
 
+bool GameObject::IsEnabled()
+{
+	return HasBit( m_systemFlags, SPRITE_FLAG_ENABLED );
+}
+
 void GameObject::Update()
 {
 	if( m_customUpdate != NULL )
