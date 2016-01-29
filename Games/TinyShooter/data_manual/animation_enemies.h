@@ -1,17 +1,17 @@
 //
-//  animation_pickup.h
+//  animation_enemies.h
 //  TinyShooter
 //
 //  Created by Magnus Runesson on 24/01/16.
 //  Copyright (c) 2016 Magnus Runesson. All rights reserved.
 //
 
-#ifndef __TinyShooter__animation_enemy_saucer__
-#define __TinyShooter__animation_enemy_saucer__
+#ifndef __TinyShooter__animation_enemies__
+#define __TinyShooter__animation_enemies__
 
 class AnimationSequenceDefinition;
 
 extern "C" const AnimationSequenceDefinition animation_enemy_saucer;
 extern "C" const AnimationSequenceDefinition animation_enemy_sparrow;
 
-#endif /* defined(__TinyShooter__animation_enemy_saucer__) */
+#endif /* defined(__TinyShooter__animation_enemies__) */

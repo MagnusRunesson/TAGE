@@ -63,7 +63,7 @@
 		25CB2D491C57561F00BC35A1 /* tilebank_spacebase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D281C57561F00BC35A1 /* tilebank_spacebase.cpp */; };
 		25CB2D4A1C57561F00BC35A1 /* tilemap_spacebase_background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D2A1C57561F00BC35A1 /* tilemap_spacebase_background.cpp */; };
 		25CB2D4B1C57561F00BC35A1 /* tilemap_spacebase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D2C1C57561F00BC35A1 /* tilemap_spacebase.cpp */; };
-		25CB2D561C57563F00BC35A1 /* animation_enemy_saucer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D4C1C57563F00BC35A1 /* animation_enemy_saucer.cpp */; };
+		25CB2D561C57563F00BC35A1 /* animation_enemies.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D4C1C57563F00BC35A1 /* animation_enemies.cpp */; };
 		25CB2D571C57563F00BC35A1 /* animation_explosion_big.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D4E1C57563F00BC35A1 /* animation_explosion_big.cpp */; };
 		25CB2D581C57563F00BC35A1 /* animation_pickup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D501C57563F00BC35A1 /* animation_pickup.cpp */; };
 		25CB2D591C57563F00BC35A1 /* enemy_definitions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2D521C57563F00BC35A1 /* enemy_definitions.cpp */; };
@@ -222,8 +222,8 @@
 		25CB2D2B1C57561F00BC35A1 /* tilemap_spacebase_background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tilemap_spacebase_background.h; path = data/tilemap_spacebase_background.h; sourceTree = "<group>"; };
 		25CB2D2C1C57561F00BC35A1 /* tilemap_spacebase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tilemap_spacebase.cpp; path = data/tilemap_spacebase.cpp; sourceTree = "<group>"; };
 		25CB2D2D1C57561F00BC35A1 /* tilemap_spacebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tilemap_spacebase.h; path = data/tilemap_spacebase.h; sourceTree = "<group>"; };
-		25CB2D4C1C57563F00BC35A1 /* animation_enemy_saucer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = animation_enemy_saucer.cpp; path = data_manual/animation_enemy_saucer.cpp; sourceTree = "<group>"; };
-		25CB2D4D1C57563F00BC35A1 /* animation_enemy_saucer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = animation_enemy_saucer.h; path = data_manual/animation_enemy_saucer.h; sourceTree = "<group>"; };
+		25CB2D4C1C57563F00BC35A1 /* animation_enemies.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = animation_enemies.cpp; path = data_manual/animation_enemies.cpp; sourceTree = "<group>"; };
+		25CB2D4D1C57563F00BC35A1 /* animation_enemies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = animation_enemies.h; path = data_manual/animation_enemies.h; sourceTree = "<group>"; };
 		25CB2D4E1C57563F00BC35A1 /* animation_explosion_big.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = animation_explosion_big.cpp; path = data_manual/animation_explosion_big.cpp; sourceTree = "<group>"; };
 		25CB2D4F1C57563F00BC35A1 /* animation_explosion_big.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = animation_explosion_big.h; path = data_manual/animation_explosion_big.h; sourceTree = "<group>"; };
 		25CB2D501C57563F00BC35A1 /* animation_pickup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = animation_pickup.cpp; path = data_manual/animation_pickup.cpp; sourceTree = "<group>"; };
@@ -487,8 +487,8 @@
 		255853CE1C536A4200E1A79A /* Data Manual */ = {
 			isa = PBXGroup;
 			children = (
-				25CB2D4C1C57563F00BC35A1 /* animation_enemy_saucer.cpp */,
-				25CB2D4D1C57563F00BC35A1 /* animation_enemy_saucer.h */,
+				25CB2D4C1C57563F00BC35A1 /* animation_enemies.cpp */,
+				25CB2D4D1C57563F00BC35A1 /* animation_enemies.h */,
 				25CB2D4E1C57563F00BC35A1 /* animation_explosion_big.cpp */,
 				25CB2D4F1C57563F00BC35A1 /* animation_explosion_big.h */,
 				2505C22C1C5A378D00E46CDF /* animation_explosion_medium.cpp */,
@@ -661,7 +661,7 @@
 				25CB2D3F1C57561F00BC35A1 /* sprite_logo_tiny_n.cpp in Sources */,
 				25CB2D3D1C57561F00BC35A1 /* sprite_logo_shooter_t.cpp in Sources */,
 				25CB2D2E1C57561F00BC35A1 /* audiosamples_pew_s8b_pcm_11025hz.cpp in Sources */,
-				25CB2D561C57563F00BC35A1 /* animation_enemy_saucer.cpp in Sources */,
+				25CB2D561C57563F00BC35A1 /* animation_enemies.cpp in Sources */,
 				2505C2241C5A376D00E46CDF /* sprite_explosion_medium_01.cpp in Sources */,
 				25CB2D911C57565100BC35A1 /* TileRenderer.cpp in Sources */,
 				25CB2D4A1C57561F00BC35A1 /* tilemap_spacebase_background.cpp in Sources */,

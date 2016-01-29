@@ -1,5 +1,5 @@
 //
-//  animation_pickup.cpp
+//  animation_enemies.cpp
 //  TinyShooter
 //
 //  Created by Magnus Runesson on 24/01/16.

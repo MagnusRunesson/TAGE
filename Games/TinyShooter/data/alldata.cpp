@@ -70,8 +70,10 @@
 #include "data_manual/animation_explosion_big.cpp"
 #include "data_manual/animation_explosion_medium.cpp"
 #include "data_manual/animation_impact_bullet.cpp"
-#include "data_manual/animation_enemy_saucer.cpp"
+#include "data_manual/animation_enemies.cpp"
 
 #include "data_manual/sfx_player.cpp"
 
 #include "data_manual/enemy_definitions.cpp"
+
+// This line is intentionally left blank

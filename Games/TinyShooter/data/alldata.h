@@ -70,7 +70,7 @@
 #include "data_manual/animation_explosion_big.h"
 #include "data_manual/animation_explosion_medium.h"
 #include "data_manual/animation_impact_bullet.h"
-#include "data_manual/animation_enemy_saucer.h"
+#include "data_manual/animation_enemies.h"
 
 #include "data_manual/sfx_player.h"
 
