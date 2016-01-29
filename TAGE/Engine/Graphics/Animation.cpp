@@ -18,6 +18,12 @@ void Animation::Create( const AnimationSequenceDefinition* _pSequence, GameObjec
 	IsPlaying = false;
 }
 
+void Animation::SetSequence( const AnimationSequenceDefinition* _pSequence )
+{
+	pSequence = _pSequence;
+	Reset();
+}
+
 void Animation::Reset()
 {
 	FrameIndex = 0;

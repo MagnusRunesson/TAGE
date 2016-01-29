@@ -42,6 +42,7 @@ public:
 	int FrameTime;
 
 	void Create( const AnimationSequenceDefinition* _pSequence, GameObject* _pTarget );
+	void SetSequence( const AnimationSequenceDefinition* _pSequence );
 	void Update();
 	void Reset();
 	void Play();
