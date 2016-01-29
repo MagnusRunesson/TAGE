@@ -13,4 +13,5 @@
 #include "src/EnemyMovements.cpp"
 #include "src/ExplosionManager.cpp"
 #include "src/BulletManager.cpp"
+#include "src/Player.cpp"
 #include "data/alldata.cpp"
