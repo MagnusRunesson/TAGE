@@ -20,10 +20,20 @@ public:
 	FixedPoint( int _int, int _fractionPercentage );
 	void operator = (int o);
 	void operator = (FixedPoint o);
+	
+	// Addition
 	void operator += (int o);
 	void operator += (FixedPoint o);
+	FixedPoint operator + (int _o ) const;
+	FixedPoint operator + (FixedPoint _o ) const;
+	
+	// Subtraction
 	void operator -= (int o);
 	void operator -= (FixedPoint o);
+	FixedPoint operator - (int _o ) const;
+	FixedPoint operator - (FixedPoint _o ) const;
+	
+	// Compare
 	bool operator < (int o);
 	bool operator < (FixedPoint o);
 	bool operator > (int o);
@@ -32,10 +42,19 @@ public:
 	bool operator <= (FixedPoint o);
 	bool operator >= (int o);
 	bool operator >= (FixedPoint o);
+	
+	// Multiplication
 	void operator *= (int o);
 	void operator *= (FixedPoint o);
+	FixedPoint operator * (int _o ) const;
+	FixedPoint operator * (FixedPoint _o ) const;
+
+	// Division
 	void operator /= (int o);
 	void operator /= (FixedPoint o);
+	FixedPoint operator / (int o) const;
+	FixedPoint operator / (FixedPoint o) const;
+	
 	int GetInteger();
 	
 	//
