@@ -13,8 +13,6 @@ extern void ingame_setup();
 extern void ingame_loop();
 extern void ingame_debugTrigger( int _i );
 
-#define NUM_PLAYER_BULLETS	(10)
-#define NUM_EXPLOSIONS		(10)
 #define NUM_ENEMIES			(10)
 
 #define FIRE_RATE_DELAY (10)

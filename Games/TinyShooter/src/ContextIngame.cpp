@@ -28,6 +28,8 @@
 #include "src/ContextIngame.h"
 #include "src/Path.h"
 #include "src/PathFollower.h"
+#include "src/ExplosionManager.h"
+#include "src/BulletManager.h"
 
 //
 Camera mainCamera;
@@ -37,18 +39,13 @@ int mapScroll;
 FixedPoint cameraScroll;
 FixedPoint cameraScrollSpeed;
 GameObject* player;
-GameObject* playerBullets[ NUM_PLAYER_BULLETS ];
 GameObject* testanimGO;
 AudioSource* sfxPlayerFire;
 AudioSource* sfxPlayerPickup;
 
-GameObject* explosions[ NUM_EXPLOSIONS ];
-int nextExplosion;
-
 Enemy enemyObjects[ NUM_ENEMIES ];
 int nextEnemy;
 
-int nextPlayerBullet;
 int playerFireRateTimer;
 FixedPoint playerX;
 FixedPoint playerY;
@@ -157,35 +154,12 @@ void ingame_setup()
 	sfxPlayerPickup = audioMixer.GetChannel( 1 );
 	sfxPlayerPickup->SetData( &sfx_player_pickup );
 	
-	//
+	playerBulletsInit();
+
+
+	explosionsInit();
+	
 	int i;
-	for( i=0; i<NUM_PLAYER_BULLETS; i++ )
-	{
-		GameObject* pb = gameObjectManager.CreateGameObject( &sprite_pb_01 );
-		pb->SetWorldPosition( 0, -1 );
-		pb->m_flags = GO_FLAGS_PLAYERBULLET;
-		pb->GetSprite()->collisionIndex = SPRITE_COLLISION_INDEX_PLAYERBULLET;
-		playerBullets[ i ] = pb;
-	}
-
-	nextPlayerBullet = 0;
-
-	
-	//
-	//
-	//
-	for( i=0; i<NUM_EXPLOSIONS; i++ )
-	{
-		GameObject* pb = gameObjectManager.CreateGameObject( &animation_explosion_medium );
-		pb->SetWorldPosition( 0, -10 );
-		pb->SetHotspot( 5, 4 );
-		pb->m_flags = GO_FLAGS_UNIMPORTANT;
-		pb->GetSprite()->collisionIndex = SPRITE_COLLISION_INDEX_UNIMPORTANT;
-		explosions[ i ] = pb;
-	}
-	
-	nextExplosion = 0;
-	
 	for( i=0; i<NUM_ENEMIES; i++ )
 	{
 		Enemy* pEnemyObject = &enemyObjects[ i ];
@@ -279,47 +253,20 @@ void ingame_loop()
 			// Spawn bullet somewhere around the player
 			int x = player->GetWorldPositionX()+7;
 			int y = player->GetWorldPositionY()+4;
-			playerBullets[ nextPlayerBullet ]->SetWorldPosition( x, y );
+			playerBulletSpawn( x, y );
 			
 			// Play sound effect
 			sfxPlayerFire->PlayFromBeginning();
 			
-			// Go to next bullet instance in a ring buffer of bullets
-			nextPlayerBullet++;
-			if( nextPlayerBullet >= NUM_PLAYER_BULLETS )
-				nextPlayerBullet = 0;
 		}
 	}
 	
 	if( padGetPressed() & PAD_KEYMASK_SECONDARY )
 		sfxPlayerPickup->PlayFromBeginning();
 	
-	int i;
-	for( i=0; i<NUM_PLAYER_BULLETS; i++ )
-	{
-		GameObject* bullet = playerBullets[ i ];
-		if( bullet->GetWorldPositionY() >= 0 )
-		{
-			int x = bullet->GetWorldPositionX()+2;
-			if( x >= mapScroll+99 )
-			{
-				bullet->SetWorldPosition( 0, -1 );
-			}
-			else
-			{
-				bullet->SetWorldPosition( x, bullet->GetWorldPositionY());
-			}
-		}
-	}
+	playerBulletsUpdate( mapScroll );
 	
-	for( i=0; i<NUM_EXPLOSIONS; i++ )
-	{
-		GameObject* exp = explosions[ i ];
-		if( exp->GetAnimation()->IsPlaying == false )
-		{
-			exp->SetWorldPosition( 0, -10 );
-		}
-	}
+	explosionsUpdate();
 	
 	//
 	// Tell all game objects that it is time to be rendered
@@ -402,8 +349,7 @@ void ingame_loop()
 						{
 							lastCollisionBullet = bulletSprite;
 							
-							GameObject* bulletGO = bulletSprite->owner;
-							bulletGO->SetWorldPosition( 0, -1 );
+							playerBulletKill( bulletSprite->owner );
 						}
 					}
 				}
@@ -437,16 +383,7 @@ void ingame_loop()
 							
 							ResetPlayer();
 							
-							/*
-							GameObject* exp = explosions[ nextExplosion ];
-							nextExplosion++;
-							if( nextExplosion >= NUM_EXPLOSIONS )
-								nextExplosion -= NUM_EXPLOSIONS;
-							
-							exp->SetWorldPosition( camx+x, iScanline );
-							exp->GetAnimation()->Reset();
-							exp->GetAnimation()->Play();
-							 */
+							explosionsSpawn( camx+x, iScanline );
 						}
 					}
 
@@ -462,35 +399,15 @@ void ingame_loop()
 						{
 							lastCollisionBullet = bulletSprite;
 							
-							GameObject* bulletGO = bulletSprite->owner;
-							bulletGO->SetWorldPosition( 0, -1 );
-							
+							playerBulletKill( bulletSprite->owner );
+
 							GameObject* enemyGO = spriteRenderer.m_collisionSprites[ SPRITE_COLLISION_INDEX_ENEMY ]->owner;
 							Enemy* enemy = (Enemy*)enemyGO->m_customObject;
 							if( enemy->Hit())
 							{
-								GameObject* exp = explosions[ nextExplosion ];
-								nextExplosion++;
-								if( nextExplosion >= NUM_EXPLOSIONS )
-									nextExplosion -= NUM_EXPLOSIONS;
-								
-								exp->SetWorldPosition( camx+x, iScanline );
-								exp->GetAnimation()->Reset();
-								exp->GetAnimation()->Play();
-
+								explosionsSpawn( camx+x, iScanline );
 								enemyGO->SetEnabled( false );
 							}
-							
-							/*
-							GameObject* exp = explosions[ nextExplosion ];
-							nextExplosion++;
-							if( nextExplosion >= NUM_EXPLOSIONS )
-								nextExplosion -= NUM_EXPLOSIONS;
-							
-							exp->SetWorldPosition( camx+x, iScanline );
-							exp->GetAnimation()->Reset();
-							exp->GetAnimation()->Play();
-							 */
 						}
 					}
 				}

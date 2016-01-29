@@ -11,4 +11,6 @@
 #include "src/TinyShooter.cpp"
 #include "src/PathFollower.cpp"
 #include "src/EnemyMovements.cpp"
+#include "src/ExplosionManager.cpp"
+#include "src/BulletManager.cpp"
 #include "data/alldata.cpp"

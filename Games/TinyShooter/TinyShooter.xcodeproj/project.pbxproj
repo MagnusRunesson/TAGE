@@ -93,6 +93,8 @@
 		25CB2DAC1C57566100BC35A1 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2DA81C57566100BC35A1 /* Timer.cpp */; };
 		25D7B2601C57985800759E1B /* enemy_paths.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D7B25E1C57985800759E1B /* enemy_paths.cpp */; };
 		25D7B2631C57990200759E1B /* PathFollower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D7B2611C57990200759E1B /* PathFollower.cpp */; };
+		25DAD6CE1C5BD9B800BE7096 /* ExplosionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25DAD6CC1C5BD9B800BE7096 /* ExplosionManager.cpp */; settings = {ASSET_TAGS = (); }; };
+		25DAD6D21C5BDFAB00BE7096 /* BulletManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25DAD6D01C5BDFAB00BE7096 /* BulletManager.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -289,6 +291,10 @@
 		25D7B25F1C57985800759E1B /* enemy_paths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = enemy_paths.h; path = data_manual/enemy_paths.h; sourceTree = "<group>"; };
 		25D7B2611C57990200759E1B /* PathFollower.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PathFollower.cpp; path = src/PathFollower.cpp; sourceTree = SOURCE_ROOT; };
 		25D7B2621C57990200759E1B /* PathFollower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PathFollower.h; path = src/PathFollower.h; sourceTree = SOURCE_ROOT; };
+		25DAD6CC1C5BD9B800BE7096 /* ExplosionManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ExplosionManager.cpp; path = src/ExplosionManager.cpp; sourceTree = SOURCE_ROOT; };
+		25DAD6CD1C5BD9B800BE7096 /* ExplosionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExplosionManager.h; path = src/ExplosionManager.h; sourceTree = SOURCE_ROOT; };
+		25DAD6D01C5BDFAB00BE7096 /* BulletManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BulletManager.cpp; path = src/BulletManager.cpp; sourceTree = SOURCE_ROOT; };
+		25DAD6D11C5BDFAB00BE7096 /* BulletManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BulletManager.h; path = src/BulletManager.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,6 +346,10 @@
 				25D7B2621C57990200759E1B /* PathFollower.h */,
 				255A0E261C5BC974000F77D4 /* EnemyMovements.cpp */,
 				255A0E271C5BC974000F77D4 /* EnemyMovements.h */,
+				25DAD6CC1C5BD9B800BE7096 /* ExplosionManager.cpp */,
+				25DAD6CD1C5BD9B800BE7096 /* ExplosionManager.h */,
+				25DAD6D01C5BDFAB00BE7096 /* BulletManager.cpp */,
+				25DAD6D11C5BDFAB00BE7096 /* BulletManager.h */,
 			);
 			path = TinyShooter;
 			sourceTree = "<group>";
@@ -670,6 +680,7 @@
 				25B7B1411C5A859F00355A54 /* sprite_impact_bullet_02.cpp in Sources */,
 				25CB2D901C57565100BC35A1 /* TileMap.cpp in Sources */,
 				25CB2D4B1C57561F00BC35A1 /* tilemap_spacebase.cpp in Sources */,
+				25DAD6CE1C5BD9B800BE7096 /* ExplosionManager.cpp in Sources */,
 				25CB2D471C57561F00BC35A1 /* sprite_player.cpp in Sources */,
 				25CB2D931C57565100BC35A1 /* fp2d.cpp in Sources */,
 				25CB2D5A1C57563F00BC35A1 /* sfx_player.cpp in Sources */,
@@ -714,6 +725,7 @@
 				2505C2251C5A376D00E46CDF /* sprite_explosion_medium_02.cpp in Sources */,
 				25A495B51C5BD433003CA51C /* sprite_enemy_sparrow_03.cpp in Sources */,
 				25CB2DAA1C57566100BC35A1 /* AudioHandler.cpp in Sources */,
+				25DAD6D21C5BDFAB00BE7096 /* BulletManager.cpp in Sources */,
 				25CB2D321C57561F00BC35A1 /* sprite_explosion_big_00.cpp in Sources */,
 				25CB2D8E1C57565100BC35A1 /* SpriteRenderer.cpp in Sources */,
 				25CB2D871C57565100BC35A1 /* AudioMixer.cpp in Sources */,
