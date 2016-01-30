@@ -95,7 +95,6 @@ void levelFunc20()
 	printf("level pos 20\n");
 }
 
-int numLevelFunctions = 860;
 class LevelScrollFunc
 {
 public:
@@ -214,7 +213,7 @@ void ingame_loop()
 				}
 				
 				// Are we still running level functions?
-				if( currentFunc < numLevelFunctions )
+				if( currentFunc < numFuncs )
 				{
 					//
 					if( mapScroll >= spacebaseFuncs[ currentFunc ].x )
