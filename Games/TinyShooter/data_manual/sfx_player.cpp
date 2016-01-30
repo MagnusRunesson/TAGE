@@ -27,6 +27,15 @@ const AudioData sfx_player_pickup =
 };
 
 
+extern "C" const unsigned char audiosamples_explosion_s8b_pcm_11025hz[];
+const AudioData sfx_explosion =
+{
+	3086,
+	false,
+	(const sint8*)audiosamples_explosion_s8b_pcm_11025hz
+};
+
+
 extern "C" const unsigned char audiosamples_music_boss_s8b_pcm_11025hz[];
 const AudioData music_boss =
 {
