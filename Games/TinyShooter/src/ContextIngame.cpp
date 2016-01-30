@@ -95,13 +95,26 @@ void levelFunc10( int _x )
 
 void levelFunc20( int _x )
 {
-	bgm->SetData( &music_boss );
-	bgm->PlayFromBeginning();
-
 	fp2d movement( FixedPoint( 0, -50 ), 0 );
 	int i;
-	for( i=0; i<5; i++ )
+	for( i=0; i<3; i++ )
 		enemySpawn( &enemy_saucer_easy, _x+96+(i*14), 30, &movement );
+}
+
+void levelFunc3( int _x )
+{
+	fp2d movement( 0, 30 );
+	int i;
+
+	const EnemyDefinition* pDef = &enemy_dragonhead;
+
+	for( i=0; i<5; i++ )
+	{
+		Enemy* pEnemy = enemySpawn( pDef, _x+96+(i*4), 30, &movement );
+		pEnemy->m_movementTimer = 50 - (i*4);
+		
+		pDef = &enemy_dragonbody;
+	}
 }
 
 class LevelScrollFunc
@@ -119,11 +132,15 @@ const LevelScrollFunc spacebaseFuncs[] = {
 	{
 		40,
 		&levelFunc20,
+	},
+	{
+		60,
+		&levelFunc3
 	}
 };
 
 int currentFunc;
-const int numFuncs = 2;
+const int numFuncs = sizeof( spacebaseFuncs ) / sizeof( LevelScrollFunc );
 
 void ingame_setup()
 {
@@ -362,6 +379,7 @@ void ingame_loop()
 						sfxPlayerPickup->PlayFromBeginning();
 						GameObject* pickupGO = spriteRenderer.m_collisionSprites[ SPRITE_COLLISION_INDEX_PICKUP ]->owner;
 						pickupGO->SetWorldPosition( 0, -10 );
+						playerUpgrade();
 					}
 					
 					//
@@ -371,8 +389,9 @@ void ingame_loop()
 					if( (spriteCollisionMask & mask) == mask )
 					{
 						Sprite* enemySprite = spriteRenderer.m_collisionSprites[ SPRITE_COLLISION_INDEX_ENEMY ];
+						Sprite* bulletSprite = spriteRenderer.m_collisionSprites[ SPRITE_COLLISION_INDEX_PLAYERBULLET ];
 						
-						if( enemySprite != lastCollisionBullet )
+						if( bulletSprite != lastCollisionBullet )
 						{
 							lastCollisionBullet = enemySprite;
 							
