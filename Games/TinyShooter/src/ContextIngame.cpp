@@ -85,8 +85,42 @@ const Path testPath = {
 	testPath_nodes,
 };
 
+void levelFunc10()
+{
+	printf("level pos 10\n");
+}
+
+void levelFunc20()
+{
+	printf("level pos 20\n");
+}
+
+int numLevelFunctions = 860;
+class LevelScrollFunc
+{
+public:
+	int x;
+	void(*pFunc)();
+};
+
+const LevelScrollFunc spacebaseFuncs[] = {
+	{
+		10,
+		&levelFunc10,
+	},
+	{
+		20,
+		&levelFunc20,
+	}
+};
+
+int currentFunc;
+const int numFuncs = 2;
+
 void ingame_setup()
 {
+	currentFunc = 0;
+
 	/*
 	PathFollower janne;
 
@@ -171,12 +205,24 @@ void ingame_loop()
 				cameraScroll -= 1;
 				
 				playerCameraMove( 1 );
-				mapScroll++;
 				
+				mapScroll++;
 				if( mapScroll > scrollMax )
 				{
 					cameraScroll = scrollMax;
 					doCameraScroll = false;
+				}
+				
+				// Are we still running level functions?
+				if( currentFunc < numLevelFunctions )
+				{
+					//
+					if( mapScroll >= spacebaseFuncs[ currentFunc ].x )
+					{
+						// We've passed the point of running. So run!
+						spacebaseFuncs[ currentFunc ].pFunc();
+						currentFunc++;
+					}
 				}
 			}
 		}
