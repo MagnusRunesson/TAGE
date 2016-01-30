@@ -13,5 +13,6 @@ void playerReset( int _mapscroll );
 void playerInit();
 void playerCameraMove( int _cameraMoveDistance );
 void playerUpdate();
+void playerUpgrade();
 
 #endif /* Player_h */
