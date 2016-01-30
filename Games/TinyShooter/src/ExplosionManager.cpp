@@ -8,6 +8,8 @@
 
 #include "Engine/Scene/GameObject.h"
 #include "Engine/Scene/GameObjectManager.h"
+#include "Engine/Audio/AudioSource.h"
+#include "Engine/Audio/AudioMixer.h"
 #include "src/ExplosionManager.h"
 #include "src/ContextIngame.h"
 #include "data/alldata.h"
@@ -16,9 +18,13 @@
 
 GameObject* explosions[ NUM_EXPLOSIONS ];
 int nextExplosion;
+AudioSource* sfxExplosion;
 
 void explosionsInit()
 {
+	sfxExplosion = audioMixer.GetChannel( 3 );
+	sfxExplosion->SetData( &sfx_explosion );
+
 	//
 	//
 	//
@@ -73,4 +79,7 @@ void explosionsSpawn( int _worldX, int _worldY, int _explosionType )
 	exp->SetWorldPosition( _worldX, _worldY );
 	exp->GetAnimation()->Reset();
 	exp->GetAnimation()->Play();
+	
+	// Also some sweet sound
+	sfxExplosion->PlayFromBeginning();
 }
