@@ -35,7 +35,7 @@ void playerReset( int _mapscroll )
 	playerFireRateTimer = 0;
 	playerUpgraded = false;
 	playerNumLives = 3;
-	playerInvincibleTimer = 60;
+	playerInvincibleTimer = 0;
 	
 	hudSetWeapon( HUD_WEAPON_SINGLEFIRE );
 }
