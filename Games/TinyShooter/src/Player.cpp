@@ -16,6 +16,7 @@
 #include "src/Player.h"
 #include "src/BulletManager.h"
 #include "src/ContextIngame.h"
+#include "src/HUD.h"
 #include "data/alldata.h"
 
 GameObject* player;
@@ -31,6 +32,8 @@ void playerReset( int _mapscroll )
 	playerY = 29;
 	playerFireRateTimer = 0;
 	playerUpgraded = false;
+	
+	hudSetWeapon( HUD_WEAPON_SINGLEFIRE );
 }
 
 void playerInit()
@@ -101,4 +104,5 @@ void playerUpdate()
 void playerUpgrade()
 {
 	playerUpgraded = true;
+	hudSetWeapon( HUD_WEAPON_DUALFIRE );
 }

@@ -33,6 +33,7 @@
 #include "src/BulletManager.h"
 #include "src/Player.h"
 #include "src/EnemyManager.h"
+#include "src/HUD.h"
 
 //
 Camera mainCamera;
@@ -44,8 +45,6 @@ FixedPoint cameraScrollSpeed;
 GameObject* testanimGO;
 AudioSource* sfxPlayerPickup;
 AudioSource* bgm;
-Sprite* spriteHudWeaponsBG;
-
 
 bool debugSpriteRenderer;
 bool doCameraScroll;
@@ -184,11 +183,8 @@ void ingame_setup()
 	mapScroll = 0;
 	cameraScrollSpeed = FixedPoint( 0, 12 );
 
+	hudInit();
 	playerInit();
-	
-	spriteHudWeaponsBG = spriteRenderer.AllocateSprite( &sprite_hud_weapons );
-	spriteHudWeaponsBG->x = -1;//SCREEN_WIDTH-spriteHudWeaponsBG->image->w;
-	spriteHudWeaponsBG->y = SCREEN_HEIGHT-spriteHudWeaponsBG->image->h;
 	
 	testanimGO = gameObjectManager.CreateGameObject( &animation_pickup );
 	testanimGO->SetWorldPosition( 80, 20 );

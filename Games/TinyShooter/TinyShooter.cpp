@@ -15,4 +15,5 @@
 #include "src/ExplosionManager.cpp"
 #include "src/BulletManager.cpp"
 #include "src/Player.cpp"
+#include "src/HUD.cpp"
 #include "data/alldata.cpp"
