@@ -14,5 +14,6 @@
 
 void hudInit();
 void hudSetWeapon( int _weapon );
+void hudSetNumLives( int _numLives );
 
 #endif /* PlayerHUD_h */

@@ -27,6 +27,7 @@
 		2591BCB41C5D574300F69102 /* sprite_hud_weapons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2591BCB21C5D574300F69102 /* sprite_hud_weapons.cpp */; settings = {ASSET_TAGS = (); }; };
 		2591BCB71C5D5AFB00F69102 /* HUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2591BCB51C5D5AFB00F69102 /* HUD.cpp */; settings = {ASSET_TAGS = (); }; };
 		2591BCBA1C5D5C8900F69102 /* sprite_hud_weapon_dual.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2591BCB81C5D5C8900F69102 /* sprite_hud_weapon_dual.cpp */; settings = {ASSET_TAGS = (); }; };
+		2591BCBD1C5D6E6000F69102 /* sprite_hud_life.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2591BCBB1C5D6E6000F69102 /* sprite_hud_life.cpp */; settings = {ASSET_TAGS = (); }; };
 		25A495B21C5BD433003CA51C /* sprite_enemy_sparrow_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25A495AA1C5BD433003CA51C /* sprite_enemy_sparrow_00.cpp */; settings = {ASSET_TAGS = (); }; };
 		25A495B31C5BD433003CA51C /* sprite_enemy_sparrow_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25A495AC1C5BD433003CA51C /* sprite_enemy_sparrow_01.cpp */; settings = {ASSET_TAGS = (); }; };
 		25A495B41C5BD433003CA51C /* sprite_enemy_sparrow_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25A495AE1C5BD433003CA51C /* sprite_enemy_sparrow_02.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -160,6 +161,8 @@
 		2591BCB61C5D5AFB00F69102 /* HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HUD.h; path = src/HUD.h; sourceTree = SOURCE_ROOT; };
 		2591BCB81C5D5C8900F69102 /* sprite_hud_weapon_dual.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_hud_weapon_dual.cpp; path = data/sprite_hud_weapon_dual.cpp; sourceTree = "<group>"; };
 		2591BCB91C5D5C8900F69102 /* sprite_hud_weapon_dual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_hud_weapon_dual.h; path = data/sprite_hud_weapon_dual.h; sourceTree = "<group>"; };
+		2591BCBB1C5D6E6000F69102 /* sprite_hud_life.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_hud_life.cpp; path = data/sprite_hud_life.cpp; sourceTree = "<group>"; };
+		2591BCBC1C5D6E6000F69102 /* sprite_hud_life.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_hud_life.h; path = data/sprite_hud_life.h; sourceTree = "<group>"; };
 		25A495AA1C5BD433003CA51C /* sprite_enemy_sparrow_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_sparrow_00.cpp; path = data/sprite_enemy_sparrow_00.cpp; sourceTree = "<group>"; };
 		25A495AB1C5BD433003CA51C /* sprite_enemy_sparrow_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_sparrow_00.h; path = data/sprite_enemy_sparrow_00.h; sourceTree = "<group>"; };
 		25A495AC1C5BD433003CA51C /* sprite_enemy_sparrow_01.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_sparrow_01.cpp; path = data/sprite_enemy_sparrow_01.cpp; sourceTree = "<group>"; };
@@ -426,6 +429,8 @@
 		250DA18B1C4A7FFF00C664DA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				2591BCBB1C5D6E6000F69102 /* sprite_hud_life.cpp */,
+				2591BCBC1C5D6E6000F69102 /* sprite_hud_life.h */,
 				2591BCB81C5D5C8900F69102 /* sprite_hud_weapon_dual.cpp */,
 				2591BCB91C5D5C8900F69102 /* sprite_hud_weapon_dual.h */,
 				2591BCB21C5D574300F69102 /* sprite_hud_weapons.cpp */,
@@ -794,6 +799,7 @@
 				25CB2D2F1C57561F00BC35A1 /* audiosamples_pickup_s8b_pcm_11025.cpp in Sources */,
 				25CB2D3B1C57561F00BC35A1 /* sprite_logo_shooter_r.cpp in Sources */,
 				25CB2D331C57561F00BC35A1 /* sprite_explosion_big_01.cpp in Sources */,
+				2591BCBD1C5D6E6000F69102 /* sprite_hud_life.cpp in Sources */,
 				25CB2D301C57561F00BC35A1 /* sprite_enemy_saucer_00.cpp in Sources */,
 				2505C2261C5A376D00E46CDF /* sprite_explosion_medium_03.cpp in Sources */,
 				25CB2D481C57561F00BC35A1 /* sprite_spacebase_boss_door.cpp in Sources */,

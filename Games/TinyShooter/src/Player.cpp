@@ -34,8 +34,7 @@ void playerReset( int _mapscroll )
 	playerY = 29;
 	playerFireRateTimer = 0;
 	playerUpgraded = false;
-	playerNumLives = 3;
-	playerInvincibleTimer = 0;
+	playerInvincibleTimer = 60;
 	
 	hudSetWeapon( HUD_WEAPON_SINGLEFIRE );
 }
@@ -50,6 +49,10 @@ void playerInit()
 
 	// Setup runtime data for the player
 	playerReset( 0 );
+	
+	// Setup the first parameter for when entering the ingame context
+	playerInvincibleTimer = 0;
+	playerNumLives = 3;
 }
 
 void playerCameraMove( int _cameraMoveDistance )
@@ -137,6 +140,8 @@ bool playerHit( int _mapScroll, bool _forceKill )
 	{
 		// Player was hit
 		playerReset( _mapScroll );
+		playerNumLives--;
+		hudSetNumLives( playerNumLives );
 		
 		ret = true;
 	}
