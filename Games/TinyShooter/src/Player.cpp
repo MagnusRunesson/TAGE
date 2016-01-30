@@ -25,6 +25,8 @@ FixedPoint playerX;
 FixedPoint playerY;
 FixedPoint playerSpeed;
 bool playerUpgraded;
+uint8 playerNumLives;
+uint8 playerInvincibleTimer;
 
 void playerReset( int _mapscroll )
 {
@@ -32,6 +34,8 @@ void playerReset( int _mapscroll )
 	playerY = 29;
 	playerFireRateTimer = 0;
 	playerUpgraded = false;
+	playerNumLives = 3;
+	playerInvincibleTimer = 60;
 	
 	hudSetWeapon( HUD_WEAPON_SINGLEFIRE );
 }
@@ -55,6 +59,17 @@ void playerCameraMove( int _cameraMoveDistance )
 
 void playerUpdate()
 {
+	bool hide = false;
+	
+	if( playerInvincibleTimer > 0 )
+	{
+		playerInvincibleTimer--;
+		if( (playerInvincibleTimer >> 2) & 1 )
+		{
+			hide = true;
+		}
+	}
+	
 	//
 	int ix = padGetX();
 	if( ix != 0 )
@@ -72,7 +87,13 @@ void playerUpdate()
 		playerY += y;
 	}
 	
-	player->SetWorldPosition( playerX.GetInteger(), playerY.GetInteger());
+	int plx = playerX.GetInteger();
+	int ply = playerY.GetInteger();
+	
+	if( hide )
+		player->SetWorldPosition( 0, -10 );
+	else
+		player->SetWorldPosition( plx, ply );
 	
 	if( playerFireRateTimer > 0 )
 	{
@@ -85,8 +106,8 @@ void playerUpdate()
 			playerFireRateTimer = FIRE_RATE_DELAY;
 			
 			// Spawn bullet somewhere around the player
-			int x = player->GetWorldPositionX()+7;
-			int y = player->GetWorldPositionY()+4;
+			int x = plx+7;
+			int y = ply+4;
 			playerBulletSpawn( x, y );
 			
 			if( playerUpgraded )
@@ -105,4 +126,20 @@ void playerUpgrade()
 {
 	playerUpgraded = true;
 	hudSetWeapon( HUD_WEAPON_DUALFIRE );
+}
+
+bool playerHit( int _mapScroll, bool _forceKill )
+{
+	// Assume player is not hit
+	bool ret = false;
+	
+	if((playerInvincibleTimer == 0) || _forceKill )
+	{
+		// Player was hit
+		playerReset( _mapScroll );
+		
+		ret = true;
+	}
+	
+	return ret;
 }

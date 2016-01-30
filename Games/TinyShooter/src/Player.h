@@ -14,5 +14,6 @@ void playerInit();
 void playerCameraMove( int _cameraMoveDistance );
 void playerUpdate();
 void playerUpgrade();
+bool playerHit( int _mapScroll, bool _forceKill );
 
 #endif /* Player_h */

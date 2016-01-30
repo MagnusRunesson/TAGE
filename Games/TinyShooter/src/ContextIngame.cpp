@@ -347,7 +347,7 @@ void ingame_loop()
 						if( spriteCollisionMask & SPRITE_COLLISION_MASK_PLAYERSHIP )
 						{
 							playerAlive = false;
-							playerReset( mapScroll );
+							playerHit( mapScroll, true );
 							explosionsSpawn( camx+x, iScanline, EXPLOSION_TYPE_NORMAL );
 							explosionsSpawn( camx+x-4, iScanline-2, EXPLOSION_TYPE_DEBRIS );
 							explosionsSpawn( camx+x+3, iScanline+4, EXPLOSION_TYPE_DEBRIS );
@@ -397,11 +397,11 @@ void ingame_loop()
 						{
 							lastCollisionBullet = enemySprite;
 							
-							ENEMY_FROM_SPRITE( enemySprite )->Kill();
-							
-							playerReset( mapScroll );
-							
-							explosionsSpawn( camx+x, iScanline, EXPLOSION_TYPE_DEBRIS );
+							if( playerHit( mapScroll, false ))
+							{
+								ENEMY_FROM_SPRITE( enemySprite )->Kill();
+								explosionsSpawn( camx+x, iScanline, EXPLOSION_TYPE_DEBRIS );
+							}
 						}
 					}
 
@@ -482,8 +482,12 @@ void ingame_loop()
 
 void ingame_debugTrigger( int _trigger )
 {
-	if( _trigger == 0 )
+	if( _trigger == 1 )
 	{
 		debugSpriteRenderer = true;
+	} else if( _trigger == 2 )
+	{
+		extern int playerInvincibleTimer;
+		playerInvincibleTimer = 60;
 	}
 }
