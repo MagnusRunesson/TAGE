@@ -12,7 +12,7 @@
 extern "C" const unsigned char audiosamples_pew_s8b_pcm_11025hz[];
 const AudioData sfx_player_fire_canon =
 {
-	1320,
+	1289,
 	false,
 	(const sint8*)audiosamples_pew_s8b_pcm_11025hz,
 };
@@ -21,7 +21,7 @@ const AudioData sfx_player_fire_canon =
 extern "C" const unsigned char audiosamples_pickup_s8b_pcm_11025[];
 const AudioData sfx_player_pickup =
 {
-	8368,
+	7025,
 	false,
 	(const sint8*)audiosamples_pickup_s8b_pcm_11025,
 };
