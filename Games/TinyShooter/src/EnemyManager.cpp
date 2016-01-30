@@ -44,9 +44,9 @@ Enemy* enemySpawn( const EnemyDefinition* _pEnemyDefinition, int _worldX, int _w
 {
 	int safety = NUM_ENEMIES;
 	
+	// Allocate enemy object
 	Enemy* pRet = &enemyObjects[ nextEnemy ];
 	enemyIncrement();
-	
 	while( pRet->pTargetGameObject->IsEnabled() == true )
 	{
 		// Pick next enemy
@@ -59,10 +59,11 @@ Enemy* enemySpawn( const EnemyDefinition* _pEnemyDefinition, int _worldX, int _w
 			return NULL;
 	}
 	
-	//
+	// Setup that enemy
 	pRet->pTargetGameObject->SetEnabled( true );
 	pRet->SetDefinition( _pEnemyDefinition );
 	pRet->SetWorldPosition( _worldX, _worldY );
+	pRet->m_movementTimer = 0;
 
 	// Set movement direction, if any
 	if( _pMovementDirection )
