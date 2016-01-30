@@ -23,13 +23,14 @@ int playerFireRateTimer;
 FixedPoint playerX;
 FixedPoint playerY;
 FixedPoint playerSpeed;
-
+bool playerUpgraded;
 
 void playerReset( int _mapscroll )
 {
 	playerX = _mapscroll+10;
 	playerY = 29;
 	playerFireRateTimer = 0;
+	playerUpgraded = false;
 }
 
 void playerInit()
@@ -85,6 +86,9 @@ void playerUpdate()
 			int y = player->GetWorldPositionY()+4;
 			playerBulletSpawn( x, y );
 			
+			if( playerUpgraded )
+				playerBulletSpawn( x+2, y-2 );
+			
 		}
 	}
 	
@@ -92,4 +96,9 @@ void playerUpdate()
 	if( padGetPressed() & PAD_KEYMASK_SECONDARY )
 		sfxPlayerPickup->PlayFromBeginning();
 	 */
+}
+
+void playerUpgrade()
+{
+	playerUpgraded = true;
 }
