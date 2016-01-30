@@ -98,9 +98,10 @@ void levelFunc20( int _x )
 	bgm->SetData( &music_boss );
 	bgm->PlayFromBeginning();
 
+	fp2d movement( FixedPoint( 0, -50 ), 0 );
 	int i;
 	for( i=0; i<5; i++ )
-		enemySpawn( &enemy_sparrow, _x+96+(i*3), 50-(i*2), new fp2d( FixedPoint( 0, -(40-(i*6))), FixedPoint( 0, -i*6 )));
+		enemySpawn( &enemy_saucer_easy, _x+96+(i*14), 30, &movement );
 }
 
 class LevelScrollFunc
@@ -112,11 +113,11 @@ public:
 
 const LevelScrollFunc spacebaseFuncs[] = {
 	{
-		10,
+		15,
 		&levelFunc10,
 	},
 	{
-		20,
+		40,
 		&levelFunc20,
 	}
 };
@@ -180,9 +181,11 @@ void ingame_setup()
 	explosionsInit();
 	enemyManagerInit();
 
+	/*
 	int i;
 	for( i=0; i<5; i++ )
 		enemySpawn( &enemy_sparrow, 96+(i*3), 50-(i*2), new fp2d( FixedPoint( 0, -(40-(i*6))), FixedPoint( 0, -i*6 )));
+	 */
 		
 	doCameraScroll = true;
 	
