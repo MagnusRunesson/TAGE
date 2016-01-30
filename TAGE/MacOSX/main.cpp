@@ -231,15 +231,15 @@ bool DoSDL()
 				case SDL_KEYCODE_DPAD_RIGHT:	SetBit( gKeyDPadBuff, PAD_KEYMASK_DPAD_RIGHT );		break;
 					
 				case SDLK_0: tage_debugTrigger( 0 ); break;
-				case SDLK_1: tage_debugTrigger( 0 ); break;
-				case SDLK_2: tage_debugTrigger( 0 ); break;
-				case SDLK_3: tage_debugTrigger( 0 ); break;
-				case SDLK_4: tage_debugTrigger( 0 ); break;
-				case SDLK_5: tage_debugTrigger( 0 ); break;
-				case SDLK_6: tage_debugTrigger( 0 ); break;
-				case SDLK_7: tage_debugTrigger( 0 ); break;
-				case SDLK_8: tage_debugTrigger( 0 ); break;
-				case SDLK_9: tage_debugTrigger( 0 ); break;
+				case SDLK_1: tage_debugTrigger( 1 ); break;
+				case SDLK_2: tage_debugTrigger( 2 ); break;
+				case SDLK_3: tage_debugTrigger( 3 ); break;
+				case SDLK_4: tage_debugTrigger( 4 ); break;
+				case SDLK_5: tage_debugTrigger( 5 ); break;
+				case SDLK_6: tage_debugTrigger( 6 ); break;
+				case SDLK_7: tage_debugTrigger( 7 ); break;
+				case SDLK_8: tage_debugTrigger( 8 ); break;
+				case SDLK_9: tage_debugTrigger( 9 ); break;
 			}
 		}
 		else if( e.type == SDL_KEYUP )
