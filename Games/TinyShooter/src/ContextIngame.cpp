@@ -42,6 +42,7 @@ FixedPoint cameraScroll;
 FixedPoint cameraScrollSpeed;
 GameObject* testanimGO;
 AudioSource* sfxPlayerPickup;
+AudioSource* bgm;
 
 
 bool debugSpriteRenderer;
@@ -85,21 +86,28 @@ const Path testPath = {
 	testPath_nodes,
 };
 
-void levelFunc10()
+void levelFunc10( int _x )
 {
-	printf("level pos 10\n");
+	int i;
+	for( i=0; i<5; i++ )
+		enemySpawn( &enemy_sparrow, _x+96+(i*3), 50-(i*2), new fp2d( FixedPoint( 0, -(40-(i*6))), FixedPoint( 0, -i*6 )));
 }
 
-void levelFunc20()
+void levelFunc20( int _x )
 {
-	printf("level pos 20\n");
+	bgm->SetData( &music_boss );
+	bgm->PlayFromBeginning();
+
+	int i;
+	for( i=0; i<5; i++ )
+		enemySpawn( &enemy_sparrow, _x+96+(i*3), 50-(i*2), new fp2d( FixedPoint( 0, -(40-(i*6))), FixedPoint( 0, -i*6 )));
 }
 
 class LevelScrollFunc
 {
 public:
 	int x;
-	void(*pFunc)();
+	void(*pFunc)(int);
 };
 
 const LevelScrollFunc spacebaseFuncs[] = {
@@ -166,6 +174,8 @@ void ingame_setup()
 	sfxPlayerPickup = audioMixer.GetChannel( 1 );
 	sfxPlayerPickup->SetData( &sfx_player_pickup );
 	
+	bgm = audioMixer.GetChannel( 2 );
+	
 	playerBulletsInit();
 	explosionsInit();
 	enemyManagerInit();
@@ -219,7 +229,7 @@ void ingame_loop()
 					if( mapScroll >= spacebaseFuncs[ currentFunc ].x )
 					{
 						// We've passed the point of running. So run!
-						spacebaseFuncs[ currentFunc ].pFunc();
+						spacebaseFuncs[ currentFunc ].pFunc( mapScroll );
 						currentFunc++;
 					}
 				}
