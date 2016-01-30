@@ -20,6 +20,7 @@
 		250DA1971C4A813500C664DA /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250DA1961C4A813500C664DA /* SDL2.framework */; };
 		255A0E281C5BC974000F77D4 /* EnemyMovements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 255A0E261C5BC974000F77D4 /* EnemyMovements.cpp */; settings = {ASSET_TAGS = (); }; };
 		25678FF41C57D86E00B2C95E /* sinetable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25678FF31C57D86E00B2C95E /* sinetable.cpp */; settings = {ASSET_TAGS = (); }; };
+		257AB0B21C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		25A495B21C5BD433003CA51C /* sprite_enemy_sparrow_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25A495AA1C5BD433003CA51C /* sprite_enemy_sparrow_00.cpp */; settings = {ASSET_TAGS = (); }; };
 		25A495B31C5BD433003CA51C /* sprite_enemy_sparrow_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25A495AC1C5BD433003CA51C /* sprite_enemy_sparrow_01.cpp */; settings = {ASSET_TAGS = (); }; };
 		25A495B41C5BD433003CA51C /* sprite_enemy_sparrow_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25A495AE1C5BD433003CA51C /* sprite_enemy_sparrow_02.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -139,6 +140,8 @@
 		255A0E261C5BC974000F77D4 /* EnemyMovements.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EnemyMovements.cpp; path = src/EnemyMovements.cpp; sourceTree = SOURCE_ROOT; };
 		255A0E271C5BC974000F77D4 /* EnemyMovements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnemyMovements.h; path = src/EnemyMovements.h; sourceTree = SOURCE_ROOT; };
 		25678FF31C57D86E00B2C95E /* sinetable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sinetable.cpp; sourceTree = "<group>"; };
+		257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_music_boss_s8b_pcm_11025hz.cpp; path = data/audiosamples_music_boss_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
+		257AB0B11C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audiosamples_music_boss_s8b_pcm_11025hz.h; path = data/audiosamples_music_boss_s8b_pcm_11025hz.h; sourceTree = "<group>"; };
 		25A495AA1C5BD433003CA51C /* sprite_enemy_sparrow_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_sparrow_00.cpp; path = data/sprite_enemy_sparrow_00.cpp; sourceTree = "<group>"; };
 		25A495AB1C5BD433003CA51C /* sprite_enemy_sparrow_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_sparrow_00.h; path = data/sprite_enemy_sparrow_00.h; sourceTree = "<group>"; };
 		25A495AC1C5BD433003CA51C /* sprite_enemy_sparrow_01.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_sparrow_01.cpp; path = data/sprite_enemy_sparrow_01.cpp; sourceTree = "<group>"; };
@@ -404,6 +407,8 @@
 			isa = PBXGroup;
 			children = (
 				25CB2CF11C57561F00BC35A1 /* alldata.h */,
+				257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */,
+				257AB0B11C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.h */,
 				25CB2CF21C57561F00BC35A1 /* audiosamples_pew_s8b_pcm_11025hz.cpp */,
 				25CB2CF31C57561F00BC35A1 /* audiosamples_pew_s8b_pcm_11025hz.h */,
 				25CB2CF41C57561F00BC35A1 /* audiosamples_pickup_s8b_pcm_11025.cpp */,
@@ -699,6 +704,7 @@
 				25CB2D921C57565100BC35A1 /* FixedPoint.cpp in Sources */,
 				25CB2D461C57561F00BC35A1 /* sprite_pickup_03.cpp in Sources */,
 				2505C22A1C5A376D00E46CDF /* sprite_explosion_medium_07.cpp in Sources */,
+				257AB0B21C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp in Sources */,
 				25CB2D441C57561F00BC35A1 /* sprite_pickup_01.cpp in Sources */,
 				25CB2D3A1C57561F00BC35A1 /* sprite_logo_shooter_o.cpp in Sources */,
 				255A0E281C5BC974000F77D4 /* EnemyMovements.cpp in Sources */,

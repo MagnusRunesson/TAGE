@@ -25,3 +25,12 @@ const AudioData sfx_player_pickup =
 	false,
 	(const sint8*)audiosamples_pickup_s8b_pcm_11025,
 };
+
+
+extern "C" const unsigned char audiosamples_music_boss_s8b_pcm_11025hz[];
+const AudioData music_boss =
+{
+	35852,
+	false,
+	(const sint8*)audiosamples_music_boss_s8b_pcm_11025hz,
+};

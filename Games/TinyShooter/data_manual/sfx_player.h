@@ -13,6 +13,7 @@ class AudioData;
 
 extern "C" const AudioData sfx_player_fire_canon;
 extern "C" const AudioData sfx_player_pickup;
+extern "C" const AudioData music_boss;
 
 
 #endif /* sfx_player_fire_canon_h */
