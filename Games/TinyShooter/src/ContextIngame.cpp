@@ -11,6 +11,7 @@
 
 // TinyArcade game engine
 #include "Engine/Graphics/Screen.h"
+#include "Engine/Graphics/Image.h"
 #include "Engine/types.h"
 #include "Engine/Math/FixedPoint.h"
 #include "Abstraction Layer/Joypad.h"
@@ -43,6 +44,7 @@ FixedPoint cameraScrollSpeed;
 GameObject* testanimGO;
 AudioSource* sfxPlayerPickup;
 AudioSource* bgm;
+Sprite* spriteHudWeaponsBG;
 
 
 bool debugSpriteRenderer;
@@ -183,6 +185,10 @@ void ingame_setup()
 	cameraScrollSpeed = FixedPoint( 0, 12 );
 
 	playerInit();
+	
+	spriteHudWeaponsBG = spriteRenderer.AllocateSprite( &sprite_hud_weapons );
+	spriteHudWeaponsBG->x = -1;//SCREEN_WIDTH-spriteHudWeaponsBG->image->w;
+	spriteHudWeaponsBG->y = SCREEN_HEIGHT-spriteHudWeaponsBG->image->h;
 	
 	testanimGO = gameObjectManager.CreateGameObject( &animation_pickup );
 	testanimGO->SetWorldPosition( 80, 20 );

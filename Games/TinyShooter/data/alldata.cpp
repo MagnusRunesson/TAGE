@@ -14,6 +14,7 @@
 //
 #include "data/sprite_player.cpp"
 #include "data/sprite_pb_01.cpp"
+#include "data/sprite_hud_weapons.cpp"
 #include "data/sprite_pickup_00.cpp"
 #include "data/sprite_pickup_01.cpp"
 #include "data/sprite_pickup_02.cpp"
