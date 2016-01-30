@@ -14,7 +14,7 @@
 #include "src/ContextIngame.h"
 #include "data/alldata.h"
 
-#define NUM_PLAYER_BULLETS	(10)
+#define NUM_PLAYER_BULLETS	(14)
 
 GameObject* playerBullets[ NUM_PLAYER_BULLETS ];
 int nextPlayerBullet;
