@@ -13,5 +13,7 @@ class AnimationSequenceDefinition;
 
 extern "C" const AnimationSequenceDefinition animation_enemy_saucer;
 extern "C" const AnimationSequenceDefinition animation_enemy_sparrow;
+extern "C" const AnimationSequenceDefinition animation_enemy_dragonhead;
+extern "C" const AnimationSequenceDefinition animation_enemy_dragonbody;
 
 #endif /* defined(__TinyShooter__animation_enemies__) */

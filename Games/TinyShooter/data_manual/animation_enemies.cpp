@@ -85,3 +85,48 @@ const AnimationSequenceDefinition animation_enemy_sparrow =
 	animation_enemy_sparrow_frames,
 };
 
+
+//
+//
+// Dragon Head - The red space ship with the yellow tails
+//
+//
+const AnimationFrameDefinition animation_enemy_dragonhead_frames[] = {
+	{
+		&sprite_enemy_dragonhead_00,
+		1,
+		0,
+		0,
+		0,
+	}
+};
+
+const AnimationSequenceDefinition animation_enemy_dragonhead =
+{
+	1,
+	true,
+	animation_enemy_dragonhead_frames,
+};
+
+
+//
+//
+// Dragon Head - The red space ship with the yellow tails
+//
+//
+const AnimationFrameDefinition animation_enemy_dragonbody_frames[] = {
+	{
+		&sprite_enemy_dragonbody_00,
+		1,
+		0,
+		0,
+		0,
+	}
+};
+
+const AnimationSequenceDefinition animation_enemy_dragonbody =
+{
+	1,
+	true,
+	animation_enemy_dragonbody_frames,
+};
