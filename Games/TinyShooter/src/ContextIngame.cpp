@@ -391,9 +391,8 @@ void ingame_loop()
 					if( (spriteCollisionMask & mask) == mask )
 					{
 						Sprite* enemySprite = spriteRenderer.m_collisionSprites[ SPRITE_COLLISION_INDEX_ENEMY ];
-						Sprite* bulletSprite = spriteRenderer.m_collisionSprites[ SPRITE_COLLISION_INDEX_PLAYERBULLET ];
 						
-						if( bulletSprite != lastCollisionBullet )
+						if( enemySprite != lastCollisionBullet )
 						{
 							lastCollisionBullet = enemySprite;
 							
