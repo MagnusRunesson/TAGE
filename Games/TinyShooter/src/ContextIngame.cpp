@@ -290,6 +290,7 @@ void ingame_loop()
 	
 	Sprite* lastCollisionBullet = NULL;
 	
+	bool playerAlive = true;
 	int iScanline = 0;
 	while( iScanline < mirrorStart )
 	{
@@ -317,12 +318,23 @@ void ingame_loop()
 				if( renderedBackground )
 				{
 					// Which kind of sprites was rendered on the same pixel as the background?
-					
-					//
-					// Player collided with a wall
-					//
-					if( spriteCollisionMask & SPRITE_COLLISION_MASK_PLAYERSHIP )
-						playerReset( mapScroll );
+
+					// Only do this check if the player is still alive. So we don't register this event multiple times per rendered frame.
+					if( playerAlive )
+					{
+						//
+						// Player collided with a wall
+						//
+						if( spriteCollisionMask & SPRITE_COLLISION_MASK_PLAYERSHIP )
+						{
+							playerAlive = false;
+							playerReset( mapScroll );
+							explosionsSpawn( camx+x, iScanline, EXPLOSION_TYPE_NORMAL );
+							explosionsSpawn( camx+x-4, iScanline-2, EXPLOSION_TYPE_DEBRIS );
+							explosionsSpawn( camx+x+3, iScanline+4, EXPLOSION_TYPE_DEBRIS );
+							explosionsSpawn( camx+x-1, iScanline+1, EXPLOSION_TYPE_DEBRIS );
+						}
+					}
 					
 					//
 					// Player bullet collided with a wall
