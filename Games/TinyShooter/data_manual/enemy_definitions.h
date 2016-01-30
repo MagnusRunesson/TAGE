@@ -13,5 +13,7 @@
 
 extern "C" const EnemyDefinition enemy_saucer_easy;
 extern "C" const EnemyDefinition enemy_sparrow;
+extern "C" const EnemyDefinition enemy_dragonhead;
+extern "C" const EnemyDefinition enemy_dragonbody;
 
 #endif /* defined(__TinyShooter__EnemyDefinitions__) */

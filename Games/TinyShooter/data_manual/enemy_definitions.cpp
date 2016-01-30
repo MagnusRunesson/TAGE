@@ -27,3 +27,23 @@ const EnemyDefinition enemy_sparrow =
 	0,
 	&EnemyMovement_00_FollowDirection,
 };
+
+
+
+const EnemyDefinition enemy_dragonhead =
+{
+	&animation_enemy_dragonhead,
+	2,
+	0,
+	&EnemyMovement_01_Sinus_MoveLeft,
+};
+
+
+
+const EnemyDefinition enemy_dragonbody =
+{
+	&animation_enemy_dragonbody,
+	2,
+	0,
+	&EnemyMovement_01_Sinus_MoveLeft,
+};
