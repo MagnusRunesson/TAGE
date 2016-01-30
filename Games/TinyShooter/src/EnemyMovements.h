@@ -12,5 +12,6 @@
 class Enemy;
 
 extern void EnemyMovement_00_FollowDirection( Enemy* _pTarget );
+extern void EnemyMovement_01_Sinus_MoveLeft( Enemy* _pTarget );
 
 #endif /* EnemyMovements_h */
