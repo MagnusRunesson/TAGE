@@ -484,6 +484,11 @@ void ingame_loop()
 		delayMicroseconds( dd );
 }
 
+void ingame_exit()
+{
+	
+}
+
 void ingame_debugTrigger( int _trigger )
 {
 	if( _trigger == 1 )

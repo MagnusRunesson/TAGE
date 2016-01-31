@@ -11,6 +11,7 @@
 
 extern void ingame_setup();
 extern void ingame_loop();
+extern void ingame_exit();
 extern void ingame_debugTrigger( int _i );
 
 #define FIRE_RATE_DELAY (7)
