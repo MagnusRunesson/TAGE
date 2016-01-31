@@ -8,8 +8,8 @@
 
 #include <stdio.h>
 #include "Engine/Scene/GameObject.h"
-#include "src/EnemyMovements.h"
-#include "src/Enemy.h"
+#include "src/Ingame/EnemyMovements.h"
+#include "src/Ingame/Enemy.h"
 
 
 void EnemyMovement_00_FollowDirection( Enemy* _pTarget )

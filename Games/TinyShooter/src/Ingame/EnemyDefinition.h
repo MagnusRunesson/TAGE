@@ -10,9 +10,9 @@
 #define TinyShooter_EnemyDefinition_h
 
 #include "Engine/types.h"
-#include "src/Enemy.h"
 
 class AnimationSequenceDefinition;
+class Enemy;
 
 #define ENEMY_MOVEMENT_MASK_NOTHING	(0)
 

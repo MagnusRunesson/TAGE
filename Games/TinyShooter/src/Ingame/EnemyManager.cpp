@@ -9,8 +9,8 @@
 #include <stdlib.h>
 #include "Engine/Scene/GameObjectManager.h"
 #include "Engine/Scene/GameObject.h"
-#include "src/EnemyManager.h"
-#include "src/Enemy.h"
+#include "src/Ingame/EnemyManager.h"
+#include "src/Ingame/Enemy.h"
 #include "data/alldata.h"
 
 #define NUM_ENEMIES			(10)

@@ -12,7 +12,7 @@
 #include "Engine/Graphics/Sprite.h"
 #include "Engine/Graphics/Image.h"
 #include "Engine/Graphics/Screen.h"
-#include "src/HUD.h"
+#include "src/Ingame/HUD.h"
 #include "data/alldata.h"
 
 #define MAX_LIVES (3)

@@ -10,8 +10,8 @@
 #include "Engine/Scene/GameObject.h"
 #include "Engine/Audio/AudioSource.h"
 #include "Engine/Audio/AudioMixer.h"
-#include "src/BulletManager.h"
-#include "src/ContextIngame.h"
+#include "src/Ingame/BulletManager.h"
+#include "src/Ingame/ContextIngame.h"
 #include "data/alldata.h"
 
 #define NUM_PLAYER_BULLETS	(14)

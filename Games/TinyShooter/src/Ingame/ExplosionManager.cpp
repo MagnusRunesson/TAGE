@@ -10,8 +10,8 @@
 #include "Engine/Scene/GameObjectManager.h"
 #include "Engine/Audio/AudioSource.h"
 #include "Engine/Audio/AudioMixer.h"
-#include "src/ExplosionManager.h"
-#include "src/ContextIngame.h"
+#include "src/Ingame/ExplosionManager.h"
+#include "src/Ingame/ContextIngame.h"
 #include "data/alldata.h"
 
 #define NUM_EXPLOSIONS		(10)

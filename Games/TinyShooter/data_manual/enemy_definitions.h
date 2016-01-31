@@ -9,7 +9,7 @@
 #ifndef __TinyShooter__EnemyDefinitions__
 #define __TinyShooter__EnemyDefinitions__
 
-#include "src/EnemyDefinition.h"
+class EnemyDefinition;
 
 extern "C" const EnemyDefinition enemy_saucer_easy;
 extern "C" const EnemyDefinition enemy_sparrow;

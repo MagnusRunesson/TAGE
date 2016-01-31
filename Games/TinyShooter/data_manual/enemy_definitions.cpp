@@ -7,8 +7,9 @@
 //
 
 #include "Engine/Graphics/Image.h"
+#include "src/Ingame/EnemyMovements.h"
+#include "src/Ingame/EnemyDefinition.h"
 #include "data/alldata.h"
-#include "src/EnemyMovements.h"
 
 const EnemyDefinition enemy_saucer_easy =
 {

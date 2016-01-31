@@ -7,7 +7,7 @@
 //
 
 #include "src/ContextManager.h"
-#include "src/ContextIngame.h"
+#include "src/Ingame/ContextIngame.h"
 #include "src/TitleScreen/ContextTitleScreen.h"
 
 void(*pfnCurrentContextLoop)();

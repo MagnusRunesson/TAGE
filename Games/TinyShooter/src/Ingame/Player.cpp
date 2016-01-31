@@ -13,10 +13,10 @@
 #include "Engine/Audio/AudioSource.h"
 #include "Engine/Audio/AudioMixer.h"
 #include "Abstraction Layer/Joypad.h"
-#include "src/Player.h"
-#include "src/BulletManager.h"
-#include "src/ContextIngame.h"
-#include "src/HUD.h"
+#include "src/Ingame/Player.h"
+#include "src/Ingame/BulletManager.h"
+#include "src/Ingame/ContextIngame.h"
+#include "src/Ingame/HUD.h"
 #include "data/alldata.h"
 
 GameObject* player;

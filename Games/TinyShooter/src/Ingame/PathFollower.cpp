@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include "Engine/Types.h"
 #include "Engine/Math/fpmath.h"
-#include "src/PathFollower.h"
+#include "src/Ingame/PathFollower.h"
 
 PathFollower::PathFollower()
 {

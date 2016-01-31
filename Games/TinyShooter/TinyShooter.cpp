@@ -6,16 +6,22 @@
 //  Copyright © 2016 Magnus Runesson. All rights reserved.
 //
 
-#include "src/ContextIngame.cpp"
-#include "src/Enemy.cpp"
-#include "src/EnemyManager.cpp"
 #include "src/TinyShooter.cpp"
-#include "src/PathFollower.cpp"
-#include "src/EnemyMovements.cpp"
-#include "src/ExplosionManager.cpp"
-#include "src/BulletManager.cpp"
-#include "src/Player.cpp"
-#include "src/HUD.cpp"
-#include "src/TitleScreen/ContextTitleScreen.cpp"
 #include "src/ContextManager.cpp"
+
+// Ingame
+#include "src/Ingame/ContextIngame.cpp"
+#include "src/Ingame/Enemy.cpp"
+#include "src/Ingame/EnemyManager.cpp"
+#include "src/Ingame/PathFollower.cpp"
+#include "src/Ingame/EnemyMovements.cpp"
+#include "src/Ingame/ExplosionManager.cpp"
+#include "src/Ingame/BulletManager.cpp"
+#include "src/Ingame/Player.cpp"
+#include "src/Ingame/HUD.cpp"
+
+// Title screen
+#include "src/TitleScreen/ContextTitleScreen.cpp"
+
+// Data
 #include "data/alldata.cpp"

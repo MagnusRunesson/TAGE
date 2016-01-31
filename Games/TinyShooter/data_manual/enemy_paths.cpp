@@ -7,6 +7,7 @@
 //
 
 #include "data_manual/enemy_paths.h"
+#include "src/Ingame/Path.h"
 
 const PathPoint pathpoints_straight_right_to_left[] =
 {

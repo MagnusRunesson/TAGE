@@ -25,15 +25,15 @@
 
 // Project specifics
 #include "data/alldata.h"
-#include "src/Enemy.h"
-#include "src/ContextIngame.h"
-#include "src/Path.h"
-#include "src/PathFollower.h"
-#include "src/ExplosionManager.h"
-#include "src/BulletManager.h"
-#include "src/Player.h"
-#include "src/EnemyManager.h"
-#include "src/HUD.h"
+#include "src/Ingame/Enemy.h"
+#include "src/Ingame/ContextIngame.h"
+#include "src/Ingame/Path.h"
+#include "src/Ingame/PathFollower.h"
+#include "src/Ingame/ExplosionManager.h"
+#include "src/Ingame/BulletManager.h"
+#include "src/Ingame/Player.h"
+#include "src/Ingame/EnemyManager.h"
+#include "src/Ingame/HUD.h"
 #include "src/ContextManager.h"
 
 //

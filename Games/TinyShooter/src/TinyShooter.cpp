@@ -22,7 +22,7 @@
 // Project specifics
 #include "Data/alldata.h"
 
-#include "src/ContextIngame.h"
+#include "src/Ingame/ContextIngame.h"
 #include "src/TitleScreen/ContextTitleScreen.h"
 #include "src/ContextManager.h"
 

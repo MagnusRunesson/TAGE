@@ -10,7 +10,7 @@
 #define PathFollower_hpp
 
 #include "Engine/types.h"
-#include "src/Path.h"
+#include "src/Ingame/Path.h"
 #include "Engine/Math/fp2d.h"
 
 class PathFollower
