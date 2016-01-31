@@ -20,6 +20,11 @@ void enemyUpdatePipe( void* _pData )
 
 Enemy::Enemy()
 {
+	Reboot();
+}
+
+void Enemy::Reboot()
+{
 	isAlive = false;
 	pTargetGameObject = NULL;
 }

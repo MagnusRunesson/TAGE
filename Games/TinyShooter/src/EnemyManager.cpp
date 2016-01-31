@@ -24,6 +24,7 @@ void enemyManagerInit()
 	for( i=0; i<NUM_ENEMIES; i++ )
 	{
 		Enemy* pEnemyObject = &enemyObjects[ i ];
+		pEnemyObject->Reboot();
 		pEnemyObject->SetDefinition( &enemy_sparrow );
 		pEnemyObject->m_movementDirection.x = FixedPoint( 0, -(50-i*5) );
 		pEnemyObject->m_movementDirection.y = FixedPoint( 0, -i*3 );

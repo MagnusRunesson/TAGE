@@ -32,6 +32,7 @@ public:
 	int m_movementTimer;
 
 	Enemy();
+	void Reboot();
 	
 	void SetWorldPosition( const fp2d& _worldPosition );
 	void SetWorldPosition( int _x, int _y );
