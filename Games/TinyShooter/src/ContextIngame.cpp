@@ -34,6 +34,7 @@
 #include "src/Player.h"
 #include "src/EnemyManager.h"
 #include "src/HUD.h"
+#include "src/ContextManager.h"
 
 //
 Camera mainCamera;
@@ -491,7 +492,10 @@ void ingame_exit()
 
 void ingame_debugTrigger( int _trigger )
 {
-	if( _trigger == 1 )
+	if( _trigger == 0 )
+	{
+		contextGotoTitleScreen();
+	} else if( _trigger == 1 )
 	{
 		debugSpriteRenderer = true;
 	} else if( _trigger == 2 )

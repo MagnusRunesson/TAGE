@@ -103,6 +103,8 @@
 		25CB2DAC1C57566100BC35A1 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2DA81C57566100BC35A1 /* Timer.cpp */; };
 		25D7B2601C57985800759E1B /* enemy_paths.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D7B25E1C57985800759E1B /* enemy_paths.cpp */; };
 		25D7B2631C57990200759E1B /* PathFollower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D7B2611C57990200759E1B /* PathFollower.cpp */; };
+		25D99FCC1C5E4C3300CC4CAE /* ContextTitleScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D99FCA1C5E4C3300CC4CAE /* ContextTitleScreen.cpp */; settings = {ASSET_TAGS = (); }; };
+		25D99FCF1C5E4D4100CC4CAE /* ContextManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D99FCD1C5E4D4100CC4CAE /* ContextManager.cpp */; settings = {ASSET_TAGS = (); }; };
 		25DAD6CE1C5BD9B800BE7096 /* ExplosionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25DAD6CC1C5BD9B800BE7096 /* ExplosionManager.cpp */; settings = {ASSET_TAGS = (); }; };
 		25DAD6D21C5BDFAB00BE7096 /* BulletManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25DAD6D01C5BDFAB00BE7096 /* BulletManager.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -321,6 +323,10 @@
 		25D7B25F1C57985800759E1B /* enemy_paths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = enemy_paths.h; path = data_manual/enemy_paths.h; sourceTree = "<group>"; };
 		25D7B2611C57990200759E1B /* PathFollower.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PathFollower.cpp; path = src/PathFollower.cpp; sourceTree = SOURCE_ROOT; };
 		25D7B2621C57990200759E1B /* PathFollower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PathFollower.h; path = src/PathFollower.h; sourceTree = SOURCE_ROOT; };
+		25D99FCA1C5E4C3300CC4CAE /* ContextTitleScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContextTitleScreen.cpp; sourceTree = "<group>"; };
+		25D99FCB1C5E4C3300CC4CAE /* ContextTitleScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextTitleScreen.h; sourceTree = "<group>"; };
+		25D99FCD1C5E4D4100CC4CAE /* ContextManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ContextManager.cpp; path = src/ContextManager.cpp; sourceTree = SOURCE_ROOT; };
+		25D99FCE1C5E4D4100CC4CAE /* ContextManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContextManager.h; path = src/ContextManager.h; sourceTree = SOURCE_ROOT; };
 		25DAD6CC1C5BD9B800BE7096 /* ExplosionManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ExplosionManager.cpp; path = src/ExplosionManager.cpp; sourceTree = SOURCE_ROOT; };
 		25DAD6CD1C5BD9B800BE7096 /* ExplosionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExplosionManager.h; path = src/ExplosionManager.h; sourceTree = SOURCE_ROOT; };
 		25DAD6D01C5BDFAB00BE7096 /* BulletManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BulletManager.cpp; path = src/BulletManager.cpp; sourceTree = SOURCE_ROOT; };
@@ -365,6 +371,7 @@
 		250DA14C1C4A7F7E00C664DA /* TinyShooter */ = {
 			isa = PBXGroup;
 			children = (
+				25D99FC91C5E4C3300CC4CAE /* TitleScreen */,
 				25CB2CE81C57561700BC35A1 /* ContextIngame.cpp */,
 				25CB2CE91C57561700BC35A1 /* ContextIngame.h */,
 				25CB2CEA1C57561700BC35A1 /* Enemy.cpp */,
@@ -386,6 +393,8 @@
 				25C651261C5C0F62004727FD /* EnemyManager.h */,
 				2591BCB51C5D5AFB00F69102 /* HUD.cpp */,
 				2591BCB61C5D5AFB00F69102 /* HUD.h */,
+				25D99FCD1C5E4D4100CC4CAE /* ContextManager.cpp */,
+				25D99FCE1C5E4D4100CC4CAE /* ContextManager.h */,
 			);
 			path = TinyShooter;
 			sourceTree = "<group>";
@@ -659,6 +668,16 @@
 			path = avr;
 			sourceTree = "<group>";
 		};
+		25D99FC91C5E4C3300CC4CAE /* TitleScreen */ = {
+			isa = PBXGroup;
+			children = (
+				25D99FCA1C5E4C3300CC4CAE /* ContextTitleScreen.cpp */,
+				25D99FCB1C5E4C3300CC4CAE /* ContextTitleScreen.h */,
+			);
+			name = TitleScreen;
+			path = src/TitleScreen;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -715,6 +734,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25D99FCF1C5E4D4100CC4CAE /* ContextManager.cpp in Sources */,
 				2505C2281C5A376D00E46CDF /* sprite_explosion_medium_05.cpp in Sources */,
 				25CB2D581C57563F00BC35A1 /* animation_pickup.cpp in Sources */,
 				25CB2D3C1C57561F00BC35A1 /* sprite_logo_shooter_s.cpp in Sources */,
@@ -735,6 +755,7 @@
 				2591BCB11C5D429100F69102 /* sprite_enemy_dragonbody_00.cpp in Sources */,
 				25DAD6CE1C5BD9B800BE7096 /* ExplosionManager.cpp in Sources */,
 				25C651241C5C034A004727FD /* Player.cpp in Sources */,
+				25D99FCC1C5E4C3300CC4CAE /* ContextTitleScreen.cpp in Sources */,
 				25CB2D471C57561F00BC35A1 /* sprite_player.cpp in Sources */,
 				25CB2D931C57565100BC35A1 /* fp2d.cpp in Sources */,
 				25CB2D5A1C57563F00BC35A1 /* sfx_player.cpp in Sources */,

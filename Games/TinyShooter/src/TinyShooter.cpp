@@ -23,18 +23,20 @@
 #include "Data/alldata.h"
 
 #include "src/ContextIngame.h"
+#include "src/TitleScreen/ContextTitleScreen.h"
+#include "src/ContextManager.h"
 
 void tage_setup()
 {
-	ingame_setup();
+	contextInit();
 }
 
 void tage_loop()
 {
-	ingame_loop();
+	pfnCurrentContextLoop();
 }
 
 void tage_debugTrigger( int _trigger )
 {
-	ingame_debugTrigger( _trigger );
+	pfnCurrentContextDebugTrigger( _trigger );
 }

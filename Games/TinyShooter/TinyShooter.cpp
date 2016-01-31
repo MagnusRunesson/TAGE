@@ -16,4 +16,6 @@
 #include "src/BulletManager.cpp"
 #include "src/Player.cpp"
 #include "src/HUD.cpp"
+#include "src/TitleScreen/ContextTitleScreen.cpp"
+#include "src/ContextManager.cpp"
 #include "data/alldata.cpp"
