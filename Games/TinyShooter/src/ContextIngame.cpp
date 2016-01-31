@@ -145,6 +145,11 @@ const int numFuncs = sizeof( spacebaseFuncs ) / sizeof( LevelScrollFunc );
 
 void ingame_setup()
 {
+	// Reboot all cool systems
+	gameObjectManager.Reboot();
+	spriteRenderer.Reboot();
+	audioMixer.Reboot();
+	
 	currentFunc = 0;
 
 	/*
