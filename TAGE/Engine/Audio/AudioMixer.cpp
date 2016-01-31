@@ -46,18 +46,26 @@ AudioMixer::AudioMixer( int _numChannels, AudioSource* _pChannels, uint32 _outpu
 	for( i=0; i<outputBufferSize; i++ )
 		pOutputBuffer[ i ] = 0;
 
-	// Clear the input channels
-	for( i=0; i<_numChannels; i++ )
-		channel[ i ].Reset();
-	
 	//
 	outputReadPosition = 0;
 	outputWritePosition = 0;
 	
 	readpos=0;
+	
+	//
+	Reboot();
 }
 
 extern "C" const sint8 audiosamples_pew_s8b_pcm_11025hz[];
+
+void AudioMixer::Reboot()
+{
+	// Clear the input channels
+	int i;
+	for( i=0; i<numChannels; i++ )
+		channel[ i ].Reset();
+	
+}
 
 void AudioMixer::Update()
 {
