@@ -26,3 +26,8 @@ void AudioSource::PlayFromBeginning()
 	playbackPosition = 0;
 	isPlaying = true;
 }
+
+void AudioSource::Stop()
+{
+	isPlaying = false;
+}
