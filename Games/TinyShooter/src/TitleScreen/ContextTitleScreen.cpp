@@ -139,14 +139,19 @@ void titlescreen_loop()
 		// User have pressed start and we're just waiting
 		titlescreenCloseTimer--;
 
+		// Flashing text
 		if((titlescreenCloseTimer>>3) & 1 )
 			titleScreenWinners->y = -10;
 		else
 			titleScreenWinners->y = 58;
 		
+		// Play the "confirm" audio. If it starts on the same frame as we stop the
+		// bgm music the sound effect isn't heard, it just blends into the music.
+		// So that's why there is a slight delay before playing the sound.
 		if( titlescreenCloseTimer == 55 )
 			sfxPressStart->PlayFromBeginning();
 
+		// Timer has run out. Start the game
 		if( titlescreenCloseTimer == 0 )
 			contextGotoIngame();
 	}
