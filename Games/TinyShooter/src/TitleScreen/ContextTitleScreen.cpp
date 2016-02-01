@@ -136,8 +136,8 @@ void titlescreen_loop()
 		{
 			uint8 spriteCollisionMask;
 			uint16 rgb = 0;
-			bool renderedSprite = spriteRenderer.RenderPixel( x, &rgb, &spriteCollisionMask );
 
+			spriteRenderer.RenderPixel( x, &rgb, &spriteCollisionMask );
 			lineBuffer[ x ] = rgb;
 		}
 
