@@ -66,7 +66,7 @@
 #include "data/tilebank_spacebase.h"
 
 #include "data/audiosamples_pew_s8b_pcm_11025hz.h"
-#include "data/audiosamples_pickup_s8b_pcm_11025.h"
+#include "data/audiosamples_pickup_s8b_pcm_11025hz.h"
 #include "data/audiosamples_explosion_s8b_pcm_11025hz.h"
 #include "data/audiosamples_music_boss_s8b_pcm_11025hz.h"
 #include "data/audiosamples_music_titlescreen_s8b_pcm_11025hz.h"
