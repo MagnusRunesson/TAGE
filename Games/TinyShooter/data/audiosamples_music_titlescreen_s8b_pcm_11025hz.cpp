@@ -1,9 +1,9 @@
 //
-// Generated from source file 'audiosamples_music_titlescreen_s8b_11025hz.raw'
+// Generated from source file 'audiosamples_music_titlescreen_s8b_pcm_11025hz.raw'
 //
 
-extern "C" const unsigned char audiosamples_music_titlescreen_s8b_11025hz[];
-const unsigned char audiosamples_music_titlescreen_s8b_11025hz[] = {
+extern "C" const unsigned char audiosamples_music_titlescreen_s8b_pcm_11025hz[];
+const unsigned char audiosamples_music_titlescreen_s8b_pcm_11025hz[] = {
 	0xff,
 	0xf6,
 	0xf7,

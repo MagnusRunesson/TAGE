@@ -18,12 +18,12 @@ const AudioData sfx_player_fire_canon =
 };
 
 
-extern "C" const unsigned char audiosamples_pickup_s8b_pcm_11025[];
+extern "C" const unsigned char audiosamples_pickup_s8b_pcm_11025hz[];
 const AudioData sfx_player_pickup =
 {
 	7025,
 	false,
-	(const sint8*)audiosamples_pickup_s8b_pcm_11025,
+	(const sint8*)audiosamples_pickup_s8b_pcm_11025hz,
 };
 
 
@@ -44,10 +44,10 @@ const AudioData music_boss =
 	(const sint8*)audiosamples_music_boss_s8b_pcm_11025hz,
 };
 
-extern "C" const unsigned char audiosamples_music_titlescreen_s8b_11025hz[];
+extern "C" const unsigned char audiosamples_music_titlescreen_s8b_pcm_11025hz[];
 const AudioData music_titlescreen =
 {
 	211476,
 	true,
-	(const sint8*)audiosamples_music_titlescreen_s8b_11025hz,
+	(const sint8*)audiosamples_music_titlescreen_s8b_pcm_11025hz,
 };

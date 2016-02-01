@@ -1,9 +1,9 @@
 //
-// Generated from source file 'audiosamples_pickup_s8b_pcm_11025.raw'
+// Generated from source file 'audiosamples_pickup_s8b_pcm_11025hz.raw'
 //
 
-extern "C" const unsigned char audiosamples_pickup_s8b_pcm_11025[];
-const unsigned char audiosamples_pickup_s8b_pcm_11025[] = {
+extern "C" const unsigned char audiosamples_pickup_s8b_pcm_11025hz[];
+const unsigned char audiosamples_pickup_s8b_pcm_11025hz[] = {
 	0xfa,
 	0x13,
 	0x11,
