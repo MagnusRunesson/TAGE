@@ -99,6 +99,10 @@ void titlescreen_setup()
 	setupLetter( &sprite_logo_shooter_e, x, y ); x += sprite_logo_shooter_e.w+1;
 	setupLetter( &sprite_logo_shooter_r, x, y ); x += sprite_logo_shooter_r.w+1;
 	
+	//
+	bgm = audioMixer.GetChannel( 0 );
+	bgm->SetData( &music_titlescreen );
+	bgm->PlayFromBeginning();
 }
 
 void titlescreen_loop()
