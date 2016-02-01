@@ -36,6 +36,7 @@
 		25B7B1421C5A859F00355A54 /* sprite_impact_bullet_03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B7B13B1C5A859F00355A54 /* sprite_impact_bullet_03.cpp */; settings = {ASSET_TAGS = (); }; };
 		25B7B1431C5A859F00355A54 /* sprite_impact_bullet_04.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B7B13D1C5A859F00355A54 /* sprite_impact_bullet_04.cpp */; settings = {ASSET_TAGS = (); }; };
 		25B7B1461C5A85C300355A54 /* animation_impact_bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B7B1441C5A85C300355A54 /* animation_impact_bullet.cpp */; settings = {ASSET_TAGS = (); }; };
+		25706C0F1C5F804800F22308 /* audiosamples_music_titlescreen_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25706C0D1C5F804800F22308 /* audiosamples_music_titlescreen_s8b_pcm_11025hz.cpp */; };
 		25CB2CF01C57561700BC35A1 /* TinyShooter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CED1C57561700BC35A1 /* TinyShooter.cpp */; };
 		25CB2D2E1C57561F00BC35A1 /* audiosamples_pew_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CF21C57561F00BC35A1 /* audiosamples_pew_s8b_pcm_11025hz.cpp */; };
 		25CB2D2F1C57561F00BC35A1 /* audiosamples_pickup_s8b_pcm_11025.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CF41C57561F00BC35A1 /* audiosamples_pickup_s8b_pcm_11025.cpp */; };
@@ -147,6 +148,8 @@
 		250DA14A1C4A7F7E00C664DA /* TinyShooter */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TinyShooter; sourceTree = BUILT_PRODUCTS_DIR; };
 		250DA1961C4A813500C664DA /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = /Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		25678FF31C57D86E00B2C95E /* sinetable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sinetable.cpp; sourceTree = "<group>"; };
+		25706C0D1C5F804800F22308 /* audiosamples_music_titlescreen_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_music_titlescreen_s8b_pcm_11025hz.cpp; path = data/audiosamples_music_titlescreen_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
+		25706C0E1C5F804800F22308 /* audiosamples_music_titlescreen_s8b_pcm_11025hz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audiosamples_music_titlescreen_s8b_pcm_11025hz.h; path = data/audiosamples_music_titlescreen_s8b_pcm_11025hz.h; sourceTree = "<group>"; };
 		257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_music_boss_s8b_pcm_11025hz.cpp; path = data/audiosamples_music_boss_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
 		257AB0B11C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audiosamples_music_boss_s8b_pcm_11025hz.h; path = data/audiosamples_music_boss_s8b_pcm_11025hz.h; sourceTree = "<group>"; };
 		257AB0B31C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_explosion_s8b_pcm_11025hz.cpp; path = data/audiosamples_explosion_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
@@ -432,6 +435,8 @@
 				257AB0B31C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.cpp */,
 				257AB0B41C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.h */,
 				25CB2CF11C57561F00BC35A1 /* alldata.h */,
+				25706C0D1C5F804800F22308 /* audiosamples_music_titlescreen_s8b_pcm_11025hz.cpp */,
+				25706C0E1C5F804800F22308 /* audiosamples_music_titlescreen_s8b_pcm_11025hz.h */,
 				257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */,
 				257AB0B11C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.h */,
 				25CB2CF21C57561F00BC35A1 /* audiosamples_pew_s8b_pcm_11025hz.cpp */,
@@ -802,6 +807,7 @@
 				25CB2D401C57561F00BC35A1 /* sprite_logo_tiny_t.cpp in Sources */,
 				25CB2D8D1C57565100BC35A1 /* Sprite.cpp in Sources */,
 				25CB2D381C57561F00BC35A1 /* sprite_logo_shooter_e.cpp in Sources */,
+				25706C0F1C5F804800F22308 /* audiosamples_music_titlescreen_s8b_pcm_11025hz.cpp in Sources */,
 				25CB2D571C57563F00BC35A1 /* animation_explosion_big.cpp in Sources */,
 				25B7B1461C5A85C300355A54 /* animation_impact_bullet.cpp in Sources */,
 				25CB2D361C57561F00BC35A1 /* sprite_explosion_big_04.cpp in Sources */,
