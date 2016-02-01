@@ -16,7 +16,7 @@ void(*pfnCurrentContextExit)();
 
 void contextInit()
 {
-	/*
+	//*
 
 	//
 	// Initialize function pointers with the title screen as the initial context
