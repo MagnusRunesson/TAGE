@@ -15,6 +15,7 @@ extern "C" const AudioData sfx_player_fire_canon;
 extern "C" const AudioData sfx_player_pickup;
 extern "C" const AudioData sfx_explosion;
 extern "C" const AudioData music_boss;
+extern "C" const AudioData music_titlescreen;
 
 
 #endif /* sfx_player_fire_canon_h */
