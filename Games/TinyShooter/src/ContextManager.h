@@ -12,6 +12,7 @@
 extern void(*pfnCurrentContextLoop)();
 extern void(*pfnCurrentContextDebugTrigger)( int );
 extern void(*pfnCurrentContextExit)();
+extern void(*pfnContextSwitchTo)();
 
 void contextInit();
 void contextGotoIngame();

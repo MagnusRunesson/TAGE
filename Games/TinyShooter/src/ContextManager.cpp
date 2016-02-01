@@ -6,6 +6,7 @@
 //  Copyright © 2016 Magnus Runesson. All rights reserved.
 //
 
+#include <stdlib.h>
 #include "src/ContextManager.h"
 #include "src/Ingame/ContextIngame.h"
 #include "src/TitleScreen/ContextTitleScreen.h"
@@ -13,9 +14,14 @@
 void(*pfnCurrentContextLoop)();
 void(*pfnCurrentContextDebugTrigger)( int );
 void(*pfnCurrentContextExit)();
+void(*pfnContextSwitchTo)();
+
+int contextSwitchTo;
 
 void contextInit()
 {
+	pfnContextSwitchTo = NULL;
+	
 	//*
 
 	//
@@ -42,7 +48,7 @@ void contextInit()
 	/**/
 }
 
-void contextGotoIngame()
+void _contextGotoIngame()
 {
 	// Clean up previous context
 	pfnCurrentContextExit();
@@ -56,7 +62,7 @@ void contextGotoIngame()
 	ingame_setup();
 }
 
-void contextGotoTitleScreen()
+void _contextGotoTitleScreen()
 {
 	// Clean up previous context
 	pfnCurrentContextExit();
@@ -68,4 +74,14 @@ void contextGotoTitleScreen()
 	
 	// Also initialize the title screen context
 	titlescreen_setup();
+}
+
+void contextGotoIngame()
+{
+	pfnContextSwitchTo = &_contextGotoIngame;
+}
+
+void contextGotoTitleScreen()
+{
+	pfnContextSwitchTo = &_contextGotoTitleScreen;
 }

@@ -34,6 +34,13 @@ void tage_setup()
 void tage_loop()
 {
 	pfnCurrentContextLoop();
+	
+	// Maybe also switch context?
+	if( pfnContextSwitchTo != NULL )
+	{
+		pfnContextSwitchTo();
+		pfnContextSwitchTo = NULL;
+	}
 }
 
 void tage_debugTrigger( int _trigger )
