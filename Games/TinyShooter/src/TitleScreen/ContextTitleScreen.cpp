@@ -34,7 +34,6 @@ AudioSource* sfxPressStart;
 extern bool debugSpriteRenderer;
 
 Sprite* titleSprites[ 4 + 7 ];	// TINY=4 letters, SHOOTER=7 letters
-int letterIndex;
 Sprite* titleScreenWinners;
 int titlescreenCloseTimer;
 
@@ -61,15 +60,14 @@ void HBlankInterruptTitleScreen( int _scanline )
 	//printf( "Scanline=%i\n", _scanline );
 }
 
-void setupLetter( const Image* _pImage, int _x, int _y )
+void setupLetter( int _index, const Image* _pImage, int _x, int _y )
 {
 	Sprite* pSprite = spriteRenderer.AllocateSprite( _pImage );
 
 	pSprite->x = _x;
 	pSprite->y = _y;
 	
-	titleSprites[ letterIndex ] = pSprite;
-	letterIndex++;
+	titleSprites[ _index ] = pSprite;
 }
 
 void titlescreen_setup()
@@ -83,24 +81,23 @@ void titlescreen_setup()
 	
 	// Setup the letters
 	int x, y;
-	letterIndex = 0;
 	
 	x = 20;
 	y = 10;
-	setupLetter( &sprite_logo_tiny_t, x, y ); x += sprite_logo_tiny_t.w+1;
-	setupLetter( &sprite_logo_tiny_i, x, y ); x += sprite_logo_tiny_i.w+1;
-	setupLetter( &sprite_logo_tiny_n, x, y ); x += sprite_logo_tiny_n.w+1;
-	setupLetter( &sprite_logo_tiny_y, x, y ); x += sprite_logo_tiny_y.w+1;
+	setupLetter( 0, &sprite_logo_tiny_t, x, y ); x += sprite_logo_tiny_t.w+1;
+	setupLetter( 1, &sprite_logo_tiny_i, x, y ); x += sprite_logo_tiny_i.w+1;
+	setupLetter( 2, &sprite_logo_tiny_n, x, y ); x += sprite_logo_tiny_n.w+1;
+	setupLetter( 3, &sprite_logo_tiny_y, x, y ); x += sprite_logo_tiny_y.w+1;
 
 	x = 10;
 	y = 30;
-	setupLetter( &sprite_logo_shooter_s, x, y ); x += sprite_logo_shooter_s.w+1;
-	setupLetter( &sprite_logo_shooter_h, x, y ); x += sprite_logo_shooter_h.w+1;
-	setupLetter( &sprite_logo_shooter_o, x, y ); x += sprite_logo_shooter_o.w+1;
-	setupLetter( &sprite_logo_shooter_o, x, y ); x += sprite_logo_shooter_o.w+1;
-	setupLetter( &sprite_logo_shooter_t, x, y ); x += sprite_logo_shooter_t.w+1;
-	setupLetter( &sprite_logo_shooter_e, x, y ); x += sprite_logo_shooter_e.w+1;
-	setupLetter( &sprite_logo_shooter_r, x, y ); x += sprite_logo_shooter_r.w+1;
+	setupLetter(  4, &sprite_logo_shooter_s, x, y ); x += sprite_logo_shooter_s.w+1;
+	setupLetter(  5, &sprite_logo_shooter_h, x, y ); x += sprite_logo_shooter_h.w+1;
+	setupLetter(  6, &sprite_logo_shooter_o, x, y ); x += sprite_logo_shooter_o.w+1;
+	setupLetter(  7, &sprite_logo_shooter_o, x, y ); x += sprite_logo_shooter_o.w+1;
+	setupLetter(  8, &sprite_logo_shooter_t, x, y ); x += sprite_logo_shooter_t.w+1;
+	setupLetter(  9, &sprite_logo_shooter_e, x, y ); x += sprite_logo_shooter_e.w+1;
+	setupLetter( 10, &sprite_logo_shooter_r, x, y ); x += sprite_logo_shooter_r.w+1;
 	
 	titleScreenWinners = spriteRenderer.AllocateSprite( &sprite_titlescreen_winnersdontusedrugs );
 	titleScreenWinners->x = 8;
