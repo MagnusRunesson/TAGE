@@ -27,6 +27,10 @@
 #include "data/alldata.h"
 #include "src/ContextManager.h"
 
+#define TITLESCREEN_CLOSETIMER_TOTALDURATION (60)
+#define TITLESCREEN_CLOSETIMER_BLINKSHIFT (3)
+#define TITLESCREEN_CLOSETIMER_SFXSTOP (TITLESCREEN_CLOSETIMER_TOTALDURATION-5)
+
 //
 extern AudioSource* bgm;
 AudioSource* sfxPressStart;
@@ -130,7 +134,7 @@ void titlescreen_loop()
 		// This is regular code, before the user press Start
 		if( padGetPressed() & PAD_KEYMASK_PRIMARY )
 		{
-			titlescreenCloseTimer = 60;
+			titlescreenCloseTimer = TITLESCREEN_CLOSETIMER_TOTALDURATION;
 			bgm->Stop();
 		}
 	}
@@ -140,7 +144,7 @@ void titlescreen_loop()
 		titlescreenCloseTimer--;
 
 		// Flashing text
-		if((titlescreenCloseTimer>>3) & 1 )
+		if((titlescreenCloseTimer>>TITLESCREEN_CLOSETIMER_BLINKSHIFT) & 1 )
 			titleScreenWinners->y = -10;
 		else
 			titleScreenWinners->y = 58;
@@ -148,7 +152,7 @@ void titlescreen_loop()
 		// Play the "confirm" audio. If it starts on the same frame as we stop the
 		// bgm music the sound effect isn't heard, it just blends into the music.
 		// So that's why there is a slight delay before playing the sound.
-		if( titlescreenCloseTimer == 55 )
+		if( titlescreenCloseTimer == TITLESCREEN_CLOSETIMER_SFXSTOP )
 			sfxPressStart->PlayFromBeginning();
 
 		// Timer has run out. Start the game
