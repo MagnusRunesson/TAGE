@@ -35,6 +35,7 @@ extern bool debugSpriteRenderer;
 
 Sprite* titleSprites[ 4 + 7 ];	// TINY=4 letters, SHOOTER=7 letters
 int letterIndex;
+Sprite* titleScreenWinners;
 int titlescreenCloseTimer;
 
 void(*pfnHBlankInterruptTitleScreen)(int);
@@ -101,7 +102,9 @@ void titlescreen_setup()
 	setupLetter( &sprite_logo_shooter_e, x, y ); x += sprite_logo_shooter_e.w+1;
 	setupLetter( &sprite_logo_shooter_r, x, y ); x += sprite_logo_shooter_r.w+1;
 	
-	//
+	titleScreenWinners = spriteRenderer.AllocateSprite( &sprite_titlescreen_winnersdontusedrugs );
+	titleScreenWinners->x = 8;
+	titleScreenWinners->y = 58;
 	
 	// Cool background music
 	bgm = audioMixer.GetChannel( 0 );
