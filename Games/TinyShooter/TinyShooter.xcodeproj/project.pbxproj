@@ -108,6 +108,7 @@
 		25D99FEB1C5E574600CC4CAE /* HUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D99FDE1C5E574600CC4CAE /* HUD.cpp */; settings = {ASSET_TAGS = (); }; };
 		25D99FEC1C5E574600CC4CAE /* PathFollower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D99FE11C5E574600CC4CAE /* PathFollower.cpp */; settings = {ASSET_TAGS = (); }; };
 		25D99FED1C5E574600CC4CAE /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D99FE31C5E574600CC4CAE /* Player.cpp */; settings = {ASSET_TAGS = (); }; };
+		25EACD201C5FBBE4006AA181 /* sprite_titlescreen_winnersdontusedrugs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25EACD1E1C5FBBE4006AA181 /* sprite_titlescreen_winnersdontusedrugs.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -334,6 +335,8 @@
 		25D99FE21C5E574600CC4CAE /* PathFollower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PathFollower.h; path = src/Ingame/PathFollower.h; sourceTree = SOURCE_ROOT; };
 		25D99FE31C5E574600CC4CAE /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Player.cpp; path = src/Ingame/Player.cpp; sourceTree = SOURCE_ROOT; };
 		25D99FE41C5E574600CC4CAE /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = src/Ingame/Player.h; sourceTree = SOURCE_ROOT; };
+		25EACD1E1C5FBBE4006AA181 /* sprite_titlescreen_winnersdontusedrugs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_titlescreen_winnersdontusedrugs.cpp; path = data/sprite_titlescreen_winnersdontusedrugs.cpp; sourceTree = "<group>"; };
+		25EACD1F1C5FBBE4006AA181 /* sprite_titlescreen_winnersdontusedrugs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_titlescreen_winnersdontusedrugs.h; path = data/sprite_titlescreen_winnersdontusedrugs.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -426,6 +429,8 @@
 				25BBA4AE1C5FBD6500A35F2F /* audiosamples_pickup_s8b_pcm_11025hz.h */,
 				25BBA4AA1C5FBCFA00A35F2F /* audiosamples_music_titlescreen_s8b_pcm_11025hz.cpp */,
 				25BBA4AB1C5FBCFA00A35F2F /* audiosamples_music_titlescreen_s8b_pcm_11025hz.h */,
+				25EACD1E1C5FBBE4006AA181 /* sprite_titlescreen_winnersdontusedrugs.cpp */,
+				25EACD1F1C5FBBE4006AA181 /* sprite_titlescreen_winnersdontusedrugs.h */,
 				2591BCBB1C5D6E6000F69102 /* sprite_hud_life.cpp */,
 				2591BCBC1C5D6E6000F69102 /* sprite_hud_life.h */,
 				2591BCB81C5D5C8900F69102 /* sprite_hud_weapon_dual.cpp */,
@@ -812,6 +817,7 @@
 				25B7B1461C5A85C300355A54 /* animation_impact_bullet.cpp in Sources */,
 				25CB2D361C57561F00BC35A1 /* sprite_explosion_big_04.cpp in Sources */,
 				25CB2D411C57561F00BC35A1 /* sprite_logo_tiny_y.cpp in Sources */,
+				25EACD201C5FBBE4006AA181 /* sprite_titlescreen_winnersdontusedrugs.cpp in Sources */,
 				25CB2D341C57561F00BC35A1 /* sprite_explosion_big_02.cpp in Sources */,
 				25A495B31C5BD433003CA51C /* sprite_enemy_sparrow_01.cpp in Sources */,
 				25B7B1421C5A859F00355A54 /* sprite_impact_bullet_03.cpp in Sources */,

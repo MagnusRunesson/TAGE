@@ -1,0 +1,6 @@
+#ifndef sprite_titlescreen_winnersdontusedrugs_data_h
+#define sprite_titlescreen_winnersdontusedrugs_data_h
+
+extern "C" const Image sprite_titlescreen_winnersdontusedrugs;
+
+#endif // sprite_titlescreen_winnersdontusedrugs_data_h
