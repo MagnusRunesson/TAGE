@@ -29,11 +29,13 @@
 
 //
 extern AudioSource* bgm;
+AudioSource* sfxPressStart;
 
 extern bool debugSpriteRenderer;
 
 Sprite* titleSprites[ 4 + 7 ];	// TINY=4 letters, SHOOTER=7 letters
 int letterIndex;
+int titlescreenCloseTimer;
 
 void(*pfnHBlankInterruptTitleScreen)(int);
 
@@ -100,9 +102,18 @@ void titlescreen_setup()
 	setupLetter( &sprite_logo_shooter_r, x, y ); x += sprite_logo_shooter_r.w+1;
 	
 	//
+	
+	// Cool background music
 	bgm = audioMixer.GetChannel( 0 );
 	bgm->SetData( &music_titlescreen );
 	bgm->PlayFromBeginning();
+	
+	// Sound effect for when the player decides to start the game
+	sfxPressStart = audioMixer.GetChannel( 1 );
+	sfxPressStart->SetData( &sfx_player_pickup );
+	
+	//
+	titlescreenCloseTimer = 0;
 }
 
 void titlescreen_loop()
@@ -113,6 +124,27 @@ void titlescreen_loop()
 	// Update system stuff
 	//
 	padUpdate();
+	
+	if( titlescreenCloseTimer == 0 )
+	{
+		// This is regular code, before the user press Start
+		if( padGetPressed() & PAD_KEYMASK_PRIMARY )
+		{
+			titlescreenCloseTimer = 60;
+			bgm->Stop();
+		}
+	}
+	else
+	{
+		// User have pressed start and we're just waiting
+		titlescreenCloseTimer--;
+		
+		if( titlescreenCloseTimer == 55 )
+			sfxPressStart->PlayFromBeginning();
+
+		if( titlescreenCloseTimer == 0 )
+			contextGotoIngame();
+	}
 	
 	//
 	// Scanline rendered
