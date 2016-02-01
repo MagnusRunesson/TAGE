@@ -138,6 +138,11 @@ void titlescreen_loop()
 	{
 		// User have pressed start and we're just waiting
 		titlescreenCloseTimer--;
+
+		if((titlescreenCloseTimer>>3) & 1 )
+			titleScreenWinners->y = -10;
+		else
+			titleScreenWinners->y = 58;
 		
 		if( titlescreenCloseTimer == 55 )
 			sfxPressStart->PlayFromBeginning();
