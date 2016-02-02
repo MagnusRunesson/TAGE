@@ -47,6 +47,7 @@
 #include "data/sprite_logo_shooter_e.h"
 #include "data/sprite_logo_shooter_r.h"
 #include "data/sprite_titlescreen_winnersdontusedrugs.h"
+#include "data/sprite_titlescreen_insertcredits.h"
 #include "data/sprite_enemy_saucer_00.h"
 #include "data/sprite_enemy_saucer_01.h"
 #include "data/sprite_enemy_sparrow_00.h"

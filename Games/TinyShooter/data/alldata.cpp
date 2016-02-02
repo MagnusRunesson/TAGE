@@ -47,6 +47,7 @@
 #include "data/sprite_logo_shooter_e.cpp"
 #include "data/sprite_logo_shooter_r.cpp"
 #include "data/sprite_titlescreen_winnersdontusedrugs.cpp"
+#include "data/sprite_titlescreen_insertcredits.cpp"
 #include "data/sprite_enemy_saucer_00.cpp"
 #include "data/sprite_enemy_saucer_01.cpp"
 #include "data/sprite_enemy_sparrow_00.cpp"

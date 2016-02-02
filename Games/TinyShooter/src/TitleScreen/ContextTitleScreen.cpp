@@ -30,7 +30,9 @@
 #define TITLESCREEN_CLOSETIMER_TOTALDURATION (60)
 #define TITLESCREEN_CLOSETIMER_BLINKSHIFT (3)
 #define TITLESCREEN_CLOSETIMER_SFXSTOP (TITLESCREEN_CLOSETIMER_TOTALDURATION-5)
-
+#define TITLESCREEN_CREDITSTIMER_TOTAL (50)
+#define TITLESCREEN_CREDITSTIMER_INVISBLE (30)
+#define TITLESCREEN_CREDITSHEIGHT (45)
 //
 extern AudioSource* bgm;
 AudioSource* sfxPressStart;
@@ -38,8 +40,10 @@ AudioSource* sfxPressStart;
 extern bool debugSpriteRenderer;
 
 Sprite* titleSprites[ 4 + 7 ];	// TINY=4 letters, SHOOTER=7 letters
+Sprite* titleScreenInsertCredits;
 Sprite* titleScreenWinners;
 int titlescreenCloseTimer;
+int titleScreenTimer;
 
 void(*pfnHBlankInterruptTitleScreen)(int);
 
@@ -86,15 +90,15 @@ void titlescreen_setup()
 	// Setup the letters
 	int x, y;
 	
-	x = 20;
-	y = 10;
+	x = 23;
+	y = 6;
 	setupLetter( 0, &sprite_logo_tiny_t, x, y ); x += sprite_logo_tiny_t.w+1;
 	setupLetter( 1, &sprite_logo_tiny_i, x, y ); x += sprite_logo_tiny_i.w+1;
 	setupLetter( 2, &sprite_logo_tiny_n, x, y ); x += sprite_logo_tiny_n.w+1;
 	setupLetter( 3, &sprite_logo_tiny_y, x, y ); x += sprite_logo_tiny_y.w+1;
 
-	x = 10;
-	y = 30;
+	x = 15;
+	y = 20;
 	setupLetter(  4, &sprite_logo_shooter_s, x, y ); x += sprite_logo_shooter_s.w+1;
 	setupLetter(  5, &sprite_logo_shooter_h, x, y ); x += sprite_logo_shooter_h.w+1;
 	setupLetter(  6, &sprite_logo_shooter_o, x, y ); x += sprite_logo_shooter_o.w+1;
@@ -103,8 +107,12 @@ void titlescreen_setup()
 	setupLetter(  9, &sprite_logo_shooter_e, x, y ); x += sprite_logo_shooter_e.w+1;
 	setupLetter( 10, &sprite_logo_shooter_r, x, y ); x += sprite_logo_shooter_r.w+1;
 	
+	titleScreenInsertCredits = spriteRenderer.AllocateSprite( &sprite_titlescreen_insertcredits );
+	titleScreenInsertCredits->x = 21;
+	titleScreenInsertCredits->y = TITLESCREEN_CREDITSHEIGHT;
+	
 	titleScreenWinners = spriteRenderer.AllocateSprite( &sprite_titlescreen_winnersdontusedrugs );
-	titleScreenWinners->x = 8;
+	titleScreenWinners->x = 7;
 	titleScreenWinners->y = 58;
 	
 	// Cool background music
@@ -131,6 +139,15 @@ void titlescreen_loop()
 	
 	if( titlescreenCloseTimer == 0 )
 	{
+		titleScreenTimer--;
+		if( titleScreenTimer <= 0 )
+			titleScreenTimer += TITLESCREEN_CREDITSTIMER_TOTAL;
+		
+		if( titleScreenTimer > TITLESCREEN_CREDITSTIMER_INVISBLE )
+			titleScreenInsertCredits->y = -10;
+		else
+			titleScreenInsertCredits->y = TITLESCREEN_CREDITSHEIGHT;
+		
 		// This is regular code, before the user press Start
 		if( padGetPressed() & PAD_KEYMASK_PRIMARY )
 		{
@@ -145,9 +162,9 @@ void titlescreen_loop()
 
 		// Flashing text
 		if((titlescreenCloseTimer>>TITLESCREEN_CLOSETIMER_BLINKSHIFT) & 1 )
-			titleScreenWinners->y = -10;
+			titleScreenInsertCredits->y = -10;
 		else
-			titleScreenWinners->y = 58;
+			titleScreenInsertCredits->y = TITLESCREEN_CREDITSHEIGHT;
 		
 		// Play the "confirm" audio. If it starts on the same frame as we stop the
 		// bgm music the sound effect isn't heard, it just blends into the music.
