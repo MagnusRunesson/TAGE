@@ -37,6 +37,12 @@
 extern AudioSource* bgm;
 AudioSource* sfxPressStart;
 
+void debugPrintSystems()
+{
+	gameObjectManager.debugPrintStats();
+	spriteRenderer.debugPrintStats();
+}
+
 extern bool debugSpriteRenderer;
 
 Sprite* titleSprites[ 4 + 7 ];	// TINY=4 letters, SHOOTER=7 letters
@@ -243,5 +249,8 @@ void titlescreen_debugTrigger( int _trigger )
 	} else if( _trigger == 1 )
 	{
 		debugSpriteRenderer = true;
+	} else if( _trigger == 9 )
+	{
+		debugPrintSystems();
 	}
 }

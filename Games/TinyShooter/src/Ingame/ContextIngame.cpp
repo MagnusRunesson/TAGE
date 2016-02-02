@@ -473,6 +473,8 @@ void ingame_exit()
 	
 }
 
+extern void debugPrintSystems();
+
 void ingame_debugTrigger( int _trigger )
 {
 	if( _trigger == 0 )
@@ -485,5 +487,8 @@ void ingame_debugTrigger( int _trigger )
 	{
 		extern int playerInvincibleTimer;
 		playerInvincibleTimer = 60;
+	} else if( _trigger == 9 )
+	{
+		debugPrintSystems();
 	}
 }
