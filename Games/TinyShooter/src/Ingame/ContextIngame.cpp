@@ -44,7 +44,6 @@ TileRenderer* playfield;
 int mapScroll;
 FixedPoint cameraScroll;
 FixedPoint cameraScrollSpeed;
-GameObject* testanimGO;
 AudioSource* bgm;
 
 bool debugSpriteRenderer;
@@ -202,16 +201,6 @@ void ingame_setup()
 	hudInit();
 	playerInit();
 	pickupInit();
-	
-	/*
-	testanimGO = gameObjectManager.CreateGameObject( &animation_pickup );
-	testanimGO->SetWorldPosition( 80, 20 );
-	testanimGO->GetAnimation()->Play();
-	testanimGO->GetSprite()->collisionIndex = SPRITE_COLLISION_INDEX_PICKUP;
-	
-	sfxPlayerPickup = audioMixer.GetChannel( 1 );
-	sfxPlayerPickup->SetData( &sfx_player_pickup );
-	 */
 	
 	bgm = audioMixer.GetChannel( 2 );
 	
