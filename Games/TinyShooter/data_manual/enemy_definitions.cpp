@@ -48,3 +48,11 @@ const EnemyDefinition enemy_dragonbody =
 	0,
 	&EnemyMovement_01_Sinus_MoveLeft,
 };
+
+const EnemyDefinition enemy_cargo =
+{
+	&animation_enemy_cargo,
+	1,
+	0,
+	&EnemyMovement_00_FollowDirection
+};

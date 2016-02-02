@@ -130,3 +130,26 @@ const AnimationSequenceDefinition animation_enemy_dragonbody =
 	true,
 	animation_enemy_dragonbody_frames,
 };
+
+
+//
+//
+// Cargo - The enemy that spawn pickups
+//
+//
+const AnimationFrameDefinition animation_enemy_cargo_frames[] = {
+	{
+		&sprite_enemy_cargo_00,
+		1,
+		0,
+		0,
+		0,
+	}
+};
+
+const AnimationSequenceDefinition animation_enemy_cargo =
+{
+	1,
+	true,
+	animation_enemy_cargo_frames,
+};

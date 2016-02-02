@@ -55,6 +55,7 @@
 #include "data/sprite_enemy_sparrow_03.cpp"
 #include "data/sprite_enemy_dragonhead_00.cpp"
 #include "data/sprite_enemy_dragonbody_00.cpp"
+#include "data/sprite_enemy_cargo_00.cpp"
 #include "data/sprite_impact_bullet_00.cpp"
 #include "data/sprite_impact_bullet_01.cpp"
 #include "data/sprite_impact_bullet_02.cpp"

@@ -38,6 +38,7 @@
 		25B7B1461C5A85C300355A54 /* animation_impact_bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25B7B1441C5A85C300355A54 /* animation_impact_bullet.cpp */; settings = {ASSET_TAGS = (); }; };
 		25BBA4AC1C5FBCFA00A35F2F /* audiosamples_music_titlescreen_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25BBA4AA1C5FBCFA00A35F2F /* audiosamples_music_titlescreen_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		25BBA4AF1C5FBD6500A35F2F /* audiosamples_pickup_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25BBA4AD1C5FBD6500A35F2F /* audiosamples_pickup_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
+		25AAC74D1C608BE10088880C /* sprite_enemy_cargo_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC74B1C608BE10088880C /* sprite_enemy_cargo_00.cpp */; };
 		25CB2CF01C57561700BC35A1 /* TinyShooter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CED1C57561700BC35A1 /* TinyShooter.cpp */; };
 		25CB2D2E1C57561F00BC35A1 /* audiosamples_pew_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CF21C57561F00BC35A1 /* audiosamples_pew_s8b_pcm_11025hz.cpp */; };
 		25CB2D301C57561F00BC35A1 /* sprite_enemy_saucer_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CF61C57561F00BC35A1 /* sprite_enemy_saucer_00.cpp */; };
@@ -171,6 +172,8 @@
 		25A495AF1C5BD433003CA51C /* sprite_enemy_sparrow_02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_sparrow_02.h; path = data/sprite_enemy_sparrow_02.h; sourceTree = "<group>"; };
 		25A495B01C5BD433003CA51C /* sprite_enemy_sparrow_03.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_sparrow_03.cpp; path = data/sprite_enemy_sparrow_03.cpp; sourceTree = "<group>"; };
 		25A495B11C5BD433003CA51C /* sprite_enemy_sparrow_03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_sparrow_03.h; path = data/sprite_enemy_sparrow_03.h; sourceTree = "<group>"; };
+		25AAC74B1C608BE10088880C /* sprite_enemy_cargo_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_cargo_00.cpp; path = data/sprite_enemy_cargo_00.cpp; sourceTree = "<group>"; };
+		25AAC74C1C608BE10088880C /* sprite_enemy_cargo_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_cargo_00.h; path = data/sprite_enemy_cargo_00.h; sourceTree = "<group>"; };
 		25B7B1351C5A859F00355A54 /* sprite_impact_bullet_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_impact_bullet_00.cpp; path = data/sprite_impact_bullet_00.cpp; sourceTree = "<group>"; };
 		25B7B1361C5A859F00355A54 /* sprite_impact_bullet_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_impact_bullet_00.h; path = data/sprite_impact_bullet_00.h; sourceTree = "<group>"; };
 		25B7B1371C5A859F00355A54 /* sprite_impact_bullet_01.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_impact_bullet_01.cpp; path = data/sprite_impact_bullet_01.cpp; sourceTree = "<group>"; };
@@ -425,6 +428,8 @@
 		250DA18B1C4A7FFF00C664DA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				25AAC74B1C608BE10088880C /* sprite_enemy_cargo_00.cpp */,
+				25AAC74C1C608BE10088880C /* sprite_enemy_cargo_00.h */,
 				25BBA4AD1C5FBD6500A35F2F /* audiosamples_pickup_s8b_pcm_11025hz.cpp */,
 				25BBA4AE1C5FBD6500A35F2F /* audiosamples_pickup_s8b_pcm_11025hz.h */,
 				25BBA4AA1C5FBCFA00A35F2F /* audiosamples_music_titlescreen_s8b_pcm_11025hz.cpp */,
@@ -752,6 +757,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25AAC74D1C608BE10088880C /* sprite_enemy_cargo_00.cpp in Sources */,
 				25D99FCF1C5E4D4100CC4CAE /* ContextManager.cpp in Sources */,
 				25D99FEA1C5E574600CC4CAE /* ExplosionManager.cpp in Sources */,
 				2505C2281C5A376D00E46CDF /* sprite_explosion_medium_05.cpp in Sources */,
