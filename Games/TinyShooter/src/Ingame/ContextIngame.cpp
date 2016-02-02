@@ -119,6 +119,12 @@ void levelFunc3( int _x )
 	}
 }
 
+void levelFuncSpawnCargo( int _x )
+{
+	fp2d movement( FixedPoint( 0, -50 ), FixedPoint( 0, 10 ));
+	enemySpawn( &enemy_cargo, _x+96, 30, &movement );
+}
+
 class LevelScrollFunc
 {
 public:
@@ -129,10 +135,14 @@ public:
 const LevelScrollFunc spacebaseFuncs[] = {
 	{
 		15,
-		&levelFunc10,
+		&levelFuncSpawnCargo,
 	},
 	{
 		40,
+		&levelFunc10,
+	},
+	{
+		50,
 		&levelFunc20,
 	},
 	{
