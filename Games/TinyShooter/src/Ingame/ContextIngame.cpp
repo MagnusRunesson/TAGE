@@ -159,14 +159,19 @@ void ingame_setup()
 	gameObjectManager.Reboot();
 	spriteRenderer.Reboot();
 	audioMixer.Reboot();
-	
+
+	// Level specific, which column func to all
 	currentFunc = 0;
 
+	//
 	debugSpriteRenderer = false;
+	pfnHBlankInterrupt = HBlankInterrupt;
 
+	//
 	worldWidth = tilemap_spacebase.Width * tilebank_spacebase.TileWidth;
 	playfield = new TileRenderer( &tilemap_spacebase, &tilebank_spacebase );
 	background = new TileRenderer( &tilemap_spacebase_background, &tilebank_spacebase );
+	bgm = audioMixer.GetChannel( 2 );
 	
 	//
 	// Scrolling a 10 screen wide level (10 screens in total, scrolling 9 screens at 864 pixels) at FixedPoint( 0, 5 ) takes about 300 seconds (5 minutes)
@@ -184,20 +189,14 @@ void ingame_setup()
 	cameraScroll = 0;
 	mapScroll = 0;
 	cameraScrollSpeed = FixedPoint( 0, 12 );
+	doCameraScroll = true;
 
 	hudInit();
 	playerInit();
 	pickupInit();
-	
-	bgm = audioMixer.GetChannel( 2 );
-	
 	playerBulletsInit();
 	explosionsInit();
 	enemyManagerInit();
-	
-	doCameraScroll = true;
-	
-	pfnHBlankInterrupt = HBlankInterrupt;
 }
 
 void ingame_loop()
@@ -256,10 +255,9 @@ void ingame_loop()
 	playfield->SetPosition( camx, 0 );
 	background->SetPosition( camx>>1, 0 );
 	
+	//
 	playerUpdate();
-	
 	playerBulletsUpdate( mapScroll );
-	
 	explosionsUpdate();
 	
 	//
