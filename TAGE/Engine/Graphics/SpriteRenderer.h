@@ -29,6 +29,7 @@ public:
 	
 	SpriteRenderer();
 	void Reboot();
+	void debugPrintStats();
 	
 	Sprite* AllocateSprite( const Image* _image );
 	void FreeSprite( Sprite* _spriteInstance );

@@ -284,3 +284,26 @@ void SpriteRenderer::RenderScanline( uint16* _targetBuffer )
 		}
 	}
 }
+
+extern const char* stringFromBool( bool );
+
+void SpriteRenderer::debugPrintStats()
+{
+	printf( "----------[ SpriteRenderer ]----------\n" );
+	int numUsed = 0;
+	int i;
+	for( i=0; i<MAX_SPRITES; i++ )
+	{
+		Sprite* sprite = &m_sprite[ i ];
+		printf("Sprite object %-3i -", i );
+		printf(" Used: %-3s", stringFromBool( sprite->image != NULL ));
+		if( sprite->image != NULL )
+		{
+			numUsed++;
+			printf(" - Image: %s", sprite->image->DEBUG_name );
+		}
+		printf("\n");
+	}
+	
+	printf("Num sprites used: %i / %i\n", numUsed, MAX_SPRITES );
+}
