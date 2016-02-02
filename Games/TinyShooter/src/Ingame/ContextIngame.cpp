@@ -207,13 +207,7 @@ void ingame_setup()
 	playerBulletsInit();
 	explosionsInit();
 	enemyManagerInit();
-
-	/*
-	int i;
-	for( i=0; i<5; i++ )
-		enemySpawn( &enemy_sparrow, 96+(i*3), 50-(i*2), new fp2d( FixedPoint( 0, -(40-(i*6))), FixedPoint( 0, -i*6 )));
-	 */
-		
+	
 	doCameraScroll = true;
 	
 	pfnHBlankInterrupt = HBlankInterrupt;
