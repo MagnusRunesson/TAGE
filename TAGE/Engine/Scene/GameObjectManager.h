@@ -27,6 +27,7 @@ public:
 	
 	void Update();
 	void Render();
+	void debugPrintStats();
 	
 	GameObject m_gameObjects[ MAX_GAMEOBJECTS ];
 };

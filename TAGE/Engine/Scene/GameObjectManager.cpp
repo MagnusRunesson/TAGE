@@ -89,3 +89,32 @@ void GameObjectManager::Render()
 		}
 	}
 }
+
+const char* stringFromBool( bool _value )
+{
+	if( _value )
+		return "YES";
+	
+	return "NO";
+}
+
+void GameObjectManager::debugPrintStats()
+{
+	printf( "----------[ GameObjectManager ]----------\n" );
+	int numUsed = 0;
+	int i;
+	for( i=0; i<MAX_GAMEOBJECTS; i++ )
+	{
+		GameObject* gameObject = &m_gameObjects[ i ];
+		printf("Game object %3i - ", i );
+		printf("Used: %s", stringFromBool( gameObject->IsUsed()));
+		if( gameObject->IsUsed())
+		{
+			numUsed++;
+			printf(" - Enabled: %s", stringFromBool( gameObject->IsEnabled()));
+		}
+		printf("\n");
+	}
+	
+	printf("Num objects used: %i / %i\n", numUsed, MAX_GAMEOBJECTS );
+}
