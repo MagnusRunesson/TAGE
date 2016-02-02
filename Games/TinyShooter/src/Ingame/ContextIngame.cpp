@@ -162,19 +162,6 @@ void ingame_setup()
 	
 	currentFunc = 0;
 
-	/*
-	PathFollower janne;
-
-	janne.SetPath( &testPath, 1, 0, 0 );
-
-	int l;
-	for( l=0; l<10; l++ )
-	{
-		janne.Update();
-		printf( "Janne x=%i y=%i\n", janne.GetCurrentPosition().x.GetInteger(), janne.GetCurrentPosition().y.GetInteger() );
-	}
-	 */
-	
 	debugSpriteRenderer = false;
 
 	worldWidth = tilemap_spacebase.Width * tilebank_spacebase.TileWidth;
