@@ -39,6 +39,7 @@
 		25BBA4AC1C5FBCFA00A35F2F /* audiosamples_music_titlescreen_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25BBA4AA1C5FBCFA00A35F2F /* audiosamples_music_titlescreen_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		25BBA4AF1C5FBD6500A35F2F /* audiosamples_pickup_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25BBA4AD1C5FBD6500A35F2F /* audiosamples_pickup_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		25AAC74D1C608BE10088880C /* sprite_enemy_cargo_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC74B1C608BE10088880C /* sprite_enemy_cargo_00.cpp */; };
+		25AAC7501C608EF60088880C /* PickupManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25AAC74E1C608EF60088880C /* PickupManager.cpp */; };
 		25CB2CF01C57561700BC35A1 /* TinyShooter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CED1C57561700BC35A1 /* TinyShooter.cpp */; };
 		25CB2D2E1C57561F00BC35A1 /* audiosamples_pew_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CF21C57561F00BC35A1 /* audiosamples_pew_s8b_pcm_11025hz.cpp */; };
 		25CB2D301C57561F00BC35A1 /* sprite_enemy_saucer_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2CF61C57561F00BC35A1 /* sprite_enemy_saucer_00.cpp */; };
@@ -174,6 +175,8 @@
 		25A495B11C5BD433003CA51C /* sprite_enemy_sparrow_03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_sparrow_03.h; path = data/sprite_enemy_sparrow_03.h; sourceTree = "<group>"; };
 		25AAC74B1C608BE10088880C /* sprite_enemy_cargo_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_cargo_00.cpp; path = data/sprite_enemy_cargo_00.cpp; sourceTree = "<group>"; };
 		25AAC74C1C608BE10088880C /* sprite_enemy_cargo_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_cargo_00.h; path = data/sprite_enemy_cargo_00.h; sourceTree = "<group>"; };
+		25AAC74E1C608EF60088880C /* PickupManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PickupManager.cpp; path = src/Ingame/PickupManager.cpp; sourceTree = SOURCE_ROOT; };
+		25AAC74F1C608EF60088880C /* PickupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PickupManager.h; path = src/Ingame/PickupManager.h; sourceTree = SOURCE_ROOT; };
 		25B7B1351C5A859F00355A54 /* sprite_impact_bullet_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_impact_bullet_00.cpp; path = data/sprite_impact_bullet_00.cpp; sourceTree = "<group>"; };
 		25B7B1361C5A859F00355A54 /* sprite_impact_bullet_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_impact_bullet_00.h; path = data/sprite_impact_bullet_00.h; sourceTree = "<group>"; };
 		25B7B1371C5A859F00355A54 /* sprite_impact_bullet_01.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_impact_bullet_01.cpp; path = data/sprite_impact_bullet_01.cpp; sourceTree = "<group>"; };
@@ -697,6 +700,8 @@
 				25D99FE21C5E574600CC4CAE /* PathFollower.h */,
 				25D99FE31C5E574600CC4CAE /* Player.cpp */,
 				25D99FE41C5E574600CC4CAE /* Player.h */,
+				25AAC74E1C608EF60088880C /* PickupManager.cpp */,
+				25AAC74F1C608EF60088880C /* PickupManager.h */,
 			);
 			name = Ingame;
 			sourceTree = "<group>";
@@ -842,6 +847,7 @@
 				25D99FEC1C5E574600CC4CAE /* PathFollower.cpp in Sources */,
 				25678FF41C57D86E00B2C95E /* sinetable.cpp in Sources */,
 				25A495B21C5BD433003CA51C /* sprite_enemy_sparrow_00.cpp in Sources */,
+				25AAC7501C608EF60088880C /* PickupManager.cpp in Sources */,
 				2591BCBA1C5D5C8900F69102 /* sprite_hud_weapon_dual.cpp in Sources */,
 				25D99FE71C5E574600CC4CAE /* Enemy.cpp in Sources */,
 				25CB2D3B1C57561F00BC35A1 /* sprite_logo_shooter_r.cpp in Sources */,

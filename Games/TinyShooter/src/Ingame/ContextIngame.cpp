@@ -34,6 +34,7 @@
 #include "src/Ingame/Player.h"
 #include "src/Ingame/EnemyManager.h"
 #include "src/Ingame/HUD.h"
+#include "src/Ingame/PickupManager.h"
 #include "src/ContextManager.h"
 
 //
@@ -44,7 +45,6 @@ int mapScroll;
 FixedPoint cameraScroll;
 FixedPoint cameraScrollSpeed;
 GameObject* testanimGO;
-AudioSource* sfxPlayerPickup;
 AudioSource* bgm;
 
 bool debugSpriteRenderer;
@@ -122,7 +122,7 @@ void levelFunc3( int _x )
 void levelFuncSpawnCargo( int _x )
 {
 	fp2d movement( FixedPoint( 0, -50 ), FixedPoint( 0, 10 ));
-	enemySpawn( &enemy_cargo, _x+96, 30, &movement );
+	enemySpawn( &enemy_cargo, _x+96, 30, &movement )->SpecialFlag = ENEMY_SPECIALFLAG_DROP_DOUBLEPEW;
 }
 
 class LevelScrollFunc
@@ -201,7 +201,9 @@ void ingame_setup()
 
 	hudInit();
 	playerInit();
+	pickupInit();
 	
+	/*
 	testanimGO = gameObjectManager.CreateGameObject( &animation_pickup );
 	testanimGO->SetWorldPosition( 80, 20 );
 	testanimGO->GetAnimation()->Play();
@@ -209,6 +211,7 @@ void ingame_setup()
 	
 	sfxPlayerPickup = audioMixer.GetChannel( 1 );
 	sfxPlayerPickup->SetData( &sfx_player_pickup );
+	 */
 	
 	bgm = audioMixer.GetChannel( 2 );
 	
@@ -394,10 +397,8 @@ void ingame_loop()
 					int mask = (SPRITE_COLLISION_MASK_PLAYERSHIP | SPRITE_COLLISION_MASK_PICKUP);
 					if( (spriteCollisionMask & mask) == mask )
 					{
-						sfxPlayerPickup->PlayFromBeginning();
 						GameObject* pickupGO = spriteRenderer.m_collisionSprites[ SPRITE_COLLISION_INDEX_PICKUP ]->owner;
-						pickupGO->SetWorldPosition( 0, -10 );
-						playerUpgrade();
+						pickupTake( pickupGO );
 					}
 					
 					//
@@ -440,6 +441,10 @@ void ingame_loop()
 							{
 								explosionsSpawn( camx+x, iScanline, EXPLOSION_TYPE_NORMAL );
 								enemyGO->SetEnabled( false );
+								
+								// Spawn double pew pickup
+								if( enemy->SpecialFlag == ENEMY_SPECIALFLAG_DROP_DOUBLEPEW )
+									pickupSpawn( PICKUP_TYPE_DOUBLEPEW, camx+x-2, iScanline-2 );
 							}
 						}
 					}

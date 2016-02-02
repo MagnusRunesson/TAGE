@@ -14,6 +14,9 @@
 
 #define ENEMY_FROM_SPRITE( spr ) ((Enemy*)(spr->owner->m_customObject))
 
+#define ENEMY_SPECIALFLAG_EMPTY				(0)
+#define ENEMY_SPECIALFLAG_DROP_DOUBLEPEW	(1)
+
 class GameObject;
 class EnemyDefinition;
 
@@ -26,6 +29,7 @@ public:
 	GameObject* pTargetGameObject;
 	uint8 Health;
 	uint8 HitTimer;
+	uint8 SpecialFlag;
 
 	fp2d m_worldPosition;
 	fp2d m_movementDirection;
