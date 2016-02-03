@@ -196,7 +196,6 @@ void ingame_setup()
 	playerInit();
 	pickupInit();
 	playerBulletsInit();
-	enemyBulletsInit();
 	explosionsInit();
 	enemyManagerInit();
 }
@@ -260,7 +259,6 @@ void ingame_loop()
 	//
 	playerUpdate();
 	playerBulletsUpdate( mapScroll );
-	enemyBulletsUpdate( mapScroll );
 	explosionsUpdate();
 	
 	//
@@ -411,8 +409,6 @@ void ingame_loop()
 								explosionsSpawn( camx+x-4, iScanline-2, EXPLOSION_TYPE_DEBRIS );
 								explosionsSpawn( camx+x+3, iScanline+4, EXPLOSION_TYPE_DEBRIS );
 								explosionsSpawn( camx+x-1, iScanline+1, EXPLOSION_TYPE_DEBRIS );
-
-								enemyBulletKill( bulletSprite->owner );
 							}
 						}
 					}
@@ -518,8 +514,5 @@ void ingame_debugTrigger( int _trigger )
 	} else if( _trigger == 9 )
 	{
 		debugPrintSystems();
-	} else if( _trigger == 8 )
-	{
-		enemyBulletSpawn( 96, 32 );
 	}
 }

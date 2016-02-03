@@ -9,6 +9,7 @@
 #include "Engine/Graphics/Image.h"
 #include "src/Ingame/EnemyMovements.h"
 #include "src/Ingame/EnemyDefinition.h"
+#include "src/Ingame/Enemy.h"
 #include "data/alldata.h"
 
 const EnemyDefinition enemy_saucer_easy =
@@ -19,8 +20,6 @@ const EnemyDefinition enemy_saucer_easy =
 	&EnemyMovement_00_FollowDirection,
 };
 
-
-
 const EnemyDefinition enemy_sparrow =
 {
 	&animation_enemy_sparrow,
@@ -29,8 +28,6 @@ const EnemyDefinition enemy_sparrow =
 	&EnemyMovement_00_FollowDirection,
 };
 
-
-
 const EnemyDefinition enemy_dragonhead =
 {
 	&animation_enemy_dragonhead,
@@ -38,8 +35,6 @@ const EnemyDefinition enemy_dragonhead =
 	0,
 	&EnemyMovement_01_Sinus_MoveLeft,
 };
-
-
 
 const EnemyDefinition enemy_dragonbody =
 {
@@ -54,5 +49,13 @@ const EnemyDefinition enemy_cargo =
 	&animation_enemy_cargo,
 	1,
 	0,
+	&EnemyMovement_00_FollowDirection
+};
+
+const EnemyDefinition enemy_bullet =
+{
+	&animation_enemy_bullet,
+	0,
+	ENEMY_SPECIALFLAG_INVINCIBLE,
 	&EnemyMovement_00_FollowDirection
 };

@@ -10,74 +10,23 @@
 #include "Engine/Scene/GameObject.h"
 #include "Engine/Audio/AudioSource.h"
 #include "Engine/Audio/AudioMixer.h"
+#include "Engine/Math/FixedPoint.h"
+#include "Engine/Math/fp2d.h"
 #include "src/Ingame/EnemyBulletManager.h"
 #include "src/Ingame/ContextIngame.h"
+#include "src/Ingame/EnemyManager.h"
 #include "data/alldata.h"
 
-#define NUM_ENEMY_BULLETS	(4)
-
-GameObject* enemyBullets[ NUM_ENEMY_BULLETS ];
-int nextEnemyBullet;
-//AudioSource* sfxPlayerFire;
-
-void enemyBulletsInit()
+void enemyBulletSpawn( int _worldX, int _worldY, GameObject* _pTarget )
 {
-	//
-	int i;
-	for( i=0; i<NUM_ENEMY_BULLETS; i++ )
-	{
-		GameObject* pb = gameObjectManager.CreateGameObject( &animation_enemy_bullet );
-		pb->SetWorldPosition( 0, -1 );
-		pb->m_flags = GO_FLAGS_ENEMYBULLET;
-		pb->GetSprite()->collisionIndex = SPRITE_COLLISION_INDEX_ENEMYBULLET;
-		enemyBullets[ i ] = pb;
-	}
-	nextEnemyBullet = 0;
-
-	// Setup sound effect for player bullets
-	//sfxPlayerFire = audioMixer.GetChannel( 0 );
-	//sfxPlayerFire->SetData( &sfx_player_fire_canon );
+	fp2d here( _worldX, _worldY );
+	fp2d there( _pTarget->GetWorldPositionX(), _pTarget->GetWorldPositionY());
+	fp2d dir = there-here;
+	FixedPoint l = dir.Length();
+	enemyBulletSpawn( _worldX, _worldY, dir );
 }
 
-void enemyBulletSpawn( int _worldX, int _worldY )
+void enemyBulletSpawn( int _worldX, int _worldY, const fp2d& _movement )
 {
-	//
-	GameObject* pb = enemyBullets[ nextEnemyBullet ];
-	pb->SetWorldPosition( _worldX, _worldY );
-	pb->SetEnabled( true );
-	
-	// Play sound effect
-	//sfxPlayerFire->PlayFromBeginning();
-	
-	// Go to next bullet instance in a ring buffer of bullets
-	nextEnemyBullet++;
-	if( nextEnemyBullet >= NUM_ENEMY_BULLETS )
-		nextEnemyBullet = 0;
-}
-
-void enemyBulletsUpdate( int _mapScroll )
-{
-	int i;
-	for( i=0; i<NUM_ENEMY_BULLETS; i++ )
-	{
-		GameObject* bullet = enemyBullets[ i ];
-		if( bullet->GetWorldPositionY() >= 0 )
-		{
-			int x = bullet->GetWorldPositionX()-1;
-			if( x >= _mapScroll+99 )
-			{
-				bullet->SetWorldPosition( 0, -1 );
-			}
-			else
-			{
-				bullet->SetWorldPosition( x, bullet->GetWorldPositionY());
-			}
-		}
-	}
-}
-
-void enemyBulletKill( GameObject* _pb )
-{
-	//_pb->SetWorldPosition( 0, -1 );
-	_pb->SetEnabled( false );
+	enemySpawn( &enemy_bullet, _worldX, _worldY, &_movement );
 }

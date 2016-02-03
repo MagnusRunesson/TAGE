@@ -9,9 +9,6 @@
 #ifndef EnemyBulletManager_h
 #define EnemyBulletManager_h
 
-void enemyBulletsInit();
-void enemyBulletSpawn( int _worldX, int _worldY );
-void enemyBulletsUpdate( int _mapScroll );
-void enemyBulletKill( GameObject* _pb );
+void enemyBulletSpawn( int _worldX, int _worldY, const fp2d& _movement );
 
 #endif /* EnemyBulletManager_h */
