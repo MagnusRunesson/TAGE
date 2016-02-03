@@ -16,6 +16,7 @@
 
 #define ENEMY_SPECIALFLAG_EMPTY				(0)
 #define ENEMY_SPECIALFLAG_DROP_DOUBLEPEW	(1)
+#define ENEMY_SPECIALFLAG_INVINCIBLE		(2)
 
 class GameObject;
 class EnemyDefinition;

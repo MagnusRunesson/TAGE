@@ -107,6 +107,10 @@ void Enemy::PostRender()
 
 bool Enemy::Hit()
 {
+	// If player is invincible there is no stopping it
+	if( SpecialFlag == ENEMY_SPECIALFLAG_INVINCIBLE )
+		return false;
+	
 	// Check death. Since Health is an unsigned value we need to
 	// be careful how we subtract and check health. If we are at
 	// 0 and subtract we'll end up at 255, which would be bad.
