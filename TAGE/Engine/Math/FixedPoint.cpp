@@ -8,13 +8,14 @@
 
 #include "Engine/Math/FixedPoint.h"
 
-#define FRACTION_BITS (16)
+#define FRACTION_BITS (8)
 #define FRACTION_BITS_HALF (FRACTION_BITS/2)
+#define FRACTION_BITS_QUAD (FRACTION_BITS_HALF/2)
 #define FRACTION_VALUES (1<<FRACTION_BITS)
 #define FRACTION_VALUES_HALF (FRACTION_VALUES>>1)
 #define FRACTION_MASK (FRACTION_VALUES-1)
-#define INTEGER_BITS (15)
-#define INTEGER_MASK (0xffff0000)
+#define INTEGER_BITS (23)
+#define INTEGER_MASK (0xffffff00)
 
 
 /*************************************************************************************************************************
