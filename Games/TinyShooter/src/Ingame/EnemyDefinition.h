@@ -14,14 +14,12 @@
 class AnimationSequenceDefinition;
 class Enemy;
 
-#define ENEMY_MOVEMENT_MASK_NOTHING	(0)
-
 class EnemyDefinition
 {
 public:
 	const AnimationSequenceDefinition* pAnimationDefinition;
 	uint8 StartHealth;
-	uint8 MovementDefinition;
+	uint8 SpecialFlag;
 	void(*pfnMovement)( Enemy* _pTarget );
 };
 

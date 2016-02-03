@@ -64,7 +64,7 @@ void Enemy::SetDefinition( const EnemyDefinition* _pEnemyDefinition )
 	//
 	Health = _pEnemyDefinition->StartHealth;
 	HitTimer = 0;
-	SpecialFlag = ENEMY_SPECIALFLAG_EMPTY;
+	SpecialFlag = _pEnemyDefinition->SpecialFlag;
 	pfnMovementUpdate = _pEnemyDefinition->pfnMovement;
 	
 	// Wake up the enemy
