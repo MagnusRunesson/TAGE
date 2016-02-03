@@ -171,7 +171,9 @@ FixedPoint FixedPoint::operator * (int o) const
 
 FixedPoint FixedPoint::operator * (FixedPoint o) const
 {
-	return (m_value>>FRACTION_BITS_HALF) * (o.m_value>>FRACTION_BITS_HALF);
+	FixedPoint ret;
+	ret.SetRawValue((m_value>>FRACTION_BITS_HALF) * (o.m_value>>FRACTION_BITS_HALF));
+	return ret;
 }
 
 
@@ -211,4 +213,9 @@ FixedPoint FixedPoint::operator / (FixedPoint o) const
 int FixedPoint::GetInteger()
 {
 	return m_value / FRACTION_VALUES;
+}
+
+void FixedPoint::SetRawValue( int _raw )
+{
+	m_value = _raw;
 }
