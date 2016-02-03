@@ -57,7 +57,7 @@ Enemy* enemySpawn( const EnemyDefinition* _pEnemyDefinition, int _worldX, int _w
 		// Make sure we don't end up in an infinite loop
 		safety--;
 		if( safety == 0 )
-			return NULL;
+			return &enemyObjects[ 0 ];
 	}
 	
 	// Setup that enemy
