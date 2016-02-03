@@ -7,8 +7,11 @@
 //
 
 #include <stdlib.h>
+#include <stdio.h>
 #include "Engine/Scene/GameObject.h"
 #include "Engine/Scene/GameObjectManager.h"
+#include "Engine/Graphics/Image.h"
+#include "Engine/Graphics/Screen.h"
 #include "src/Ingame/Enemy.h"
 #include "src/Ingame/EnemyDefinition.h"
 #include "src/Ingame/ContextIngame.h"
@@ -16,6 +19,11 @@
 void enemyUpdatePipe( void* _pData )
 {
 	((Enemy*)_pData)->Update();
+}
+
+void enemyPostRenderPipe( void* _pData )
+{
+	((Enemy*)_pData)->PostRender();
 }
 
 Enemy::Enemy()
@@ -41,6 +49,7 @@ void Enemy::SetDefinition( const EnemyDefinition* _pEnemyDefinition )
 		pTargetGameObject->GetSprite()->collisionIndex = SPRITE_COLLISION_INDEX_ENEMY;
 		pTargetGameObject->m_customObject = this;
 		pTargetGameObject->m_customUpdate = enemyUpdatePipe;
+		pTargetGameObject->m_customPostRender = enemyPostRenderPipe;
 	} else
 	{
 		// If we've already allocated a game object for this enemy we can simply modify that game object
@@ -78,6 +87,22 @@ void Enemy::Update()
 	m_movementTimer++;
 	pfnMovementUpdate( this );
 	pTargetGameObject->SetWorldPosition( m_worldPosition.x.GetInteger(), m_worldPosition.y.GetInteger());
+}
+
+void Enemy::PostRender()
+{
+	Sprite* sprite = pTargetGameObject->GetSprite();
+	int x = sprite->x;
+	int left = x;
+	int right = x+sprite->image->w;
+	int y = sprite->y;
+	int top = y;
+	int bottom = y+sprite->image->h;
+	
+	if( right <= 0 ) pTargetGameObject->SetEnabled( false );
+	//if( left > SCREEN_WIDTH ) pTargetGameObject->SetEnabled( false );
+	if( bottom <= 0 ) pTargetGameObject->SetEnabled( false );
+	if( top > SCREEN_HEIGHT ) pTargetGameObject->SetEnabled( false );
 }
 
 bool Enemy::Hit()

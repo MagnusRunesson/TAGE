@@ -42,6 +42,7 @@ public:
 	void SetWorldPosition( int _x, int _y );
 	void SetDefinition( const EnemyDefinition* _pEnemyDefinition );
 	void Update();
+	void PostRender();
 	void(*pfnMovementUpdate)( Enemy* _pTarget );
 
 	bool Hit();		// Return true when the enemy have reached 0 health. Return false if the enemy keeps on living.
