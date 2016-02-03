@@ -56,6 +56,7 @@ public:
 	FixedPoint operator / (FixedPoint o) const;
 	
 	int GetInteger();
+	void SetRawValue( int _raw );
 	
 	//
 	inline int GetDebugRawValue(){ return m_value; };
