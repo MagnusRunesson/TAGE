@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "Engine/Scene/GameObjectManager.h"
 #include "Engine/Scene/GameObject.h"
+#include "Engine/Graphics/Image.h"
 #include "Engine/BitHelpers.h"
 
 GameObjectManager gameObjectManager;
@@ -112,6 +113,10 @@ void GameObjectManager::debugPrintStats()
 		{
 			numUsed++;
 			printf(" - Enabled: %s", stringFromBool( gameObject->IsEnabled()));
+			Sprite* sprite = gameObject->GetSprite();
+			if( sprite != NULL ) printf(" - Sprite: %s", sprite->image->DEBUG_name );
+			Animation* animation = gameObject->GetAnimation();
+			if( animation != NULL ) printf(" - Animation: YES" );
 		}
 		printf("\n");
 	}
