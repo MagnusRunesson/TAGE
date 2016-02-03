@@ -373,7 +373,7 @@ void ingame_loop()
 					}
 					
 					//
-					// Player vs. enemy (and enemy bullet, same collision mask)
+					// Player vs. enemy
 					//
 					mask = (SPRITE_COLLISION_MASK_PLAYERSHIP | SPRITE_COLLISION_MASK_ENEMY);
 					if( (spriteCollisionMask & mask) == mask )
@@ -391,7 +391,32 @@ void ingame_loop()
 							}
 						}
 					}
+					
+					//
+					// Player vs. enemy bullet (enemies and enemy bullets have differentm ask because the player should not be able to kill enemy bullets)
+					//
+					mask = (SPRITE_COLLISION_MASK_PLAYERSHIP | SPRITE_COLLISION_MASK_ENEMYBULLET);
+					if( (spriteCollisionMask & mask) == mask )
+					{
+						Sprite* bulletSprite = spriteRenderer.m_collisionSprites[ SPRITE_COLLISION_INDEX_ENEMYBULLET ];
+						
+						if( bulletSprite != lastCollisionBullet )
+						{
+							lastCollisionBullet = bulletSprite;
+							
+							if( playerHit( mapScroll, false ))
+							{
+								playerAlive = false;
+								explosionsSpawn( camx+x, iScanline, EXPLOSION_TYPE_NORMAL );
+								explosionsSpawn( camx+x-4, iScanline-2, EXPLOSION_TYPE_DEBRIS );
+								explosionsSpawn( camx+x+3, iScanline+4, EXPLOSION_TYPE_DEBRIS );
+								explosionsSpawn( camx+x-1, iScanline+1, EXPLOSION_TYPE_DEBRIS );
 
+								enemyBulletKill( bulletSprite->owner );
+							}
+						}
+					}
+					
 					//
 					// Player bullet vs. enemy
 					//
