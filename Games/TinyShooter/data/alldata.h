@@ -62,6 +62,10 @@
 #include "data/sprite_impact_bullet_02.h"
 #include "data/sprite_impact_bullet_03.h"
 #include "data/sprite_impact_bullet_04.h"
+#include "data/sprite_enemy_bullet_00.h"
+#include "data/sprite_enemy_bullet_01.h"
+#include "data/sprite_enemy_bullet_02.h"
+#include "data/sprite_enemy_bullet_03.h"
 
 #include "data/tilemap_spacebase.h"
 #include "data/tilemap_spacebase_background.h"

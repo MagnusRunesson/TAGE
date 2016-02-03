@@ -18,6 +18,11 @@
 		2505C22B1C5A376D00E46CDF /* sprite_explosion_medium_08.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2505C2211C5A376D00E46CDF /* sprite_explosion_medium_08.cpp */; };
 		2505C22E1C5A378D00E46CDF /* animation_explosion_medium.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2505C22C1C5A378D00E46CDF /* animation_explosion_medium.cpp */; };
 		250DA1971C4A813500C664DA /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 250DA1961C4A813500C664DA /* SDL2.framework */; };
+		253A56A31C626040008CFFDE /* sprite_enemy_bullet_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253A569B1C626040008CFFDE /* sprite_enemy_bullet_00.cpp */; settings = {ASSET_TAGS = (); }; };
+		253A56A41C626040008CFFDE /* sprite_enemy_bullet_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253A569D1C626040008CFFDE /* sprite_enemy_bullet_01.cpp */; settings = {ASSET_TAGS = (); }; };
+		253A56A51C626040008CFFDE /* sprite_enemy_bullet_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253A569F1C626040008CFFDE /* sprite_enemy_bullet_02.cpp */; settings = {ASSET_TAGS = (); }; };
+		253A56A61C626040008CFFDE /* sprite_enemy_bullet_03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253A56A11C626040008CFFDE /* sprite_enemy_bullet_03.cpp */; settings = {ASSET_TAGS = (); }; };
+		253A56A91C626106008CFFDE /* EnemyBulletManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253A56A71C626106008CFFDE /* EnemyBulletManager.cpp */; settings = {ASSET_TAGS = (); }; };
 		25678FF41C57D86E00B2C95E /* sinetable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25678FF31C57D86E00B2C95E /* sinetable.cpp */; settings = {ASSET_TAGS = (); }; };
 		257AB0B21C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		257AB0B51C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0B31C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -151,6 +156,16 @@
 		2505C22D1C5A378D00E46CDF /* animation_explosion_medium.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = animation_explosion_medium.h; path = data_manual/animation_explosion_medium.h; sourceTree = "<group>"; };
 		250DA14A1C4A7F7E00C664DA /* TinyShooter */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TinyShooter; sourceTree = BUILT_PRODUCTS_DIR; };
 		250DA1961C4A813500C664DA /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = /Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		253A569B1C626040008CFFDE /* sprite_enemy_bullet_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_bullet_00.cpp; path = data/sprite_enemy_bullet_00.cpp; sourceTree = "<group>"; };
+		253A569C1C626040008CFFDE /* sprite_enemy_bullet_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_bullet_00.h; path = data/sprite_enemy_bullet_00.h; sourceTree = "<group>"; };
+		253A569D1C626040008CFFDE /* sprite_enemy_bullet_01.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_bullet_01.cpp; path = data/sprite_enemy_bullet_01.cpp; sourceTree = "<group>"; };
+		253A569E1C626040008CFFDE /* sprite_enemy_bullet_01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_bullet_01.h; path = data/sprite_enemy_bullet_01.h; sourceTree = "<group>"; };
+		253A569F1C626040008CFFDE /* sprite_enemy_bullet_02.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_bullet_02.cpp; path = data/sprite_enemy_bullet_02.cpp; sourceTree = "<group>"; };
+		253A56A01C626040008CFFDE /* sprite_enemy_bullet_02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_bullet_02.h; path = data/sprite_enemy_bullet_02.h; sourceTree = "<group>"; };
+		253A56A11C626040008CFFDE /* sprite_enemy_bullet_03.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_bullet_03.cpp; path = data/sprite_enemy_bullet_03.cpp; sourceTree = "<group>"; };
+		253A56A21C626040008CFFDE /* sprite_enemy_bullet_03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_bullet_03.h; path = data/sprite_enemy_bullet_03.h; sourceTree = "<group>"; };
+		253A56A71C626106008CFFDE /* EnemyBulletManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EnemyBulletManager.cpp; path = src/Ingame/EnemyBulletManager.cpp; sourceTree = SOURCE_ROOT; };
+		253A56A81C626106008CFFDE /* EnemyBulletManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnemyBulletManager.h; path = src/Ingame/EnemyBulletManager.h; sourceTree = SOURCE_ROOT; };
 		25678FF31C57D86E00B2C95E /* sinetable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sinetable.cpp; sourceTree = "<group>"; };
 		257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_music_boss_s8b_pcm_11025hz.cpp; path = data/audiosamples_music_boss_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
 		257AB0B11C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audiosamples_music_boss_s8b_pcm_11025hz.h; path = data/audiosamples_music_boss_s8b_pcm_11025hz.h; sourceTree = "<group>"; };
@@ -434,6 +449,14 @@
 		250DA18B1C4A7FFF00C664DA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				253A569B1C626040008CFFDE /* sprite_enemy_bullet_00.cpp */,
+				253A569C1C626040008CFFDE /* sprite_enemy_bullet_00.h */,
+				253A569D1C626040008CFFDE /* sprite_enemy_bullet_01.cpp */,
+				253A569E1C626040008CFFDE /* sprite_enemy_bullet_01.h */,
+				253A569F1C626040008CFFDE /* sprite_enemy_bullet_02.cpp */,
+				253A56A01C626040008CFFDE /* sprite_enemy_bullet_02.h */,
+				253A56A11C626040008CFFDE /* sprite_enemy_bullet_03.cpp */,
+				253A56A21C626040008CFFDE /* sprite_enemy_bullet_03.h */,
 				25BBA4B01C611E1300A35F2F /* sprite_titlescreen_insertcredits.cpp */,
 				25BBA4B11C611E1300A35F2F /* sprite_titlescreen_insertcredits.h */,
 				25AAC74B1C608BE10088880C /* sprite_enemy_cargo_00.cpp */,
@@ -685,6 +708,8 @@
 		25D99FD01C5E573B00CC4CAE /* Ingame */ = {
 			isa = PBXGroup;
 			children = (
+				253A56A71C626106008CFFDE /* EnemyBulletManager.cpp */,
+				253A56A81C626106008CFFDE /* EnemyBulletManager.h */,
 				25D99FD11C5E574600CC4CAE /* BulletManager.cpp */,
 				25D99FD21C5E574600CC4CAE /* BulletManager.h */,
 				25D99FD31C5E574600CC4CAE /* ContextIngame.cpp */,
@@ -769,6 +794,7 @@
 			files = (
 				25AAC74D1C608BE10088880C /* sprite_enemy_cargo_00.cpp in Sources */,
 				25D99FCF1C5E4D4100CC4CAE /* ContextManager.cpp in Sources */,
+				253A56A41C626040008CFFDE /* sprite_enemy_bullet_01.cpp in Sources */,
 				25D99FEA1C5E574600CC4CAE /* ExplosionManager.cpp in Sources */,
 				2505C2281C5A376D00E46CDF /* sprite_explosion_medium_05.cpp in Sources */,
 				25CB2D581C57563F00BC35A1 /* animation_pickup.cpp in Sources */,
@@ -780,6 +806,7 @@
 				257AB0B51C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.cpp in Sources */,
 				25CB2D561C57563F00BC35A1 /* animation_enemies.cpp in Sources */,
 				2591BCB41C5D574300F69102 /* sprite_hud_weapons.cpp in Sources */,
+				253A56A51C626040008CFFDE /* sprite_enemy_bullet_02.cpp in Sources */,
 				2505C2241C5A376D00E46CDF /* sprite_explosion_medium_01.cpp in Sources */,
 				25CB2D911C57565100BC35A1 /* TileRenderer.cpp in Sources */,
 				25CB2D4A1C57561F00BC35A1 /* tilemap_spacebase_background.cpp in Sources */,
@@ -801,6 +828,7 @@
 				25CB2D441C57561F00BC35A1 /* sprite_pickup_01.cpp in Sources */,
 				25D99FE51C5E574600CC4CAE /* BulletManager.cpp in Sources */,
 				25CB2D3A1C57561F00BC35A1 /* sprite_logo_shooter_o.cpp in Sources */,
+				253A56A61C626040008CFFDE /* sprite_enemy_bullet_03.cpp in Sources */,
 				25D99FEB1C5E574600CC4CAE /* HUD.cpp in Sources */,
 				25CB2D451C57561F00BC35A1 /* sprite_pickup_02.cpp in Sources */,
 				25CB2D3E1C57561F00BC35A1 /* sprite_logo_tiny_i.cpp in Sources */,
@@ -821,6 +849,7 @@
 				25CB2D391C57561F00BC35A1 /* sprite_logo_shooter_h.cpp in Sources */,
 				25CB2D491C57561F00BC35A1 /* tilebank_spacebase.cpp in Sources */,
 				25CB2D431C57561F00BC35A1 /* sprite_pickup_00.cpp in Sources */,
+				253A56A91C626106008CFFDE /* EnemyBulletManager.cpp in Sources */,
 				25B7B13F1C5A859F00355A54 /* sprite_impact_bullet_00.cpp in Sources */,
 				25CB2D421C57561F00BC35A1 /* sprite_pb_01.cpp in Sources */,
 				25CB2D371C57561F00BC35A1 /* sprite_explosion_big_05.cpp in Sources */,
@@ -848,6 +877,7 @@
 				25CB2D861C57565100BC35A1 /* AudioData.cpp in Sources */,
 				25CB2D8C1C57565100BC35A1 /* Screen.cpp in Sources */,
 				25CB2DAB1C57566100BC35A1 /* Joypad.cpp in Sources */,
+				253A56A31C626040008CFFDE /* sprite_enemy_bullet_00.cpp in Sources */,
 				25B7B1431C5A859F00355A54 /* sprite_impact_bullet_04.cpp in Sources */,
 				25D99FEC1C5E574600CC4CAE /* PathFollower.cpp in Sources */,
 				25678FF41C57D86E00B2C95E /* sinetable.cpp in Sources */,

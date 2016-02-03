@@ -35,6 +35,7 @@
 #include "src/Ingame/EnemyManager.h"
 #include "src/Ingame/HUD.h"
 #include "src/Ingame/PickupManager.h"
+#include "src/Ingame/EnemyBulletManager.h"
 #include "src/ContextManager.h"
 
 //
@@ -195,6 +196,7 @@ void ingame_setup()
 	playerInit();
 	pickupInit();
 	playerBulletsInit();
+	enemyBulletsInit();
 	explosionsInit();
 	enemyManagerInit();
 }
@@ -258,6 +260,7 @@ void ingame_loop()
 	//
 	playerUpdate();
 	playerBulletsUpdate( mapScroll );
+	enemyBulletsUpdate( mapScroll );
 	explosionsUpdate();
 	
 	//
@@ -490,5 +493,8 @@ void ingame_debugTrigger( int _trigger )
 	} else if( _trigger == 9 )
 	{
 		debugPrintSystems();
+	} else if( _trigger == 8 )
+	{
+		enemyBulletSpawn( 96, 32 );
 	}
 }

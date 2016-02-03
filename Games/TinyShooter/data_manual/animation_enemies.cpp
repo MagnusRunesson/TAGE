@@ -153,3 +153,63 @@ const AnimationSequenceDefinition animation_enemy_cargo =
 	true,
 	animation_enemy_cargo_frames,
 };
+
+
+
+
+//
+//
+// Bullet - A bullet from an enemy
+//
+//
+const AnimationFrameDefinition animation_enemy_bullet_frames[] = {
+	{
+		&sprite_enemy_bullet_00,
+		1,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_enemy_bullet_01,
+		1,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_enemy_bullet_02,
+		1,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_enemy_bullet_03,
+		1,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_enemy_bullet_02,
+		1,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_enemy_bullet_01,
+		1,
+		0,
+		0,
+		0,
+	},
+};
+
+const AnimationSequenceDefinition animation_enemy_bullet =
+{
+	6,
+	true,
+	animation_enemy_bullet_frames,
+};
