@@ -27,6 +27,8 @@ public:
 	
 	fp2d operator * (const FixedPoint& _o ) const;
 	
+	FixedPoint Length();
+	
 	FixedPoint x;
 	FixedPoint y;
 };

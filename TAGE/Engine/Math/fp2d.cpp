@@ -6,6 +6,7 @@
 //  Copyright © 2015 Magnus Runesson. All rights reserved.
 //
 
+#include <math.h>
 #include "Engine/Math/fp2d.h"
 
 fp2d::fp2d()
@@ -63,4 +64,9 @@ fp2d fp2d::operator * (const FixedPoint& _o ) const
 	ret.x = x * _o;
 	ret.y = y * _o;
 	return ret;
+}
+
+FixedPoint fp2d::Length()
+{
+	return FixedPoint(1);
 }

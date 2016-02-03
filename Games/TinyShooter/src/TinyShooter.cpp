@@ -6,6 +6,7 @@
 //  Copyright © 2015 Magnus Runesson. All rights reserved.
 //
 
+#include <stdio.h>
 #include "Arduino.h"
 
 // TinyArcade game engine
@@ -28,6 +29,11 @@
 
 void tage_setup()
 {
+	fp2d a( 1, 1 );
+	fp2d b( 10, 1 );
+	FixedPoint d = Distance( a, b );
+	printf("d=%i (%i)\n", d.GetInteger(), d.GetDebugRawValue());
+	
 	contextInit();
 }
 

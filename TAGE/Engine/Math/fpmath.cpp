@@ -6,6 +6,7 @@
 //  Copyright © 2015 Magnus Runesson. All rights reserved.
 //
 
+#include <stdio.h>
 #include "Engine/Types.h"
 #include "Engine/Math/fpmath.h"
 #include "Engine/Math/sinetable.h"
@@ -23,11 +24,40 @@ sint16 fpcos( int _angle )
 	return fpsin( _angle + 64 );
 }
 
-FixedPoint SqrDistance( const fp2d& _a, const fp2d& _b )
+FixedPoint SqrDistance( fp2d& _a, fp2d& _b )
 {
 	FixedPoint x = _b.x - _a.x;
 	FixedPoint y = _b.y - _a.y;
+	printf("_a.x=%i (%i)  - _b.x=%i (%i)\n",
+		   _a.x.GetInteger(),
+		   _a.x.GetDebugRawValue(),
+		   _b.x.GetInteger(),
+		   _b.x.GetDebugRawValue());
+	
+	printf("x=%i (%i)  - y=%i (%i)\n", x.GetInteger(), x.GetDebugRawValue(), y.GetInteger(), y.GetDebugRawValue());
 	
 	FixedPoint ret = (x*x)+(y*y);
 	return ret;
+}
+
+const int ftbl[33]={0,1,1,2,2,4,5,8,11,16,22,32,45,64,90,128,181,256,362,512,724,1024,1448,2048,2896,4096,5792,8192,11585,16384,23170,32768,46340};
+const int ftbl2[32]={ 32768,33276,33776,34269,34755,35235,35708,36174,36635,37090,37540,37984,38423,38858,39287,39712,40132,40548,40960,41367,41771,42170,42566,42959,43347,43733,44115,44493,44869,45241,45611,45977};
+
+int fisqrt(int val)
+{
+	int cnt=0;
+	int t=val;
+	while (t) {cnt++;t>>=1;}
+	if (6>=cnt)    t=(val<<(6-cnt));
+	else           t=(val>>(cnt-6));
+	
+	return (ftbl[cnt]*ftbl2[t&31])>>15;
+}
+
+FixedPoint Distance(  fp2d& _a,  fp2d& _b )
+{
+	FixedPoint sqd = SqrDistance( _a, _b);
+	printf("sqd=%i (%i)\n", sqd.GetInteger(), sqd.GetDebugRawValue());
+	sqd.SetRawValue( fisqrt( sqd.GetDebugRawValue()));
+	return sqd;
 }

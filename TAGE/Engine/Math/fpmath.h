@@ -16,6 +16,7 @@
 sint16 fpsin( int _angle );
 sint16 fpcos( int _angle );
 
-FixedPoint SqrDistance( const fp2d& _a, const fp2d& _b );
+FixedPoint SqrDistance(  fp2d& _a,  fp2d& _b );
+FixedPoint Distance(  fp2d& _a,  fp2d& _b );
 
 #endif /* fpmath_hpp */
