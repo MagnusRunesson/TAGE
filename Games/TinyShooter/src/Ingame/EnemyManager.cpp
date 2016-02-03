@@ -7,6 +7,7 @@
 //
 
 #include <stdlib.h>
+#include <stdio.h>
 #include "Engine/Scene/GameObjectManager.h"
 #include "Engine/Scene/GameObject.h"
 #include "src/Ingame/EnemyManager.h"
@@ -57,7 +58,10 @@ Enemy* enemySpawn( const EnemyDefinition* _pEnemyDefinition, int _worldX, int _w
 		// Make sure we don't end up in an infinite loop
 		safety--;
 		if( safety == 0 )
+		{
+			printf("NOOOOOOO!\n");
 			return &enemyObjects[ 0 ];
+		}
 	}
 	
 	// Setup that enemy
