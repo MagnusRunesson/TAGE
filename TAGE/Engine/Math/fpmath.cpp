@@ -28,14 +28,6 @@ FixedPoint SqrDistance( fp2d& _a, fp2d& _b )
 {
 	FixedPoint x = _b.x - _a.x;
 	FixedPoint y = _b.y - _a.y;
-	printf("_a.x=%i (%i)  - _b.x=%i (%i)\n",
-		   _a.x.GetInteger(),
-		   _a.x.GetDebugRawValue(),
-		   _b.x.GetInteger(),
-		   _b.x.GetDebugRawValue());
-	
-	printf("x=%i (%i)  - y=%i (%i)\n", x.GetInteger(), x.GetDebugRawValue(), y.GetInteger(), y.GetDebugRawValue());
-	
 	FixedPoint ret = (x*x)+(y*y);
 	return ret;
 }
@@ -57,7 +49,6 @@ int fisqrt(int val)
 FixedPoint Distance(  fp2d& _a,  fp2d& _b )
 {
 	FixedPoint sqd = SqrDistance( _a, _b);
-	printf("sqd=%i (%i)\n", sqd.GetInteger(), sqd.GetDebugRawValue());
 	sqd.SetRawValue( fisqrt( sqd.GetDebugRawValue()));
 	return sqd;
 }
