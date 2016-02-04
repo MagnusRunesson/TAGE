@@ -49,6 +49,6 @@ int fisqrt(int val)
 FixedPoint Distance(  fp2d& _a,  fp2d& _b )
 {
 	FixedPoint sqd = SqrDistance( _a, _b);
-	sqd.SetRawValue( fisqrt( sqd.GetDebugRawValue()));
+	sqd.SetRawValue( fisqrt( sqd.GetDebugRawValue() << 8 ));
 	return sqd;
 }
