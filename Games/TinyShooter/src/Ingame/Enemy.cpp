@@ -15,6 +15,9 @@
 #include "src/Ingame/Enemy.h"
 #include "src/Ingame/EnemyDefinition.h"
 #include "src/Ingame/ContextIngame.h"
+#include "src/Ingame/EnemyBulletManager.h"
+
+extern GameObject* player;
 
 void enemyUpdatePipe( void* _pData )
 {
@@ -80,6 +83,16 @@ void Enemy::Update()
 		{
 			// No more hit for the enemy
 			pTargetGameObject->GetSprite()->flags &= ~SPRITE_FLAG_DRAWWHITE;
+		}
+	}
+	
+	if( AttackTimer > 0 )
+	{
+		AttackTimer--;
+		if( AttackTimer == 0 )
+		{
+			// Attack the player
+			enemyBulletSpawn( m_worldPosition.x.GetInteger(), m_worldPosition.y.GetInteger(), player, FixedPoint( 0, 50 ));
 		}
 	}
 	

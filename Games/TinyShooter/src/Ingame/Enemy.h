@@ -31,6 +31,7 @@ public:
 	uint8 Health;
 	uint8 HitTimer;
 	uint8 SpecialFlag;
+	uint8 AttackTimer;
 
 	fp2d m_worldPosition;
 	fp2d m_movementDirection;
