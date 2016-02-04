@@ -191,7 +191,7 @@ void FixedPoint::operator /= (int o)
 
 void FixedPoint::operator /= (FixedPoint o)
 {
-	m_value = (m_value<<FRACTION_BITS_HALF) / (o.m_value<<FRACTION_BITS_HALF);
+	m_value = (m_value<<FRACTION_BITS) / (o.m_value);
 }
 
 FixedPoint FixedPoint::operator / (int o) const
@@ -201,9 +201,9 @@ FixedPoint FixedPoint::operator / (int o) const
 
 FixedPoint FixedPoint::operator / (FixedPoint o) const
 {
-	int left = m_value<<FRACTION_BITS_HALF;
+	int left = m_value<<FRACTION_BITS;
 	int right = o.m_value;
-	right <<= FRACTION_BITS_HALF;
+	//right <<= FRACTION_BITS_HALF;
 	return left / right;
 	//return (m_value<<FRACTION_BITS_HALF) / (o.m_value<<FRACTION_BITS_HALF);
 }
