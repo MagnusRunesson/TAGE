@@ -110,42 +110,42 @@ FixedPoint FixedPoint::operator - (FixedPoint _o ) const
   Comparison
  *************************************************************************************************************************/
 
-bool FixedPoint::operator < (int o)
+bool FixedPoint::operator < (int o) const
 {
 	return m_value < (o*FRACTION_VALUES);
 }
 
-bool FixedPoint::operator < (FixedPoint o)
+bool FixedPoint::operator < (FixedPoint o) const
 {
 	return m_value < o.m_value;
 }
 	
-bool FixedPoint::operator > (int o)
+bool FixedPoint::operator > (int o) const
 {
 	return m_value > (o*FRACTION_VALUES);
 }
 
-bool FixedPoint::operator > (FixedPoint o)
+bool FixedPoint::operator > (FixedPoint o) const
 {
 	return m_value > o.m_value;
 }
 
-bool FixedPoint::operator <= (int o)
+bool FixedPoint::operator <= (int o) const
 {
 	return m_value <= (o*FRACTION_VALUES);
 }
 
-bool FixedPoint::operator <= (FixedPoint o)
+bool FixedPoint::operator <= (FixedPoint o) const
 {
 	return m_value <= o.m_value;
 }
 
-bool FixedPoint::operator >= (int o)
+bool FixedPoint::operator >= (int o) const
 {
 	return m_value >= (o*FRACTION_VALUES);
 }
 
-bool FixedPoint::operator >= (FixedPoint o)
+bool FixedPoint::operator >= (FixedPoint o) const
 {
 	return m_value >= o.m_value;
 }
@@ -211,7 +211,7 @@ FixedPoint FixedPoint::operator / (FixedPoint o) const
   Stuff and things
  *************************************************************************************************************************/
 
-int FixedPoint::GetInteger()
+int FixedPoint::GetInteger() const
 {
 	return m_value / FRACTION_VALUES;
 }

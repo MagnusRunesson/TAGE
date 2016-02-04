@@ -34,14 +34,14 @@ public:
 	FixedPoint operator - (FixedPoint _o ) const;
 	
 	// Compare
-	bool operator < (int o);
-	bool operator < (FixedPoint o);
-	bool operator > (int o);
-	bool operator > (FixedPoint o);
-	bool operator <= (int o);
-	bool operator <= (FixedPoint o);
-	bool operator >= (int o);
-	bool operator >= (FixedPoint o);
+	bool operator < (int o) const;
+	bool operator < (FixedPoint o) const;
+	bool operator > (int o) const;
+	bool operator > (FixedPoint o) const;
+	bool operator <= (int o) const;
+	bool operator <= (FixedPoint o) const;
+	bool operator >= (int o) const;
+	bool operator >= (FixedPoint o) const;
 	
 	// Multiplication
 	void operator *= (int o);
@@ -55,11 +55,14 @@ public:
 	FixedPoint operator / (int o) const;
 	FixedPoint operator / (FixedPoint o) const;
 	
-	int GetInteger();
+	int GetInteger() const;
 	void SetRawValue( int _raw );
 	
 	//
-	inline int GetDebugRawValue(){ return m_value; };
+	inline int GetDebugRawValue() const
+	{
+		return m_value;
+	};
 };
 
 #endif /* defined(__TinyArcade__FixedPoint__) */
