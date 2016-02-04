@@ -102,7 +102,9 @@ FixedPoint FixedPoint::operator - (int _o ) const
 
 FixedPoint FixedPoint::operator - (FixedPoint _o ) const
 {
-	return m_value - _o.m_value;
+	FixedPoint ret;
+	ret.SetRawValue( m_value - _o.m_value );
+	return ret;
 }
 
 
