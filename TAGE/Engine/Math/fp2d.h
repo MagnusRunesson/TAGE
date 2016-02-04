@@ -26,8 +26,10 @@ public:
 	fp2d operator - (const fp2d& _o ) const;
 	
 	fp2d operator * (const FixedPoint& _o ) const;
-	
-	FixedPoint Length();
+
+	void Normalize();
+
+	FixedPoint Length() const;
 	
 	FixedPoint x;
 	FixedPoint y;

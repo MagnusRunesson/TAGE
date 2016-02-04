@@ -8,6 +8,7 @@
 
 #include <math.h>
 #include "Engine/Math/fp2d.h"
+#include "Engine/Math/fpmath.h"
 
 fp2d::fp2d()
 {
@@ -66,7 +67,22 @@ fp2d fp2d::operator * (const FixedPoint& _o ) const
 	return ret;
 }
 
-FixedPoint fp2d::Length()
+void fp2d::Normalize()
 {
-	return FixedPoint(1);
+	FixedPoint fpl = (x*x)+(y*y);
+	int sqrt = fisqrt( fpl.GetDebugRawValue() << 8 );
+	fpl.SetRawValue( sqrt );
+	//fpl.SetRawValue( l );
+	x /= fpl;
+	y /= fpl;
+}
+
+FixedPoint fp2d::Length() const
+{
+	FixedPoint ret;
+	int nx = x.GetDebugRawValue();
+	int ny = y.GetDebugRawValue();
+	int l = (nx*nx)+(ny*ny);
+	ret.SetRawValue( fisqrt( l << 8 ));
+	return ret;
 }
