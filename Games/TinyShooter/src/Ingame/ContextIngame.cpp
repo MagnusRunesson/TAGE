@@ -92,7 +92,10 @@ void levelFunc10( int _x )
 {
 	int i;
 	for( i=0; i<5; i++ )
-		enemySpawn( &enemy_sparrow, _x+96+(i*3), 50-(i*2), new fp2d( FixedPoint( 0, -(40-(i*6))), FixedPoint( 0, -i*6 )));
+	{
+		Enemy* pEnemy = enemySpawn( &enemy_sparrow, _x+96+(i*3), 50-(i*2), new fp2d( FixedPoint( 0, -(40-(i*6))), FixedPoint( 0, -i*6 )));
+		pEnemy->AttackTimer = 60+(i*40);
+	}
 }
 
 void levelFunc20( int _x )
