@@ -498,6 +498,7 @@ void ingame_exit()
 }
 
 extern void debugPrintSystems();
+extern GameObject* player;
 
 void ingame_debugTrigger( int _trigger )
 {
@@ -511,6 +512,9 @@ void ingame_debugTrigger( int _trigger )
 	{
 		extern int playerInvincibleTimer;
 		playerInvincibleTimer = 60;
+	} else if( _trigger == 8 )
+	{
+		enemyBulletSpawn( mapScroll+90, 32, player, FixedPoint( 0, 25 ));
 	} else if( _trigger == 9 )
 	{
 		debugPrintSystems();
