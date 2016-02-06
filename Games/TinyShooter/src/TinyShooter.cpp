@@ -29,11 +29,6 @@
 
 void tage_setup()
 {
-	fp2d a( 1, 1 );
-	fp2d b( 10, 1 );
-	FixedPoint d = Distance( a, b );
-	printf("d=%i (%i)\n", d.GetInteger(), d.GetDebugRawValue());
-	
 	contextInit();
 }
 
