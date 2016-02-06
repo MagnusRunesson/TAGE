@@ -33,8 +33,9 @@
 #define TITLESCREEN_CREDITSTIMER_TOTAL (50)
 #define TITLESCREEN_CREDITSTIMER_INVISBLE (30)
 #define TITLESCREEN_CREDITSHEIGHT (45)
+
 //
-extern AudioSource* bgm;
+//extern AudioSource* bgm;
 AudioSource* sfxPressStart;
 
 void debugPrintSystems()
@@ -122,9 +123,9 @@ void titlescreen_setup()
 	titleScreenWinners->y = 58;
 	
 	// Cool background music
-	bgm = audioMixer.GetChannel( 0 );
-	bgm->SetData( &music_titlescreen );
-	bgm->PlayFromBeginning();
+	//bgm = audioMixer.GetChannel( 0 );
+	//bgm->SetData( &music_titlescreen );
+	//bgm->PlayFromBeginning();
 	
 	// Sound effect for when the player decides to start the game
 	sfxPressStart = audioMixer.GetChannel( 1 );
@@ -158,7 +159,7 @@ void titlescreen_loop()
 		if( padGetPressed() & PAD_KEYMASK_PRIMARY )
 		{
 			titlescreenCloseTimer = TITLESCREEN_CLOSETIMER_TOTALDURATION;
-			bgm->Stop();
+			//bgm->Stop();
 		}
 	}
 	else
