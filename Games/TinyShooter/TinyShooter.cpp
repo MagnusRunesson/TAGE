@@ -17,6 +17,7 @@
 #include "src/Ingame/EnemyMovements.cpp"
 #include "src/Ingame/ExplosionManager.cpp"
 #include "src/Ingame/BulletManager.cpp"
+#include "src/Ingame/EnemyBulletManager.cpp"
 #include "src/Ingame/Player.cpp"
 #include "src/Ingame/HUD.cpp"
 #include "src/Ingame/PickupManager.cpp"
