@@ -95,6 +95,7 @@ void levelFunc10( int _x )
 	{
 		Enemy* pEnemy = enemySpawn( &enemy_sparrow, _x+96+(i*3), 50-(i*2), new fp2d( FixedPoint( 0, -(40-(i*6))), FixedPoint( 0, -i*6 )));
 		pEnemy->AttackTimer = 60+(i*40);
+		pEnemy->Timeout = 350;
 	}
 }
 
