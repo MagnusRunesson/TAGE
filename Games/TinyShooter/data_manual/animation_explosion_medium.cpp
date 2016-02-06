@@ -77,10 +77,4 @@ const AnimationFrameDefinition animation_explosion_medium_frames[] =
 	},
 };
 
-const AnimationSequenceDefinition animation_explosion_medium =
-{
-	9,
-	false,
-	animation_explosion_medium_frames,
-};
-
+DEFINE_ANIMATION( explosion_medium, false );

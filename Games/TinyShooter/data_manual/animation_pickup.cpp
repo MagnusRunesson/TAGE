@@ -42,11 +42,4 @@ const AnimationFrameDefinition animation_pickup_frames[] =
 	},
 };
 
-extern "C" const AnimationSequenceDefinition animation_pickup;
-const AnimationSequenceDefinition animation_pickup =
-{
-	4,
-	true,
-	animation_pickup_frames,
-};
-
+DEFINE_ANIMATION( pickup, true );

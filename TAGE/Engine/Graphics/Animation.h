@@ -49,5 +49,14 @@ public:
 	void Stop();
 };
 
+#define DEFINE_ANIMATION( _name, _looping ) \
+const AnimationSequenceDefinition animation_##_name = \
+{ \
+	sizeof( animation_##_name##_frames ) / sizeof( AnimationFrameDefinition ), \
+	_looping, \
+	animation_##_name##_frames \
+}
+
+
 
 #endif /* defined(__TinyShooter__ImageAnimation__) */

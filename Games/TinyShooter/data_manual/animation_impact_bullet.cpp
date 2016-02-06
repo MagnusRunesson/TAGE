@@ -49,10 +49,4 @@ const AnimationFrameDefinition animation_impact_bullet_frames[] =
 	},
 };
 
-const AnimationSequenceDefinition animation_impact_bullet =
-{
-	5,
-	false,
-	animation_impact_bullet_frames,
-};
-
+DEFINE_ANIMATION( impact_bullet, false );

@@ -33,12 +33,7 @@ const AnimationFrameDefinition animation_enemy_saucer_frames[] =
 	},
 };
 
-const AnimationSequenceDefinition animation_enemy_saucer =
-{
-	2,
-	true,
-	animation_enemy_saucer_frames,
-};
+DEFINE_ANIMATION( enemy_saucer, true );
 
 
 //
@@ -78,12 +73,7 @@ const AnimationFrameDefinition animation_enemy_sparrow_frames[] =
 	},
 };
 
-const AnimationSequenceDefinition animation_enemy_sparrow =
-{
-	4,
-	true,
-	animation_enemy_sparrow_frames,
-};
+DEFINE_ANIMATION( enemy_sparrow, true );
 
 
 //
@@ -101,12 +91,7 @@ const AnimationFrameDefinition animation_enemy_dragonhead_frames[] = {
 	}
 };
 
-const AnimationSequenceDefinition animation_enemy_dragonhead =
-{
-	1,
-	true,
-	animation_enemy_dragonhead_frames,
-};
+DEFINE_ANIMATION( enemy_dragonhead, true );
 
 
 //
@@ -124,12 +109,7 @@ const AnimationFrameDefinition animation_enemy_dragonbody_frames[] = {
 	}
 };
 
-const AnimationSequenceDefinition animation_enemy_dragonbody =
-{
-	1,
-	true,
-	animation_enemy_dragonbody_frames,
-};
+DEFINE_ANIMATION( enemy_dragonbody, true );
 
 
 //
@@ -147,12 +127,7 @@ const AnimationFrameDefinition animation_enemy_cargo_frames[] = {
 	}
 };
 
-const AnimationSequenceDefinition animation_enemy_cargo =
-{
-	1,
-	true,
-	animation_enemy_cargo_frames,
-};
+DEFINE_ANIMATION( enemy_cargo, true );
 
 
 
@@ -207,16 +182,10 @@ const AnimationFrameDefinition animation_enemy_bullet_frames[] = {
 	},
 };
 
-const AnimationSequenceDefinition animation_enemy_bullet =
-{
-	6,
-	true,
-	animation_enemy_bullet_frames,
-};
+DEFINE_ANIMATION( enemy_bullet, true );
 
 
 
-#define DEFINE_ANIMATION( name, looping ) const AnimationSequenceDefinition animation_##name = { sizeof( animation_##name##_frames ) / sizeof( AnimationFrameDefinition ), looping, animation_##name##_frames };
 
 //
 //
