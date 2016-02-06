@@ -65,7 +65,9 @@ void Animation::Update()
 			if( IsPlaying )
 			{
 				FrameTime -= duration;
-				pTarget->GetSprite()->image = pSequence->Frames[ FrameIndex ].sourceImage;
+				const AnimationFrameDefinition* pFrame = &pSequence->Frames[ FrameIndex ];
+				pTarget->GetSprite()->image = pFrame->sourceImage;
+				pTarget->SetHotspot( pFrame->HotspotX, pFrame->HotspotY );
 			}
 		}
 	}
