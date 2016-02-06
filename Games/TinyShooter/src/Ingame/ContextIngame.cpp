@@ -45,7 +45,7 @@ TileRenderer* playfield;
 int mapScroll;
 FixedPoint cameraScroll;
 FixedPoint cameraScrollSpeed;
-AudioSource* bgm;
+//AudioSource* bgm;
 
 bool debugSpriteRenderer;
 bool doCameraScroll;
@@ -175,7 +175,7 @@ void ingame_setup()
 	worldWidth = tilemap_spacebase.Width * tilebank_spacebase.TileWidth;
 	playfield = new TileRenderer( &tilemap_spacebase, &tilebank_spacebase );
 	background = new TileRenderer( &tilemap_spacebase_background, &tilebank_spacebase );
-	bgm = audioMixer.GetChannel( 2 );
+	//bgm = audioMixer.GetChannel( 2 );
 	
 	//
 	// Scrolling a 10 screen wide level (10 screens in total, scrolling 9 screens at 864 pixels) at FixedPoint( 0, 5 ) takes about 300 seconds (5 minutes)
