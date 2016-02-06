@@ -72,12 +72,17 @@ void Enemy::SetDefinition( const EnemyDefinition* _pEnemyDefinition )
 
 void Enemy::Update()
 {
-	Timeout--;
-	if( Timeout == 0 )
+	if( Timeout > 0 )
 	{
-		// Timeout reached. Disable this enemy and make room for another one.
-		pTargetGameObject->SetEnabled( false );
-		return;
+		// If this enemy have a timeout specified then see if it is time to destroy this enemy.
+		Timeout--;
+		
+		if( Timeout == 0 )
+		{
+			// Timeout reached. Disable this enemy and make room for another one.
+			pTargetGameObject->SetEnabled( false );
+			return;
+		}
 	}
 	
 	if( HitTimer > 0 )
