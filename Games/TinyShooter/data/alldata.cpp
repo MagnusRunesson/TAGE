@@ -75,8 +75,8 @@
 #include "data/audiosamples_pew_s8b_pcm_11025hz.cpp"
 #include "data/audiosamples_pickup_s8b_pcm_11025hz.cpp"
 #include "data/audiosamples_explosion_s8b_pcm_11025hz.cpp"
-#include "data/audiosamples_music_boss_s8b_pcm_11025hz.cpp"
-#include "data/audiosamples_music_titlescreen_s8b_pcm_11025hz.cpp"
+//#include "data/audiosamples_music_boss_s8b_pcm_11025hz.cpp"
+//#include "data/audiosamples_music_titlescreen_s8b_pcm_11025hz.cpp"
 
 //
 // Manually entered data
