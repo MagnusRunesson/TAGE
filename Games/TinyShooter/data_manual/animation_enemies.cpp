@@ -213,3 +213,46 @@ const AnimationSequenceDefinition animation_enemy_bullet =
 	true,
 	animation_enemy_bullet_frames,
 };
+
+
+
+#define DEFINE_ANIMATION( name, looping ) const AnimationSequenceDefinition animation_##name = { sizeof( animation_##name##_frames ) / sizeof( AnimationFrameDefinition ), looping, animation_##name##_frames };
+
+//
+//
+// Turret - An enemy that doesn't move, and is always aiming towards the player, firing continuously
+//
+//
+const AnimationFrameDefinition animation_enemy_turret_frames[] = {
+	{
+		&sprite_enemy_turret_00,
+		10,
+		0,
+		0,
+		-1,
+	},
+	{
+		&sprite_enemy_turret_01,
+		10,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_enemy_turret_02,
+		10,
+		0,
+		0,
+		-1,
+	},
+	{
+		&sprite_enemy_turret_01,
+		10,
+		0,
+		0,
+		0,
+	},
+};
+
+DEFINE_ANIMATION( enemy_turret, true );
+
