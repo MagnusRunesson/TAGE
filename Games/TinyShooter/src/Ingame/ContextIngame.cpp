@@ -126,6 +126,17 @@ void levelFunc3( int _x )
 	}
 }
 
+void levelFunc4( int _x )
+{
+	fp2d movement;
+	int i;
+	for( i=0; i<4; i++ )
+	{
+		Enemy* pEnemy = enemySpawn( &enemy_turret, _x+96+(i*8), 55, &movement );
+		pEnemy->Timeout = 1024;
+	}
+}
+
 void levelFuncSpawnCargo( int _x )
 {
 	fp2d movement( FixedPoint( 0, -50 ), FixedPoint( 0, 10 ));
@@ -145,6 +156,10 @@ const LevelScrollFunc spacebaseFuncs[] = {
 		&levelFuncSpawnCargo,
 	},
 	{
+		28,
+		&levelFunc4,
+	},
+	{
 		40,
 		&levelFunc10,
 	},
@@ -155,7 +170,7 @@ const LevelScrollFunc spacebaseFuncs[] = {
 	{
 		60,
 		&levelFunc3
-	}
+	},
 };
 
 int currentFunc;
