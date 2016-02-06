@@ -23,6 +23,9 @@
 		253A56A51C626040008CFFDE /* sprite_enemy_bullet_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253A569F1C626040008CFFDE /* sprite_enemy_bullet_02.cpp */; settings = {ASSET_TAGS = (); }; };
 		253A56A61C626040008CFFDE /* sprite_enemy_bullet_03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253A56A11C626040008CFFDE /* sprite_enemy_bullet_03.cpp */; settings = {ASSET_TAGS = (); }; };
 		253A56A91C626106008CFFDE /* EnemyBulletManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253A56A71C626106008CFFDE /* EnemyBulletManager.cpp */; settings = {ASSET_TAGS = (); }; };
+		253A56B01C66971D008CFFDE /* sprite_enemy_turret_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253A56AA1C66971D008CFFDE /* sprite_enemy_turret_00.cpp */; settings = {ASSET_TAGS = (); }; };
+		253A56B11C66971D008CFFDE /* sprite_enemy_turret_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253A56AC1C66971D008CFFDE /* sprite_enemy_turret_01.cpp */; settings = {ASSET_TAGS = (); }; };
+		253A56B21C66971D008CFFDE /* sprite_enemy_turret_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253A56AE1C66971D008CFFDE /* sprite_enemy_turret_02.cpp */; settings = {ASSET_TAGS = (); }; };
 		25678FF41C57D86E00B2C95E /* sinetable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25678FF31C57D86E00B2C95E /* sinetable.cpp */; settings = {ASSET_TAGS = (); }; };
 		257AB0B21C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		257AB0B51C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0B31C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -166,6 +169,12 @@
 		253A56A21C626040008CFFDE /* sprite_enemy_bullet_03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_bullet_03.h; path = data/sprite_enemy_bullet_03.h; sourceTree = "<group>"; };
 		253A56A71C626106008CFFDE /* EnemyBulletManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EnemyBulletManager.cpp; path = src/Ingame/EnemyBulletManager.cpp; sourceTree = SOURCE_ROOT; };
 		253A56A81C626106008CFFDE /* EnemyBulletManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnemyBulletManager.h; path = src/Ingame/EnemyBulletManager.h; sourceTree = SOURCE_ROOT; };
+		253A56AA1C66971D008CFFDE /* sprite_enemy_turret_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_turret_00.cpp; path = data/sprite_enemy_turret_00.cpp; sourceTree = "<group>"; };
+		253A56AB1C66971D008CFFDE /* sprite_enemy_turret_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_turret_00.h; path = data/sprite_enemy_turret_00.h; sourceTree = "<group>"; };
+		253A56AC1C66971D008CFFDE /* sprite_enemy_turret_01.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_turret_01.cpp; path = data/sprite_enemy_turret_01.cpp; sourceTree = "<group>"; };
+		253A56AD1C66971D008CFFDE /* sprite_enemy_turret_01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_turret_01.h; path = data/sprite_enemy_turret_01.h; sourceTree = "<group>"; };
+		253A56AE1C66971D008CFFDE /* sprite_enemy_turret_02.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_turret_02.cpp; path = data/sprite_enemy_turret_02.cpp; sourceTree = "<group>"; };
+		253A56AF1C66971D008CFFDE /* sprite_enemy_turret_02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_turret_02.h; path = data/sprite_enemy_turret_02.h; sourceTree = "<group>"; };
 		25678FF31C57D86E00B2C95E /* sinetable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sinetable.cpp; sourceTree = "<group>"; };
 		257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_music_boss_s8b_pcm_11025hz.cpp; path = data/audiosamples_music_boss_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
 		257AB0B11C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audiosamples_music_boss_s8b_pcm_11025hz.h; path = data/audiosamples_music_boss_s8b_pcm_11025hz.h; sourceTree = "<group>"; };
@@ -449,6 +458,12 @@
 		250DA18B1C4A7FFF00C664DA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				253A56AA1C66971D008CFFDE /* sprite_enemy_turret_00.cpp */,
+				253A56AB1C66971D008CFFDE /* sprite_enemy_turret_00.h */,
+				253A56AC1C66971D008CFFDE /* sprite_enemy_turret_01.cpp */,
+				253A56AD1C66971D008CFFDE /* sprite_enemy_turret_01.h */,
+				253A56AE1C66971D008CFFDE /* sprite_enemy_turret_02.cpp */,
+				253A56AF1C66971D008CFFDE /* sprite_enemy_turret_02.h */,
 				253A569B1C626040008CFFDE /* sprite_enemy_bullet_00.cpp */,
 				253A569C1C626040008CFFDE /* sprite_enemy_bullet_00.h */,
 				253A569D1C626040008CFFDE /* sprite_enemy_bullet_01.cpp */,
@@ -825,6 +840,7 @@
 				25CB2D461C57561F00BC35A1 /* sprite_pickup_03.cpp in Sources */,
 				2505C22A1C5A376D00E46CDF /* sprite_explosion_medium_07.cpp in Sources */,
 				257AB0B21C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp in Sources */,
+				253A56B01C66971D008CFFDE /* sprite_enemy_turret_00.cpp in Sources */,
 				25CB2D441C57561F00BC35A1 /* sprite_pickup_01.cpp in Sources */,
 				25D99FE51C5E574600CC4CAE /* BulletManager.cpp in Sources */,
 				25CB2D3A1C57561F00BC35A1 /* sprite_logo_shooter_o.cpp in Sources */,
@@ -854,11 +870,13 @@
 				25CB2D421C57561F00BC35A1 /* sprite_pb_01.cpp in Sources */,
 				25CB2D371C57561F00BC35A1 /* sprite_explosion_big_05.cpp in Sources */,
 				25CB2D8A1C57565100BC35A1 /* Animation.cpp in Sources */,
+				253A56B11C66971D008CFFDE /* sprite_enemy_turret_01.cpp in Sources */,
 				25CB2D401C57561F00BC35A1 /* sprite_logo_tiny_t.cpp in Sources */,
 				25CB2D8D1C57565100BC35A1 /* Sprite.cpp in Sources */,
 				25BBA4AF1C5FBD6500A35F2F /* audiosamples_pickup_s8b_pcm_11025hz.cpp in Sources */,
 				25CB2D381C57561F00BC35A1 /* sprite_logo_shooter_e.cpp in Sources */,
 				25CB2D571C57563F00BC35A1 /* animation_explosion_big.cpp in Sources */,
+				253A56B21C66971D008CFFDE /* sprite_enemy_turret_02.cpp in Sources */,
 				25B7B1461C5A85C300355A54 /* animation_impact_bullet.cpp in Sources */,
 				25CB2D361C57561F00BC35A1 /* sprite_explosion_big_04.cpp in Sources */,
 				25CB2D411C57561F00BC35A1 /* sprite_logo_tiny_y.cpp in Sources */,
