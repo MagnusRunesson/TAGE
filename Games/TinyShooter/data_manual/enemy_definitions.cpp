@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 Magnus Runesson. All rights reserved.
 //
 
+#include <stdlib.h>
 #include "Engine/Graphics/Image.h"
 #include "src/Ingame/EnemyMovements.h"
 #include "src/Ingame/EnemyDefinition.h"
@@ -58,4 +59,12 @@ const EnemyDefinition enemy_bullet =
 	0,
 	ENEMY_SPECIALFLAG_INVINCIBLE,
 	&EnemyMovement_00_FollowDirection
+};
+
+const EnemyDefinition enemy_turret =
+{
+	&animation_enemy_turret,
+	4,
+	0,
+	NULL
 };
