@@ -100,10 +100,13 @@ void Enemy::Update()
 		}
 	}
 	
-	// Update movement
-	m_movementTimer++;
-	pfnMovementUpdate( this );
-	pTargetGameObject->SetWorldPosition( m_worldPosition.x.GetInteger(), m_worldPosition.y.GetInteger());
+	if( pfnMovementUpdate != NULL )
+	{
+		// Update movement
+		m_movementTimer++;
+		pfnMovementUpdate( this );
+		pTargetGameObject->SetWorldPosition( m_worldPosition.x.GetInteger(), m_worldPosition.y.GetInteger());
+	}
 }
 
 bool Enemy::Hit()
