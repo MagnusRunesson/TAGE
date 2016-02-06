@@ -32,6 +32,7 @@ public:
 	uint8 HitTimer;
 	uint8 SpecialFlag;
 	uint8 AttackTimer;
+	uint16 Timeout;
 
 	fp2d m_worldPosition;
 	fp2d m_movementDirection;

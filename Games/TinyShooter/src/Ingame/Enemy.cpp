@@ -24,11 +24,6 @@ void enemyUpdatePipe( void* _pData )
 	((Enemy*)_pData)->Update();
 }
 
-void enemyPostRenderPipe( void* _pData )
-{
-	((Enemy*)_pData)->PostRender();
-}
-
 Enemy::Enemy()
 {
 	Reboot();
@@ -52,7 +47,6 @@ void Enemy::SetDefinition( const EnemyDefinition* _pEnemyDefinition )
 		pTargetGameObject->GetSprite()->collisionIndex = SPRITE_COLLISION_INDEX_ENEMY;
 		pTargetGameObject->m_customObject = this;
 		pTargetGameObject->m_customUpdate = enemyUpdatePipe;
-		pTargetGameObject->m_customPostRender = enemyPostRenderPipe;
 	} else
 	{
 		// If we've already allocated a game object for this enemy we can simply modify that game object
@@ -66,8 +60,10 @@ void Enemy::SetDefinition( const EnemyDefinition* _pEnemyDefinition )
 
 	//
 	Health = _pEnemyDefinition->StartHealth;
-	HitTimer = 0;
 	SpecialFlag = _pEnemyDefinition->SpecialFlag;
+	HitTimer = 0;
+	Timeout = 255;
+
 	pfnMovementUpdate = _pEnemyDefinition->pfnMovement;
 	
 	// Wake up the enemy
@@ -76,6 +72,14 @@ void Enemy::SetDefinition( const EnemyDefinition* _pEnemyDefinition )
 
 void Enemy::Update()
 {
+	Timeout--;
+	if( Timeout == 0 )
+	{
+		// Timeout reached. Disable this enemy and make room for another one.
+		pTargetGameObject->SetEnabled( false );
+		return;
+	}
+	
 	if( HitTimer > 0 )
 	{
 		HitTimer--;
@@ -100,22 +104,6 @@ void Enemy::Update()
 	m_movementTimer++;
 	pfnMovementUpdate( this );
 	pTargetGameObject->SetWorldPosition( m_worldPosition.x.GetInteger(), m_worldPosition.y.GetInteger());
-}
-
-void Enemy::PostRender()
-{
-	Sprite* sprite = pTargetGameObject->GetSprite();
-	int x = sprite->x;
-	int left = x;
-	int right = x+sprite->image->w;
-	int y = sprite->y;
-	int top = y;
-	int bottom = y+sprite->image->h;
-	
-	if( right <= 0 ) pTargetGameObject->SetEnabled( false );
-	//if( left > SCREEN_WIDTH ) pTargetGameObject->SetEnabled( false );
-	if( bottom <= 0 ) pTargetGameObject->SetEnabled( false );
-	if( top > SCREEN_HEIGHT ) pTargetGameObject->SetEnabled( false );
 }
 
 bool Enemy::Hit()
