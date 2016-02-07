@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include "TinyScreen.h"
 #include "Arduino.h"
 
 // TinyArcade game engine
@@ -33,6 +34,8 @@
 #define TITLESCREEN_CREDITSTIMER_TOTAL (50)
 #define TITLESCREEN_CREDITSTIMER_INVISBLE (30)
 #define TITLESCREEN_CREDITSHEIGHT (45)
+
+extern TinyScreen display;
 
 //
 //extern AudioSource* bgm;
@@ -188,9 +191,13 @@ void titlescreen_loop()
 	// Scanline rendered
 	//
 	unsigned short lineBuffer[ SCREEN_WIDTH ];
-	uint16* screen = screenBuffer;
+	//uint16* screen = screenBuffer;
 
 	spriteRenderer.FrameStart();
+
+	display.setX( 0, SCREEN_WIDTH );
+	display.setY( 0, SCREEN_HEIGHT );
+	display.startData();
 
 	int iScanline = 0;
 	while( iScanline < SCREEN_HEIGHT )
@@ -211,14 +218,18 @@ void titlescreen_loop()
 			lineBuffer[ x ] = rgb;
 		}
 
+		display.writeBuffer( (uint8*)lineBuffer, SCREEN_WIDTH*2 );
+		
+		/*
 		// Copy from line buffer to "hardware" screen
 		for( x=0; x<SCREEN_WIDTH; x++ )
-			*screen++ = lineBuffer[ x ];
+			*screen++ = lineBuffer[ x ];*/
 
 		spriteRenderer.NextScanline( debugSpriteRenderer );
 		
 		iScanline++;
 	}
+	display.endTransfer();
 
 	//
 	// Reset debug triggers

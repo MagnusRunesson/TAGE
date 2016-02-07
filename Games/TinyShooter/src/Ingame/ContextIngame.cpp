@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include "TinyScreen.h"
 #include "Arduino.h"
 
 // TinyArcade game engine
@@ -49,6 +50,8 @@ FixedPoint cameraScrollSpeed;
 
 bool debugSpriteRenderer;
 bool doCameraScroll;
+
+extern TinyScreen display;
 
 int worldWidth;
 
@@ -319,6 +322,10 @@ void ingame_loop()
 	
 	Sprite* lastCollisionBullet = NULL;
 	
+	display.setX( 0, SCREEN_WIDTH );
+	display.setY( 0, SCREEN_HEIGHT );
+	display.startData();
+	
 	bool playerAlive = true;
 	int iScanline = 0;
 	while( iScanline < mirrorStart )
@@ -467,9 +474,12 @@ void ingame_loop()
 			lineBuffer[ x ] = rgb;
 		}
 
+		/*
 		// Copy from line buffer to "hardware" screen
 		for( x=0; x<SCREEN_WIDTH; x++ )
 			*screen++ = lineBuffer[ x ];
+		 */
+		display.writeBuffer( (uint8*)lineBuffer, SCREEN_WIDTH*2 );
 
 		// Mirror test
 		if( iScanline >= copyStart )
@@ -497,6 +507,8 @@ void ingame_loop()
 		iScanline++;
 	}
 
+	display.endTransfer();
+	
 	//
 	// Reset debug triggers
 	//
