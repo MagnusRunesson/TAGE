@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include "TinyScreen.h"
 #include "Arduino.h"
 
 // TinyArcade game engine
@@ -27,8 +28,14 @@
 #include "src/TitleScreen/ContextTitleScreen.h"
 #include "src/ContextManager.h"
 
+TinyScreen display = TinyScreen( TinyScreenPlus );
+
 void tage_setup()
 {
+	display.begin();
+	display.setBrightness( 10 );
+	display.setBitDepth( 1 );
+	
 	contextInit();
 }
 
