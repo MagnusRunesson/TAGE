@@ -38,5 +38,6 @@
 //
 #include "Engine/Types.h"
 #include "Engine/BitHelpers.h"
+#include "Engine/Debug.h"
 
 #endif

@@ -20,6 +20,7 @@
 #include "Engine/Scene/GameObjectManager.h"
 #include "Engine/Graphics/TileRenderer.h"
 #include "Engine/Graphics/Animation.h"
+#include "Engine/Debug.h"
 
 // Project specifics
 #include "Data/alldata.h"
@@ -32,6 +33,8 @@ TinyScreen display = TinyScreen( TinyScreenPlus );
 
 void tage_setup()
 {
+	debugInit();
+	
 	display.begin();
 	display.setBrightness( 10 );
 	display.setBitDepth( 1 );

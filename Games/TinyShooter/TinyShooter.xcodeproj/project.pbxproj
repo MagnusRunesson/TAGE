@@ -108,6 +108,7 @@
 		25CB2DAA1C57566100BC35A1 /* AudioHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2DA41C57566100BC35A1 /* AudioHandler.cpp */; };
 		25CB2DAB1C57566100BC35A1 /* Joypad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2DA61C57566100BC35A1 /* Joypad.cpp */; };
 		25CB2DAC1C57566100BC35A1 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2DA81C57566100BC35A1 /* Timer.cpp */; };
+		25CEAB021C6A4F310018E440 /* Debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CEAB001C6A4F310018E440 /* Debug.cpp */; settings = {ASSET_TAGS = (); }; };
 		25D7B2601C57985800759E1B /* enemy_paths.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D7B25E1C57985800759E1B /* enemy_paths.cpp */; };
 		25D99FCC1C5E4C3300CC4CAE /* ContextTitleScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D99FCA1C5E4C3300CC4CAE /* ContextTitleScreen.cpp */; settings = {ASSET_TAGS = (); }; };
 		25D99FCF1C5E4D4100CC4CAE /* ContextManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D99FCD1C5E4D4100CC4CAE /* ContextManager.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -345,6 +346,8 @@
 		25CB2DA71C57566100BC35A1 /* Joypad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Joypad.h; path = "../../TAGE/Abstraction layer/Joypad.h"; sourceTree = "<group>"; };
 		25CB2DA81C57566100BC35A1 /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Timer.cpp; path = "../../TAGE/Abstraction layer/Timer.cpp"; sourceTree = "<group>"; };
 		25CB2DA91C57566100BC35A1 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Timer.h; path = "../../TAGE/Abstraction layer/Timer.h"; sourceTree = "<group>"; };
+		25CEAB001C6A4F310018E440 /* Debug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Debug.cpp; path = ../../TAGE/Engine/Debug.cpp; sourceTree = "<group>"; };
+		25CEAB011C6A4F310018E440 /* Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Debug.h; path = ../../TAGE/Engine/Debug.h; sourceTree = "<group>"; };
 		25D7B25E1C57985800759E1B /* enemy_paths.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = enemy_paths.cpp; path = data_manual/enemy_paths.cpp; sourceTree = "<group>"; };
 		25D7B25F1C57985800759E1B /* enemy_paths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = enemy_paths.h; path = data_manual/enemy_paths.h; sourceTree = "<group>"; };
 		25D99FCA1C5E4C3300CC4CAE /* ContextTitleScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContextTitleScreen.cpp; sourceTree = "<group>"; };
@@ -432,6 +435,8 @@
 				25CB2D641C57565100BC35A1 /* Graphics */,
 				25CB2D751C57565100BC35A1 /* Math */,
 				25CB2D7D1C57565100BC35A1 /* Scene */,
+				25CEAB001C6A4F310018E440 /* Debug.cpp */,
+				25CEAB011C6A4F310018E440 /* Debug.h */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -865,6 +870,7 @@
 				25CB2D881C57565100BC35A1 /* AudioSource.cpp in Sources */,
 				2505C22E1C5A378D00E46CDF /* animation_explosion_medium.cpp in Sources */,
 				2505C22B1C5A376D00E46CDF /* sprite_explosion_medium_08.cpp in Sources */,
+				25CEAB021C6A4F310018E440 /* Debug.cpp in Sources */,
 				2591BCAE1C5D2A9B00F69102 /* sprite_enemy_dragonhead_00.cpp in Sources */,
 				25CB2D971C57565100BC35A1 /* GameObjectManager.cpp in Sources */,
 				25D99FE91C5E574600CC4CAE /* EnemyMovements.cpp in Sources */,
