@@ -11,6 +11,7 @@
 #include "Engine/Scene/GameObject.h"
 #include "Engine/Graphics/Image.h"
 #include "Engine/BitHelpers.h"
+#include "Engine/Debug.h"
 
 GameObjectManager gameObjectManager;
 
@@ -39,7 +40,7 @@ GameObject* GameObjectManager::CreateGameObject( const Image* _image )
 		}
 	}
 	
-	printf( "No free game objects!\n" );
+	debugLog( "No free game objects!\n" );
 	return NULL;
 }
 
@@ -56,7 +57,7 @@ GameObject* GameObjectManager::CreateGameObject( const AnimationSequenceDefiniti
 		}
 	}
 	
-	printf( "No free game objects!\n" );
+	debugLog( "No free game objects!\n" );
 	return NULL;
 }
 
@@ -101,25 +102,25 @@ const char* stringFromBool( bool _value )
 
 void GameObjectManager::debugPrintStats()
 {
-	printf( "----------[ GameObjectManager ]----------\n" );
+	debugLog( "----------[ GameObjectManager ]----------\n" );
 	int numUsed = 0;
 	int i;
 	for( i=0; i<MAX_GAMEOBJECTS; i++ )
 	{
 		GameObject* gameObject = &m_gameObjects[ i ];
-		printf("Game object %3i - ", i );
-		printf("Used: %s", stringFromBool( gameObject->IsUsed()));
+		debugLog("Game object %3i - ", i );
+		debugLog("Used: %s", stringFromBool( gameObject->IsUsed()));
 		if( gameObject->IsUsed())
 		{
 			numUsed++;
-			printf(" - Enabled: %s", stringFromBool( gameObject->IsEnabled()));
+			debugLog(" - Enabled: %s", stringFromBool( gameObject->IsEnabled()));
 			Sprite* sprite = gameObject->GetSprite();
-			if( sprite != NULL ) printf(" - Sprite: %s", sprite->image->DEBUG_name );
+			if( sprite != NULL ) debugLog(" - Sprite: %s", sprite->image->DEBUG_name );
 			Animation* animation = gameObject->GetAnimation();
-			if( animation != NULL ) printf(" - Animation: YES" );
+			if( animation != NULL ) debugLog(" - Animation: YES" );
 		}
-		printf("\n");
+		debugLog("\n");
 	}
 	
-	printf("Num objects used: %i / %i\n", numUsed, MAX_GAMEOBJECTS );
+	debugLog( "Num objects used: %i / %i\n", numUsed, MAX_GAMEOBJECTS );
 }

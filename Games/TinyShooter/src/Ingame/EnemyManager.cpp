@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include "Engine/Scene/GameObjectManager.h"
 #include "Engine/Scene/GameObject.h"
+#include "Engine/Debug.h"
 #include "src/Ingame/EnemyManager.h"
 #include "src/Ingame/Enemy.h"
 #include "data/alldata.h"
@@ -59,7 +60,7 @@ Enemy* enemySpawn( const EnemyDefinition* _pEnemyDefinition, int _worldX, int _w
 		safety--;
 		if( safety == 0 )
 		{
-			printf("NOOOOOOO!\n");
+			debugLog( "NOOOOOOO!\n" );
 			return &enemyObjects[ 0 ];
 		}
 	}

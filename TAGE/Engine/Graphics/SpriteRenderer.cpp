@@ -11,6 +11,7 @@
 #include "Engine/Graphics/Screen.h"
 #include "Engine/Graphics/Image.h"
 #include "Engine/BitHelpers.h"
+#include "Engine/Debug.h"
 
 SpriteRenderer spriteRenderer;
 
@@ -163,24 +164,24 @@ void SpriteRenderer::NextScanline( bool _debugPrint )
 	//
 	if( _debugPrint )
 	{
-		printf( "\n------------[ Scanline: %i\n", m_currentScanline );
+		debugLog( "\n------------[ Scanline: %i\n", m_currentScanline );
 		
-		printf( "Current sprites: \n" );
+		debugLog( "Current sprites: \n" );
 		renderSpriteList = m_scanlineSprites;
 		sprite = *renderSpriteList;
 		while( sprite != NULL )
 		{
-			printf( "  Image x=%i, y=%i, w=%i, h=%i, left=%i, top=%i, right=%i, bottom=%i, data=0x%016llx\n", sprite->x, sprite->y, sprite->image->w, sprite->image->h, sprite->boundsLeft, sprite->boundsTop, sprite->boundsRight, sprite->boundsBottom, sprite->image->pixels );
+			debugLog( "  Image x=%i, y=%i, w=%i, h=%i, left=%i, top=%i, right=%i, bottom=%i, data=0x%016llx\n", sprite->x, sprite->y, sprite->image->w, sprite->image->h, sprite->boundsLeft, sprite->boundsTop, sprite->boundsRight, sprite->boundsBottom, sprite->image->pixels );
 			renderSpriteList++;
 			sprite = *renderSpriteList;
 		}
 		
-		printf( "Upcoming sprites: \n" );
+		debugLog( "Upcoming sprites: \n" );
 		renderSpriteList = m_potentialSprites;
 		sprite = *renderSpriteList;
 		while( sprite != NULL )
 		{
-			printf( "  Image x=%i, y=%i, w=%i, h=%i, left=%i, top=%i, right=%i, bottom=%i, data=0x%016llx\n", sprite->x, sprite->y, sprite->image->w, sprite->image->h, sprite->boundsLeft, sprite->boundsTop, sprite->boundsRight, sprite->boundsBottom, sprite->image->pixels );
+			debugLog( "  Image x=%i, y=%i, w=%i, h=%i, left=%i, top=%i, right=%i, bottom=%i, data=0x%016llx\n", sprite->x, sprite->y, sprite->image->w, sprite->image->h, sprite->boundsLeft, sprite->boundsTop, sprite->boundsRight, sprite->boundsBottom, sprite->image->pixels );
 			renderSpriteList++;
 			sprite = *renderSpriteList;
 		}
@@ -289,21 +290,21 @@ extern const char* stringFromBool( bool );
 
 void SpriteRenderer::debugPrintStats()
 {
-	printf( "----------[ SpriteRenderer ]----------\n" );
+	debugLog( "----------[ SpriteRenderer ]----------\n" );
 	int numUsed = 0;
 	int i;
 	for( i=0; i<MAX_SPRITES; i++ )
 	{
 		Sprite* sprite = &m_sprite[ i ];
-		printf("Sprite object %-3i -", i );
-		printf(" Used: %-3s", stringFromBool( sprite->image != NULL ));
+		debugLog("Sprite object %-3i -", i );
+		debugLog(" Used: %-3s", stringFromBool( sprite->image != NULL ));
 		if( sprite->image != NULL )
 		{
 			numUsed++;
-			printf(" - Image: %s", sprite->image->DEBUG_name );
+			debugLog(" - Image: %s", sprite->image->DEBUG_name );
 		}
-		printf("\n");
+		debugLog("\n");
 	}
 	
-	printf("Num sprites used: %i / %i\n", numUsed, MAX_SPRITES );
+	debugLog("Num sprites used: %i / %i\n", numUsed, MAX_SPRITES );
 }
