@@ -15,7 +15,6 @@
 #include "Engine/Graphics/Image.h"
 #include "Engine/types.h"
 #include "Engine/Math/FixedPoint.h"
-#include "Abstraction Layer/Joypad.h"
 #include "Engine/Math/fpmath.h"
 #include "Engine/Scene/Camera.h"
 #include "Engine/Scene/GameObjectManager.h"
@@ -23,6 +22,9 @@
 #include "Engine/Graphics/Animation.h"
 #include "Engine/Audio/AudioMixer.h"
 #include "Engine/Audio/AudioSource.h"
+#include "Engine/Debug.h"
+#include "Abstraction Layer/Joypad.h"
+#include "Abstraction Layer/Timer.h"
 
 // Project specifics
 #include "data/alldata.h"
@@ -179,6 +181,9 @@ const LevelScrollFunc spacebaseFuncs[] = {
 int currentFunc;
 const int numFuncs = sizeof( spacebaseFuncs ) / sizeof( LevelScrollFunc );
 
+float avgTime;
+const float avgTimeSamples = 60.0f;
+
 void ingame_setup()
 {
 	// Reboot all cool systems
@@ -223,6 +228,8 @@ void ingame_setup()
 	playerBulletsInit();
 	explosionsInit();
 	enemyManagerInit();
+	
+	avgTime = 0.0f;
 }
 
 void ingame_loop()
@@ -239,6 +246,7 @@ void ingame_loop()
 	//
 	gameObjectManager.Update();
 
+	doCameraScroll = false;
 	if( doCameraScroll )
 	{
 		int scrollMax = worldWidth-96;
@@ -326,6 +334,8 @@ void ingame_loop()
 	display.setY( 0, SCREEN_HEIGHT );
 	display.startData();
 	
+	uint32 start = nanos();
+	
 	bool playerAlive = true;
 	int iScanline = 0;
 	while( iScanline < mirrorStart )
@@ -341,10 +351,11 @@ void ingame_loop()
 		{
 			uint8 spriteCollisionMask;
 			uint16 rgb = 0;
-			background->RenderPixel( x, &rgb );
-			bool renderedBackground = playfield->RenderPixel( x, &rgb );
+			background->RenderPixel( &rgb );
+			bool renderedBackground = playfield->RenderPixel( &rgb );
 			bool renderedSprite = spriteRenderer.RenderPixel( x, &rgb, &spriteCollisionMask );
 
+			/*
 			if( renderedSprite )
 			{
 				// A sprite was rendered on this pixel
@@ -471,6 +482,7 @@ void ingame_loop()
 					}
 				}
 			}
+			 */
 #ifdef TAGE_TARGET_MACOSX
 			lineBuffer[ x ] = rgb;
 #else
@@ -511,6 +523,17 @@ void ingame_loop()
 		
 		iScanline++;
 	}
+	
+	uint32 end = nanos();
+	uint32 duration = end-start;
+	float thisFrame = duration;
+	float allTime = avgTime * avgTimeSamples;
+	allTime -= avgTime;
+	allTime += thisFrame;
+	avgTime = allTime / avgTimeSamples;
+	
+	debugLog( "Frame render time: %i - average: %f\n", duration, avgTime );
+
 
 	display.endTransfer();
 	
