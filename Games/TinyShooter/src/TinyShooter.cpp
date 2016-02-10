@@ -38,6 +38,17 @@ void tage_setup()
 	display.begin();
 	display.setBrightness( 10 );
 	display.setBitDepth( 1 );
+	//display.setColorMode( 1 );
+
+#ifndef TAGE_TARGET_MACOSX
+	uint8_t remap=(1<<5);// + (1<<2);
+	remap|=(1<<6);	// Bit depth
+	//remap^=(1<<2);	// Color mode
+	display.startCommand();
+	display.TSSPI->transfer(0xA0);//set remap
+	display.TSSPI->transfer(remap);
+	display.endTransfer();
+#endif
 	
 	contextInit();
 }
