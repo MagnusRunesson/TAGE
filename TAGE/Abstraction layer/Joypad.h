@@ -23,6 +23,7 @@ const int PAD_KEYMASK_DPAD_RIGHT	= (1<<19);
 //
 //
 //
+void padInit();
 void padUpdate();
 uint8 padGet( sint8* _x, sint8* _y );
 uint8 padGetKeys();
