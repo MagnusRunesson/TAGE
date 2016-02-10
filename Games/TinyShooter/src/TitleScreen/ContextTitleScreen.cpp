@@ -215,7 +215,13 @@ void titlescreen_loop()
 
 			uint16 rgb = iScanline>>2;
 			spriteRenderer.RenderPixel( x, &rgb, &spriteCollisionMask );
+			
+#ifdef TAGE_TARGET_MACOSX
 			lineBuffer[ x ] = rgb;
+#else
+			uint16 newrgb2 = ((rgb&0x00ff)<<8) + ((rgb&0xff00)>>8);
+			lineBuffer[ x ] = newrgb2;
+#endif
 		}
 
 		display.writeBuffer( (uint8*)lineBuffer, SCREEN_WIDTH*2 );

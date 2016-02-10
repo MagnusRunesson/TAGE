@@ -471,7 +471,12 @@ void ingame_loop()
 					}
 				}
 			}
+#ifdef TAGE_TARGET_MACOSX
 			lineBuffer[ x ] = rgb;
+#else
+			uint16 newrgb2 = ((rgb&0x00ff)<<8) + ((rgb&0xff00)>>8);
+			lineBuffer[ x ] = newrgb2;
+#endif
 		}
 
 		/*
