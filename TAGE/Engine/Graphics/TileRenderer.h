@@ -23,6 +23,15 @@ class TileRenderer
 	int m_tileY;
 	int m_pixelY;
 	
+	int m_tileX;
+	int m_pixelX;
+	int m_tileMapIndex;
+	int m_tile;
+	bool m_flipX;
+	bool m_flipY;
+	bool m_flipD;
+	int m_tileReadOfs;
+	
 public:
 	TileRenderer( const CTileMap* _tileMap, const CTileBank* _tileBank );
 	
@@ -35,8 +44,12 @@ public:
 	//
 	void FrameStart();
 	void NextScanline( bool _debugPrint = false );
-	bool RenderPixel( int _x, uint16* _pOutPixel );
+	bool RenderPixel( uint16* _pOutPixel );
 	void RenderScanline( uint16* _targetBuffer );
+	
+private:
+	void ReadTile();
+	void NextPixel();
 };
 
 #endif /* TileRenderer_hpp */
