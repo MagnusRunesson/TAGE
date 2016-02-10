@@ -29,6 +29,13 @@ uint32 millis()
 	return ret - timerStartMillis;
 }
 
+uint32 nanos()
+{
+	auto now = std::chrono::high_resolution_clock::now().time_since_epoch();
+	uint32 ret = std::chrono::duration_cast<std::chrono::nanoseconds>( now ).count();
+	return ret;
+}
+
 void delay( uint32 milliseconds )
 {
 	SDL_Delay( milliseconds );

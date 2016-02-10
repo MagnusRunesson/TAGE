@@ -9,6 +9,10 @@
 #ifndef Timer_hpp
 #define Timer_hpp
 
+#include "Engine/Types.h"
+
 void timerInit();
+
+uint32 nanos();
 
 #endif /* Timer_hpp */
