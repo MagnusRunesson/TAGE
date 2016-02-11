@@ -103,7 +103,7 @@ void padInit()
 
 void padUpdate()
 {
-	const int deadzone = 50;
+	const int deadzone = 75;
 	padX = 0;
 	padY = 0;
 	int rx = analogRead( TinyArcadePinX );
