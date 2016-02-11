@@ -1,3 +1,5 @@
+//#define PERF_FEST
+
 //
 //  TinyRacer.cpp
 //  TinyArcade
@@ -183,7 +185,17 @@ int currentFunc;
 const int numFuncs = sizeof( spacebaseFuncs ) / sizeof( LevelScrollFunc );
 
 float avgTime;
+float avgTime2;
 const float avgTimeSamples = 60.0f;
+
+float addToAverage( float _currentAverage, float _newTime, float _numSamples )
+{
+	float allTime = _currentAverage * _numSamples;
+	allTime -= _currentAverage;
+	allTime += _newTime;
+	_currentAverage = allTime / _numSamples;
+	return _currentAverage;
+}
 
 void ingame_setup()
 {
@@ -231,6 +243,7 @@ void ingame_setup()
 	enemyManagerInit();
 	
 	avgTime = 0.0f;
+	avgTime2 = 0.0f;
 }
 
 void ingame_loop()
@@ -247,7 +260,10 @@ void ingame_loop()
 	//
 	gameObjectManager.Update();
 
+#ifdef PERF_FEST
 	doCameraScroll = false;
+#endif
+	
 	if( doCameraScroll )
 	{
 		int scrollMax = worldWidth-96;
@@ -334,7 +350,25 @@ void ingame_loop()
 	display.setY( 0, SCREEN_HEIGHT );
 	display.startData();
 	
+	// Figures measured on a Mac, not the TinyArcade
+	// Time is in nano seconds
+	//
+	// ---[ Times for the whole render loop ]----------------------------------------------------------------------------------------------
+	// Scanline loop that is emptys: 380
+	// Scanline loop with X loop that is empty: 17000
+	// Scanline loop with X loop that is empty and display.writeBuffer: 51000
+	// Scanline loop with X loop that does two calls to nanos(): 600000
+	//
+	// ---[ Times at specific points inside the loop ]-------------------------------------------------------------------------------------
+	// The overhead of just calling nanos() twice in the X loop (to get start and end time): 290000
+	// Timed background->RenderPixel(): 450000 (160000 when removing the overhead)
+	// Timed playfield->RenderPixel, which isn't drawing anything because it is only blank tiles: 390000 (100000 when removing the overhead)
+	// Timed spriteRenderer.RenderPixel: 380000 (90000 when removing the overhead)
+	//
+#ifdef PERF_FEST
 	uint32 start = nanos();
+	uint32 renderTimer = 0;
+#endif
 	
 	bool playerAlive = true;
 	int iScanline = 0;
@@ -342,9 +376,11 @@ void ingame_loop()
 	{
 		int x;
 
+		/*
 		//
 		if( pfnHBlankInterrupt != NULL )
 			pfnHBlankInterrupt( iScanline );
+		 */
 		
 		// Copy to screen
 		for( x=0; x<SCREEN_WIDTH; x++ )
@@ -353,9 +389,18 @@ void ingame_loop()
 			uint16 rgb = 0;
 			background->RenderPixel( &rgb );
 			bool renderedBackground = playfield->RenderPixel( &rgb );
-			bool renderedSprite = spriteRenderer.RenderPixel( x, &rgb, &spriteCollisionMask );
 
-			/*
+#ifdef PERF_FEST
+			uint32 rs = nanos();
+#endif
+			bool renderedSprite = spriteRenderer.RenderPixel( x, &rgb, &spriteCollisionMask );
+			
+#ifdef PERF_FEST
+			uint32 re = nanos();
+			renderTimer += (re-rs);
+#endif
+			
+#ifndef PERF_FEST
 			if( renderedSprite )
 			{
 				// A sprite was rendered on this pixel
@@ -482,7 +527,8 @@ void ingame_loop()
 					}
 				}
 			}
-			 */
+#endif
+			
 #ifdef TAGE_TARGET_MACOSX
 			lineBuffer[ x ] = rgb;
 #else
@@ -530,16 +576,16 @@ void ingame_loop()
 		iScanline++;
 	}
 	
+#ifdef PERF_FEST
 	uint32 end = nanos();
 	uint32 duration = end-start;
 	float thisFrame = duration;
-	float allTime = avgTime * avgTimeSamples;
-	allTime -= avgTime;
-	allTime += thisFrame;
-	avgTime = allTime / avgTimeSamples;
+	avgTime = addToAverage( avgTime, thisFrame, avgTimeSamples );
+	avgTime2 = addToAverage( avgTime2, (float)renderTimer, avgTimeSamples );
 	
-	debugLog( "Frame render time: %i - average: %f\n", duration, avgTime );
-
+	debugLog( "Frame render time: %6i - average: %6.0f ::: Specific timer: %6i - average: %6.0f\n", duration, avgTime, renderTimer, avgTime2 );
+#endif
+	
 
 	display.endTransfer();
 	
