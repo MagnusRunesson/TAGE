@@ -39,10 +39,16 @@ void TileRenderer::ReadTile()
 	m_tileMapIndex = (m_tileY * m_pTileMap->Width) + m_tileX;
 	m_tile = m_pTileMap->Tiles[ m_tileMapIndex ];
 
+	// Cache tile rendering flags
 	m_flipX =(m_tile&0x8000) == 0x8000;
 	m_flipY =(m_tile&0x4000) == 0x4000;
 	m_flipD = (m_tile&0x2000) == 0x2000;
+	
+	// Discard all flag data to get the tile index
 	m_tile &= 0x1fff;
+	
+	// Where to read the pixel data for this tile from
+	m_tilePixelReadOfs = m_tile * m_pTileBank->TileHeight * m_pTileBank->TileWidth;
 }
 
 //
@@ -104,7 +110,7 @@ bool TileRenderer::RenderPixel( uint16* _pOutPixel )
 		pixelY = t;
 	}
 	
-	int tileReadOfs = (m_tile * m_pTileBank->TileWidth * m_pTileBank->TileHeight) + (pixelY*m_pTileBank->TileWidth) + pixelX;
+	int tileReadOfs = m_tilePixelReadOfs + (pixelY*m_pTileBank->TileWidth) + pixelX;
 	
 	if( m_pTileBank->Alpha != NULL )
 	{

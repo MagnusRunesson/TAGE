@@ -30,7 +30,7 @@ class TileRenderer
 	bool m_flipX;
 	bool m_flipY;
 	bool m_flipD;
-	int m_tileReadOfs;
+	int m_tilePixelReadOfs;
 	
 public:
 	TileRenderer( const CTileMap* _tileMap, const CTileBank* _tileBank );
