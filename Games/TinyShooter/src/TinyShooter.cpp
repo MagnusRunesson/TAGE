@@ -49,6 +49,8 @@ void tage_setup()
 	display.TSSPI->transfer(0xA0);//set remap
 	display.TSSPI->transfer(remap);
 	display.endTransfer();
+	
+	display.initDMA();
 #endif
 	
 	contextInit();

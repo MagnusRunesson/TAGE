@@ -49,6 +49,7 @@ int mapScroll;
 FixedPoint cameraScroll;
 FixedPoint cameraScrollSpeed;
 //AudioSource* bgm;
+unsigned short lineBuffer[ SCREEN_WIDTH ];
 
 bool debugSpriteRenderer;
 bool doCameraScroll;
@@ -303,7 +304,6 @@ void ingame_loop()
 	//
 	// Scanline rendered
 	//
-	unsigned short lineBuffer[ SCREEN_WIDTH ];
 	uint16* screen = screenBuffer;
 	uint16* mirrorScreen = screen;
 
@@ -496,7 +496,13 @@ void ingame_loop()
 		for( x=0; x<SCREEN_WIDTH; x++ )
 			*screen++ = lineBuffer[ x ];
 		 */
+		
+#ifdef TAGE_TARGET_MACOSX
 		display.writeBuffer( (uint8*)lineBuffer, SCREEN_WIDTH*2 );
+#else
+		display.writeBufferDMA((uint8*)lineBuffer, SCREEN_WIDTH*2 );
+#endif
+		
 
 		// Mirror test
 		if( iScanline >= copyStart )

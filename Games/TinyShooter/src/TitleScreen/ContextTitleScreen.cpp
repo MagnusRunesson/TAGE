@@ -36,6 +36,8 @@
 #define TITLESCREEN_CREDITSHEIGHT (45)
 
 extern TinyScreen display;
+extern unsigned short lineBuffer[];
+
 
 //
 //extern AudioSource* bgm;
@@ -190,7 +192,6 @@ void titlescreen_loop()
 	//
 	// Scanline rendered
 	//
-	unsigned short lineBuffer[ SCREEN_WIDTH ];
 	//uint16* screen = screenBuffer;
 
 	spriteRenderer.FrameStart();
@@ -224,7 +225,11 @@ void titlescreen_loop()
 #endif
 		}
 
+#ifdef TAGE_TARGET_MACOSX
 		display.writeBuffer( (uint8*)lineBuffer, SCREEN_WIDTH*2 );
+#else
+		display.writeBufferDMA((uint8*)lineBuffer, SCREEN_WIDTH*2 );
+#endif
 		
 		/*
 		// Copy from line buffer to "hardware" screen
