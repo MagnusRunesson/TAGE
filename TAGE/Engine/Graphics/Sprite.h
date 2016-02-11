@@ -55,7 +55,9 @@ public:
 	
 	//
 	void PreRender();
-	
+	void FrameStart();
+	void NextScanLine();
+
 	inline void SetFlags( int _flags ) { flags |= _flags; };
 	inline void ClrFlags( int _flags ) { flags &= ~_flags; };
 	

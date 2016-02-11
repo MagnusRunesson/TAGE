@@ -193,12 +193,25 @@ void SpriteRenderer::NextScanline( bool _debugPrint )
 	return m_scanlineSprites;
 }*/
 
+bool SpriteRenderer::ReturnFalse()
+{
+	return false;
+}
+
+bool SpriteRenderer::HejFest( int _x, uint16* _pOutPixel, uint8* _pOutCollisionMask )
+{
+	return false;
+}
+
 bool SpriteRenderer::RenderPixel( int _x, uint16* _pOutPixel, uint8* _pOutCollisionMask )
 {
+	return false;
+	
 	// Clear collision mask
 	*_pOutCollisionMask = 0;
 	
 	bool didRender = false;
+#if 0
 	
 	Sprite** sprites = m_scanlineSprites;
 	Sprite* sprite = *sprites;
@@ -207,15 +220,18 @@ bool SpriteRenderer::RenderPixel( int _x, uint16* _pOutPixel, uint8* _pOutCollis
 	{
 		if((sprite->boundsLeft <= _x) && (_x < sprite->boundsRight))
 		{
+			/*
 			int ofsx = _x - sprite->x;
 			int ofsy = m_currentScanline - sprite->y;
 			int ofs = sprite->GetOffset( ofsx, ofsy );
+			 */
 			
 			uint8 alpha = 255;
+			/*
 			if( sprite->image->alpha != NULL )
-				alpha = sprite->image->alpha[ ofs ];
+				alpha = sprite->image->alpha[ ofs ];*/
 			
-			uint16 rgb = sprite->image->pixels[ ofs ];
+			uint16 rgb = 0xffff;//sprite->image->pixels[ ofs ];
 			if( sprite->flags & SPRITE_FLAG_DRAWWHITE )
 				rgb = 0xffff;
 			
@@ -268,6 +284,7 @@ bool SpriteRenderer::RenderPixel( int _x, uint16* _pOutPixel, uint8* _pOutCollis
 		sprites++;
 		sprite = *sprites;
 	}
+#endif
 	
 	//
 	return didRender;

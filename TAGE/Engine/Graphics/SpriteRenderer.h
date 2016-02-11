@@ -38,6 +38,8 @@ public:
 	void FrameStart();
 	void NextScanline( bool _debugPrint = false );
 	bool RenderPixel( int _x, uint16* _pOutPixel, uint8* _pOutCollisionMask );
+	bool HejFest( int _x, uint16* _pOutPixel, uint8* _pOutCollisionMask );
+	bool ReturnFalse();
 	void RenderScanline( uint16* _targetBuffer );
 };
 

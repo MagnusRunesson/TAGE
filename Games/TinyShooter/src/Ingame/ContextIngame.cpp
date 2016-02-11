@@ -1,4 +1,4 @@
-//#define PERF_FEST
+#define PERF_FEST
 
 //
 //  TinyRacer.cpp
@@ -246,6 +246,16 @@ void ingame_setup()
 	avgTime2 = 0.0f;
 }
 
+bool greatFunction()
+{
+	return false;
+}
+
+bool anotherGreatFunction( int _x, uint16* _pOutPixel, uint8* _pOutCollisionMask )
+{
+	return false;
+}
+
 void ingame_loop()
 {
 	uint32 startTime = micros();
@@ -261,7 +271,7 @@ void ingame_loop()
 	gameObjectManager.Update();
 
 #ifdef PERF_FEST
-	doCameraScroll = false;
+	//doCameraScroll = false;
 #endif
 	
 	if( doCameraScroll )
@@ -366,7 +376,7 @@ void ingame_loop()
 	// Timed spriteRenderer.RenderPixel: 380000 (90000 when removing the overhead)
 	//
 #ifdef PERF_FEST
-	uint32 start = nanos();
+	uint32 start = micros();
 	uint32 renderTimer = 0;
 #endif
 	
@@ -381,33 +391,54 @@ void ingame_loop()
 		if( pfnHBlankInterrupt != NULL )
 			pfnHBlankInterrupt( iScanline );
 		 */
-		
+
 		// Copy to screen
 		for( x=0; x<SCREEN_WIDTH; x++ )
 		{
 			uint8 spriteCollisionMask;
 			uint16 rgb = 0;
+			/*
 			background->RenderPixel( &rgb );
 			bool renderedBackground = playfield->RenderPixel( &rgb );
 
 #ifdef PERF_FEST
-			uint32 rs = nanos();
+			uint32 rs = micros();
 #endif
-			bool renderedSprite = spriteRenderer.RenderPixel( x, &rgb, &spriteCollisionMask );
+			 */
+			
+			//
+			// (1.) If we don't call spriteRenderer.RenderPixel we spend 6459 microseconds waiting for DMA to transfer screen data
+			// (2.) If we DO call spriteRenderer.RenderPixel but it immediately return false then we only spend 1118 microseconds waiting for the DMA transfer
+			// (3.) If we call another function that only return false we spend 6459 microseconds waiting for DMA
+			// (4.) If we call yet another function that have the same parameters as RenderPixel we spend 6458 microseconds waiting for DMA
+			// (5.) If we call another function in the spriteRenderer with the same parameters we spend 870 microseconds waiting for DMA
+			// (6.) If we call a function in spriteRenderer that doesn't take any parameters we spend 4178 microseconds waiting for DMA
+			//
+			// The function calls:
+			// (1.) spriteRenderer.RenderPixel( x, &rgb, &spriteCollisionMask );
+			// (2.) spriteRenderer.RenderPixel( x, &rgb, &spriteCollisionMask );
+			// (3). greatFunction();
+			// (4.) anotherGreatFunction( x, &rgb, &spriteCollisionMask );
+			// (5.) spriteRenderer.HejFest( x, &rgb, &spriteCollisionMask );
+			// (6.) spriteRenderer.ReturnFalse();
+			//
+			bool renderedSprite = spriteRenderer.ReturnFalse();// spriteRenderer.HejFest( x, &rgb, &spriteCollisionMask );// anotherGreatFunction( x, &rgb, &spriteCollisionMask );//spriteRenderer.RenderPixel( x, &rgb, &spriteCollisionMask );
+			/*
 			
 #ifdef PERF_FEST
-			uint32 re = nanos();
+			uint32 re = micros();
 			renderTimer += (re-rs);
 #endif
+			 */
 			
-#ifndef PERF_FEST
+//#ifndef PERF_FEST
 			if( renderedSprite )
 			{
 				// A sprite was rendered on this pixel
 				// Find out if:
 				// 1. It was rendered on the same pixel as the background. In that case things might happen. Player death, player bullet death, etc..
 				// 2. Multiple sprites was rendered on the same pixel. In that case things might happen. Player death, enemy death, player pickup, etc..
-				if( renderedBackground )
+				if( false )//renderedBackground )
 				{
 					// Which kind of sprites was rendered on the same pixel as the background?
 
@@ -527,7 +558,7 @@ void ingame_loop()
 					}
 				}
 			}
-#endif
+//#endif
 			
 #ifdef TAGE_TARGET_MACOSX
 			lineBuffer[ x ] = rgb;
@@ -546,6 +577,15 @@ void ingame_loop()
 #ifdef TAGE_TARGET_MACOSX
 		display.writeBuffer( (uint8*)lineBuffer, SCREEN_WIDTH*2 );
 #else
+		// Red pixel to the left if the DMA is not ready yet.
+		if( display.getReadyStatusDMA() == 0 )
+			lineBuffer[ 0 ] = 0x00f8;
+
+		uint32 rs = micros();
+		while( !display.getReadyStatusDMA());
+		uint32 re = micros();
+		renderTimer += (re-rs);
+		
 		display.writeBufferDMA((uint8*)lineBuffer, SCREEN_WIDTH*2 );
 #endif
 		
@@ -575,19 +615,32 @@ void ingame_loop()
 		
 		iScanline++;
 	}
-	
+
 #ifdef PERF_FEST
-	uint32 end = nanos();
+	uint32 end = micros();
 	uint32 duration = end-start;
 	float thisFrame = duration;
 	avgTime = addToAverage( avgTime, thisFrame, avgTimeSamples );
 	avgTime2 = addToAverage( avgTime2, (float)renderTimer, avgTimeSamples );
-	
-	debugLog( "Frame render time: %6i - average: %6.0f ::: Specific timer: %6i - average: %6.0f\n", duration, avgTime, renderTimer, avgTime2 );
-#endif
-	
 
+	while( !display.getReadyStatusDMA());
 	display.endTransfer();
+	
+#ifdef TAGE_TARGET_MACOSX
+	debugLog( "Frame render time: %6i - average: %6.0f ::: Specific timer: %6i - average: %6.0f\n", duration, avgTime, renderTimer, avgTime2 );
+#else
+	char buffe[ 100 ];
+	display.setFont( thinPixel7_10ptFontInfo );
+	display.fontColor( TS_8b_Green, TS_8b_Black );
+
+	snprintf( buffe, 99, "us: %i", ((int)avgTime) );
+	display.setCursor( 0, 0 );
+	display.print( buffe );
+	snprintf( buffe, 99, "us: %i", ((int)avgTime2) );
+	display.setCursor( 0, 8 );
+	display.print( buffe );
+#endif
+#endif
 	
 	//
 	// Reset debug triggers

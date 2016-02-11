@@ -22,7 +22,7 @@ void contextInit()
 {
 	pfnContextSwitchTo = NULL;
 	
-	//*
+	/*
 
 	//
 	// Initialize function pointers with the title screen as the initial context

@@ -60,6 +60,16 @@ void Sprite::PreRender()
 	boundsBottom = y+h;
 }
 
+void Sprite::FrameStart()
+{
+
+}
+
+void Sprite::NextScanLine()
+{
+	
+}
+
 void Sprite::SetFlippedX( bool _flipped )
 {
 	if( _flipped )
