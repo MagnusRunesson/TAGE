@@ -56,10 +56,16 @@ void TileRenderer::ReadTile()
 //
 void TileRenderer::FrameStart()
 {
+	/*
 	m_tileY = m_y / m_pTileBank->TileHeight;
 	m_pixelY = m_y % m_pTileBank->TileHeight;
 	m_tileX = m_x / m_pTileBank->TileWidth;
 	m_pixelX = m_x % m_pTileBank->TileWidth;
+	 */
+	m_tileY = m_y >> 2;
+	m_pixelY = m_y & 3;
+	m_tileX = m_x >> 2;
+	m_pixelX = m_x & 3;
 	ReadTile();
 }
 
@@ -85,8 +91,10 @@ void TileRenderer::NextScanline( bool _debugPrint )
 		m_pixelY -= tileHeight;
 	}
 
-	m_tileX = m_x / m_pTileBank->TileWidth;
-	m_pixelX = m_x % m_pTileBank->TileWidth;
+	//m_tileX = m_x / m_pTileBank->TileWidth;
+	//m_pixelX = m_x % m_pTileBank->TileWidth;
+	m_tileX = m_x >> 2;
+	m_pixelX = m_x & 0x3;
 	ReadTile();
 }
 
