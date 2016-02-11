@@ -92,10 +92,8 @@ int padX, padY;
 
 void padInit()
 {
-	/*
 	pinMode( TinyArcadePin1, INPUT_PULLUP );
 	pinMode( TinyArcadePin2, INPUT_PULLUP );
-	 */
 	
 	gKeyBuff = 0;
 	gkeys = 0;
@@ -105,16 +103,22 @@ void padInit()
 
 void padUpdate()
 {
-	/*
-	padX = analogRead( TinyArcadePinX );
-	padY = analogRead( TinyArcadePinY );
+	const int deadzone = 50;
+	padX = 0;
+	padY = 0;
+	int rx = analogRead( TinyArcadePinX );
+	int ry = analogRead( TinyArcadePinY );
+	if( rx < (512-deadzone)) padX = 1;
+	if( rx > (512+deadzone)) padX = -1;
+	if( ry < (512-deadzone)) padY = -1;
+	if( ry > (512+deadzone)) padY = 1;
+	
 	gkeys <<= 4;
-	if( digitalRead( TinyArcadePin1 ) == HIGH )
+	if( !digitalRead( TinyArcadePin2 ))
 		gkeys |= PAD_KEYMASK_PRIMARY;
 
-	if( digitalRead( TinyArcadePin2 ) == HIGH )
+	if( !digitalRead( TinyArcadePin1 ))
 		gkeys |= PAD_KEYMASK_SECONDARY;
-	 */
 }
 
 uint8 padGet( sint8* _x, sint8* _y )
@@ -157,5 +161,10 @@ uint8 padGetReleased()
 }
 
 uint16* screenBuffer;
+
+uint32 nanos()
+{
+	return 0;
+}
 
 #endif

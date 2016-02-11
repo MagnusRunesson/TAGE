@@ -34,6 +34,7 @@ TinyScreen display = TinyScreen( TinyScreenPlus );
 void tage_setup()
 {
 	debugInit();
+	padInit();
 	
 	display.begin();
 	display.setBrightness( 10 );
