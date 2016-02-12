@@ -1,3 +1,5 @@
+//#define HUD_DISABLE
+
 //
 //  PlayerHUD.cpp
 //  TinyShooter
@@ -24,6 +26,10 @@ Sprite* spriteHudLife[ 5 ];
 
 void hudInit()
 {
+#ifdef HUD_DISABLE
+	return;
+#endif
+	
 	spriteHudWeaponsBG = spriteRenderer.AllocateSprite( &sprite_hud_weapons );
 	spriteHudWeaponsBG->x = -1;//SCREEN_WIDTH-spriteHudWeaponsBG->image->w;
 	spriteHudWeaponsBG->y = SCREEN_HEIGHT-spriteHudWeaponsBG->image->h;
@@ -44,6 +50,10 @@ void hudInit()
 
 void hudSetWeapon( int _weapon )
 {
+#ifdef HUD_DISABLE
+	return;
+#endif
+	
 	int x, y;
 	const Image* pImage = NULL;
 	switch( _weapon )
@@ -73,6 +83,10 @@ void hudSetWeapon( int _weapon )
 
 void hudSetNumLives( int _numLives )
 {
+#ifdef HUD_DISABLE
+	return;
+#endif
+	
 	int i;
 	for( i=_numLives; i<MAX_LIVES; i++ )
 	{
