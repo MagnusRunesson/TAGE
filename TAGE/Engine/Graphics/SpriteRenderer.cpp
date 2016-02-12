@@ -81,10 +81,12 @@ void SpriteRenderer::FrameStart()
 			if( sprite->boundsTop > 0 )
 			{
 				m_potentialSprites[ iPot ] = sprite;
+				sprite->FrameStart();
 				iPot++;
 			} else if( sprite->boundsBottom > 0 )
 			{
 				m_scanlineSprites[ iCurr ] = sprite;
+				sprite->FrameStart();
 				iCurr++;
 			}
 		}
@@ -120,6 +122,8 @@ void SpriteRenderer::NextScanline( bool _debugPrint )
 			}
 		} else
 		{
+			sprite->NextScanLine();
+			
 			// Next sprite in list
 			renderSpriteList++;
 		}
@@ -199,25 +203,38 @@ bool SpriteRenderer::RenderPixel( int _x, uint16* _pOutPixel, uint8* _pOutCollis
 	*_pOutCollisionMask = 0;
 	
 	bool didRender = false;
-	
+
 	Sprite** sprites = m_scanlineSprites;
 	Sprite* sprite = *sprites;
-	
+
 	while( sprite != NULL )
 	{
 		if((sprite->boundsLeft <= _x) && (_x < sprite->boundsRight))
 		{
+			/*
 			int ofsx = _x - sprite->x;
 			int ofsy = m_currentScanline - sprite->y;
 			int ofs = sprite->GetOffset( ofsx, ofsy );
+			 */
 			
 			uint8 alpha = 255;
+			if( sprite->pAlphaData )
+			{
+				alpha = *sprite->pAlphaData;
+				sprite->pAlphaData++;
+			}
+			/*
 			if( sprite->image->alpha != NULL )
-				alpha = sprite->image->alpha[ ofs ];
+				alpha = sprite->image->alpha[ ofs ];*/
 			
+			/*
 			uint16 rgb = sprite->image->pixels[ ofs ];
 			if( sprite->flags & SPRITE_FLAG_DRAWWHITE )
 				rgb = 0xffff;
+			 */
+			
+			uint16 rgb = *sprite->pPixelData;
+			sprite->pPixelData++;
 			
 			if( alpha == 0 )
 			{

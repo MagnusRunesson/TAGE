@@ -10,6 +10,7 @@
 #include "Engine/Graphics/Sprite.h"
 #include "Engine/Graphics/Image.h"
 #include "Engine/BitHelpers.h"
+#include "Engine/Debug.h"
 
 Sprite::Sprite()
 {
@@ -60,6 +61,38 @@ void Sprite::PreRender()
 	boundsBottom = y+h;
 }
 
+void Sprite::FrameStart()
+{
+	if( boundsTop < 0 )
+		readY = (-boundsTop)*image->w;
+	else
+		readY = 0;
+	
+	int xofs = -boundsLeft;
+	if( xofs<0) xofs=0;
+	
+	int rdofs = readY+xofs;
+	
+	pAlphaData = NULL;
+	pPixelData = &image->pixels[ rdofs ];
+	if( image->alpha != NULL )
+		pAlphaData = &image->alpha[ rdofs ];
+}
+
+void Sprite::NextScanLine()
+{
+	readY += image->w;
+	
+	int xofs = -boundsLeft;
+	if( xofs<0) xofs=0;
+	
+	int rdofs = readY+xofs;
+	
+	pPixelData = &image->pixels[ rdofs ];
+	if( image->alpha != NULL )
+		pAlphaData = &image->alpha[ rdofs ];
+}
+
 void Sprite::SetFlippedX( bool _flipped )
 {
 	if( _flipped )
@@ -76,6 +109,7 @@ void Sprite::SetFlippedY( bool _flipped )
 		ClrFlags( SPRITE_FLAG_FLIP_Y );
 }
 
+/*
 int Sprite::GetOffset( int _x, int _y )
 {
 	int ret = 0;
@@ -102,3 +136,4 @@ int Sprite::GetOffset( int _x, int _y )
 	//printf( "Sprite GetOffset. Rotation=%i, x=%i, y=%i, offset=%i\n", rotation, _x, _y, ret );
 	return ret;
 }
+*/

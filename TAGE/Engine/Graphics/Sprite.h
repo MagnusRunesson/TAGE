@@ -41,9 +41,12 @@ public:
 	sint16 boundsRight;
 	sint16 boundsTop;
 	sint16 boundsBottom;
+	uint16 readY;
 	
 	const Image* image;
 	GameObject* owner;
+	const uint16* pPixelData;
+	const uint8* pAlphaData;
 	
 	Sprite();
 	void Reboot();
@@ -55,11 +58,11 @@ public:
 	
 	//
 	void PreRender();
+	void FrameStart();
+	void NextScanLine();
 	
 	inline void SetFlags( int _flags ) { flags |= _flags; };
 	inline void ClrFlags( int _flags ) { flags &= ~_flags; };
-	
-	int GetOffset( int _screenX, int _screenY );
 };
 
 
