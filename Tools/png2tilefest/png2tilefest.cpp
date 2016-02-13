@@ -23,9 +23,13 @@ void writePixel( FILE* f, unsigned char* source )
 	r >>= 3;
 	g >>= 2;
 	b >>= 3;
-	unsigned short outcol = (r<<11) + (g<<5) + b;
+	unsigned short rgb = (r<<11) + (g<<5) + b;
+	
+	
 	//printf("r=%i, g=%i, b=%i, a=%i\n", r, g, b, a);
-	fprintf( f, "0x%04x,", outcol );
+	
+	unsigned short newrgb2 = ((rgb&0x00ff)<<8) + ((rgb&0xff00)>>8);
+	fprintf( f, "0x%04x,", newrgb2 );
 }
 
 int writePixels( FILE* f, char* _symbolNameBase, SDL_Surface* image, int tileWidth, int tileHeight, int* _pTotalOutputSize )
