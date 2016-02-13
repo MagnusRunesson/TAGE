@@ -726,7 +726,7 @@ void DMAC_Handler()
 
 uint8_t TinyScreen::getReadyStatusDMA(){
   //return dmaReady;
-	return 0;
+	return 1;
 }
 
 void TinyScreen::writeBufferDMA(uint8_t *txdata,int n) {
