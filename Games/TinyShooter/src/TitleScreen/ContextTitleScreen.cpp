@@ -36,7 +36,7 @@
 #define TITLESCREEN_CREDITSHEIGHT (45)
 
 extern TinyScreen display;
-extern unsigned short lineBuffer[];
+extern uint16* lineBuffer;
 
 
 //

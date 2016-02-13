@@ -1,4 +1,4 @@
-//#define PERF_FEST
+#define PERF_FEST
 
 //
 //  TinyRacer.cpp
@@ -51,7 +51,11 @@ int mapScroll;
 FixedPoint cameraScroll;
 FixedPoint cameraScrollSpeed;
 //AudioSource* bgm;
-unsigned short lineBuffer[ SCREEN_WIDTH ];
+uint32 lineBufferA32[ SCREEN_WIDTH/2 ];
+uint32 lineBufferB32[ SCREEN_WIDTH/2 ];
+uint32 lineBufferTemplate32[ SCREEN_WIDTH/2 ];
+uint16* lineBuffer = (uint16*)lineBufferA32;
+uint16* lineBufferTemplate = (uint16*)lineBufferTemplate32;
 
 bool debugSpriteRenderer;
 bool doCameraScroll;
@@ -244,6 +248,10 @@ void ingame_setup()
 	
 	avgTime = 0.0f;
 	avgTime2 = 0.0f;
+	
+	int x;
+	for( x=0; x<SCREEN_WIDTH; x++ )
+		lineBufferTemplate[ x ] = 0;//(x<<9) + (x<<1);
 }
 
 void ingame_loop()
@@ -366,7 +374,7 @@ void ingame_loop()
 	// Timed spriteRenderer.RenderPixel: 380000 (90000 when removing the overhead)
 	//
 #ifdef PERF_FEST
-	uint32 start = nanos();
+	uint32 start = micros();
 	uint32 renderTimer = 0;
 #endif
 	
@@ -374,13 +382,15 @@ void ingame_loop()
 	int iScanline = 0;
 	while( iScanline < mirrorStart )
 	{
+		//debugLog( "New line\n" );
+		/*
 		int x;
 
 		/*
 		//
 		if( pfnHBlankInterrupt != NULL )
 			pfnHBlankInterrupt( iScanline );
-		 */
+		 * /
 		
 		// Copy to screen
 		for( x=0; x<SCREEN_WIDTH; x++ )
@@ -536,20 +546,52 @@ void ingame_loop()
 			lineBuffer[ x ] = newrgb2;
 #endif
 		}
+		 */
 
 		/*
 		// Copy from line buffer to "hardware" screen
 		for( x=0; x<SCREEN_WIDTH; x++ )
 			*screen++ = lineBuffer[ x ];
 		 */
+
+		uint32 rs = micros();
+
+		//while( !display.getReadyStatusDMA());
+
+		uint32 re = micros();
+		renderTimer += (re-rs);
+
+		uint32* target = lineBufferA32;
+		if( lineBuffer == (uint16*)lineBufferB32 )
+			target = lineBufferB32;
 		
+		int i;
+		for( i=0; i<SCREEN_WIDTH/2; i++ )
+			target[ i ] = lineBufferTemplate32[ i ];
+
+		background->RenderScanline( lineBuffer );
+		playfield->RenderScanline( lineBuffer );
+
+
 #ifdef TAGE_TARGET_MACOSX
+		int x;
+		for( x=0; x<SCREEN_WIDTH; x++ )
+		{
+			uint16 c = lineBuffer[ x ];
+			uint16 nc = ((c&0x00ff)<<8) + ((c&0xff00)>>8);
+			lineBuffer[ x ] = nc;
+		}
 		display.writeBuffer( (uint8*)lineBuffer, SCREEN_WIDTH*2 );
 #else
 		display.writeBufferDMA((uint8*)lineBuffer, SCREEN_WIDTH*2 );
 #endif
 		
+		if( lineBuffer == (uint16*)lineBufferA32 )
+			lineBuffer = (uint16*)lineBufferB32;
+		else
+			lineBuffer = (uint16*)lineBufferA32;
 
+		/*
 		// Mirror test
 		if( iScanline >= copyStart )
 		{
@@ -567,7 +609,7 @@ void ingame_loop()
 				rgb = ((hi << 11) + (hi << 6) + i);
 				mirrorScreen[ ((destY-1)*SCREEN_WIDTH) + x ] = rgb;
 			}
-		}
+		}*/
 
 		spriteRenderer.NextScanline( debugSpriteRenderer );
 		playfield->NextScanline();
@@ -576,18 +618,31 @@ void ingame_loop()
 		iScanline++;
 	}
 	
+	display.endTransfer();
+	
 #ifdef PERF_FEST
-	uint32 end = nanos();
+	uint32 end = micros();
 	uint32 duration = end-start;
 	float thisFrame = duration;
 	avgTime = addToAverage( avgTime, thisFrame, avgTimeSamples );
 	avgTime2 = addToAverage( avgTime2, (float)renderTimer, avgTimeSamples );
 	
+#ifdef TAGE_TARGET_MACOSX
 	debugLog( "Frame render time: %6i - average: %6.0f ::: Specific timer: %6i - average: %6.0f\n", duration, avgTime, renderTimer, avgTime2 );
-#endif
-	
+#else
 
-	display.endTransfer();
+	char buffe[ 100 ];
+	display.setFont( thinPixel7_10ptFontInfo );
+	display.fontColor( TS_8b_Green, TS_8b_Black );
+	
+	snprintf( buffe, 99, "us: %i", ((int)avgTime) );
+	display.setCursor( 0, 48 );
+	display.print( buffe );
+	snprintf( buffe, 99, "us: %i", ((int)avgTime2) );
+	display.setCursor( 0, 56 );
+	display.print( buffe );
+#endif
+#endif
 	
 	//
 	// Reset debug triggers
