@@ -573,6 +573,7 @@ void ingame_loop()
 
 		background->RenderScanline( lineBuffer );
 		playfield->RenderScanline( lineBuffer );
+		spriteRenderer.RenderScanline( lineBuffer );
 
 
 #ifdef TAGE_TARGET_MACOSX
