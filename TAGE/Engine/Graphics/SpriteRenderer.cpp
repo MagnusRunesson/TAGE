@@ -292,14 +292,124 @@ bool SpriteRenderer::RenderPixel( int _x, uint16* _pOutPixel, uint8* _pOutCollis
 
 void SpriteRenderer::RenderScanline( uint16* _targetBuffer )
 {
-	int x;
-	for( x=0; x<SCREEN_WIDTH; x++ )
+	bool didRender = false;
+	
+	Sprite** sprites = m_scanlineSprites;
+	Sprite* sprite = *sprites;
+	
+	while( sprite != NULL )
 	{
-		uint8 collisionMask;
-		if( RenderPixel( x, &_targetBuffer[ x ], &collisionMask ))
+		int x;
+		const Image* image = sprite->image;
+
+		int drawLength = image->w;
+
+		const uint16* color = &image->pixels[ sprite->readY ];
+		const uint8* alphaData = NULL;
+		if( image->alpha != NULL )
+			alphaData = &image->alpha[ sprite->readY ];
+		
+		int drawx = sprite->boundsLeft;
+		if( drawx < 0 )
 		{
-			
+			int skip = -drawx;
+			drawx = 0;
+			color += skip;
+			if( alphaData != NULL )
+				alphaData += skip;
+			drawLength -= skip;
 		}
+		
+		int apa = drawx + drawLength;
+		if( apa >= SCREEN_WIDTH )
+		{
+			drawLength -= (apa - SCREEN_WIDTH);
+		}
+		
+		uint16* outBuffer = &_targetBuffer[ drawx ];
+		
+		while( drawLength > 0 )
+		{
+			drawLength--;
+			
+			
+			uint8 alpha = 255;
+			if( alphaData != NULL )
+			{
+				alpha = *alphaData;
+				alphaData++;
+			}
+			/*
+			 if( sprite->image->alpha != NULL )
+				alpha = sprite->image->alpha[ ofs ];*/
+			
+			/*
+			 uint16 rgb = sprite->image->pixels[ ofs ];
+			 if( sprite->flags & SPRITE_FLAG_DRAWWHITE )
+				rgb = 0xffff;
+			 */
+			
+			/*
+			uint16 rgb = *sprite->pPixelData;
+			sprite->pPixelData++;
+			 */
+
+			uint16 rgb = *color;
+			color++;
+
+			if( alpha == 0 )
+			{
+				// Skip
+				outBuffer++;
+			} else if( alpha == 255 )
+			{
+				// Full overdraw
+				*outBuffer = rgb;
+				outBuffer++;
+				/*
+				*_pOutPixel = rgb;
+				*_pOutCollisionMask |= (1<<sprite->collisionIndex);
+				m_collisionSprites[ sprite->collisionIndex ] = sprite;
+				didRender = true;
+				 */
+			}
+			else
+			{
+				uint16 srccol = rgb;
+				
+				uint32 srcr = (srccol >> COLORSHIFT_16_R) & COLORWIDTH_16_R;
+				uint32 srcg = (srccol >> COLORSHIFT_16_G) & COLORWIDTH_16_G;
+				uint32 srcb = (srccol >> COLORSHIFT_16_B) & COLORWIDTH_16_B;
+				
+				uint32 dsta = 255-alpha;
+				uint16 dstcol = *outBuffer;
+				uint32 dstr = (dstcol >> COLORSHIFT_16_R) & COLORWIDTH_16_R;
+				uint32 dstg = (dstcol >> COLORSHIFT_16_G) & COLORWIDTH_16_G;
+				uint32 dstb = (dstcol >> COLORSHIFT_16_B) & COLORWIDTH_16_B;
+				
+				// Multiply
+				uint32 outr = (((srcr*alpha)+(dstr*dsta)) >> 8) & COLORWIDTH_16_R;
+				uint32 outg = (((srcg*alpha)+(dstg*dsta)) >> 8) & COLORWIDTH_16_G;
+				uint32 outb = (((srcb*alpha)+(dstb*dsta)) >> 8) & COLORWIDTH_16_B;
+				
+				/*
+				 // Additive
+				 uint32 outr = ((srcr*srca)+(dstr<<8)) >> 8;
+				 uint32 outg = ((srcg*srca)+(dstg<<8)) >> 8;
+				 uint32 outb = ((srcb*srca)+(dstb<<8)) >> 8;
+				 if( outr > COLORWIDTH_16_R ) outr = COLORWIDTH_16_R;
+				 if( outg > COLORWIDTH_16_G ) outg = COLORWIDTH_16_G;
+				 if( outb > COLORWIDTH_16_B ) outb = COLORWIDTH_16_B;
+				 */
+				
+				uint16 out = (outr<<COLORSHIFT_16_R) + (outg<<COLORSHIFT_16_G) + (outb<<COLORSHIFT_16_B);
+				
+				*outBuffer = out;
+				outBuffer++;
+			}
+		}
+		sprites++;
+		sprite = *sprites;
 	}
 }
 
