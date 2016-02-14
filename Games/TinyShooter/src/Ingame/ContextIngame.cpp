@@ -1,4 +1,4 @@
-#define PERF_FEST
+//#define PERF_FEST
 
 //
 //  TinyRacer.cpp
