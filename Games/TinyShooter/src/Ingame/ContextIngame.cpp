@@ -554,12 +554,14 @@ void ingame_loop()
 			*screen++ = lineBuffer[ x ];
 		 */
 
+		/*
 		uint32 rs = micros();
 
 		//while( !display.getReadyStatusDMA());
 
 		uint32 re = micros();
 		renderTimer += (re-rs);
+		 */
 
 		uint32* target = lineBufferA32;
 		if( lineBuffer == (uint16*)lineBufferB32 )
