@@ -3,7 +3,7 @@
 
 const uint16 sprite_enemy_bullet_02_pixels[] =
 {
-	0xff95,
+	0x95ff,
 };
 
 extern "C" const Image sprite_enemy_bullet_02;

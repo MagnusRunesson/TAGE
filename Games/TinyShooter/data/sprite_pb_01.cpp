@@ -3,7 +3,7 @@
 
 const uint16 sprite_pb_01_pixels[] =
 {
-	0x90e4,0xf626,0xffff,
+	0xe490,0x26f6,0xffff,
 };
 
 const uint8 sprite_pb_01_alpha[] =

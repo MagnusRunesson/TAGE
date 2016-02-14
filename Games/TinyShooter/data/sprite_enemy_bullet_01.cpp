@@ -3,7 +3,7 @@
 
 const uint16 sprite_enemy_bullet_01_pixels[] =
 {
-	0xfd0d,
+	0x0dfd,
 };
 
 extern "C" const Image sprite_enemy_bullet_01;
