@@ -55,8 +55,9 @@ void writePixels( FILE* f, char* _symbolNameBase, SDL_Surface* image, int* _pTot
 			g >>= 2;
 			b >>= 3;
 			unsigned short outcol = (r<<11) + (g<<5) + b;
+			unsigned short nc = ((outcol&0x00ff)<<8) + ((outcol&0xff00)>>8);
 			//printf("r=%i, g=%i, b=%i, a=%i\n", r, g, b, a);
-			fprintf( f, "0x%04x,", outcol );
+			fprintf( f, "0x%04x,", nc );
 		}
 		fprintf( f, "\n" );
 	}
