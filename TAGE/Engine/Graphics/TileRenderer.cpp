@@ -219,6 +219,8 @@ void TileRenderer::RenderScanline( uint16* _targetBuffer )
 		if( pTile->pTileColor == NULL )
 		{
 			writeX += 4;
+			if( writeX >= SCREEN_WIDTH )
+				return;
 			continue;
 		}
 		
