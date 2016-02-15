@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="4" height="4" tilewidth="4" tileheight="4" nextobjectid="1">
+ <tileset firstgid="1" name="rotationbank" tilewidth="4" tileheight="4">
+  <image source="rotationbank.png" width="4" height="8"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="4" height="4">
+  <data encoding="csv">
+1,2684354561,3221225473,1610612737,
+2147483649,0,0,0,
+2684354561,536870913,0,0,
+2684354561,3758096385,0,0
+</data>
+ </layer>
+</map>
