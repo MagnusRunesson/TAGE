@@ -46,10 +46,8 @@ void playerBulletSpawn( int _worldX, int _worldY )
 	pb->SetWorldPosition( _worldX, _worldY );
 	pb->SetEnabled( true );
 	
-	/*
 	// Play sound effect
 	sfxPlayerFire->PlayFromBeginning();
-	 */
 	
 	// Go to next bullet instance in a ring buffer of bullets
 	nextPlayerBullet++;
