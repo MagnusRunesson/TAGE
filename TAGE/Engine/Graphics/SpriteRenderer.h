@@ -40,7 +40,7 @@ public:
 	void FrameStart();
 	void NextScanline( bool _debugPrint = false );
 	bool RenderPixel( int _x, uint16* _pOutPixel, uint8* _pOutCollisionMask );
-	void RenderScanline( uint16* _targetBuffer );
+	void RenderScanline( uint16* _targetBuffer, uint8* _collisionBits, uint8* _collisionIndices );
 };
 
 extern SpriteRenderer spriteRenderer;

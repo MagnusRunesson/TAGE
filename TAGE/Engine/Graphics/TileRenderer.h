@@ -56,7 +56,7 @@ public:
 	void AdvanceScanlineRenderTiles( int _newTixelY );
 
 	void NextScanline( bool _debugPrint = false );
-	void RenderScanline( uint16* _targetBuffer );
+	void RenderScanline( uint16* _targetBuffer, uint8* _collisionBuffer );
 };
 
 #endif /* TileRenderer_hpp */

@@ -185,7 +185,7 @@ void TileRenderer::NextScanline( bool _debugPrint )
 	}
 }
 
-void TileRenderer::RenderScanline( uint16* _targetBuffer )
+void TileRenderer::RenderScanline( uint16* _targetBuffer, uint8* _collisionBuffer )
 {
 	int writeX=0;
 	int tx;
@@ -206,6 +206,10 @@ void TileRenderer::RenderScanline( uint16* _targetBuffer )
 				continue;
 		
 			_targetBuffer[ writeX ] = rgb;
+			
+			if( _collisionBuffer != NULL )
+				_collisionBuffer[ writeX ] = 1;
+			
 			writeX++;
 		}
 	}
@@ -232,6 +236,9 @@ void TileRenderer::RenderScanline( uint16* _targetBuffer )
 
 			_targetBuffer[ writeX ] = rgb;
 			writeX++;
+			
+			if( _collisionBuffer != NULL )
+				_collisionBuffer[ writeX ] = 1;
 
 			if( writeX >= SCREEN_WIDTH )
 				return;

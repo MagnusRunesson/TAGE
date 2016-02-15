@@ -57,6 +57,9 @@ uint32 lineBufferTemplate32[ SCREEN_WIDTH/2 ];
 uint16* lineBuffer = (uint16*)lineBufferA32;
 uint16* lineBufferTemplate = (uint16*)lineBufferTemplate32;
 
+uint8 collisionBits[ SCREEN_WIDTH ];
+uint8 collisionIndices[ SCREEN_WIDTH*8 ];
+
 bool debugSpriteRenderer;
 bool doCameraScroll;
 
@@ -563,18 +566,138 @@ void ingame_loop()
 		renderTimer += (re-rs);
 		 */
 
+		//
+		// Find the correct target buffer for our double buffering code
+		//
 		uint32* target = lineBufferA32;
 		if( lineBuffer == (uint16*)lineBufferB32 )
 			target = lineBufferB32;
 		
+		//
+		// "Clear" the background with what's in the template. The template can be used for horizontal patterns.
+		//
 		int i;
 		for( i=0; i<SCREEN_WIDTH/2; i++ )
 			target[ i ] = lineBufferTemplate32[ i ];
 
-		background->RenderScanline( lineBuffer );
-		playfield->RenderScanline( lineBuffer );
-		spriteRenderer.RenderScanline( lineBuffer );
+		// Clear collision bits for scanline
+		for( i=0; i<SCREEN_WIDTH; i++ )
+		{
+			collisionBits[ i ] = 0;
+			collisionIndices[ i+0 ] = INVALID_SPRITE_RENDERER_INDEX;
+			collisionIndices[ i+1 ] = INVALID_SPRITE_RENDERER_INDEX;
+			collisionIndices[ i+2 ] = INVALID_SPRITE_RENDERER_INDEX;
+			collisionIndices[ i+3 ] = INVALID_SPRITE_RENDERER_INDEX;
+			collisionIndices[ i+4 ] = INVALID_SPRITE_RENDERER_INDEX;
+			collisionIndices[ i+5 ] = INVALID_SPRITE_RENDERER_INDEX;
+			collisionIndices[ i+6 ] = INVALID_SPRITE_RENDERER_INDEX;
+			collisionIndices[ i+7 ] = INVALID_SPRITE_RENDERER_INDEX;
+		}
+		
+		//
+		background->RenderScanline( lineBuffer, NULL );
+		playfield->RenderScanline( lineBuffer, collisionBits );
+		spriteRenderer.RenderScanline( lineBuffer, collisionBits, collisionIndices );
 
+		//
+		const uint8 COLLISIONMASK_BACKGROUND_PLAYER			= 1 + SPRITE_COLLISION_MASK_PLAYERSHIP;
+		const uint8 COLLISIONMASK_BACKGROUND_PLAYERBULLET	= 1 + SPRITE_COLLISION_MASK_PLAYERBULLET;
+		const uint8 COLLISIONMASK_PLAYER_PICKUP				= SPRITE_COLLISION_MASK_PLAYERSHIP | SPRITE_COLLISION_MASK_PICKUP;
+		const uint8 COLLISIONMASK_PLAYER_ENEMY				= SPRITE_COLLISION_MASK_PLAYERSHIP | SPRITE_COLLISION_MASK_ENEMY;
+		const uint8 COLLISIONMASK_PLAYER_ENEMYBULLET		= SPRITE_COLLISION_MASK_PLAYERSHIP | SPRITE_COLLISION_MASK_ENEMYBULLET;
+		const uint8 COLLISIONMASK_PLAYERBULLET_ENEMY		= SPRITE_COLLISION_MASK_PLAYERBULLET | SPRITE_COLLISION_MASK_ENEMY;
+		
+		uint8* pixelCollisionIndices = collisionIndices;
+		
+		// Check out collision
+		for( i=0; i<SCREEN_WIDTH; i++ )
+		{
+			uint8 pixelCollisionBits = collisionBits[ i ];
+			if((pixelCollisionBits & COLLISIONMASK_BACKGROUND_PLAYER) == COLLISIONMASK_BACKGROUND_PLAYER )
+			{
+				// Only do this check if the player is still alive. So we don't register this event multiple times per rendered frame.
+				if( playerAlive )
+				{
+					//
+					// Player collided with a wall
+					//
+					playerAlive = false;
+					playerHit( mapScroll, true );
+					explosionsSpawn( camx+i, iScanline, EXPLOSION_TYPE_NORMAL );
+					explosionsSpawn( camx+i-4, iScanline-2, EXPLOSION_TYPE_DEBRIS );
+					explosionsSpawn( camx+i+3, iScanline+4, EXPLOSION_TYPE_DEBRIS );
+					explosionsSpawn( camx+i-1, iScanline+1, EXPLOSION_TYPE_DEBRIS );
+				}
+			} else if((pixelCollisionBits & COLLISIONMASK_BACKGROUND_PLAYERBULLET) == COLLISIONMASK_BACKGROUND_PLAYERBULLET)
+			{
+				Sprite* bulletSprite = spriteRenderer.GetSprite( pixelCollisionIndices[ SPRITE_COLLISION_INDEX_PLAYERBULLET ]);
+				if( bulletSprite != lastCollisionBullet )
+				{
+					lastCollisionBullet = bulletSprite;
+					playerBulletKill( bulletSprite->owner );
+				}
+			} else if((pixelCollisionBits & COLLISIONMASK_PLAYER_PICKUP) == COLLISIONMASK_PLAYER_PICKUP )
+			{
+				GameObject* pickupGO = spriteRenderer.GetSprite( pixelCollisionIndices[ SPRITE_COLLISION_INDEX_PICKUP ])->owner;
+				pickupTake( pickupGO );
+			} else if((pixelCollisionBits & COLLISIONMASK_PLAYER_ENEMY) == COLLISIONMASK_PLAYER_ENEMY )
+			{
+				Sprite* enemySprite = spriteRenderer.GetSprite( pixelCollisionIndices[ SPRITE_COLLISION_INDEX_ENEMY ]);
+				
+				if( enemySprite != lastCollisionBullet )
+				{
+					lastCollisionBullet = enemySprite;
+					
+					if( playerHit( mapScroll, false ))
+					{
+						ENEMY_FROM_SPRITE( enemySprite )->Kill();
+						explosionsSpawn( camx+i, iScanline, EXPLOSION_TYPE_DEBRIS );
+					}
+				}
+			} else if((pixelCollisionBits & COLLISIONMASK_PLAYER_ENEMYBULLET) == COLLISIONMASK_PLAYER_ENEMYBULLET )
+			{
+				Sprite* bulletSprite = spriteRenderer.GetSprite( pixelCollisionIndices[ SPRITE_COLLISION_INDEX_ENEMYBULLET ]);
+				
+				if( bulletSprite != lastCollisionBullet )
+				{
+					lastCollisionBullet = bulletSprite;
+					
+					if( playerHit( mapScroll, false ))
+					{
+						playerAlive = false;
+						explosionsSpawn( camx+i, iScanline, EXPLOSION_TYPE_NORMAL );
+						explosionsSpawn( camx+i-4, iScanline-2, EXPLOSION_TYPE_DEBRIS );
+						explosionsSpawn( camx+i+3, iScanline+4, EXPLOSION_TYPE_DEBRIS );
+						explosionsSpawn( camx+i-1, iScanline+1, EXPLOSION_TYPE_DEBRIS );
+					}
+				}
+			} else if((pixelCollisionBits & COLLISIONMASK_PLAYERBULLET_ENEMY) == COLLISIONMASK_PLAYERBULLET_ENEMY )
+			{
+				Sprite* bulletSprite = spriteRenderer.GetSprite( pixelCollisionIndices[ SPRITE_COLLISION_INDEX_PLAYERBULLET ]);
+				
+				if( bulletSprite != lastCollisionBullet )
+				{
+					lastCollisionBullet = bulletSprite;
+					
+					playerBulletKill( bulletSprite->owner );
+					
+					Sprite* enemySprite = spriteRenderer.GetSprite( pixelCollisionIndices[ SPRITE_COLLISION_INDEX_ENEMY ]);
+					GameObject* enemyGO = enemySprite->owner;
+					Enemy* enemy = (Enemy*)enemyGO->m_customObject;
+					if( enemy->Hit())
+					{
+						explosionsSpawn( camx+i, iScanline, EXPLOSION_TYPE_NORMAL );
+						enemyGO->SetEnabled( false );
+						
+						// Spawn double pew pickup
+						if( enemy->SpecialFlag == ENEMY_SPECIALFLAG_DROP_DOUBLEPEW )
+							pickupSpawn( PICKUP_TYPE_DOUBLEPEW, camx+i-2, iScanline-2 );
+					}
+				}
+			}
+
+			pixelCollisionIndices += 8;
+		}
 
 #ifdef TAGE_TARGET_MACOSX
 		int x;

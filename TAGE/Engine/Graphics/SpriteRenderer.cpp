@@ -297,7 +297,7 @@ bool SpriteRenderer::RenderPixel( int _x, uint16* _pOutPixel, uint8* _pOutCollis
 	return didRender;
 }
 
-void SpriteRenderer::RenderScanline( uint16* _targetBuffer )
+void SpriteRenderer::RenderScanline( uint16* _targetBuffer, uint8* _collisionBits, uint8* _collisionIndices )
 {
 	bool didRender = false;
 	
@@ -306,7 +306,6 @@ void SpriteRenderer::RenderScanline( uint16* _targetBuffer )
 	
 	while( sprite != NULL )
 	{
-		int x;
 		const Image* image = sprite->image;
 
 		int drawLength = image->w;
@@ -334,6 +333,8 @@ void SpriteRenderer::RenderScanline( uint16* _targetBuffer )
 		}
 		
 		uint16* outBuffer = &_targetBuffer[ drawx ];
+		uint8* collisionBits = &_collisionBits[ drawx ];
+		uint8* collisionIndices = &_collisionIndices[ drawx << 3 ];
 		
 		while( drawLength > 0 )
 		{
@@ -351,12 +352,6 @@ void SpriteRenderer::RenderScanline( uint16* _targetBuffer )
 				alpha = sprite->image->alpha[ ofs ];*/
 			
 			/*
-			 uint16 rgb = sprite->image->pixels[ ofs ];
-			 if( sprite->flags & SPRITE_FLAG_DRAWWHITE )
-				rgb = 0xffff;
-			 */
-			
-			/*
 			uint16 rgb = *sprite->pPixelData;
 			sprite->pPixelData++;
 			 */
@@ -364,15 +359,27 @@ void SpriteRenderer::RenderScanline( uint16* _targetBuffer )
 			uint16 rgb = *color;
 			color++;
 
+			if( sprite->flags & SPRITE_FLAG_DRAWWHITE )
+				rgb = 0xffff;
+			
 			if( alpha == 0 )
 			{
 				// Skip
 				outBuffer++;
+				collisionBits++;
+				collisionIndices += 8;
 			} else if( alpha == 255 )
 			{
 				// Full overdraw
 				*outBuffer = rgb;
 				outBuffer++;
+
+				*collisionBits |= (1<<sprite->collisionIndex);
+				collisionBits++;
+				
+				collisionIndices[ sprite->collisionIndex ] = sprite->rendererIndex;
+				collisionIndices += 8;
+
 				/*
 				*_pOutPixel = rgb;
 				*_pOutCollisionMask |= (1<<sprite->collisionIndex);
@@ -413,6 +420,14 @@ void SpriteRenderer::RenderScanline( uint16* _targetBuffer )
 				
 				*outBuffer = out;
 				outBuffer++;
+
+				/*
+				*collisionBits |= (1<<sprite->collisionIndex);
+				collisionBits++;
+				
+				collisionIndices[ sprite->collisionIndex ] = sprite->rendererIndex;
+				collisionIndices += 8;
+				*/
 			}
 		}
 		sprites++;
