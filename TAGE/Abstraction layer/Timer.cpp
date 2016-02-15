@@ -25,14 +25,14 @@ uint32 micros()
 uint32 millis()
 {
 	auto now = std::chrono::high_resolution_clock::now().time_since_epoch();
-	uint32 ret = std::chrono::duration_cast<std::chrono::milliseconds>(now).count();
+	uint32 ret = (uint32)std::chrono::duration_cast<std::chrono::milliseconds>(now).count();
 	return ret - timerStartMillis;
 }
 
 uint32 nanos()
 {
 	auto now = std::chrono::high_resolution_clock::now().time_since_epoch();
-	uint32 ret = std::chrono::duration_cast<std::chrono::nanoseconds>( now ).count();
+	uint32 ret = (uint32)std::chrono::duration_cast<std::chrono::nanoseconds>( now ).count();
 	return ret;
 }
 

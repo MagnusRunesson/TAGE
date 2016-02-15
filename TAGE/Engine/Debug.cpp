@@ -32,7 +32,7 @@ void debugLog( const char* _pszFormat, ... )
 	
 	vsnprintf( buffer, SIZE-1, _pszFormat, args );
 #ifdef TAGE_TARGET_MACOSX
-	printf( buffer );
+	printf( "%s", buffer );
 #else
 	Serial.print( buffer );
 #endif

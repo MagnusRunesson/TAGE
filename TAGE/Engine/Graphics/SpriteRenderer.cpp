@@ -299,8 +299,6 @@ bool SpriteRenderer::RenderPixel( int _x, uint16* _pOutPixel, uint8* _pOutCollis
 
 void SpriteRenderer::RenderScanline( uint16* _targetBuffer, uint8* _collisionBits, uint8* _collisionIndices )
 {
-	bool didRender = false;
-	
 	Sprite** sprites = m_scanlineSprites;
 	Sprite* sprite = *sprites;
 	
