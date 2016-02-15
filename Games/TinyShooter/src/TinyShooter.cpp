@@ -6,6 +6,10 @@
 //  Copyright © 2015 Magnus Runesson. All rights reserved.
 //
 
+#ifndef TAGE_TARGET_MACOSX
+#include <AudioZero.h>
+#endif
+
 #include <stdio.h>
 #include "TinyScreen.h"
 #include "Arduino.h"
@@ -36,6 +40,10 @@ void tage_setup()
 	debugInit();
 	padInit();
 	
+#ifndef TAGE_TARGET_MACOSX
+	AudioZero.begin( 11025 );
+#endif
+
 	display.begin();
 	display.setBrightness( 10 );
 	display.setBitDepth( 1 );

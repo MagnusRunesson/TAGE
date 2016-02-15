@@ -9,6 +9,7 @@
 #include "Engine/Audio/AudioMixer.h"
 #include "Engine/Types.h"
 
+#ifdef TAGE_TARGET_MACOSX
 
 void Audio_Handler_SDL( void *udata, uint8 *stream, int len )
 {
@@ -24,3 +25,29 @@ void Audio_Handler_SDL( void *udata, uint8 *stream, int len )
 		data[ i ] = audioMixer.pOutputBuffer[ audioMixer.outputReadPosition ];
 	}
 }
+
+#else
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void Audio_Handler (void)
+{
+	audioMixer.outputReadPosition++;
+	if( audioMixer.outputReadPosition >= audioMixer.outputBufferSize )
+		audioMixer.outputReadPosition = 0;
+	
+	analogWrite( A0, audioMixer.pOutputBuffer[ audioMixer.outputReadPosition ]);
+	
+	// Clear the interrupt
+	TC5->COUNT16.INTFLAG.bit.MC0 = 1;
+}
+
+void TC5_Handler (void) __attribute__ ((weak, alias("Audio_Handler")));
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif
