@@ -1,5 +1,5 @@
 //
-//  TinyRacer.cpp
+//  TinyShooter.cpp
 //  TinyArcade
 //
 //  Created by Magnus Runesson on 2015-12-03.
