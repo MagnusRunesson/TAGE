@@ -6,9 +6,8 @@
 //  Copyright © 2016 Magnus Runesson. All rights reserved.
 //
 
-#include "types.h"
-#include "AudioHandler.h"
-#include "AudioMixer.h"
+#include "Engine/Audio/AudioMixer.h"
+#include "Engine/Types.h"
 
 
 void Audio_Handler_SDL( void *udata, uint8 *stream, int len )
