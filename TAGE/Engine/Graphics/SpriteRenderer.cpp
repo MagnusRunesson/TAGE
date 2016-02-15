@@ -39,6 +39,7 @@ Sprite* SpriteRenderer::AllocateSprite( const Image* _image )
 		{
 			sprite->image = _image;
 			SetBit( sprite->flags, SPRITE_FLAG_ENABLED );
+			sprite->rendererIndex = i;
 			//printf("using index %i\n", i );
 			return sprite;
 		}
@@ -52,7 +53,13 @@ void SpriteRenderer::FreeSprite( Sprite* _spriteInstance )
 	//printf("freeing sprite from image %s\n", _spriteInstance->image->DEBUG_name );
 	_spriteInstance->image = NULL;
 	_spriteInstance->owner = NULL;
+	_spriteInstance->rendererIndex = INVALID_SPRITE_RENDERER_INDEX;
 	ClrBit( _spriteInstance->flags, SPRITE_FLAG_ENABLED );
+}
+
+Sprite* SpriteRenderer::GetSprite( int _spriteRendererIndex )
+{
+	return &m_sprite[ _spriteRendererIndex ];
 }
 
 void SpriteRenderer::FrameStart()

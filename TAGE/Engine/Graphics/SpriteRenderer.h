@@ -15,6 +15,7 @@
 class Image;
 
 #define MAX_SPRITES (64)
+#define INVALID_SPRITE_RENDERER_INDEX (255)
 
 class SpriteRenderer
 {
@@ -33,6 +34,7 @@ public:
 	
 	Sprite* AllocateSprite( const Image* _image );
 	void FreeSprite( Sprite* _spriteInstance );
+	Sprite* GetSprite( int _spriteRendererIndex );
 
 	//
 	void FrameStart();
