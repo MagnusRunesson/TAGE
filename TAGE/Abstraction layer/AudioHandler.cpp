@@ -38,7 +38,9 @@ void Audio_Handler (void)
 	if( audioMixer.outputReadPosition >= audioMixer.outputBufferSize )
 		audioMixer.outputReadPosition = 0;
 	
-	analogWrite( A0, 127 + audioMixer.pOutputBuffer[ audioMixer.outputReadPosition ]);
+	while( DAC->STATUS.bit.SYNCBUSY == 1 );
+	DAC->DATA.reg = 127 + audioMixer.pOutputBuffer[ audioMixer.outputReadPosition ];
+	while( DAC->STATUS.bit.SYNCBUSY == 1 );
 	
 	// Clear the interrupt
 	TC5->COUNT16.INTFLAG.bit.MC0 = 1;
