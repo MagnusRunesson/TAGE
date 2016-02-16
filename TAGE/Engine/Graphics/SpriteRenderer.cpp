@@ -387,14 +387,16 @@ void SpriteRenderer::RenderScanline( uint16* _targetBuffer, uint8* _collisionBit
 			}
 			else
 			{
-				uint16 srccol = rgb;
+				uint16 srccol = ((rgb&0x00ff)<<8) + ((rgb&0xff00)>>8);
 				
 				uint32 srcr = (srccol >> COLORSHIFT_16_R) & COLORWIDTH_16_R;
 				uint32 srcg = (srccol >> COLORSHIFT_16_G) & COLORWIDTH_16_G;
 				uint32 srcb = (srccol >> COLORSHIFT_16_B) & COLORWIDTH_16_B;
 				
 				uint32 dsta = 255-alpha;
-				uint16 dstcol = *outBuffer;
+				uint16 dstcol2 = *outBuffer;
+				uint16 dstcol = ((dstcol2&0x00ff)<<8) + ((dstcol2&0xff00)>>8);
+				
 				uint32 dstr = (dstcol >> COLORSHIFT_16_R) & COLORWIDTH_16_R;
 				uint32 dstg = (dstcol >> COLORSHIFT_16_G) & COLORWIDTH_16_G;
 				uint32 dstb = (dstcol >> COLORSHIFT_16_B) & COLORWIDTH_16_B;
@@ -415,8 +417,9 @@ void SpriteRenderer::RenderScanline( uint16* _targetBuffer, uint8* _collisionBit
 				 */
 				
 				uint16 out = (outr<<COLORSHIFT_16_R) + (outg<<COLORSHIFT_16_G) + (outb<<COLORSHIFT_16_B);
+				uint16 out2 = ((out&0x00ff)<<8) + ((out&0xff00)>>8);
 				
-				*outBuffer = out;
+				*outBuffer = out2;
 				outBuffer++;
 
 				/*
