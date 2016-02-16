@@ -103,6 +103,62 @@ const Path testPath = {
 	testPath_nodes,
 };
 
+inline uint16 byteswap( uint16 _c )
+{
+	return ((_c&0x00ff)<<8) + ((_c&0xff00)>>8);
+}
+
+inline uint16 rgb16( uint8 _r, uint8 _g, uint8 _b )
+{
+	uint16 rgb = ((_r<<11) + (_g<<5) + _b);
+	return byteswap( rgb );
+}
+
+void GenerateTemplateGrey( int _darkGreyStart, int _brightGreyStart, int _darkGreyStart2, int _blackStart )
+{
+	uint16 darkGrey = rgb16( 4, 8, 5 );
+	uint16 brightGrey = rgb16( 8, 16, 10 );
+
+	int x=0;
+	while( x<_darkGreyStart )
+	{
+		lineBufferTemplate[ x ] = 0x0000;
+		x++;
+		if( x >= SCREEN_WIDTH )
+			return;
+	}
+	
+	while( x<_brightGreyStart )
+	{
+		lineBufferTemplate[ x ] = darkGrey;
+		x++;
+		if( x >= SCREEN_WIDTH )
+			return;
+	}
+	
+	while( x<_darkGreyStart2 )
+	{
+		lineBufferTemplate[ x ] = brightGrey;
+		x++;
+		if( x >= SCREEN_WIDTH )
+			return;
+	}
+
+	while( x<_blackStart )
+	{
+		lineBufferTemplate[ x ] = darkGrey;
+		x++;
+		if( x >= SCREEN_WIDTH )
+			return;
+	}
+	
+	while( x < SCREEN_WIDTH )
+	{
+		lineBufferTemplate[ x ] = 0x0000;
+		x++;
+	}
+}
+
 void levelFunc10( int _x )
 {
 	int i;
@@ -151,6 +207,14 @@ void levelFunc4( int _x )
 		pEnemy->Timeout = 1024;
 	}
 }
+
+/*
+void generateGreyTemplate( int _x )
+{
+	int x = _x >> 4;
+	GenerateTemplateGrey( _x, _x+10, _x+20, _x+30 );
+}
+ */
 
 void levelFuncSpawnCargo( int _x )
 {
@@ -288,6 +352,8 @@ void ingame_loop()
 				playerCameraMove( 1 );
 				
 				mapScroll++;
+				
+				GenerateTemplateGrey( 168-mapScroll, 184-mapScroll, 716-mapScroll, 748-mapScroll );
 				if( mapScroll > scrollMax )
 				{
 					cameraScroll = scrollMax;
