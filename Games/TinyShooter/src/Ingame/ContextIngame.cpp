@@ -252,9 +252,13 @@ const LevelScrollFunc spacebaseFuncs[] = {
 int currentFunc;
 const int numFuncs = sizeof( spacebaseFuncs ) / sizeof( LevelScrollFunc );
 
+#ifdef PERF_FEST
+
 float avgTime;
 float avgTime2;
 const float avgTimeSamples = 60.0f;
+
+#endif
 
 float addToAverage( float _currentAverage, float _newTime, float _numSamples )
 {
@@ -310,8 +314,10 @@ void ingame_setup()
 	explosionsInit();
 	enemyManagerInit();
 	
+#ifdef PERF_FEST
 	avgTime = 0.0f;
 	avgTime2 = 0.0f;
+#endif
 	
 	int x;
 	for( x=0; x<SCREEN_WIDTH; x++ )
