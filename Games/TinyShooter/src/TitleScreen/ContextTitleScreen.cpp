@@ -240,6 +240,9 @@ void titlescreen_loop()
 		
 		iScanline++;
 	}
+	
+	while( !display.getReadyStatusDMA());
+	
 	display.endTransfer();
 
 	//
