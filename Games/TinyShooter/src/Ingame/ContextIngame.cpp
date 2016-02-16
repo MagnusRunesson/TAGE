@@ -119,37 +119,34 @@ void GenerateTemplateGrey( int _darkGreyStart, int _brightGreyStart, int _darkGr
 	uint16 darkGrey = rgb16( 4, 8, 5 );
 	uint16 brightGrey = rgb16( 8, 16, 10 );
 
+	if( _darkGreyStart > SCREEN_WIDTH ) _darkGreyStart=SCREEN_WIDTH;
+	if( _brightGreyStart > SCREEN_WIDTH ) _brightGreyStart=SCREEN_WIDTH;
+	if( _darkGreyStart2 > SCREEN_WIDTH ) _darkGreyStart2=SCREEN_WIDTH;
+	if( _blackStart > SCREEN_WIDTH ) _blackStart=SCREEN_WIDTH;
+
 	int x=0;
 	while( x<_darkGreyStart )
 	{
 		lineBufferTemplate[ x ] = 0x0000;
 		x++;
-		if( x >= SCREEN_WIDTH )
-			return;
 	}
 	
 	while( x<_brightGreyStart )
 	{
 		lineBufferTemplate[ x ] = darkGrey;
 		x++;
-		if( x >= SCREEN_WIDTH )
-			return;
 	}
 	
 	while( x<_darkGreyStart2 )
 	{
 		lineBufferTemplate[ x ] = brightGrey;
 		x++;
-		if( x >= SCREEN_WIDTH )
-			return;
 	}
 
 	while( x<_blackStart )
 	{
 		lineBufferTemplate[ x ] = darkGrey;
 		x++;
-		if( x >= SCREEN_WIDTH )
-			return;
 	}
 	
 	while( x < SCREEN_WIDTH )
