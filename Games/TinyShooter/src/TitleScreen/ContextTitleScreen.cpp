@@ -57,6 +57,9 @@ Sprite* titleScreenWinners;
 int titlescreenCloseTimer;
 int titleScreenTimer;
 
+extern uint8 collisionBits[];
+extern uint8 collisionIndices[];
+
 void(*pfnHBlankInterruptTitleScreen)(int);
 
 void HBlankInterruptTitleScreen( int _scanline )
@@ -212,23 +215,24 @@ void titlescreen_loop()
 		// Copy to screen
 		for( x=0; x<SCREEN_WIDTH; x++ )
 		{
-			uint8 spriteCollisionMask;
-
 			uint16 rgb = (iScanline>>2) << 8;
-			spriteRenderer.RenderPixel( x, &rgb, &spriteCollisionMask );
+			lineBuffer[ x ] = rgb;
+		}
+		
+		//	spriteRenderer.RenderPixel( x, &rgb, &spriteCollisionMask );
+		spriteRenderer.RenderScanline( lineBuffer, collisionBits, collisionIndices );
 			
 #ifdef TAGE_TARGET_MACOSX
+		for( x=0; x<SCREEN_WIDTH; x++ )
+		{
+			uint16 rgb = lineBuffer[ x ];
 			uint16 newrgb2 = ((rgb&0x00ff)<<8) + ((rgb&0xff00)>>8);
 			lineBuffer[ x ] = newrgb2;
-#else
-			lineBuffer[ x ] = rgb;
-#endif
 		}
-
-#ifdef TAGE_TARGET_MACOSX
 		display.writeBuffer( (uint8*)lineBuffer, SCREEN_WIDTH*2 );
 #else
 		display.writeBufferDMA((uint8*)lineBuffer, SCREEN_WIDTH*2 );
+		while( !display.getReadyStatusDMA());
 #endif
 		
 		/*
@@ -240,8 +244,6 @@ void titlescreen_loop()
 		
 		iScanline++;
 	}
-	
-	while( !display.getReadyStatusDMA());
 	
 	display.endTransfer();
 
