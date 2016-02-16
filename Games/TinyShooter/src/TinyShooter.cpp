@@ -6,10 +6,6 @@
 //  Copyright © 2015 Magnus Runesson. All rights reserved.
 //
 
-#ifndef TAGE_TARGET_MACOSX
-#include <AudioZero.h>
-#endif
-
 #include <stdio.h>
 #include "TinyScreen.h"
 #include "Arduino.h"
@@ -35,13 +31,20 @@
 
 TinyScreen display = TinyScreen( TinyScreenPlus );
 
+#ifndef TAGE_TARGET_MACOSX
+void tcConfigure(uint32_t sampleRate);
+void tcStart();
+#endif
+
 void tage_setup()
 {
 	debugInit();
 	padInit();
 	
 #ifndef TAGE_TARGET_MACOSX
-	AudioZero.begin( 11025 );
+	analogWrite( A0, 0 );
+	tcConfigure( 11025 );
+	tcStart();
 #endif
 
 	display.begin();
@@ -52,6 +55,68 @@ void tage_setup()
 	
 	contextInit();
 }
+
+#ifndef TAGE_TARGET_MACOSX
+
+bool tcIsSyncing()
+{
+	return TC5->COUNT16.STATUS.reg & TC_STATUS_SYNCBUSY;
+}
+
+void tcStart()
+{
+	// Enable TC
+	TC5->COUNT16.CTRLA.reg |= TC_CTRLA_ENABLE;
+	while( tcIsSyncing());
+}
+
+void tcReset()
+{
+	// Reset TCx
+	TC5->COUNT16.CTRLA.reg = TC_CTRLA_SWRST;
+	while( tcIsSyncing());
+	while( TC5->COUNT16.CTRLA.bit.SWRST );
+}
+
+void tcStop()
+{
+	// Disable TC5
+	TC5->COUNT16.CTRLA.reg &= ~TC_CTRLA_ENABLE;
+	while( tcIsSyncing());
+}
+
+void tcConfigure(uint32_t sampleRate)
+{
+	// Enable GCLK for TCC2 and TC5 (timer counter input clock)
+	GCLK->CLKCTRL.reg = (uint16_t) (GCLK_CLKCTRL_CLKEN | GCLK_CLKCTRL_GEN_GCLK0 | GCLK_CLKCTRL_ID(GCM_TC4_TC5)) ;
+	while (GCLK->STATUS.bit.SYNCBUSY);
+	
+	tcReset();
+	
+	// Set Timer counter Mode to 16 bits
+	TC5->COUNT16.CTRLA.reg |= TC_CTRLA_MODE_COUNT16;
+	
+	// Set TC5 mode as match frequency
+	TC5->COUNT16.CTRLA.reg |= TC_CTRLA_WAVEGEN_MFRQ;
+	
+	TC5->COUNT16.CTRLA.reg |= TC_CTRLA_PRESCALER_DIV1;
+	
+	TC5->COUNT16.CC[0].reg = (uint16_t) (SystemCoreClock / sampleRate - 1);
+	while (tcIsSyncing());
+	
+	// Configure interrupt request
+	NVIC_DisableIRQ(TC5_IRQn);
+	NVIC_ClearPendingIRQ(TC5_IRQn);
+	NVIC_SetPriority(TC5_IRQn, 0);
+	NVIC_EnableIRQ(TC5_IRQn);
+	
+	// Enable the TC5 interrupt request
+	TC5->COUNT16.INTENSET.bit.MC0 = 1;
+	while( tcIsSyncing());
+}
+
+
+#endif
 
 void tage_loop()
 {
