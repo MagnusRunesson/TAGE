@@ -178,6 +178,28 @@ void levelFunc20( int _x )
 		enemySpawn( &enemy_saucer_easy, _x+96+(i*14), 30, &movement );
 }
 
+void spawnTallons( int _x, int _y )
+{
+	fp2d movement( FixedPoint( 0, -30 ), _y );
+	int i;
+	for( i=0; i<6; i++ )
+	{
+		Enemy* pEnemy = enemySpawn( &enemy_tallonclaw, _x+96+(i*5), 10, &movement );
+		pEnemy->m_movementTimer = 50 - (i*10);
+		pEnemy->Timeout += 120;
+	}
+}
+
+void spawnTallonsHigh( int _x )
+{
+	spawnTallons( _x,  15 );
+}
+
+void spawnTallonsLow( int _x )
+{
+	spawnTallons( _x,  49 );
+}
+
 void levelFunc3( int _x )
 {
 	fp2d movement( 0, 30 );
@@ -228,23 +250,27 @@ public:
 
 const LevelScrollFunc spacebaseFuncs[] = {
 	{
-		15,
+		20,
+		&spawnTallonsLow,
+	},
+	{
+		30,
+		&spawnTallonsHigh,
+	},
+	{
+		45,
 		&levelFuncSpawnCargo,
 	},
 	{
-		28,
-		&levelFunc4,
-	},
-	{
-		40,
+		90,
 		&levelFunc10,
 	},
 	{
-		50,
+		100,
 		&levelFunc20,
 	},
 	{
-		60,
+		110,
 		&levelFunc3
 	},
 };
