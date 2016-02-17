@@ -60,3 +60,13 @@ void EnemyMovement_01_Sinus_MoveLeft( Enemy* _pTarget )
 	_pTarget->m_worldPosition.y = FixedPoint( 30 ) + em01_delta[ i ];
 	_pTarget->m_worldPosition.x -= FixedPoint( 0, 50 );
 }
+
+void EnemyMovement_02_HalfSinus_MoveLeft( Enemy* _pTarget )
+{
+	int i = _pTarget->m_movementTimer & 0x1f;
+
+	FixedPoint s = em01_delta[ i ];
+	s /= 2;
+	_pTarget->m_worldPosition.y = _pTarget->m_movementDirection.y + s;
+	_pTarget->m_worldPosition.x += _pTarget->m_movementDirection.x;
+}
