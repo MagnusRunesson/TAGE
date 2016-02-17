@@ -372,7 +372,7 @@ void SpriteRenderer::RenderScanline( uint16* _targetBuffer, uint8* _collisionBit
 				*outBuffer = rgb;
 				outBuffer++;
 
-				if( sprite->collisionIndex != NULL )
+				if( sprite->collisionIndex != 0 )
 					*collisionBits |= (1<<sprite->collisionIndex);
 				
 				collisionBits++;
