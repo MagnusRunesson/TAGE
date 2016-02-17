@@ -18,5 +18,6 @@ extern "C" const EnemyDefinition enemy_dragonbody;
 extern "C" const EnemyDefinition enemy_cargo;
 extern "C" const EnemyDefinition enemy_bullet;
 extern "C" const EnemyDefinition enemy_turret;
+extern "C" const EnemyDefinition enemy_tallonclaw;
 
 #endif /* defined(__TinyShooter__EnemyDefinitions__) */

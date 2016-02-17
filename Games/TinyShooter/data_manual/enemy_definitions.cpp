@@ -68,3 +68,19 @@ const EnemyDefinition enemy_turret =
 	0,
 	NULL
 };
+
+const EnemyDefinition enemy_tallonclaw =
+{
+	&animation_enemy_tallonclaw,
+	1,
+	0,
+	EnemyMovement_02_HalfSinus_MoveLeft
+};
+
+
+
+
+
+
+
+
