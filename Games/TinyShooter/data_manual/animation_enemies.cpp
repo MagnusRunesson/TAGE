@@ -225,3 +225,24 @@ const AnimationFrameDefinition animation_enemy_turret_frames[] = {
 
 DEFINE_ANIMATION( enemy_turret, true );
 
+
+
+
+
+//
+//
+// Tallonclaw - Small yellow hook that likes to fly in group in a wave pattern
+//
+//
+const AnimationFrameDefinition animation_enemy_tallonclaw_frames[] = {
+	{
+		&sprite_enemy_tallonclaw_00,
+		10,
+		0,
+		-1,
+		-1,
+	},
+};
+
+DEFINE_ANIMATION( enemy_tallonclaw, true );
+
