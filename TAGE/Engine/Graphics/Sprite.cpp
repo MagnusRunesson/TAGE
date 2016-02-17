@@ -23,6 +23,7 @@ void Sprite::Reboot()
 	y = 127;
 	flags = 0;
 	image = NULL;
+	collisionIndex = 0;
 	ClrFlags( SPRITE_FLAG_ENABLED );
 }
 
