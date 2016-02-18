@@ -182,6 +182,7 @@ void spawnSparrowsLow( int _x )
 		int yofs = *spawnPoint; spawnPoint++;
 		Enemy* pEnemy = enemySpawn( &enemy_sparrow, _x+107+xofs, 50+yofs, &sparrowSpawnSpeed[ i ]);
 		pEnemy->Timeout = 350;
+		pEnemy->pTargetGameObject->GetAnimation()->FrameIndex = i%4;
 
 		// Some sparrows should attack the player
 		if((i==0) || (i==3))
