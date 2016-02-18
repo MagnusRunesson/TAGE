@@ -156,17 +156,36 @@ void GenerateTemplateGrey( int _darkGreyStart, int _brightGreyStart, int _darkGr
 	}
 }
 
-void levelFunc10( int _x )
+int sparrowSpawnPoint[] = {
+	0, 0,
+	-7, -2,
+	-3, -5,
+	-6, -9,
+	-11, -8,
+};
+
+fp2d sparrowSpawnSpeed[] = {
+	{ FixedPoint( 0, -30 ), FixedPoint( 0 ) },
+	{ FixedPoint( 0, -30 ), FixedPoint( 0, -1 ) },
+	{ FixedPoint( 0, -30 ), FixedPoint( 0, -3 ) },
+	{ FixedPoint( 0, -30 ), FixedPoint( 0, -5 ) },
+	{ FixedPoint( 0, -30 ), FixedPoint( 0, -6 ) },
+};
+
+void spawnSparrowsLow( int _x )
 {
+	int* spawnPoint = sparrowSpawnPoint;
 	int i;
 	for( i=0; i<5; i++ )
 	{
-		Enemy* pEnemy = enemySpawn( &enemy_sparrow, _x+96+(i*3), 50-(i*2), new fp2d( FixedPoint( 0, -(40-(i*6))), FixedPoint( 0, -i*6 )));
+		int xofs = *spawnPoint; spawnPoint++;
+		int yofs = *spawnPoint; spawnPoint++;
+		Enemy* pEnemy = enemySpawn( &enemy_sparrow, _x+107+xofs, 50+yofs, &sparrowSpawnSpeed[ i ]);
 		pEnemy->Timeout = 350;
 
 		// Some sparrows should attack the player
 		if((i==0) || (i==3))
-			pEnemy->AttackTimer = 30+(i*10);
+			pEnemy->AttackTimer = 45+(i*15);
 	}
 }
 
@@ -258,12 +277,12 @@ const LevelScrollFunc spacebaseFuncs[] = {
 		&spawnTallonsHigh,
 	},
 	{
-		45,
+		55,
 		&levelFuncSpawnCargo,
 	},
 	{
-		90,
-		&levelFunc10,
+		70,
+		&spawnSparrowsLow,
 	},
 	{
 		100,
