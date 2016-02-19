@@ -232,14 +232,22 @@ void TileRenderer::RenderScanline( uint16* _targetBuffer, uint8* _collisionBuffe
 		for( tx=0; tx<4; tx++ )
 		{
 			uint16 rgb = pTile->pTileColor[ pTile->TixelOffset ];
+			uint8 alpha = 255;
+			if( pTile->pTileAlpha )
+				alpha = pTile->pTileAlpha[ pTile->TixelOffset ];
+			
+			if( alpha == 255 )
+			{
+				// Full opacity, no blend
+				_targetBuffer[ writeX ] = rgb;
+				if( _collisionBuffer != NULL )
+					_collisionBuffer[ writeX ] = 1;
+				
+			}
+			
 			pTile->TixelOffset += pTile->TixelIncrementX;
-
-			_targetBuffer[ writeX ] = rgb;
 			writeX++;
 			
-			if( _collisionBuffer != NULL )
-				_collisionBuffer[ writeX ] = 1;
-
 			if( writeX >= SCREEN_WIDTH )
 				return;
 		}
