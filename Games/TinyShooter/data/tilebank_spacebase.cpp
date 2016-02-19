@@ -1540,7 +1540,7 @@ const uint16 tilebank_spacebase_pixels[] =
 
 };
 
-const uint8 tilebank_spacebase_alpha[] =
+const uint8 tilebank_spacebase_alpha[] __attribute__ ((aligned (4))) =
 {
 	// Tile 0
 	0x00,0x00,0x00,0x00,
