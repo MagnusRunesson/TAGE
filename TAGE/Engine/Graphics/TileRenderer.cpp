@@ -226,56 +226,112 @@ void TileRenderer::RenderScanline( uint16* _targetBuffer, uint8* _collisionBuffe
 	}
 	
 	//
-	int i;
-	for( i=1; i<24; i++ )
+	//
+	//
+	if( _collisionBuffer == NULL )
 	{
-		// Fetch the render tile
-		pTile = &m_renderTiles[ i ];
-		if( pTile->pTileColor == NULL )
-		{
-			writeX += 4;
-			continue;
-		}
-
 		//
-		if( pTile->pTileAlpha )
+		// This is the rendering path where we do NOT have a collision buffer. Never write to the collision buffer in this path.
+		//
+		int i;
+		for( i=1; i<24; i++ )
 		{
-			//
-			// This tile have an alpha channel. This is the alpha rendering path.
-			//
-			for( tx=0; tx<4; tx++ )
+			// Fetch the render tile
+			pTile = &m_renderTiles[ i ];
+			if( pTile->pTileColor == NULL )
 			{
-				uint8 alpha = pTile->pTileAlpha[ pTile->TixelOffset ];
-				
-				if( alpha == 255 )
+				writeX += 4;
+				continue;
+			}
+
+			//
+			if( pTile->pTileAlpha )
+			{
+				//
+				// This tile have an alpha channel. This is the alpha rendering path.
+				//
+				for( tx=0; tx<4; tx++ )
 				{
-					// Full opacity, no blend
+					uint8 alpha = pTile->pTileAlpha[ pTile->TixelOffset ];
+					if( alpha == 255 )
+					{
+						// Full opacity, no blend
+						uint16 rgb = pTile->pTileColor[ pTile->TixelOffset ];
+						_targetBuffer[ writeX ] = rgb;
+					}
+
+					pTile->TixelOffset += pTile->TixelIncrementX;
+					writeX++;
+				}
+			}
+			else
+			{
+				//
+				// This tile does not have an alpha channel. This is the rendering that is fully opaque.
+				//
+				for( tx=0; tx<4; tx++ )
+				{
 					uint16 rgb = pTile->pTileColor[ pTile->TixelOffset ];
 					_targetBuffer[ writeX ] = rgb;
-					if( _collisionBuffer != NULL )
-						_collisionBuffer[ writeX ] = 1;
-					
+
+					pTile->TixelOffset += pTile->TixelIncrementX;
+					writeX++;
 				}
-				
-				pTile->TixelOffset += pTile->TixelIncrementX;
-				writeX++;
 			}
 		}
-		else
+	}
+	else
+	{
+		//
+		// This is the rendering path where we have a collision buffer. Always write to the collision buffer in this case.
+		//
+		int i;
+		for( i=1; i<24; i++ )
 		{
-			//
-			// This tile does not have an alpha channel. This is the rendering that is fully opaque.
-			//
-			for( tx=0; tx<4; tx++ )
+			// Fetch the render tile
+			pTile = &m_renderTiles[ i ];
+			if( pTile->pTileColor == NULL )
 			{
-				uint16 rgb = pTile->pTileColor[ pTile->TixelOffset ];
-				_targetBuffer[ writeX ] = rgb;
-				
-				if( _collisionBuffer != NULL )
+				writeX += 4;
+				continue;
+			}
+
+			//
+			if( pTile->pTileAlpha )
+			{
+				//
+				// This tile have an alpha channel. This is the alpha rendering path.
+				//
+				for( tx=0; tx<4; tx++ )
+				{
+					uint8 alpha = pTile->pTileAlpha[ pTile->TixelOffset ];
+					
+					if( alpha == 255 )
+					{
+						// Full opacity, no blend
+						uint16 rgb = pTile->pTileColor[ pTile->TixelOffset ];
+						_targetBuffer[ writeX ] = rgb;
+						_collisionBuffer[ writeX ] = 1;
+					}
+
+					pTile->TixelOffset += pTile->TixelIncrementX;
+					writeX++;
+				}
+			}
+			else
+			{
+				//
+				// This tile does not have an alpha channel. This is the rendering that is fully opaque.
+				//
+				for( tx=0; tx<4; tx++ )
+				{
+					uint16 rgb = pTile->pTileColor[ pTile->TixelOffset ];
+					_targetBuffer[ writeX ] = rgb;
 					_collisionBuffer[ writeX ] = 1;
-				
-				pTile->TixelOffset += pTile->TixelIncrementX;
-				writeX++;
+
+					pTile->TixelOffset += pTile->TixelIncrementX;
+					writeX++;
+				}
 			}
 		}
 	}
