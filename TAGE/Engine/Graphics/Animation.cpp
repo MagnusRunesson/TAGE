@@ -33,6 +33,9 @@ void Animation::Reset()
 void Animation::Play()
 {
 	IsPlaying = true;
+	const AnimationFrameDefinition* pFrame = &pSequence->Frames[ FrameIndex ];
+	pTarget->GetSprite()->image = pFrame->sourceImage;
+	pTarget->SetHotspot( pFrame->HotspotX, pFrame->HotspotY );
 }
 
 void Animation::Stop()
