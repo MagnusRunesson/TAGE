@@ -69,7 +69,7 @@ int writePixels( FILE* f, char* _symbolNameBase, SDL_Surface* image, int tileWid
 
 void writeAlpha( FILE* f, char* _symbolNameBase, SDL_Surface* image, int tileWidth, int tileHeight, int* _pTotalOutputSize )
 {
-	fprintf( f, "const uint8 %s_alpha[] =\n{\n", _symbolNameBase );
+	fprintf( f, "const uint8 %s_alpha[] __attribute__ ((aligned (4))) =\n{\n", _symbolNameBase );
 	
 	unsigned char* pixels = (unsigned char*)image->pixels;
 	int itile=0;
