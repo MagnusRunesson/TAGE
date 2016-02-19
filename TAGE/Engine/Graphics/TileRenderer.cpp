@@ -191,6 +191,8 @@ void TileRenderer::RenderScanline( uint16* _targetBuffer, uint8* _collisionBuffe
 	int tx;
 	
 	//
+	// Render the left most tile. It may be partially obscured
+	//
 	RenderTile* pTile = &m_renderTiles[ 0 ];
 	if( pTile->pTileColor == NULL )
 	{
@@ -201,15 +203,24 @@ void TileRenderer::RenderScanline( uint16* _targetBuffer, uint8* _collisionBuffe
 		for( tx=0; tx<4; tx++ )
 		{
 			uint16 rgb = pTile->pTileColor[ pTile->TixelOffset ];
+			uint8 alpha = 255;
+			if( pTile->pTileAlpha )
+				alpha = pTile->pTileAlpha[ pTile->TixelOffset ];
+
 			pTile->TixelOffset += pTile->TixelIncrementX;
+			
 			if(	tx < m_scanlineTixelX )
 				continue;
 		
-			_targetBuffer[ writeX ] = rgb;
-			
-			if( _collisionBuffer != NULL )
-				_collisionBuffer[ writeX ] = 1;
-			
+			if( alpha == 255 )
+			{
+				// Full opacity, no blend
+				_targetBuffer[ writeX ] = rgb;
+				if( _collisionBuffer != NULL )
+					_collisionBuffer[ writeX ] = 1;
+				
+			}
+
 			writeX++;
 		}
 	}
