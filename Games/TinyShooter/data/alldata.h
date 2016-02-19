@@ -70,6 +70,7 @@
 #include "data/sprite_enemy_bullet_02.h"
 #include "data/sprite_enemy_bullet_03.h"
 #include "data/sprite_enemy_tallonclaw_00.h"
+#include "data/sprite_enemy_spacebase_secretpassage.h"
 
 #include "data/tilemap_spacebase.h"
 #include "data/tilemap_spacebase_background.h"

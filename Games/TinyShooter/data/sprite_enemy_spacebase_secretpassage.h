@@ -1,0 +1,6 @@
+#ifndef sprite_enemy_spacebase_secretpassage_data_h
+#define sprite_enemy_spacebase_secretpassage_data_h
+
+extern "C" const Image sprite_enemy_spacebase_secretpassage;
+
+#endif // sprite_enemy_spacebase_secretpassage_data_h

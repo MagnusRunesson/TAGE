@@ -246,3 +246,22 @@ const AnimationFrameDefinition animation_enemy_tallonclaw_frames[] = {
 
 DEFINE_ANIMATION( enemy_tallonclaw, true );
 
+
+
+//
+//
+// Spacebase secret passage - It looks like a regular spacebase wall but it can be destroyed
+//
+//
+const AnimationFrameDefinition animation_enemy_spacebase_secretpassage_frames[] = {
+	{
+		&sprite_enemy_spacebase_secretpassage,
+		100,
+		0,
+		0,
+		0,
+	},
+};
+
+DEFINE_ANIMATION( enemy_spacebase_secretpassage, true );
+

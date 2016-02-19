@@ -77,6 +77,14 @@ const EnemyDefinition enemy_tallonclaw =
 	EnemyMovement_02_HalfSinus_MoveLeft
 };
 
+const EnemyDefinition enemy_spacebase_secretpassage =
+{
+	&animation_enemy_spacebase_secretpassage,
+	15,
+	0,
+	NULL
+};
+
 
 
 

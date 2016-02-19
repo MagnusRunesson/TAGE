@@ -19,5 +19,6 @@ extern "C" const AnimationSequenceDefinition animation_enemy_cargo;
 extern "C" const AnimationSequenceDefinition animation_enemy_bullet;
 extern "C" const AnimationSequenceDefinition animation_enemy_turret;
 extern "C" const AnimationSequenceDefinition animation_enemy_tallonclaw;
+extern "C" const AnimationSequenceDefinition animation_enemy_spacebase_secretpassage;
 
 #endif /* defined(__TinyShooter__animation_enemies__) */

@@ -70,6 +70,7 @@
 #include "data/sprite_enemy_bullet_02.cpp"
 #include "data/sprite_enemy_bullet_03.cpp"
 #include "data/sprite_enemy_tallonclaw_00.cpp"
+#include "data/sprite_enemy_spacebase_secretpassage.cpp"
 
 #include "data/tilemap_spacebase.cpp"
 #include "data/tilemap_spacebase_background.cpp"
