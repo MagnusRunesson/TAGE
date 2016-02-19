@@ -190,6 +190,12 @@ void spawnSparrowsLow( int _x )
 	}
 }
 
+void spawnSpacebaseSecretPassage( int _x )
+{
+	Enemy* pEnemy = enemySpawn( &enemy_spacebase_secretpassage, _x+96, (13*4), NULL );
+	pEnemy->Timeout = 350;
+}
+
 void levelFunc20( int _x )
 {
 	fp2d movement( FixedPoint( 0, -50 ), 0 );
@@ -292,6 +298,10 @@ const LevelScrollFunc spacebaseFuncs[] = {
 	{
 		110,
 		&levelFunc3
+	},
+	{
+		240,
+		&spawnSpacebaseSecretPassage
 	},
 };
 
