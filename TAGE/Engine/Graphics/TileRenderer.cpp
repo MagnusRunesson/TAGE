@@ -227,40 +227,98 @@ void TileRenderer::RenderScanline( uint16* _targetBuffer, uint8* _collisionBuffe
 	
 	//
 	int i;
-	for( i=1; i<25; i++ )
+	for( i=1; i<24; i++ )
 	{
 		// Fetch the render tile
 		pTile = &m_renderTiles[ i ];
 		if( pTile->pTileColor == NULL )
 		{
 			writeX += 4;
-			if( writeX >= SCREEN_WIDTH )
-				return;
 			continue;
 		}
-		
+
 		//
-		for( tx=0; tx<4; tx++ )
+		if( pTile->pTileAlpha )
 		{
-			uint16 rgb = pTile->pTileColor[ pTile->TixelOffset ];
-			uint8 alpha = 255;
-			if( pTile->pTileAlpha )
-				alpha = pTile->pTileAlpha[ pTile->TixelOffset ];
-			
-			if( alpha == 255 )
+			//
+			// This tile have an alpha channel. This is the alpha rendering path.
+			//
+			for( tx=0; tx<4; tx++ )
 			{
-				// Full opacity, no blend
+				uint8 alpha = pTile->pTileAlpha[ pTile->TixelOffset ];
+				
+				if( alpha == 255 )
+				{
+					// Full opacity, no blend
+					uint16 rgb = pTile->pTileColor[ pTile->TixelOffset ];
+					_targetBuffer[ writeX ] = rgb;
+					if( _collisionBuffer != NULL )
+						_collisionBuffer[ writeX ] = 1;
+					
+				}
+				
+				pTile->TixelOffset += pTile->TixelIncrementX;
+				writeX++;
+			}
+		}
+		else
+		{
+			//
+			// This tile does not have an alpha channel. This is the rendering that is fully opaque.
+			//
+			for( tx=0; tx<4; tx++ )
+			{
+				uint16 rgb = pTile->pTileColor[ pTile->TixelOffset ];
 				_targetBuffer[ writeX ] = rgb;
+				
 				if( _collisionBuffer != NULL )
 					_collisionBuffer[ writeX ] = 1;
 				
+				pTile->TixelOffset += pTile->TixelIncrementX;
+				writeX++;
 			}
-			
-			pTile->TixelOffset += pTile->TixelIncrementX;
-			writeX++;
-			
-			if( writeX >= SCREEN_WIDTH )
-				return;
 		}
+	}
+
+	//
+	// We've already filled the scan line. No need to render the last tile.
+	//
+	if( writeX >= SCREEN_WIDTH )
+		return;
+	
+	//
+	// Render the rightmost tile
+	//
+	pTile = &m_renderTiles[ 24 ];
+	if( pTile->pTileColor == NULL )
+	{
+		//
+		// The tile is a blank. Nothing to render for this tile and this scan line is officially ended
+		//
+		return;
+	}
+	
+	//
+	for( tx=0; tx<4; tx++ )
+	{
+		uint16 rgb = pTile->pTileColor[ pTile->TixelOffset ];
+		uint8 alpha = 255;
+		if( pTile->pTileAlpha )
+			alpha = pTile->pTileAlpha[ pTile->TixelOffset ];
+		
+		if( alpha == 255 )
+		{
+			// Full opacity, no blend
+			_targetBuffer[ writeX ] = rgb;
+			if( _collisionBuffer != NULL )
+				_collisionBuffer[ writeX ] = 1;
+			
+		}
+		
+		pTile->TixelOffset += pTile->TixelIncrementX;
+		writeX++;
+		
+		if( writeX >= SCREEN_WIDTH )
+			return;
 	}
 }
