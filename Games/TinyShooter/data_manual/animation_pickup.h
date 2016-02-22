@@ -11,6 +11,8 @@
 
 class AnimationSequenceDefinition;
 
+extern "C" const AnimationSequenceDefinition animation_playerbullet_bomb;
+
 extern "C" const AnimationSequenceDefinition animation_pickup;
 
 #endif /* defined(__TinyShooter__animation_pickup__) */

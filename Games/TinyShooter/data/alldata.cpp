@@ -14,6 +14,11 @@
 //
 #include "data/sprite_player.cpp"
 #include "data/sprite_pb_01.cpp"
+#include "data/sprite_playerbullet_bomb_00.cpp"
+#include "data/sprite_playerbullet_bomb_01.cpp"
+#include "data/sprite_playerbullet_bomb_02.cpp"
+#include "data/sprite_playerbullet_bomb_03.cpp"
+#include "data/sprite_playerbullet_bomb_04.cpp"
 #include "data/sprite_hud_weapons.cpp"
 #include "data/sprite_hud_weapon_dual.cpp"
 #include "data/sprite_hud_life.cpp"

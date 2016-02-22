@@ -21,6 +21,7 @@
 
 GameObject* player;
 int playerFireRateTimer;
+int playerFireIndex;
 FixedPoint playerX;
 FixedPoint playerY;
 FixedPoint playerSpeed;
@@ -33,6 +34,7 @@ void playerReset( int _mapscroll )
 	playerX = _mapscroll+10;
 	playerY = 29;
 	playerFireRateTimer = 0;
+	playerFireIndex = 0;
 	playerUpgraded = false;
 	playerInvincibleTimer = 60;
 	
@@ -106,16 +108,21 @@ void playerUpdate()
 		if( padGetKeys() & PAD_KEYMASK_PRIMARY )
 		{
 			// Prevent shooting too often
+			playerFireIndex++;
 			playerFireRateTimer = FIRE_RATE_DELAY;
 			
 			// Spawn bullet somewhere around the player
 			int x = plx+7;
 			int y = ply+4;
-			playerBulletSpawn( x, y );
+			playerBulletSpawn( x, y, PLAYERBULLET_TYPE_PEW );
 			
-			if( playerUpgraded )
-				playerBulletSpawn( x+2, y-2 );
-			
+			if( playerUpgraded && ((playerFireIndex&3) == 1))
+			{
+				playerBulletSpawn( x+2, y-2, PLAYERBULLET_TYPE_BOMB );
+			}
+		} else
+		{
+			playerFireIndex	= 0;
 		}
 	}
 	

@@ -9,8 +9,11 @@
 #ifndef BulletManager_h
 #define BulletManager_h
 
+#define PLAYERBULLET_TYPE_PEW			(0)
+#define PLAYERBULLET_TYPE_BOMB			(1)
+
 void playerBulletsInit();
-void playerBulletSpawn( int _worldX, int _worldY );
+void playerBulletSpawn( int _worldX, int _worldY, int _type );
 void playerBulletsUpdate( int _mapScroll );
 void playerBulletKill( GameObject* _pb );
 
