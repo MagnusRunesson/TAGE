@@ -46,6 +46,7 @@ public:
 	
 	bool IsUsed();
 	Sprite* GetSprite();
+	void SetImage( const Image* _pImage );
 	const AnimationSequenceDefinition* GetAnimationSequenceDefinition();
 	Animation* GetAnimation();
 

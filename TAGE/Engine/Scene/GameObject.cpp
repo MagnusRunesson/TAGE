@@ -132,6 +132,11 @@ Sprite* GameObject::GetSprite()
 	return m_sprite;
 }
 
+void GameObject::SetImage( const Image* _pImage )
+{
+	m_sprite->image = _pImage;
+}
+
 const AnimationSequenceDefinition* GameObject::GetAnimationSequenceDefinition()
 {
 	return m_animationSequenceDefinition;
