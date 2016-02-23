@@ -9,8 +9,22 @@
 #ifndef BulletManager_h
 #define BulletManager_h
 
+#include "Engine/Math/fp2d.h"
+
+class PlayerBullet
+{
+public:
+	uint8 type;
+	uint8 timeout;
+	Animation* pAnimation;
+	GameObject* pGameObject;
+	fp2d vec0;
+	fp2d vec1;
+};
+
 #define PLAYERBULLET_TYPE_PEW			(0)
 #define PLAYERBULLET_TYPE_BOMB			(1)
+#define PLAYERBULLET_TYPE_BOMBDEBRIS	(2)
 
 void playerBulletsInit();
 void playerBulletSpawn( int _worldX, int _worldY, int _type );

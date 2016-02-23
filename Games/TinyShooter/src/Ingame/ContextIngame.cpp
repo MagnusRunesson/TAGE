@@ -584,7 +584,9 @@ void ingame_loop()
 				if( bulletSprite != lastCollisionBullet )
 				{
 					lastCollisionBullet = bulletSprite;
-					playerBulletKill( bulletSprite->owner );
+					PlayerBullet* pBullet = (PlayerBullet*)bulletSprite->owner->m_customObject;
+					if( pBullet->type != PLAYERBULLET_TYPE_BOMBDEBRIS )
+						playerBulletKill( bulletSprite->owner );
 				}
 			} else if((pixelCollisionBits & COLLISIONMASK_PLAYER_PICKUP) == COLLISIONMASK_PLAYER_PICKUP )
 			{
@@ -629,7 +631,9 @@ void ingame_loop()
 				{
 					lastCollisionBullet = bulletSprite;
 					
-					playerBulletKill( bulletSprite->owner );
+					PlayerBullet* pBullet = (PlayerBullet*)bulletSprite->owner->m_customObject;
+					if( pBullet->type != PLAYERBULLET_TYPE_BOMBDEBRIS )
+						playerBulletKill( bulletSprite->owner );
 					
 					Sprite* enemySprite = spriteRenderer.GetSprite( pixelCollisionIndices[ SPRITE_COLLISION_INDEX_ENEMY ]);
 					GameObject* enemyGO = enemySprite->owner;

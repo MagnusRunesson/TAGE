@@ -12,20 +12,12 @@
 #include "Engine/Audio/AudioMixer.h"
 #include "Engine/Math/fp2d.h"
 #include "Engine/Graphics/Screen.h"
+#include "Engine/Debug.h"
 #include "src/Ingame/BulletManager.h"
 #include "src/Ingame/ContextIngame.h"
 #include "data/alldata.h"
 
 #define NUM_PLAYER_BULLETS	(14)
-
-class PlayerBullet
-{
-public:
-	Animation* pAnimation;
-	GameObject* pGameObject;
-	fp2d vec0;
-	fp2d vec1;
-};
 
 PlayerBullet playerBullets[ NUM_PLAYER_BULLETS ];
 int nextPlayerBullet;
@@ -53,15 +45,20 @@ void playerBulletsInit()
 
 void playerBulletUpdate_pew( void* );
 void playerBulletUpdate_bomb( void* );
+void playerBulletUpdate_bombdebris( void* );
 
 void playerBulletSpawn( int _worldX, int _worldY, int _type )
 {
 	//
 	PlayerBullet* rpb = &playerBullets[ nextPlayerBullet ];
+	rpb->type = (uint8)_type;
+
 	GameObject* pb = rpb->pGameObject;
 	pb->SetWorldPosition( _worldX, _worldY );
 	pb->SetEnabled( true );
 	pb->m_customObject = rpb;
+	
+	Animation* pAnimation;
 	
 	switch( _type )
 	{
@@ -75,8 +72,17 @@ void playerBulletSpawn( int _worldX, int _worldY, int _type )
 			rpb->vec0 = fp2d( _worldX, _worldY );
 			rpb->vec1 = fp2d( 1, 0 );
 			pb->m_customUpdate = &playerBulletUpdate_bomb;
-			Animation* pAnimation = pb->GetAnimation();
+			pAnimation = pb->GetAnimation();
 			pAnimation->pSequence = &animation_playerbullet_bomb;
+			pAnimation->Reset();
+			pAnimation->Play();
+			break;
+
+		case PLAYERBULLET_TYPE_BOMBDEBRIS:
+			pb->m_customUpdate = &playerBulletUpdate_bombdebris;
+			rpb->timeout = 45;
+			pAnimation = pb->GetAnimation();
+			pAnimation->pSequence = &animation_explosion_medium;
 			pAnimation->Reset();
 			pAnimation->Play();
 			break;
@@ -136,8 +142,26 @@ void playerBulletUpdate_bomb( void* _pPlayerBullet )
 	}
 }
 
+void playerBulletUpdate_bombdebris( void* _pPlayerBullet )
+{
+	PlayerBullet* pBullet = (PlayerBullet*)_pPlayerBullet;
+	pBullet->timeout--;
+	
+	if( pBullet->timeout == 0 )
+		pBullet->pGameObject->SetEnabled( false );
+}
+
 void playerBulletKill( GameObject* _pb )
 {
 	//_pb->SetWorldPosition( 0, -1 );
 	_pb->SetEnabled( false );
+
+	//
+	PlayerBullet* pBullet = (PlayerBullet*)_pb->m_customObject;
+	debugLog( "Killing bullet of type %i\n", pBullet->type );
+	if( pBullet->type == PLAYERBULLET_TYPE_BOMB )
+	{
+		playerBulletSpawn( _pb->GetWorldPositionX(), _pb->GetWorldPositionY(), PLAYERBULLET_TYPE_BOMBDEBRIS );
+	}
+	
 }
