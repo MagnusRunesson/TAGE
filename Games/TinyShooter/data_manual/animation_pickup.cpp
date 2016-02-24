@@ -108,6 +108,62 @@ DEFINE_ANIMATION( playerbullet_bomb, true );
 //
 //
 //
+const AnimationFrameDefinition animation_playerbullet_laser_frames[] =
+{
+	{
+		&sprite_playerbullet_laser_00,
+		2,
+		0,
+		0,
+		3,
+	},
+	{
+		&sprite_playerbullet_laser_01,
+		2,
+		0,
+		0,
+		3,
+	},
+	{
+		&sprite_playerbullet_laser_02,
+		2,
+		0,
+		0,
+		3,
+	},
+	{
+		&sprite_playerbullet_laser_03,
+		2,
+		0,
+		0,
+		2,
+	},
+	{
+		&sprite_playerbullet_laser_04,
+		2,
+		0,
+		0,
+		2,
+	},
+	{
+		&sprite_playerbullet_laser_05,
+		255,
+		0,
+		0,
+		2,
+	},
+};
+
+DEFINE_ANIMATION( playerbullet_laser, true );
+
+
+
+
+//
+//
+//
+//
+//
 const AnimationFrameDefinition animation_pickup_frames[] =
 {
 	{

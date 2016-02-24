@@ -117,6 +117,12 @@
 		25CB2DAB1C57566100BC35A1 /* Joypad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2DA61C57566100BC35A1 /* Joypad.cpp */; };
 		25CB2DAC1C57566100BC35A1 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CB2DA81C57566100BC35A1 /* Timer.cpp */; };
 		25CEAB021C6A4F310018E440 /* Debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25CEAB001C6A4F310018E440 /* Debug.cpp */; settings = {ASSET_TAGS = (); }; };
+		25D0AC9D1C7E1CEA004EE0AC /* sprite_playerbullet_laser_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D0AC911C7E1CEA004EE0AC /* sprite_playerbullet_laser_00.cpp */; settings = {ASSET_TAGS = (); }; };
+		25D0AC9E1C7E1CEA004EE0AC /* sprite_playerbullet_laser_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D0AC931C7E1CEA004EE0AC /* sprite_playerbullet_laser_01.cpp */; settings = {ASSET_TAGS = (); }; };
+		25D0AC9F1C7E1CEA004EE0AC /* sprite_playerbullet_laser_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D0AC951C7E1CEA004EE0AC /* sprite_playerbullet_laser_02.cpp */; settings = {ASSET_TAGS = (); }; };
+		25D0ACA01C7E1CEA004EE0AC /* sprite_playerbullet_laser_03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D0AC971C7E1CEA004EE0AC /* sprite_playerbullet_laser_03.cpp */; settings = {ASSET_TAGS = (); }; };
+		25D0ACA11C7E1CEA004EE0AC /* sprite_playerbullet_laser_04.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D0AC991C7E1CEA004EE0AC /* sprite_playerbullet_laser_04.cpp */; settings = {ASSET_TAGS = (); }; };
+		25D0ACA21C7E1CEA004EE0AC /* sprite_playerbullet_laser_05.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D0AC9B1C7E1CEA004EE0AC /* sprite_playerbullet_laser_05.cpp */; settings = {ASSET_TAGS = (); }; };
 		25D7B2601C57985800759E1B /* enemy_paths.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D7B25E1C57985800759E1B /* enemy_paths.cpp */; };
 		25D99FCC1C5E4C3300CC4CAE /* ContextTitleScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D99FCA1C5E4C3300CC4CAE /* ContextTitleScreen.cpp */; settings = {ASSET_TAGS = (); }; };
 		25D99FCF1C5E4D4100CC4CAE /* ContextManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25D99FCD1C5E4D4100CC4CAE /* ContextManager.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -372,6 +378,18 @@
 		25CB2DA91C57566100BC35A1 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Timer.h; path = "../../TAGE/Abstraction layer/Timer.h"; sourceTree = "<group>"; };
 		25CEAB001C6A4F310018E440 /* Debug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Debug.cpp; path = ../../TAGE/Engine/Debug.cpp; sourceTree = "<group>"; };
 		25CEAB011C6A4F310018E440 /* Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Debug.h; path = ../../TAGE/Engine/Debug.h; sourceTree = "<group>"; };
+		25D0AC911C7E1CEA004EE0AC /* sprite_playerbullet_laser_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_playerbullet_laser_00.cpp; path = data/sprite_playerbullet_laser_00.cpp; sourceTree = "<group>"; };
+		25D0AC921C7E1CEA004EE0AC /* sprite_playerbullet_laser_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_playerbullet_laser_00.h; path = data/sprite_playerbullet_laser_00.h; sourceTree = "<group>"; };
+		25D0AC931C7E1CEA004EE0AC /* sprite_playerbullet_laser_01.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_playerbullet_laser_01.cpp; path = data/sprite_playerbullet_laser_01.cpp; sourceTree = "<group>"; };
+		25D0AC941C7E1CEA004EE0AC /* sprite_playerbullet_laser_01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_playerbullet_laser_01.h; path = data/sprite_playerbullet_laser_01.h; sourceTree = "<group>"; };
+		25D0AC951C7E1CEA004EE0AC /* sprite_playerbullet_laser_02.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_playerbullet_laser_02.cpp; path = data/sprite_playerbullet_laser_02.cpp; sourceTree = "<group>"; };
+		25D0AC961C7E1CEA004EE0AC /* sprite_playerbullet_laser_02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_playerbullet_laser_02.h; path = data/sprite_playerbullet_laser_02.h; sourceTree = "<group>"; };
+		25D0AC971C7E1CEA004EE0AC /* sprite_playerbullet_laser_03.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_playerbullet_laser_03.cpp; path = data/sprite_playerbullet_laser_03.cpp; sourceTree = "<group>"; };
+		25D0AC981C7E1CEA004EE0AC /* sprite_playerbullet_laser_03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_playerbullet_laser_03.h; path = data/sprite_playerbullet_laser_03.h; sourceTree = "<group>"; };
+		25D0AC991C7E1CEA004EE0AC /* sprite_playerbullet_laser_04.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_playerbullet_laser_04.cpp; path = data/sprite_playerbullet_laser_04.cpp; sourceTree = "<group>"; };
+		25D0AC9A1C7E1CEA004EE0AC /* sprite_playerbullet_laser_04.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_playerbullet_laser_04.h; path = data/sprite_playerbullet_laser_04.h; sourceTree = "<group>"; };
+		25D0AC9B1C7E1CEA004EE0AC /* sprite_playerbullet_laser_05.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_playerbullet_laser_05.cpp; path = data/sprite_playerbullet_laser_05.cpp; sourceTree = "<group>"; };
+		25D0AC9C1C7E1CEA004EE0AC /* sprite_playerbullet_laser_05.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_playerbullet_laser_05.h; path = data/sprite_playerbullet_laser_05.h; sourceTree = "<group>"; };
 		25D7B25E1C57985800759E1B /* enemy_paths.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = enemy_paths.cpp; path = data_manual/enemy_paths.cpp; sourceTree = "<group>"; };
 		25D7B25F1C57985800759E1B /* enemy_paths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = enemy_paths.h; path = data_manual/enemy_paths.h; sourceTree = "<group>"; };
 		25D99FCA1C5E4C3300CC4CAE /* ContextTitleScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContextTitleScreen.cpp; sourceTree = "<group>"; };
@@ -492,6 +510,18 @@
 		250DA18B1C4A7FFF00C664DA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				25D0AC911C7E1CEA004EE0AC /* sprite_playerbullet_laser_00.cpp */,
+				25D0AC921C7E1CEA004EE0AC /* sprite_playerbullet_laser_00.h */,
+				25D0AC931C7E1CEA004EE0AC /* sprite_playerbullet_laser_01.cpp */,
+				25D0AC941C7E1CEA004EE0AC /* sprite_playerbullet_laser_01.h */,
+				25D0AC951C7E1CEA004EE0AC /* sprite_playerbullet_laser_02.cpp */,
+				25D0AC961C7E1CEA004EE0AC /* sprite_playerbullet_laser_02.h */,
+				25D0AC971C7E1CEA004EE0AC /* sprite_playerbullet_laser_03.cpp */,
+				25D0AC981C7E1CEA004EE0AC /* sprite_playerbullet_laser_03.h */,
+				25D0AC991C7E1CEA004EE0AC /* sprite_playerbullet_laser_04.cpp */,
+				25D0AC9A1C7E1CEA004EE0AC /* sprite_playerbullet_laser_04.h */,
+				25D0AC9B1C7E1CEA004EE0AC /* sprite_playerbullet_laser_05.cpp */,
+				25D0AC9C1C7E1CEA004EE0AC /* sprite_playerbullet_laser_05.h */,
 				253FC5B31C7ADAA0005AB533 /* sprite_playerbullet_bomb_00.cpp */,
 				253FC5B41C7ADAA0005AB533 /* sprite_playerbullet_bomb_00.h */,
 				253FC5B51C7ADAA0005AB533 /* sprite_playerbullet_bomb_01.cpp */,
@@ -857,6 +887,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25D0AC9E1C7E1CEA004EE0AC /* sprite_playerbullet_laser_01.cpp in Sources */,
 				25AAC74D1C608BE10088880C /* sprite_enemy_cargo_00.cpp in Sources */,
 				25D99FCF1C5E4D4100CC4CAE /* ContextManager.cpp in Sources */,
 				253A56A41C626040008CFFDE /* sprite_enemy_bullet_01.cpp in Sources */,
@@ -865,6 +896,7 @@
 				25CB2D581C57563F00BC35A1 /* animation_pickup.cpp in Sources */,
 				25CB2D3C1C57561F00BC35A1 /* sprite_logo_shooter_s.cpp in Sources */,
 				25CB2D3F1C57561F00BC35A1 /* sprite_logo_tiny_n.cpp in Sources */,
+				25D0AC9D1C7E1CEA004EE0AC /* sprite_playerbullet_laser_00.cpp in Sources */,
 				25CB2D3D1C57561F00BC35A1 /* sprite_logo_shooter_t.cpp in Sources */,
 				25D99FE81C5E574600CC4CAE /* EnemyManager.cpp in Sources */,
 				253FC5BE1C7ADAA0005AB533 /* sprite_playerbullet_bomb_01.cpp in Sources */,
@@ -899,6 +931,7 @@
 				253A56A61C626040008CFFDE /* sprite_enemy_bullet_03.cpp in Sources */,
 				253A56B51C67C8CA008CFFDE /* TinyScreen.cpp in Sources */,
 				25D99FEB1C5E574600CC4CAE /* HUD.cpp in Sources */,
+				25D0ACA21C7E1CEA004EE0AC /* sprite_playerbullet_laser_05.cpp in Sources */,
 				25CB2D451C57561F00BC35A1 /* sprite_pickup_02.cpp in Sources */,
 				25CB2D3E1C57561F00BC35A1 /* sprite_logo_tiny_i.cpp in Sources */,
 				25CB2D311C57561F00BC35A1 /* sprite_enemy_saucer_01.cpp in Sources */,
@@ -936,10 +969,12 @@
 				25B7B1461C5A85C300355A54 /* animation_impact_bullet.cpp in Sources */,
 				25CB2D361C57561F00BC35A1 /* sprite_explosion_big_04.cpp in Sources */,
 				25CB2D411C57561F00BC35A1 /* sprite_logo_tiny_y.cpp in Sources */,
+				25D0AC9F1C7E1CEA004EE0AC /* sprite_playerbullet_laser_02.cpp in Sources */,
 				25EACD201C5FBBE4006AA181 /* sprite_titlescreen_winnersdontusedrugs.cpp in Sources */,
 				25CB2D341C57561F00BC35A1 /* sprite_explosion_big_02.cpp in Sources */,
 				25A495B31C5BD433003CA51C /* sprite_enemy_sparrow_01.cpp in Sources */,
 				25B7B1421C5A859F00355A54 /* sprite_impact_bullet_03.cpp in Sources */,
+				25D0ACA01C7E1CEA004EE0AC /* sprite_playerbullet_laser_03.cpp in Sources */,
 				25CB2D941C57565100BC35A1 /* fpmath.cpp in Sources */,
 				2505C2251C5A376D00E46CDF /* sprite_explosion_medium_02.cpp in Sources */,
 				25A495B51C5BD433003CA51C /* sprite_enemy_sparrow_03.cpp in Sources */,
@@ -953,6 +988,7 @@
 				25CB2D8C1C57565100BC35A1 /* Screen.cpp in Sources */,
 				25CB2DAB1C57566100BC35A1 /* Joypad.cpp in Sources */,
 				253A56A31C626040008CFFDE /* sprite_enemy_bullet_00.cpp in Sources */,
+				25D0ACA11C7E1CEA004EE0AC /* sprite_playerbullet_laser_04.cpp in Sources */,
 				25B7B1431C5A859F00355A54 /* sprite_impact_bullet_04.cpp in Sources */,
 				25D99FEC1C5E574600CC4CAE /* PathFollower.cpp in Sources */,
 				25678FF41C57D86E00B2C95E /* sinetable.cpp in Sources */,

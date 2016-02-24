@@ -6,6 +6,7 @@
 //  Copyright © 2016 Magnus Runesson. All rights reserved.
 //
 
+#include <stdlib.h>
 #include "Engine/Scene/GameObjectManager.h"
 #include "Engine/Scene/GameObject.h"
 #include "Engine/Audio/AudioSource.h"
@@ -46,8 +47,9 @@ void playerBulletsInit()
 void playerBulletUpdate_pew( void* );
 void playerBulletUpdate_bomb( void* );
 void playerBulletUpdate_bombdebris( void* );
+void playerBulletUpdate_laser( void* );
 
-void playerBulletSpawn( int _worldX, int _worldY, int _type )
+PlayerBullet* playerBulletSpawn( int _worldX, int _worldY, int _type )
 {
 	//
 	PlayerBullet* rpb = &playerBullets[ nextPlayerBullet ];
@@ -64,6 +66,7 @@ void playerBulletSpawn( int _worldX, int _worldY, int _type )
 	{
 		case PLAYERBULLET_TYPE_PEW:
 			pb->m_customUpdate = &playerBulletUpdate_pew;
+			pb->m_customPreRender = NULL;
 			pb->GetAnimation()->Stop();
 			pb->SetImage( &sprite_pb_01 );
 			break;
@@ -72,17 +75,29 @@ void playerBulletSpawn( int _worldX, int _worldY, int _type )
 			rpb->vec0 = fp2d( _worldX, _worldY );
 			rpb->vec1 = fp2d( 1, 0 );
 			pb->m_customUpdate = &playerBulletUpdate_bomb;
+			pb->m_customPreRender = NULL;
 			pAnimation = pb->GetAnimation();
 			pAnimation->pSequence = &animation_playerbullet_bomb;
 			pAnimation->Reset();
 			pAnimation->Play();
 			break;
-
+			
 		case PLAYERBULLET_TYPE_BOMBDEBRIS:
 			pb->m_customUpdate = &playerBulletUpdate_bombdebris;
+			pb->m_customPreRender = NULL;
 			rpb->timeout = 45;
 			pAnimation = pb->GetAnimation();
 			pAnimation->pSequence = &animation_explosion_medium;
+			pAnimation->Reset();
+			pAnimation->Play();
+			break;
+			
+		case PLAYERBULLET_TYPE_LASER:
+			pb->m_customUpdate = NULL;
+			pb->m_customPreRender = &playerBulletUpdate_laser;
+			rpb->timeout = 255;
+			pAnimation = pb->GetAnimation();
+			pAnimation->pSequence = &animation_playerbullet_laser;
 			pAnimation->Reset();
 			pAnimation->Play();
 			break;
@@ -95,6 +110,8 @@ void playerBulletSpawn( int _worldX, int _worldY, int _type )
 	nextPlayerBullet++;
 	if( nextPlayerBullet >= NUM_PLAYER_BULLETS )
 		nextPlayerBullet = 0;
+	
+	return rpb;
 }
 
 void playerBulletsUpdate( int _mapScroll )
@@ -149,6 +166,15 @@ void playerBulletUpdate_bombdebris( void* _pPlayerBullet )
 	
 	if( pBullet->timeout == 0 )
 		pBullet->pGameObject->SetEnabled( false );
+}
+
+extern FixedPoint playerX;
+extern FixedPoint playerY;
+
+void playerBulletUpdate_laser( void* _pPlayerBullet )
+{
+	PlayerBullet* pBullet = (PlayerBullet*)_pPlayerBullet;
+	pBullet->pGameObject->SetWorldPosition( playerX.GetInteger() + 12, playerY.GetInteger() + 4);
 }
 
 void playerBulletKill( GameObject* _pb )

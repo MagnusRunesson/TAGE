@@ -28,6 +28,7 @@ FixedPoint playerSpeed;
 bool playerUpgraded;
 uint8 playerNumLives;
 uint8 playerInvincibleTimer;
+uint8 playerEquipment;
 
 void playerReset( int _mapscroll )
 {
@@ -37,6 +38,7 @@ void playerReset( int _mapscroll )
 	playerFireIndex = 0;
 	playerUpgraded = false;
 	playerInvincibleTimer = 60;
+	playerEquipment = PLAYERBULLET_TYPE_LASER;
 	
 	hudSetWeapon( HUD_WEAPON_SINGLEFIRE );
 }
@@ -61,6 +63,9 @@ void playerCameraMove( int _cameraMoveDistance )
 {
 	playerX += _cameraMoveDistance;
 }
+
+void playerInput_Pew( int _plx, int _ply );
+void playerInput_Laser( int _plx, int _ply );
 
 void playerUpdate()
 {
@@ -100,6 +105,19 @@ void playerUpdate()
 	else
 		player->SetWorldPosition( plx, ply );
 	
+	if( playerEquipment == PLAYERBULLET_TYPE_LASER )
+		playerInput_Laser( plx, ply );
+	else
+		playerInput_Pew( plx, ply );
+	
+	/*
+	if( padGetPressed() & PAD_KEYMASK_SECONDARY )
+		sfxPlayerPickup->PlayFromBeginning();
+	 */
+}
+
+void playerInput_Pew( int _plx, int _ply )
+{
 	if( playerFireRateTimer > 0 )
 	{
 		playerFireRateTimer--;
@@ -112,9 +130,11 @@ void playerUpdate()
 			playerFireRateTimer = FIRE_RATE_DELAY;
 			
 			// Spawn bullet somewhere around the player
-			int x = plx+7;
-			int y = ply+4;
-			playerBulletSpawn( x, y, PLAYERBULLET_TYPE_PEW );
+			//int x = plx+7;
+			//int y = ply+4;
+			int x = _plx+10;
+			int y = _ply+4;
+			playerBulletSpawn( x, y, PLAYERBULLET_TYPE_LASER );
 			
 			if( playerUpgraded && ((playerFireIndex&3) == 1))
 			{
@@ -125,11 +145,21 @@ void playerUpdate()
 			playerFireIndex	= 0;
 		}
 	}
-	
-	/*
-	if( padGetPressed() & PAD_KEYMASK_SECONDARY )
-		sfxPlayerPickup->PlayFromBeginning();
-	 */
+}
+
+PlayerBullet* playerLaser;
+
+void playerInput_Laser( int _plx, int _ply )
+{
+	if( padGetPressed() & PAD_KEYMASK_PRIMARY )
+	{
+		int x = _plx+10;
+		int y = _ply+4;
+		playerLaser = playerBulletSpawn( x, y, playerEquipment );
+	} else if( padGetReleased() & PAD_KEYMASK_PRIMARY )
+	{
+		playerBulletKill( playerLaser->pGameObject );
+	}
 }
 
 void playerUpgrade()

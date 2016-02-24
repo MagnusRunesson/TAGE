@@ -12,6 +12,7 @@
 class AnimationSequenceDefinition;
 
 extern "C" const AnimationSequenceDefinition animation_playerbullet_bomb;
+extern "C" const AnimationSequenceDefinition animation_playerbullet_laser;
 
 extern "C" const AnimationSequenceDefinition animation_pickup;
 

@@ -585,7 +585,7 @@ void ingame_loop()
 				{
 					lastCollisionBullet = bulletSprite;
 					PlayerBullet* pBullet = (PlayerBullet*)bulletSprite->owner->m_customObject;
-					if( pBullet->type != PLAYERBULLET_TYPE_BOMBDEBRIS )
+					if((pBullet->type != PLAYERBULLET_TYPE_BOMBDEBRIS) && (pBullet->type != PLAYERBULLET_TYPE_LASER))
 						playerBulletKill( bulletSprite->owner );
 				}
 			} else if((pixelCollisionBits & COLLISIONMASK_PLAYER_PICKUP) == COLLISIONMASK_PLAYER_PICKUP )
@@ -632,7 +632,7 @@ void ingame_loop()
 					lastCollisionBullet = bulletSprite;
 					
 					PlayerBullet* pBullet = (PlayerBullet*)bulletSprite->owner->m_customObject;
-					if( pBullet->type != PLAYERBULLET_TYPE_BOMBDEBRIS )
+					if((pBullet->type != PLAYERBULLET_TYPE_BOMBDEBRIS) && (pBullet->type != PLAYERBULLET_TYPE_LASER))
 						playerBulletKill( bulletSprite->owner );
 					
 					Sprite* enemySprite = spriteRenderer.GetSprite( pixelCollisionIndices[ SPRITE_COLLISION_INDEX_ENEMY ]);

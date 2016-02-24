@@ -25,9 +25,10 @@ public:
 #define PLAYERBULLET_TYPE_PEW			(0)
 #define PLAYERBULLET_TYPE_BOMB			(1)
 #define PLAYERBULLET_TYPE_BOMBDEBRIS	(2)
+#define PLAYERBULLET_TYPE_LASER			(3)
 
 void playerBulletsInit();
-void playerBulletSpawn( int _worldX, int _worldY, int _type );
+PlayerBullet* playerBulletSpawn( int _worldX, int _worldY, int _type );
 void playerBulletsUpdate( int _mapScroll );
 void playerBulletKill( GameObject* _pb );
 
