@@ -12,6 +12,7 @@
 #include "Engine/Types.h"
 
 class AudioSource;
+class AudioStream;
 
 class AudioMixer
 {
@@ -44,8 +45,10 @@ public:
 	AudioMixer( int _numChannels, AudioSource* _pChannels, uint32 _outputBufferSize, sint8* _pOutputBuffer );
 	void Reboot();
 	void Update();
+	void SetFrequency( int _frequency );
 	
 	AudioSource* GetChannel( int _channel );
+	AudioStream* GetStream( int _stream );
 };
 
 extern AudioMixer audioMixer;

@@ -32,7 +32,7 @@ const int SCREEN_PIXELSIZE = 2;
 
 uint16* screenBuffer;
 
-void audioInit();
+void audioInit( int _frequency );
 void audioExit();
 
 
@@ -57,6 +57,7 @@ int gKeyDPadBuff;
 
 extern uint8 gKeyBuff;
 
+SDL_AudioDeviceID dev;
 
 bool init()
 {
@@ -103,21 +104,24 @@ bool init()
 	
 	timerInit();
 	
-	audioInit();
+	dev = NULL;
+	audioInit( 11025 );
 	
 	return true;
 }
 
 extern void Audio_Handler_SDL( void *udata, Uint8 *stream, int len );
 
-SDL_AudioDeviceID dev;
 
-void audioInit()
+void audioInit( int _frequency )
 {
+	if( dev != NULL )
+		SDL_CloseAudioDevice( dev );
+	
 	SDL_AudioSpec want, have;
 	
 	SDL_memset(&want, 0, sizeof(want)); /* or SDL_zero(want) */
-	want.freq = 11025;
+	want.freq = _frequency;
 	want.format = AUDIO_S8;
 	want.channels = 1;
 	want.samples = 10;
@@ -274,7 +278,8 @@ bool update()
 
 int main(int argc, const char * argv[])
 {
-
+	dev = NULL;
+	
 	if( init() == true )
 	{
 		tage_setup();	// Call Arduino like code

@@ -9,6 +9,7 @@
 #include "Engine/Audio/AudioMixer.h"
 #include "Engine/Audio/AudioSource.h"
 #include "Engine/Audio/AudioData.h"
+#include "Engine/Audio/AudioStream.h"
 
 // This specify the number of input channels. In theory there can be as many input channels
 // as you'd like, just make sure not too many are playing at the same time. For example, you
@@ -16,19 +17,19 @@
 // for various enemy SFX etc, but as long as they are not all playing at the same time you
 // should be just fine performance wise.
 const int NUM_CHANNELS = 4;
+const int NUM_STREAMS = 1;
 AudioSource audioChannels[ NUM_CHANNELS ];
+AudioStream audioStreams[ NUM_STREAMS ];
 
 // The output buffer size is specified in bytes, but since the hardware output audio is 1 byte
 // per channel, 1 channel we are specifying how many samples we should have in the buffer. We
 // output at 11025Hz, so that means 11025 bytes per second. At 60 fps that means 11025/60≈184
 // bytes per frame.
-const int OUTPUT_BUFFER_SIZE = 300;
+const int OUTPUT_BUFFER_SIZE = 1200;
 sint8 audioMixOutputBuffer[ OUTPUT_BUFFER_SIZE ];
 
 // Create the instance of the audio mixer
 AudioMixer audioMixer( NUM_CHANNELS, audioChannels, OUTPUT_BUFFER_SIZE, audioMixOutputBuffer );
-
-int readpos;
 
 //
 AudioMixer::AudioMixer( int _numChannels, AudioSource* _pChannels, uint32 _outputBufferSize, sint8* _pOutputBuffer )
@@ -50,13 +51,9 @@ AudioMixer::AudioMixer( int _numChannels, AudioSource* _pChannels, uint32 _outpu
 	outputReadPosition = 0;
 	outputWritePosition = 0;
 	
-	readpos=0;
-	
 	//
 	Reboot();
 }
-
-extern "C" const sint8 audiosamples_pew_s8b_pcm_11025hz[];
 
 void AudioMixer::Reboot()
 {
@@ -105,6 +102,11 @@ void AudioMixer::Update()
 			}
 		}
 
+		// Mix in the stream if it is playing
+		AudioStream* pStream = &audioStreams[ 0 ];
+		if( pStream->m_isPlaying )
+			apa += pStream->GetNextSample();
+
 		// Clip if needed
 		if( apa > 127 ) apa = 127;
 		if( apa < -127 ) apa = -127;
@@ -118,16 +120,42 @@ void AudioMixer::Update()
 			outputWritePosition -= outputBufferSize;
 		
 		//
-		readpos++;
-		if( readpos >= 1320 )
-			readpos -= 1320;
-
-		//
 		i++;
 	}
 }
 
+#ifdef TAGE_TARGET_MACOSX
+
+extern void audioInit( int _frequency );
+
+#else
+
+void tcConfigure( uint32 sampleRate );
+void tcStart();
+void tcStop();
+
+#endif
+
+void AudioMixer::SetFrequency( int _frequency )
+{
+	outputBufferSize = _frequency >> 5;
+	
+#ifdef TAGE_TARGET_MACOSX
+	audioInit( _frequency );
+#else
+	tcStop();
+	tcConfigure( _frequency );
+	tcStart();
+#endif
+}
+
+
 AudioSource* AudioMixer::GetChannel( int _iChannel )
 {
 	return &channel[ _iChannel ];
+}
+
+AudioStream* AudioMixer::GetStream( int _stream )
+{
+	return &audioStreams[ _stream ];
 }

@@ -34,6 +34,7 @@
 		253FC5BF1C7ADAA0005AB533 /* sprite_playerbullet_bomb_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253FC5B71C7ADAA0005AB533 /* sprite_playerbullet_bomb_02.cpp */; settings = {ASSET_TAGS = (); }; };
 		253FC5C01C7ADAA0005AB533 /* sprite_playerbullet_bomb_03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253FC5B91C7ADAA0005AB533 /* sprite_playerbullet_bomb_03.cpp */; settings = {ASSET_TAGS = (); }; };
 		253FC5C11C7ADAA0005AB533 /* sprite_playerbullet_bomb_04.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253FC5BB1C7ADAA0005AB533 /* sprite_playerbullet_bomb_04.cpp */; settings = {ASSET_TAGS = (); }; };
+		253FC5C41C7DCC4A005AB533 /* AudioStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253FC5C21C7DCC4A005AB533 /* AudioStream.cpp */; settings = {ASSET_TAGS = (); }; };
 		25678FF41C57D86E00B2C95E /* sinetable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25678FF31C57D86E00B2C95E /* sinetable.cpp */; settings = {ASSET_TAGS = (); }; };
 		257AB0B21C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		257AB0B51C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0B31C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -200,6 +201,8 @@
 		253FC5BA1C7ADAA0005AB533 /* sprite_playerbullet_bomb_03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_playerbullet_bomb_03.h; path = data/sprite_playerbullet_bomb_03.h; sourceTree = "<group>"; };
 		253FC5BB1C7ADAA0005AB533 /* sprite_playerbullet_bomb_04.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_playerbullet_bomb_04.cpp; path = data/sprite_playerbullet_bomb_04.cpp; sourceTree = "<group>"; };
 		253FC5BC1C7ADAA0005AB533 /* sprite_playerbullet_bomb_04.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_playerbullet_bomb_04.h; path = data/sprite_playerbullet_bomb_04.h; sourceTree = "<group>"; };
+		253FC5C21C7DCC4A005AB533 /* AudioStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioStream.cpp; sourceTree = "<group>"; };
+		253FC5C31C7DCC4A005AB533 /* AudioStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStream.h; sourceTree = "<group>"; };
 		25678FF31C57D86E00B2C95E /* sinetable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sinetable.cpp; sourceTree = "<group>"; };
 		257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_music_boss_s8b_pcm_11025hz.cpp; path = data/audiosamples_music_boss_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
 		257AB0B11C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audiosamples_music_boss_s8b_pcm_11025hz.h; path = data/audiosamples_music_boss_s8b_pcm_11025hz.h; sourceTree = "<group>"; };
@@ -672,6 +675,8 @@
 				25CB2D5F1C57565100BC35A1 /* AudioMixer.h */,
 				25CB2D601C57565100BC35A1 /* AudioSource.cpp */,
 				25CB2D611C57565100BC35A1 /* AudioSource.h */,
+				253FC5C21C7DCC4A005AB533 /* AudioStream.cpp */,
+				253FC5C31C7DCC4A005AB533 /* AudioStream.h */,
 			);
 			name = Audio;
 			path = ../../TAGE/Engine/Audio;
@@ -874,6 +879,7 @@
 				25CB2D8F1C57565100BC35A1 /* TileBank.cpp in Sources */,
 				25CB2CF01C57561700BC35A1 /* TinyShooter.cpp in Sources */,
 				25B7B1411C5A859F00355A54 /* sprite_impact_bullet_02.cpp in Sources */,
+				253FC5C41C7DCC4A005AB533 /* AudioStream.cpp in Sources */,
 				25CB2D901C57565100BC35A1 /* TileMap.cpp in Sources */,
 				25CB2D4B1C57561F00BC35A1 /* tilemap_spacebase.cpp in Sources */,
 				2591BCB11C5D429100F69102 /* sprite_enemy_dragonbody_00.cpp in Sources */,

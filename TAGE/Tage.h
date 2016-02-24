@@ -13,6 +13,7 @@
 #include "Engine/Audio/AudioData.h"
 #include "Engine/Audio/AudioMixer.h"
 #include "Engine/Audio/AudioSource.h"
+#include "Engine/Audio/AudioStream.h"
 
 // Graphics
 #include "Engine/Graphics/Animation.h"

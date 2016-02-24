@@ -9,6 +9,7 @@
 #include "Engine/Audio/AudioData.cpp"
 #include "Engine/Audio/AudioMixer.cpp"
 #include "Engine/Audio/AudioSource.cpp"
+#include "Engine/Audio/AudioStream.cpp"
 #include "Engine/Graphics/Animation.cpp"
 #include "Engine/Graphics/Image.cpp"
 #include "Engine/Graphics/Screen.cpp"
