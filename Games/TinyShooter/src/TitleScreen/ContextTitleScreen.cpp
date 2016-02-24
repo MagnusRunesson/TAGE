@@ -23,6 +23,7 @@
 #include "Engine/Graphics/Animation.h"
 #include "Engine/Audio/AudioMixer.h"
 #include "Engine/Audio/AudioSource.h"
+#include "Engine/Audio/AudioStream.h"
 
 // Project specifics
 #include "data/alldata.h"
@@ -138,7 +139,12 @@ void titlescreen_setup()
 	// Sound effect for when the player decides to start the game
 	sfxPressStart = audioMixer.GetChannel( 1 );
 	sfxPressStart->SetData( &sfx_player_pickup );
-	
+
+	audioMixer.SetFrequency( 32000 );
+	AudioStream* pStream = audioMixer.GetStream( 0 );
+	pStream->OpenStream( "bgm_title.raw" );
+	pStream->Play();
+
 	//
 	titlescreenCloseTimer = 0;
 }
@@ -166,8 +172,9 @@ void titlescreen_loop()
 		// This is regular code, before the user press Start
 		if( padGetPressed() & PAD_KEYMASK_PRIMARY )
 		{
+			audioMixer.GetStream( 0 )->Pause();
+			audioMixer.SetFrequency( 11025 );
 			titlescreenCloseTimer = TITLESCREEN_CLOSETIMER_TOTALDURATION;
-			//bgm->Stop();
 		}
 	}
 	else
@@ -208,6 +215,8 @@ void titlescreen_loop()
 	{
 		int x;
 
+		audioMixer.GetStream( 0 )->Update();
+		
 		//
 		if( pfnHBlankInterruptTitleScreen != NULL )
 			pfnHBlankInterruptTitleScreen( iScanline );
