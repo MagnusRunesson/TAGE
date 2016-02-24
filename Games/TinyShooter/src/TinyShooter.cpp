@@ -32,7 +32,7 @@
 TinyScreen display = TinyScreen( TinyScreenPlus );
 
 #ifndef TAGE_TARGET_MACOSX
-void tcConfigure(uint32_t sampleRate);
+void tcConfigure( uint32 sampleRate );
 void tcStart();
 #endif
 
@@ -85,7 +85,7 @@ void tcStop()
 	while( tcIsSyncing());
 }
 
-void tcConfigure(uint32_t sampleRate)
+void tcConfigure( uint32 sampleRate )
 {
 	// Enable GCLK for TCC2 and TC5 (timer counter input clock)
 	GCLK->CLKCTRL.reg = (uint16_t) (GCLK_CLKCTRL_CLKEN | GCLK_CLKCTRL_GEN_GCLK0 | GCLK_CLKCTRL_ID(GCM_TC4_TC5)) ;
