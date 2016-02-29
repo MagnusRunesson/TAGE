@@ -54,6 +54,9 @@ public:
 	void operator /= (FixedPoint o);
 	FixedPoint operator / (int o) const;
 	FixedPoint operator / (FixedPoint o) const;
+
+	// Unary operators
+	FixedPoint operator - () const;
 	
 	int GetInteger() const;
 	void SetRawValue( int _raw );
