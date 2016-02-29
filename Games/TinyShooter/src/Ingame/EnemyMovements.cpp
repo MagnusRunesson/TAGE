@@ -55,6 +55,7 @@ FixedPoint em01_delta[ 32 ] =
 
 void EnemyMovement_01_Sinus_MoveLeft( Enemy* _pTarget )
 {
+	_pTarget->m_movementTimer++;
 	int i = _pTarget->m_movementTimer & 0x1f;
 	
 	_pTarget->m_worldPosition.y = FixedPoint( 30 ) + em01_delta[ i ];
@@ -63,6 +64,7 @@ void EnemyMovement_01_Sinus_MoveLeft( Enemy* _pTarget )
 
 void EnemyMovement_02_HalfSinus_MoveLeft( Enemy* _pTarget )
 {
+	_pTarget->m_movementTimer++;
 	int i = _pTarget->m_movementTimer & 0x1f;
 
 	FixedPoint s = em01_delta[ i ];
