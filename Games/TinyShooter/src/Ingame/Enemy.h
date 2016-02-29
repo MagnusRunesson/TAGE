@@ -37,6 +37,7 @@ public:
 	fp2d m_worldPosition;
 	fp2d m_movementDirection;
 	uint16 m_movementTimer;
+	uint8 m_movementState;
 
 	Enemy();
 	void Reboot();
