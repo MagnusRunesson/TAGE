@@ -794,7 +794,8 @@ void ingame_debugTrigger( int _trigger )
 		contextGotoTitleScreen();
 	} else if( _trigger == 1 )
 	{
-		debugSpriteRenderer = true;
+		debugLog( "mapScroll=%i\n", mapScroll );
+		//debugSpriteRenderer = true;
 	} else if( _trigger == 2 )
 	{
 		extern int playerInvincibleTimer;
