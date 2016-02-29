@@ -38,6 +38,7 @@
 #include "src/Ingame/BulletManager.h"
 #include "src/Ingame/Player.h"
 #include "src/Ingame/EnemyManager.h"
+#include "src/Ingame/EnemyMovements.h"
 #include "src/Ingame/HUD.h"
 #include "src/Ingame/PickupManager.h"
 #include "src/Ingame/EnemyBulletManager.h"
@@ -224,6 +225,43 @@ void spawnTallonsHigh( int _x )
 void spawnTallonsLow( int _x )
 {
 	spawnTallons( _x,  49 );
+}
+
+void spawnDoubleDragons( int _x )
+{
+	int i;
+	
+	//
+	// Spawn bottom dragon
+	//
+	fp2d movement( 0, FixedPoint( 0, -50 ));
+	const EnemyDefinition* pDef = &enemy_dragonbody;
+	for( i=4; i>=0; i-- )
+	{
+		if( i == 0 )
+			pDef = &enemy_dragonhead;
+
+		Enemy* pEnemy = enemySpawn( pDef, _x+70, 60+(i*5), &movement );
+		pEnemy->m_movementState = 0;
+		pEnemy->m_movementTimer = 50+(i*10);
+		pEnemy->pfnMovementUpdate = &EnemyMovement_03_DirectionThenLeft;
+	}
+
+	//
+	// Spawn top dragon
+	//
+	movement = fp2d( 0, FixedPoint( 0, 50 ));
+	pDef = &enemy_dragonbody;
+	for( i=4; i>=0; i-- )
+	{
+		if( i == 0 )
+			pDef = &enemy_dragonhead;
+		
+		Enemy* pEnemy = enemySpawn( pDef, _x+70, -5-(i*5), &movement );
+		pEnemy->m_movementState = 0;
+		pEnemy->m_movementTimer = 50+(i*10);
+		pEnemy->pfnMovementUpdate = &EnemyMovement_03_DirectionThenLeft;
+	}
 }
 
 void levelFunc3( int _x )
