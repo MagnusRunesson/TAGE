@@ -95,7 +95,7 @@ PlayerBullet* playerBulletSpawn( int _worldX, int _worldY, int _type )
 		case PLAYERBULLET_TYPE_LASER:
 			pb->m_customUpdate = NULL;
 			pb->m_customPreRender = &playerBulletUpdate_laser;
-			rpb->timeout = 255;
+			rpb->timeout = 20;
 			pAnimation = pb->GetAnimation();
 			pAnimation->pSequence = &animation_playerbullet_laser;
 			pAnimation->Reset();
@@ -174,7 +174,11 @@ extern FixedPoint playerY;
 void playerBulletUpdate_laser( void* _pPlayerBullet )
 {
 	PlayerBullet* pBullet = (PlayerBullet*)_pPlayerBullet;
-	pBullet->pGameObject->SetWorldPosition( playerX.GetInteger() + 12, playerY.GetInteger() + 4);
+	//pBullet->pGameObject->SetWorldPosition( playerX.GetInteger() + 12, playerY.GetInteger() + 4);
+	pBullet->timeout--;
+	
+	if( pBullet->timeout == 0 )
+		pBullet->pGameObject->SetEnabled( false );
 }
 
 void playerBulletKill( GameObject* _pb )

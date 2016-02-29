@@ -36,6 +36,10 @@
 		253FC5C11C7ADAA0005AB533 /* sprite_playerbullet_bomb_04.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253FC5BB1C7ADAA0005AB533 /* sprite_playerbullet_bomb_04.cpp */; settings = {ASSET_TAGS = (); }; };
 		253FC5C41C7DCC4A005AB533 /* AudioStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253FC5C21C7DCC4A005AB533 /* AudioStream.cpp */; settings = {ASSET_TAGS = (); }; };
 		25678FF41C57D86E00B2C95E /* sinetable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25678FF31C57D86E00B2C95E /* sinetable.cpp */; settings = {ASSET_TAGS = (); }; };
+		257669E71C84181D00A9E148 /* sprite_playerbullet_laser_06.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257669DE1C84181D00A9E148 /* sprite_playerbullet_laser_06.cpp */; settings = {ASSET_TAGS = (); }; };
+		257669E81C84181D00A9E148 /* sprite_playerbullet_laser_07.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257669E01C84181D00A9E148 /* sprite_playerbullet_laser_07.cpp */; settings = {ASSET_TAGS = (); }; };
+		257669E91C84181D00A9E148 /* sprite_playerbullet_laser_08.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257669E21C84181D00A9E148 /* sprite_playerbullet_laser_08.cpp */; settings = {ASSET_TAGS = (); }; };
+		257669EA1C84181D00A9E148 /* sprite_playerbullet_laser_09.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257669E41C84181D00A9E148 /* sprite_playerbullet_laser_09.cpp */; settings = {ASSET_TAGS = (); }; };
 		257AB0B21C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		257AB0B51C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0B31C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		2591BCAE1C5D2A9B00F69102 /* sprite_enemy_dragonhead_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2591BCAC1C5D2A9B00F69102 /* sprite_enemy_dragonhead_00.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -210,6 +214,14 @@
 		253FC5C21C7DCC4A005AB533 /* AudioStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioStream.cpp; sourceTree = "<group>"; };
 		253FC5C31C7DCC4A005AB533 /* AudioStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStream.h; sourceTree = "<group>"; };
 		25678FF31C57D86E00B2C95E /* sinetable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sinetable.cpp; sourceTree = "<group>"; };
+		257669DE1C84181D00A9E148 /* sprite_playerbullet_laser_06.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_playerbullet_laser_06.cpp; path = data/sprite_playerbullet_laser_06.cpp; sourceTree = "<group>"; };
+		257669DF1C84181D00A9E148 /* sprite_playerbullet_laser_06.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_playerbullet_laser_06.h; path = data/sprite_playerbullet_laser_06.h; sourceTree = "<group>"; };
+		257669E01C84181D00A9E148 /* sprite_playerbullet_laser_07.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_playerbullet_laser_07.cpp; path = data/sprite_playerbullet_laser_07.cpp; sourceTree = "<group>"; };
+		257669E11C84181D00A9E148 /* sprite_playerbullet_laser_07.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_playerbullet_laser_07.h; path = data/sprite_playerbullet_laser_07.h; sourceTree = "<group>"; };
+		257669E21C84181D00A9E148 /* sprite_playerbullet_laser_08.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_playerbullet_laser_08.cpp; path = data/sprite_playerbullet_laser_08.cpp; sourceTree = "<group>"; };
+		257669E31C84181D00A9E148 /* sprite_playerbullet_laser_08.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_playerbullet_laser_08.h; path = data/sprite_playerbullet_laser_08.h; sourceTree = "<group>"; };
+		257669E41C84181D00A9E148 /* sprite_playerbullet_laser_09.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_playerbullet_laser_09.cpp; path = data/sprite_playerbullet_laser_09.cpp; sourceTree = "<group>"; };
+		257669E51C84181D00A9E148 /* sprite_playerbullet_laser_09.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_playerbullet_laser_09.h; path = data/sprite_playerbullet_laser_09.h; sourceTree = "<group>"; };
 		257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_music_boss_s8b_pcm_11025hz.cpp; path = data/audiosamples_music_boss_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
 		257AB0B11C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audiosamples_music_boss_s8b_pcm_11025hz.h; path = data/audiosamples_music_boss_s8b_pcm_11025hz.h; sourceTree = "<group>"; };
 		257AB0B31C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_explosion_s8b_pcm_11025hz.cpp; path = data/audiosamples_explosion_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
@@ -510,6 +522,14 @@
 		250DA18B1C4A7FFF00C664DA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				257669DE1C84181D00A9E148 /* sprite_playerbullet_laser_06.cpp */,
+				257669DF1C84181D00A9E148 /* sprite_playerbullet_laser_06.h */,
+				257669E01C84181D00A9E148 /* sprite_playerbullet_laser_07.cpp */,
+				257669E11C84181D00A9E148 /* sprite_playerbullet_laser_07.h */,
+				257669E21C84181D00A9E148 /* sprite_playerbullet_laser_08.cpp */,
+				257669E31C84181D00A9E148 /* sprite_playerbullet_laser_08.h */,
+				257669E41C84181D00A9E148 /* sprite_playerbullet_laser_09.cpp */,
+				257669E51C84181D00A9E148 /* sprite_playerbullet_laser_09.h */,
 				25D0AC911C7E1CEA004EE0AC /* sprite_playerbullet_laser_00.cpp */,
 				25D0AC921C7E1CEA004EE0AC /* sprite_playerbullet_laser_00.h */,
 				25D0AC931C7E1CEA004EE0AC /* sprite_playerbullet_laser_01.cpp */,
@@ -941,6 +961,7 @@
 				25D99FE61C5E574600CC4CAE /* ContextIngame.cpp in Sources */,
 				25CB2D9B1C57565900BC35A1 /* main.cpp in Sources */,
 				25CB2D591C57563F00BC35A1 /* enemy_definitions.cpp in Sources */,
+				257669E81C84181D00A9E148 /* sprite_playerbullet_laser_07.cpp in Sources */,
 				25CB2D961C57565100BC35A1 /* GameObject.cpp in Sources */,
 				25CB2D881C57565100BC35A1 /* AudioSource.cpp in Sources */,
 				2505C22E1C5A378D00E46CDF /* animation_explosion_medium.cpp in Sources */,
@@ -972,6 +993,7 @@
 				25D0AC9F1C7E1CEA004EE0AC /* sprite_playerbullet_laser_02.cpp in Sources */,
 				25EACD201C5FBBE4006AA181 /* sprite_titlescreen_winnersdontusedrugs.cpp in Sources */,
 				25CB2D341C57561F00BC35A1 /* sprite_explosion_big_02.cpp in Sources */,
+				257669E71C84181D00A9E148 /* sprite_playerbullet_laser_06.cpp in Sources */,
 				25A495B31C5BD433003CA51C /* sprite_enemy_sparrow_01.cpp in Sources */,
 				25B7B1421C5A859F00355A54 /* sprite_impact_bullet_03.cpp in Sources */,
 				25D0ACA01C7E1CEA004EE0AC /* sprite_playerbullet_laser_03.cpp in Sources */,
@@ -1006,8 +1028,10 @@
 				253FC5C01C7ADAA0005AB533 /* sprite_playerbullet_bomb_03.cpp in Sources */,
 				25CB2D481C57561F00BC35A1 /* sprite_spacebase_boss_door.cpp in Sources */,
 				2505C2271C5A376D00E46CDF /* sprite_explosion_medium_04.cpp in Sources */,
+				257669E91C84181D00A9E148 /* sprite_playerbullet_laser_08.cpp in Sources */,
 				25CB2D351C57561F00BC35A1 /* sprite_explosion_big_03.cpp in Sources */,
 				25CB2D8B1C57565100BC35A1 /* Image.cpp in Sources */,
+				257669EA1C84181D00A9E148 /* sprite_playerbullet_laser_09.cpp in Sources */,
 				2505C2231C5A376D00E46CDF /* sprite_explosion_medium_00.cpp in Sources */,
 				25BBA4AC1C5FBCFA00A35F2F /* audiosamples_music_titlescreen_s8b_pcm_11025hz.cpp in Sources */,
 				2505C2291C5A376D00E46CDF /* sprite_explosion_medium_06.cpp in Sources */,

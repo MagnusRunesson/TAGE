@@ -127,14 +127,12 @@ void playerInput_Pew( int _plx, int _ply )
 		{
 			// Prevent shooting too often
 			playerFireIndex++;
-			playerFireRateTimer = FIRE_RATE_DELAY;
+			playerFireRateTimer = FIRE_RATE_DELAY_PEW;
 			
 			// Spawn bullet somewhere around the player
-			//int x = plx+7;
-			//int y = ply+4;
-			int x = _plx+10;
+			int x = _plx+7;
 			int y = _ply+4;
-			playerBulletSpawn( x, y, PLAYERBULLET_TYPE_LASER );
+			playerBulletSpawn( x, y, PLAYERBULLET_TYPE_PEW );
 			
 			if( playerUpgraded && ((playerFireIndex&3) == 1))
 			{
@@ -151,6 +149,33 @@ PlayerBullet* playerLaser;
 
 void playerInput_Laser( int _plx, int _ply )
 {
+	if( playerFireRateTimer > 0 )
+	{
+		playerFireRateTimer--;
+	} else
+	{
+		if( padGetKeys() & PAD_KEYMASK_PRIMARY )
+		{
+			// Prevent shooting too often
+			playerFireIndex++;
+			playerFireRateTimer = FIRE_RATE_DELAY_LASER;
+			
+			// Spawn bullet somewhere around the player
+			//int x = plx+7;
+			//int y = ply+4;
+			int x = _plx+10;
+			int y = _ply+4;
+			playerBulletSpawn( x, y, PLAYERBULLET_TYPE_LASER );
+		} else
+		{
+			playerFireIndex	= 0;
+		}
+	}
+}
+
+/*
+void playerInput_Laser( int _plx, int _ply )
+{
 	if( padGetPressed() & PAD_KEYMASK_PRIMARY )
 	{
 		int x = _plx+10;
@@ -161,6 +186,7 @@ void playerInput_Laser( int _plx, int _ply )
 		playerBulletKill( playerLaser->pGameObject );
 	}
 }
+*/
 
 void playerUpgrade()
 {

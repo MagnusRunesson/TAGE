@@ -147,10 +147,38 @@ const AnimationFrameDefinition animation_playerbullet_laser_frames[] =
 	},
 	{
 		&sprite_playerbullet_laser_05,
-		255,
-		0,
-		0,
 		2,
+		0,
+		-4,
+		2,
+	},
+	{
+		&sprite_playerbullet_laser_06,
+		2,
+		0,
+		-20,
+		2,
+	},
+	{
+		&sprite_playerbullet_laser_07,
+		2,
+		0,
+		-33,
+		2,
+	},
+	{
+		&sprite_playerbullet_laser_08,
+		2,
+		0,
+		-47,
+		2,
+	},
+	{
+		&sprite_playerbullet_laser_09,
+		2,
+		0,
+		-61,
+		1,
 	},
 };
 
