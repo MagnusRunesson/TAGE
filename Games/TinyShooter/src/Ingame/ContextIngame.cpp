@@ -192,7 +192,7 @@ void spawnSparrowsLow( int _x )
 
 void spawnSpacebaseSecretPassage( int _x )
 {
-	Enemy* pEnemy = enemySpawn( &enemy_spacebase_secretpassage, _x+96, (13*4), NULL );
+	Enemy* pEnemy = enemySpawn( &enemy_spacebase_secretpassage, _x+96, (12*4), NULL );
 	pEnemy->Timeout = 350;
 }
 
