@@ -8,6 +8,8 @@
 
 #include <stdio.h>
 #include "Engine/Scene/GameObject.h"
+#include "Engine/Graphics/Screen.h"
+#include "Engine/Debug.h"
 #include "src/Ingame/EnemyMovements.h"
 #include "src/Ingame/Enemy.h"
 
@@ -71,4 +73,45 @@ void EnemyMovement_02_HalfSinus_MoveLeft( Enemy* _pTarget )
 	s /= 2;
 	_pTarget->m_worldPosition.y = _pTarget->m_movementDirection.y + s;
 	_pTarget->m_worldPosition.x += _pTarget->m_movementDirection.x;
+}
+
+void EnemyMovement_03_DirectionThenLeft( Enemy* _pTarget )
+{
+	switch( _pTarget->m_movementState )
+	{
+		case 0:
+		{
+			// State 0: Move along the requested direction only
+			_pTarget->m_movementTimer--;
+			if( _pTarget->m_movementTimer == 0 )
+			{
+				// Switch to turning slightly left
+				_pTarget->m_movementTimer = 20;
+				_pTarget->m_movementState = 1;
+				_pTarget->m_movementDirection.y /= 2;
+				_pTarget->m_movementDirection.x = _pTarget->m_movementDirection.y;
+				if( _pTarget->m_movementDirection.x > 0 )
+					_pTarget->m_movementDirection.x = -_pTarget->m_movementDirection.y;
+			}
+			break;
+		}
+			
+		case 1:
+		{
+			// State 1: Move along requested direction Y and also to the left
+			_pTarget->m_movementTimer--;
+			if( _pTarget->m_movementTimer == 0 )
+			{
+				// Switch to moving only left
+				_pTarget->m_movementTimer = SCREEN_WIDTH;
+				_pTarget->m_movementState = 2;
+				_pTarget->m_movementDirection.x *= 2;
+				_pTarget->m_movementDirection.y = 0;
+			}
+			break;
+		}
+	}
+	
+	//
+	_pTarget->m_worldPosition += _pTarget->m_movementDirection;
 }
