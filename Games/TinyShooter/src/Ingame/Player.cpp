@@ -12,6 +12,7 @@
 #include "Engine/Math/FixedPoint.h"
 #include "Engine/Audio/AudioSource.h"
 #include "Engine/Audio/AudioMixer.h"
+#include "Engine/Debug.h"
 #include "Abstraction Layer/Joypad.h"
 #include "src/Ingame/Player.h"
 #include "src/Ingame/BulletManager.h"
@@ -21,8 +22,10 @@
 #include "data/alldata.h"
 
 GameObject* player;
-int playerFireRateTimer;
-int playerFireIndex;
+int playerFireRateTimerPrimary;
+int playerFireIndexPrimary;
+int playerFireRateTimerSecondary;
+int playerFireIndexSecondary;
 FixedPoint playerX;
 FixedPoint playerY;
 FixedPoint playerSpeed;
@@ -36,8 +39,13 @@ void playerReset( int _mapscroll )
 {
 	playerX = _mapscroll+10;
 	playerY = 29;
-	playerFireRateTimer = 0;
-	playerFireIndex = 0;
+	
+	playerFireRateTimerPrimary = 0;
+	playerFireIndexPrimary = 0;
+	
+	playerFireRateTimerSecondary = 0;
+	playerFireIndexSecondary = 0;
+	
 	playerUpgraded = false;
 	playerInvincibleTimer = 60;
 	playerWeaponPrimary = PLAYERWEAPON_PEW;
@@ -70,6 +78,7 @@ void playerCameraMove( int _cameraMoveDistance )
 
 void playerInput_Pew( int _plx, int _ply );
 void playerInput_Laser( int _plx, int _ply );
+void playerInput_Bomb( int _plx, int _ply );
 
 void playerUpdate()
 {
@@ -109,11 +118,29 @@ void playerUpdate()
 	else
 		player->SetWorldPosition( plx, ply );
 	
-	if( playerWeaponPrimary == PLAYERWEAPON_LASER )
-		playerInput_Laser( plx, ply );
-	else
-		playerInput_Pew( plx, ply );
+	//
+	// Do primary weapon
+	//
+	switch( playerWeaponPrimary )
+	{
+		case PLAYERWEAPON_LASER:
+			playerInput_Laser( plx, ply );
+			break;
+			
+		case PLAYERWEAPON_PEW:
+			playerInput_Pew( plx, ply );
+			break;
+	}
 	
+	//
+	// Do secondary weapon
+	//
+	switch( playerWeaponSecondary )
+	{
+		case PLAYERWEAPON_BOMB:
+			playerInput_Bomb( plx, ply );
+			break;
+	}
 	/*
 	if( padGetPressed() & PAD_KEYMASK_SECONDARY )
 		sfxPlayerPickup->PlayFromBeginning();
@@ -122,45 +149,69 @@ void playerUpdate()
 
 void playerInput_Pew( int _plx, int _ply )
 {
-	if( playerFireRateTimer > 0 )
+	if( playerFireRateTimerPrimary > 0 )
 	{
-		playerFireRateTimer--;
+		playerFireRateTimerPrimary--;
 	} else
 	{
 		if( padGetKeys() & PAD_KEYMASK_PRIMARY )
 		{
 			// Prevent shooting too often
-			playerFireIndex++;
-			playerFireRateTimer = FIRE_RATE_DELAY_PEW;
+			playerFireIndexPrimary++;
+			playerFireRateTimerPrimary = FIRE_RATE_DELAY_PEW;
 			
 			// Spawn bullet somewhere around the player
 			int x = _plx+7;
 			int y = _ply+4;
 			playerBulletSpawn( x, y, PLAYERBULLET_TYPE_PEW );
 			
-			if( playerUpgraded && ((playerFireIndex&3) == 1))
+			if( playerUpgraded )
 			{
-				playerBulletSpawn( x+2, y-2, PLAYERBULLET_TYPE_BOMB );
+				playerBulletSpawn( x+2, y-2, PLAYERBULLET_TYPE_PEW );
 			}
 		} else
 		{
-			playerFireIndex	= 0;
+			playerFireIndexPrimary	= 0;
+		}
+	}
+}
+
+void playerInput_Bomb( int _plx, int _ply )
+{
+	if( playerFireRateTimerSecondary > 0 )
+	{
+		playerFireRateTimerSecondary--;
+	} else
+	{
+		if( padGetKeys() & PAD_KEYMASK_SECONDARY )
+		{
+			// Prevent shooting too often
+			playerFireIndexSecondary++;
+			playerFireRateTimerSecondary = FIRE_RATE_DELAY_BOMB;
+			
+			// Spawn bullet somewhere around the player
+			int x = _plx+7;
+			int y = _ply+4;
+			playerBulletSpawn( x, y, PLAYERBULLET_TYPE_BOMB );
+		} else
+		{
+			playerFireIndexSecondary = 0;
 		}
 	}
 }
 
 void playerInput_Laser( int _plx, int _ply )
 {
-	if( playerFireRateTimer > 0 )
+	if( playerFireRateTimerPrimary > 0 )
 	{
-		playerFireRateTimer--;
+		playerFireRateTimerPrimary--;
 	} else
 	{
 		if( padGetKeys() & PAD_KEYMASK_PRIMARY )
 		{
 			// Prevent shooting too often
-			playerFireIndex++;
-			playerFireRateTimer = FIRE_RATE_DELAY_LASER;
+			playerFireIndexPrimary++;
+			playerFireRateTimerPrimary = FIRE_RATE_DELAY_LASER;
 			
 			// Spawn bullet somewhere around the player
 			int x = _plx+10;
@@ -168,7 +219,7 @@ void playerInput_Laser( int _plx, int _ply )
 			playerBulletSpawn( x, y, PLAYERBULLET_TYPE_LASER );
 		} else
 		{
-			playerFireIndex	= 0;
+			playerFireIndexPrimary	= 0;
 		}
 	}
 }
@@ -188,7 +239,7 @@ void playerPickup( int _type )
 		hudSetPrimary( HUD_WEAPON_DUALFIRE );
 	} else if( _type == PICKUP_TYPE_BOMB )
 	{
-	
+		playerWeaponSecondary = PLAYERWEAPON_BOMB;
 	} else if( _type == PICKUP_TYPE_LASER )
 	{
 		playerWeaponPrimary = PLAYERWEAPON_LASER;

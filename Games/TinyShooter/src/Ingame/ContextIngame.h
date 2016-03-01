@@ -16,6 +16,7 @@ extern void ingame_debugTrigger( int _i );
 
 #define FIRE_RATE_DELAY_PEW		(17)
 #define FIRE_RATE_DELAY_LASER	(25)
+#define FIRE_RATE_DELAY_BOMB	(45)
 
 #define GO_FLAGS_UNIMPORTANT	(0)
 #define GO_FLAGS_PLAYERSHIP		(1)

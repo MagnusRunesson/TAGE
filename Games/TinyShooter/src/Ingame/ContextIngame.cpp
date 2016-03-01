@@ -302,7 +302,7 @@ void generateGreyTemplate( int _x )
 void levelFuncSpawnCargo( int _x )
 {
 	fp2d movement( FixedPoint( 0, -50 ), FixedPoint( 0, 10 ));
-	enemySpawn( &enemy_cargo, _x+96, 30, &movement )->SpecialFlag = ENEMY_SPECIALFLAG_DROP_DOUBLEPEW;
+	enemySpawn( &enemy_cargo, _x+96, 30, &movement )->SpecialFlag = ENEMY_SPECIALFLAG_DROP_LASER;
 }
 
 class LevelScrollFunc
@@ -681,8 +681,12 @@ void ingame_loop()
 						explosionsSpawn( camx+i, iScanline, EXPLOSION_TYPE_NORMAL );
 						enemyGO->SetEnabled( false );
 						
-						// Spawn double pew pickup
+						// Spawn the proper pickup
 						if( enemy->SpecialFlag == ENEMY_SPECIALFLAG_DROP_DOUBLEPEW )
+							pickupSpawn( PICKUP_TYPE_DOUBLEPEW, camx+i-2, iScanline-2 );
+						else if( enemy->SpecialFlag == ENEMY_SPECIALFLAG_DROP_BOMB )
+							pickupSpawn( PICKUP_TYPE_BOMB, camx+i-2, iScanline-2 );
+						else if( enemy->SpecialFlag == ENEMY_SPECIALFLAG_DROP_LASER )
 							pickupSpawn( PICKUP_TYPE_LASER, camx+i-2, iScanline-2 );
 					}
 				}

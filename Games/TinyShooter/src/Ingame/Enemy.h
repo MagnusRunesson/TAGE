@@ -15,8 +15,10 @@
 #define ENEMY_FROM_SPRITE( spr ) ((Enemy*)(spr->owner->m_customObject))
 
 #define ENEMY_SPECIALFLAG_EMPTY				(0)
-#define ENEMY_SPECIALFLAG_DROP_DOUBLEPEW	(1)
-#define ENEMY_SPECIALFLAG_INVINCIBLE		(2)
+#define ENEMY_SPECIALFLAG_INVINCIBLE		(1)
+#define ENEMY_SPECIALFLAG_DROP_DOUBLEPEW	(10)
+#define ENEMY_SPECIALFLAG_DROP_BOMB			(11)
+#define ENEMY_SPECIALFLAG_DROP_LASER		(12)
 
 class GameObject;
 class EnemyDefinition;
