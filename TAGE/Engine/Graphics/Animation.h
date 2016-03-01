@@ -47,6 +47,7 @@ public:
 	void Reset();
 	void Play();
 	void Stop();
+	void RefreshFrame();
 };
 
 #define DEFINE_ANIMATION( _name, _looping ) \

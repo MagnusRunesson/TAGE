@@ -28,6 +28,7 @@ void Animation::Reset()
 {
 	FrameIndex = 0;
 	FrameTime = 0;
+	RefreshFrame();
 }
 
 void Animation::Play()
@@ -41,6 +42,13 @@ void Animation::Play()
 void Animation::Stop()
 {
 	IsPlaying = false;
+}
+
+void Animation::RefreshFrame()
+{
+	const AnimationFrameDefinition* pFrame = &pSequence->Frames[ FrameIndex ];
+	pTarget->GetSprite()->image = pFrame->sourceImage;
+	pTarget->SetHotspot( pFrame->HotspotX, pFrame->HotspotY );
 }
 
 void Animation::Update()
@@ -68,9 +76,7 @@ void Animation::Update()
 			if( IsPlaying )
 			{
 				FrameTime -= duration;
-				const AnimationFrameDefinition* pFrame = &pSequence->Frames[ FrameIndex ];
-				pTarget->GetSprite()->image = pFrame->sourceImage;
-				pTarget->SetHotspot( pFrame->HotspotX, pFrame->HotspotY );
+				RefreshFrame();
 			}
 		}
 	}
