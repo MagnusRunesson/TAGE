@@ -45,10 +45,10 @@ void hudInit()
 		spriteHudLife[ i ] = life;
 	}
 	
-	hudSetWeapon( HUD_WEAPON_SINGLEFIRE );
+	hudSetPrimary( HUD_WEAPON_SINGLEFIRE );
 }
 
-void hudSetWeapon( int _weapon )
+void hudSetPrimary( int _weapon )
 {
 #ifdef HUD_DISABLE
 	return;
@@ -79,6 +79,11 @@ void hudSetWeapon( int _weapon )
 	spriteHudCurrentWeapon->image = pImage;
 	spriteHudCurrentWeapon->x = x;
 	spriteHudCurrentWeapon->y = y;
+}
+
+void hudSetSecondary( int _weapon )
+{
+	
 }
 
 void hudSetNumLives( int _numLives )

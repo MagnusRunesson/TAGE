@@ -192,31 +192,31 @@ DEFINE_ANIMATION( playerbullet_laser, true );
 //
 //
 //
-const AnimationFrameDefinition animation_pickup_frames[] =
+const AnimationFrameDefinition animation_pickup_pew_frames[] =
 {
 	{
-		&sprite_pickup_00,
+		&sprite_pickup_pew_00,
 		65,
 		0,
 		0,
 		0,
 	},
 	{
-		&sprite_pickup_01,
+		&sprite_pickup_pew_01,
 		5,
 		0,
 		0,
 		0,
 	},
 	{
-		&sprite_pickup_02,
+		&sprite_pickup_pew_02,
 		5,
 		0,
 		0,
 		0,
 	},
 	{
-		&sprite_pickup_03,
+		&sprite_pickup_pew_03,
 		5,
 		0,
 		0,
@@ -224,4 +224,84 @@ const AnimationFrameDefinition animation_pickup_frames[] =
 	},
 };
 
-DEFINE_ANIMATION( pickup, true );
+DEFINE_ANIMATION( pickup_pew, true );
+
+
+//
+//
+//
+//
+//
+const AnimationFrameDefinition animation_pickup_bomb_frames[] =
+{
+	{
+		&sprite_pickup_bomb_00,
+		65,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_pickup_bomb_01,
+		5,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_pickup_bomb_02,
+		5,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_pickup_bomb_03,
+		5,
+		0,
+		0,
+		0,
+	},
+};
+
+DEFINE_ANIMATION( pickup_bomb, true );
+
+
+//
+//
+//
+//
+//
+const AnimationFrameDefinition animation_pickup_laser_frames[] =
+{
+	{
+		&sprite_pickup_laser_00,
+		65,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_pickup_laser_01,
+		5,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_pickup_laser_02,
+		5,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_pickup_laser_03,
+		5,
+		0,
+		0,
+		0,
+	},
+};
+
+DEFINE_ANIMATION( pickup_laser, true );

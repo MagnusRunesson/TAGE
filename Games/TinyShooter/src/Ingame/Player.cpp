@@ -17,6 +17,7 @@
 #include "src/Ingame/BulletManager.h"
 #include "src/Ingame/ContextIngame.h"
 #include "src/Ingame/HUD.h"
+#include "src/Ingame/PickupManager.h"
 #include "data/alldata.h"
 
 GameObject* player;
@@ -28,7 +29,8 @@ FixedPoint playerSpeed;
 bool playerUpgraded;
 uint8 playerNumLives;
 uint8 playerInvincibleTimer;
-uint8 playerEquipment;
+uint8 playerWeaponPrimary;
+uint8 playerWeaponSecondary;
 
 void playerReset( int _mapscroll )
 {
@@ -38,9 +40,11 @@ void playerReset( int _mapscroll )
 	playerFireIndex = 0;
 	playerUpgraded = false;
 	playerInvincibleTimer = 60;
-	playerEquipment = PLAYERBULLET_TYPE_LASER;
+	playerWeaponPrimary = PLAYERWEAPON_PEW;
+	playerWeaponSecondary = PLAYERWEAPON_NONE;
 	
-	hudSetWeapon( HUD_WEAPON_SINGLEFIRE );
+	hudSetPrimary( HUD_WEAPON_SINGLEFIRE );
+	hudSetSecondary( HUD_WEAPON_NONE );
 }
 
 void playerInit()
@@ -105,7 +109,7 @@ void playerUpdate()
 	else
 		player->SetWorldPosition( plx, ply );
 	
-	if( playerEquipment == PLAYERBULLET_TYPE_LASER )
+	if( playerWeaponPrimary == PLAYERWEAPON_LASER )
 		playerInput_Laser( plx, ply );
 	else
 		playerInput_Pew( plx, ply );
@@ -172,7 +176,23 @@ void playerInput_Laser( int _plx, int _ply )
 void playerUpgrade()
 {
 	playerUpgraded = true;
-	hudSetWeapon( HUD_WEAPON_DUALFIRE );
+	hudSetPrimary( HUD_WEAPON_DUALFIRE );
+}
+
+void playerPickup( int _type )
+{
+	if( _type == PICKUP_TYPE_DOUBLEPEW )
+	{
+		playerUpgraded = true;
+		playerWeaponPrimary = PLAYERWEAPON_PEW;
+		hudSetPrimary( HUD_WEAPON_DUALFIRE );
+	} else if( _type == PICKUP_TYPE_BOMB )
+	{
+	
+	} else if( _type == PICKUP_TYPE_LASER )
+	{
+		playerWeaponPrimary = PLAYERWEAPON_LASER;
+	}
 }
 
 bool playerHit( int _mapScroll, bool _forceKill )

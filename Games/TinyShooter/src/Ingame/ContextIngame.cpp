@@ -683,7 +683,7 @@ void ingame_loop()
 						
 						// Spawn double pew pickup
 						if( enemy->SpecialFlag == ENEMY_SPECIALFLAG_DROP_DOUBLEPEW )
-							pickupSpawn( PICKUP_TYPE_DOUBLEPEW, camx+i-2, iScanline-2 );
+							pickupSpawn( PICKUP_TYPE_LASER, camx+i-2, iScanline-2 );
 					}
 				}
 			}

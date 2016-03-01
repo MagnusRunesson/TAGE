@@ -10,6 +10,8 @@
 #define PickupManager_h
 
 #define PICKUP_TYPE_DOUBLEPEW		(0)
+#define PICKUP_TYPE_BOMB			(1)
+#define PICKUP_TYPE_LASER			(2)
 
 void pickupInit();
 void pickupSpawn( int _type, int _worldX, int _worldY );
