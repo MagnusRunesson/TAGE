@@ -20,5 +20,8 @@ extern "C" const AnimationSequenceDefinition animation_enemy_bullet;
 extern "C" const AnimationSequenceDefinition animation_enemy_turret;
 extern "C" const AnimationSequenceDefinition animation_enemy_tallonclaw;
 extern "C" const AnimationSequenceDefinition animation_enemy_spacebase_secretpassage;
+extern "C" const AnimationSequenceDefinition animation_enemy_heidelberg_move;
+extern "C" const AnimationSequenceDefinition animation_enemy_heidelberg_anticipation;
+extern "C" const AnimationSequenceDefinition animation_enemy_heidelberg_fire;
 
 #endif /* defined(__TinyShooter__animation_enemies__) */

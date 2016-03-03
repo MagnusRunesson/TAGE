@@ -40,6 +40,7 @@ public:
 	fp2d m_movementDirection;
 	uint16 m_movementTimer;
 	uint8 m_movementState;
+	uint8 m_movementVar;
 
 	Enemy();
 	void Reboot();

@@ -52,6 +52,11 @@
 		25766A0C1C85F6EC00A9E148 /* sprite_pickup_pew_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257669FD1C85F6EC00A9E148 /* sprite_pickup_pew_01.cpp */; settings = {ASSET_TAGS = (); }; };
 		25766A0D1C85F6EC00A9E148 /* sprite_pickup_pew_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257669FF1C85F6EC00A9E148 /* sprite_pickup_pew_02.cpp */; settings = {ASSET_TAGS = (); }; };
 		25766A0E1C85F6EC00A9E148 /* sprite_pickup_pew_03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A011C85F6EC00A9E148 /* sprite_pickup_pew_03.cpp */; settings = {ASSET_TAGS = (); }; };
+		25766A191C86BF0000A9E148 /* sprite_enemy_heidelberg_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A0F1C86BF0000A9E148 /* sprite_enemy_heidelberg_00.cpp */; settings = {ASSET_TAGS = (); }; };
+		25766A1A1C86BF0000A9E148 /* sprite_enemy_heidelberg_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A111C86BF0000A9E148 /* sprite_enemy_heidelberg_01.cpp */; settings = {ASSET_TAGS = (); }; };
+		25766A1B1C86BF0000A9E148 /* sprite_enemy_heidelberg_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A131C86BF0000A9E148 /* sprite_enemy_heidelberg_02.cpp */; settings = {ASSET_TAGS = (); }; };
+		25766A1C1C86BF0000A9E148 /* sprite_enemy_heidelberg_03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A151C86BF0000A9E148 /* sprite_enemy_heidelberg_03.cpp */; settings = {ASSET_TAGS = (); }; };
+		25766A1D1C86BF0000A9E148 /* sprite_enemy_heidelberg_04.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A171C86BF0000A9E148 /* sprite_enemy_heidelberg_04.cpp */; settings = {ASSET_TAGS = (); }; };
 		257AB0B21C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		257AB0B51C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0B31C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		2591BCAE1C5D2A9B00F69102 /* sprite_enemy_dragonhead_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2591BCAC1C5D2A9B00F69102 /* sprite_enemy_dragonhead_00.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -254,6 +259,16 @@
 		25766A001C85F6EC00A9E148 /* sprite_pickup_pew_02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_pickup_pew_02.h; path = data/sprite_pickup_pew_02.h; sourceTree = "<group>"; };
 		25766A011C85F6EC00A9E148 /* sprite_pickup_pew_03.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_pickup_pew_03.cpp; path = data/sprite_pickup_pew_03.cpp; sourceTree = "<group>"; };
 		25766A021C85F6EC00A9E148 /* sprite_pickup_pew_03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_pickup_pew_03.h; path = data/sprite_pickup_pew_03.h; sourceTree = "<group>"; };
+		25766A0F1C86BF0000A9E148 /* sprite_enemy_heidelberg_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_heidelberg_00.cpp; path = data/sprite_enemy_heidelberg_00.cpp; sourceTree = "<group>"; };
+		25766A101C86BF0000A9E148 /* sprite_enemy_heidelberg_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_heidelberg_00.h; path = data/sprite_enemy_heidelberg_00.h; sourceTree = "<group>"; };
+		25766A111C86BF0000A9E148 /* sprite_enemy_heidelberg_01.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_heidelberg_01.cpp; path = data/sprite_enemy_heidelberg_01.cpp; sourceTree = "<group>"; };
+		25766A121C86BF0000A9E148 /* sprite_enemy_heidelberg_01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_heidelberg_01.h; path = data/sprite_enemy_heidelberg_01.h; sourceTree = "<group>"; };
+		25766A131C86BF0000A9E148 /* sprite_enemy_heidelberg_02.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_heidelberg_02.cpp; path = data/sprite_enemy_heidelberg_02.cpp; sourceTree = "<group>"; };
+		25766A141C86BF0000A9E148 /* sprite_enemy_heidelberg_02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_heidelberg_02.h; path = data/sprite_enemy_heidelberg_02.h; sourceTree = "<group>"; };
+		25766A151C86BF0000A9E148 /* sprite_enemy_heidelberg_03.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_heidelberg_03.cpp; path = data/sprite_enemy_heidelberg_03.cpp; sourceTree = "<group>"; };
+		25766A161C86BF0000A9E148 /* sprite_enemy_heidelberg_03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_heidelberg_03.h; path = data/sprite_enemy_heidelberg_03.h; sourceTree = "<group>"; };
+		25766A171C86BF0000A9E148 /* sprite_enemy_heidelberg_04.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_heidelberg_04.cpp; path = data/sprite_enemy_heidelberg_04.cpp; sourceTree = "<group>"; };
+		25766A181C86BF0000A9E148 /* sprite_enemy_heidelberg_04.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_heidelberg_04.h; path = data/sprite_enemy_heidelberg_04.h; sourceTree = "<group>"; };
 		257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_music_boss_s8b_pcm_11025hz.cpp; path = data/audiosamples_music_boss_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
 		257AB0B11C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audiosamples_music_boss_s8b_pcm_11025hz.h; path = data/audiosamples_music_boss_s8b_pcm_11025hz.h; sourceTree = "<group>"; };
 		257AB0B31C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_explosion_s8b_pcm_11025hz.cpp; path = data/audiosamples_explosion_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
@@ -546,6 +561,16 @@
 		250DA18B1C4A7FFF00C664DA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				25766A0F1C86BF0000A9E148 /* sprite_enemy_heidelberg_00.cpp */,
+				25766A101C86BF0000A9E148 /* sprite_enemy_heidelberg_00.h */,
+				25766A111C86BF0000A9E148 /* sprite_enemy_heidelberg_01.cpp */,
+				25766A121C86BF0000A9E148 /* sprite_enemy_heidelberg_01.h */,
+				25766A131C86BF0000A9E148 /* sprite_enemy_heidelberg_02.cpp */,
+				25766A141C86BF0000A9E148 /* sprite_enemy_heidelberg_02.h */,
+				25766A151C86BF0000A9E148 /* sprite_enemy_heidelberg_03.cpp */,
+				25766A161C86BF0000A9E148 /* sprite_enemy_heidelberg_03.h */,
+				25766A171C86BF0000A9E148 /* sprite_enemy_heidelberg_04.cpp */,
+				25766A181C86BF0000A9E148 /* sprite_enemy_heidelberg_04.h */,
 				257669EB1C85F6EC00A9E148 /* sprite_pickup_bomb_00.cpp */,
 				257669EC1C85F6EC00A9E148 /* sprite_pickup_bomb_00.h */,
 				257669ED1C85F6EC00A9E148 /* sprite_pickup_bomb_01.cpp */,
@@ -983,6 +1008,7 @@
 				25CB2D5A1C57563F00BC35A1 /* sfx_player.cpp in Sources */,
 				25CB2DAC1C57566100BC35A1 /* Timer.cpp in Sources */,
 				25766A091C85F6EC00A9E148 /* sprite_pickup_laser_02.cpp in Sources */,
+				25766A1D1C86BF0000A9E148 /* sprite_enemy_heidelberg_04.cpp in Sources */,
 				25CB2D921C57565100BC35A1 /* FixedPoint.cpp in Sources */,
 				2505C22A1C5A376D00E46CDF /* sprite_explosion_medium_07.cpp in Sources */,
 				257AB0B21C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp in Sources */,
@@ -998,6 +1024,7 @@
 				25CB2D981C57565100BC35A1 /* GameObjectTemplate.cpp in Sources */,
 				25D99FED1C5E574600CC4CAE /* Player.cpp in Sources */,
 				25CB2D951C57565100BC35A1 /* Camera.cpp in Sources */,
+				25766A1A1C86BF0000A9E148 /* sprite_enemy_heidelberg_01.cpp in Sources */,
 				25D99FE61C5E574600CC4CAE /* ContextIngame.cpp in Sources */,
 				25CB2D9B1C57565900BC35A1 /* main.cpp in Sources */,
 				25CB2D591C57563F00BC35A1 /* enemy_definitions.cpp in Sources */,
@@ -1069,9 +1096,12 @@
 				25CB2D331C57561F00BC35A1 /* sprite_explosion_big_01.cpp in Sources */,
 				253FC5C11C7ADAA0005AB533 /* sprite_playerbullet_bomb_04.cpp in Sources */,
 				25766A0D1C85F6EC00A9E148 /* sprite_pickup_pew_02.cpp in Sources */,
+				25766A1B1C86BF0000A9E148 /* sprite_enemy_heidelberg_02.cpp in Sources */,
 				2591BCBD1C5D6E6000F69102 /* sprite_hud_life.cpp in Sources */,
 				25CB2D301C57561F00BC35A1 /* sprite_enemy_saucer_00.cpp in Sources */,
 				2505C2261C5A376D00E46CDF /* sprite_explosion_medium_03.cpp in Sources */,
+				25766A1C1C86BF0000A9E148 /* sprite_enemy_heidelberg_03.cpp in Sources */,
+				25766A191C86BF0000A9E148 /* sprite_enemy_heidelberg_00.cpp in Sources */,
 				253FC5C01C7ADAA0005AB533 /* sprite_playerbullet_bomb_03.cpp in Sources */,
 				25CB2D481C57561F00BC35A1 /* sprite_spacebase_boss_door.cpp in Sources */,
 				2505C2271C5A376D00E46CDF /* sprite_explosion_medium_04.cpp in Sources */,

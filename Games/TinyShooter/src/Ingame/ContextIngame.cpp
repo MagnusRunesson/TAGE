@@ -305,6 +305,12 @@ void levelFuncSpawnCargo( int _x )
 	enemySpawn( &enemy_cargo, _x+96, 30, &movement )->SpecialFlag = ENEMY_SPECIALFLAG_DROP_LASER;
 }
 
+void spawnHeidelberg( int _x )
+{
+	Enemy* pEnemy = enemySpawn( &enemy_heidelberg, _x+96, SCREEN_HEIGHT-4, NULL );
+	enemyHeidelbergInit( pEnemy );
+}
+
 class LevelScrollFunc
 {
 public:
@@ -325,6 +331,12 @@ const LevelScrollFunc spacebaseFuncs[] = {
 		55,
 		&levelFuncSpawnCargo,
 	},
+	/*
+	{
+		56,
+		&spawnHeidelberg,
+	},
+	 */
 	{
 		70,
 		&spawnSparrowsLow,

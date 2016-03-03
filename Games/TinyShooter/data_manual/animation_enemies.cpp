@@ -265,3 +265,85 @@ const AnimationFrameDefinition animation_enemy_spacebase_secretpassage_frames[] 
 
 DEFINE_ANIMATION( enemy_spacebase_secretpassage, true );
 
+
+
+
+
+
+//
+//
+// Heidelberg - A massive tank that fires death through its turret / exhaust pipe
+//
+//
+const AnimationFrameDefinition animation_enemy_heidelberg_move_frames[] = {
+	{
+		&sprite_enemy_heidelberg_00,
+		10,
+		0,
+		0,
+		14,
+	},
+	{
+		&sprite_enemy_heidelberg_01,
+		10,
+		0,
+		0,
+		14,
+	},
+};
+
+DEFINE_ANIMATION( enemy_heidelberg_move, true );
+
+
+const AnimationFrameDefinition animation_enemy_heidelberg_anticipation_frames[] = {
+	{
+		&sprite_enemy_heidelberg_00,
+		30,
+		0,
+		0,
+		14,
+	},
+};
+
+DEFINE_ANIMATION( enemy_heidelberg_anticipation, true );
+
+
+const AnimationFrameDefinition animation_enemy_heidelberg_fire_frames[] = {
+	{
+		&sprite_enemy_heidelberg_01,
+		4,
+		0,
+		0,
+		14,
+	},
+	{
+		&sprite_enemy_heidelberg_02,
+		4,
+		0,
+		0,
+		14,
+	},
+	{
+		&sprite_enemy_heidelberg_03,
+		4,
+		0,
+		0,
+		14,
+	},
+	{
+		&sprite_enemy_heidelberg_04,
+		4,
+		0,
+		0,
+		14,
+	},
+	{
+		&sprite_enemy_heidelberg_03,
+		4,
+		0,
+		0,
+		14,
+	},
+};
+
+DEFINE_ANIMATION( enemy_heidelberg_fire, true );
