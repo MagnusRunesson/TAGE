@@ -61,6 +61,7 @@ void playerInit()
 	player = gameObjectManager.CreateGameObject( &sprite_player );
 	player->m_flags = GO_FLAGS_PLAYERSHIP;
 	player->GetSprite()->collisionIndex = SPRITE_COLLISION_INDEX_PLAYERSHIP;
+	player->SetHotspot( -5, -3 );
 	playerSpeed = FixedPoint( 0, 50 );
 
 	// Setup runtime data for the player
