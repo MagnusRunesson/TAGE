@@ -18,6 +18,6 @@ sint16 fpcos( int _angle );
 
 FixedPoint SqrDistance(  fp2d& _a,  fp2d& _b );
 FixedPoint Distance(  fp2d& _a,  fp2d& _b );
-int fisqrt( int val );
+int fisqrt( uint32 val );
 
 #endif /* fpmath_hpp */
