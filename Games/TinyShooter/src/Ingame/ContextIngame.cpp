@@ -365,6 +365,10 @@ const LevelScrollFunc spacebaseFuncs[] = {
 		&levelFunc3
 	},
 	{
+		120,
+		&spawnSpinloop,
+	},
+	{
 		240,
 		&spawnSpacebaseSecretPassage
 	},
