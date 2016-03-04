@@ -312,6 +312,20 @@ void spawnHeidelberg( int _x )
 	enemyHeidelbergInit( pEnemy );
 }
 
+void spawnSpinloop( int _x )
+{
+	int i;
+	for( i=0; i<10; i++ )
+	{
+		Enemy* pEnemy = enemySpawn( &enemy_spinloop, 0, 0, NULL );
+		pEnemy->m_movementDirection.x = _x + 96 + 32 + 3;
+		pEnemy->m_movementDirection.y = 32;
+		pEnemy->m_movementTimer = 64 + i*16;
+		pEnemy->Timeout = 1300;
+		pEnemy->pTargetGameObject->GetAnimation()->FrameTime = i*3;
+	}
+}
+
 class LevelScrollFunc
 {
 public:

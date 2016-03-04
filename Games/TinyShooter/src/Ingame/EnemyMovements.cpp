@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "Engine/Scene/GameObject.h"
 #include "Engine/Graphics/Screen.h"
+#include "Engine/Math/fpmath.h"
 #include "Engine/Debug.h"
 #include "src/Ingame/EnemyMovements.h"
 #include "src/Ingame/Enemy.h"
@@ -248,4 +249,14 @@ void EnemyMovement_Heidelberg( Enemy* _pTarget )
 			break;
 		}
 	}
+}
+
+void EnemyMovement_Rotate( Enemy* _pTarget )
+{
+	_pTarget->m_movementTimer++;
+	
+	int x = (fpcos( _pTarget->m_movementTimer ) >> 4);
+	int y = (fpsin( _pTarget->m_movementTimer ) >> 4);
+	_pTarget->m_worldPosition.x = 240 + x;
+	_pTarget->m_worldPosition.y = 32 + y;
 }

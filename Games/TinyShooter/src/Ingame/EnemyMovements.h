@@ -17,5 +17,6 @@ extern void EnemyMovement_02_HalfSinus_MoveLeft( Enemy* _pTarget );
 extern void EnemyMovement_03_DirectionThenLeft( Enemy* _pTarget );
 extern void EnemyMovement_Heidelberg( Enemy* _pTarget );
 extern void enemyHeidelbergInit( Enemy* _pEnemy );
+extern void EnemyMovement_Rotate( Enemy* _pTarget );
 
 #endif /* EnemyMovements_h */

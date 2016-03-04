@@ -57,6 +57,9 @@
 		25766A1B1C86BF0000A9E148 /* sprite_enemy_heidelberg_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A131C86BF0000A9E148 /* sprite_enemy_heidelberg_02.cpp */; settings = {ASSET_TAGS = (); }; };
 		25766A1C1C86BF0000A9E148 /* sprite_enemy_heidelberg_03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A151C86BF0000A9E148 /* sprite_enemy_heidelberg_03.cpp */; settings = {ASSET_TAGS = (); }; };
 		25766A1D1C86BF0000A9E148 /* sprite_enemy_heidelberg_04.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A171C86BF0000A9E148 /* sprite_enemy_heidelberg_04.cpp */; settings = {ASSET_TAGS = (); }; };
+		25766A241C8899A600A9E148 /* sprite_enemy_spinloop_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A1E1C8899A600A9E148 /* sprite_enemy_spinloop_00.cpp */; settings = {ASSET_TAGS = (); }; };
+		25766A251C8899A600A9E148 /* sprite_enemy_spinloop_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A201C8899A600A9E148 /* sprite_enemy_spinloop_01.cpp */; settings = {ASSET_TAGS = (); }; };
+		25766A261C8899A600A9E148 /* sprite_enemy_spinloop_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A221C8899A600A9E148 /* sprite_enemy_spinloop_02.cpp */; settings = {ASSET_TAGS = (); }; };
 		257AB0B21C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		257AB0B51C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0B31C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		2591BCAE1C5D2A9B00F69102 /* sprite_enemy_dragonhead_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2591BCAC1C5D2A9B00F69102 /* sprite_enemy_dragonhead_00.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -269,6 +272,12 @@
 		25766A161C86BF0000A9E148 /* sprite_enemy_heidelberg_03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_heidelberg_03.h; path = data/sprite_enemy_heidelberg_03.h; sourceTree = "<group>"; };
 		25766A171C86BF0000A9E148 /* sprite_enemy_heidelberg_04.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_heidelberg_04.cpp; path = data/sprite_enemy_heidelberg_04.cpp; sourceTree = "<group>"; };
 		25766A181C86BF0000A9E148 /* sprite_enemy_heidelberg_04.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_heidelberg_04.h; path = data/sprite_enemy_heidelberg_04.h; sourceTree = "<group>"; };
+		25766A1E1C8899A600A9E148 /* sprite_enemy_spinloop_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_spinloop_00.cpp; path = data/sprite_enemy_spinloop_00.cpp; sourceTree = "<group>"; };
+		25766A1F1C8899A600A9E148 /* sprite_enemy_spinloop_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_spinloop_00.h; path = data/sprite_enemy_spinloop_00.h; sourceTree = "<group>"; };
+		25766A201C8899A600A9E148 /* sprite_enemy_spinloop_01.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_spinloop_01.cpp; path = data/sprite_enemy_spinloop_01.cpp; sourceTree = "<group>"; };
+		25766A211C8899A600A9E148 /* sprite_enemy_spinloop_01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_spinloop_01.h; path = data/sprite_enemy_spinloop_01.h; sourceTree = "<group>"; };
+		25766A221C8899A600A9E148 /* sprite_enemy_spinloop_02.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_spinloop_02.cpp; path = data/sprite_enemy_spinloop_02.cpp; sourceTree = "<group>"; };
+		25766A231C8899A600A9E148 /* sprite_enemy_spinloop_02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_spinloop_02.h; path = data/sprite_enemy_spinloop_02.h; sourceTree = "<group>"; };
 		257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_music_boss_s8b_pcm_11025hz.cpp; path = data/audiosamples_music_boss_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
 		257AB0B11C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audiosamples_music_boss_s8b_pcm_11025hz.h; path = data/audiosamples_music_boss_s8b_pcm_11025hz.h; sourceTree = "<group>"; };
 		257AB0B31C5D1CA0008745CA /* audiosamples_explosion_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_explosion_s8b_pcm_11025hz.cpp; path = data/audiosamples_explosion_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
@@ -561,6 +570,12 @@
 		250DA18B1C4A7FFF00C664DA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				25766A1E1C8899A600A9E148 /* sprite_enemy_spinloop_00.cpp */,
+				25766A1F1C8899A600A9E148 /* sprite_enemy_spinloop_00.h */,
+				25766A201C8899A600A9E148 /* sprite_enemy_spinloop_01.cpp */,
+				25766A211C8899A600A9E148 /* sprite_enemy_spinloop_01.h */,
+				25766A221C8899A600A9E148 /* sprite_enemy_spinloop_02.cpp */,
+				25766A231C8899A600A9E148 /* sprite_enemy_spinloop_02.h */,
 				25766A0F1C86BF0000A9E148 /* sprite_enemy_heidelberg_00.cpp */,
 				25766A101C86BF0000A9E148 /* sprite_enemy_heidelberg_00.h */,
 				25766A111C86BF0000A9E148 /* sprite_enemy_heidelberg_01.cpp */,
@@ -1025,6 +1040,7 @@
 				25D99FED1C5E574600CC4CAE /* Player.cpp in Sources */,
 				25CB2D951C57565100BC35A1 /* Camera.cpp in Sources */,
 				25766A1A1C86BF0000A9E148 /* sprite_enemy_heidelberg_01.cpp in Sources */,
+				25766A241C8899A600A9E148 /* sprite_enemy_spinloop_00.cpp in Sources */,
 				25D99FE61C5E574600CC4CAE /* ContextIngame.cpp in Sources */,
 				25CB2D9B1C57565900BC35A1 /* main.cpp in Sources */,
 				25CB2D591C57563F00BC35A1 /* enemy_definitions.cpp in Sources */,
@@ -1040,6 +1056,7 @@
 				2591BCAE1C5D2A9B00F69102 /* sprite_enemy_dragonhead_00.cpp in Sources */,
 				25CB2D971C57565100BC35A1 /* GameObjectManager.cpp in Sources */,
 				25D99FE91C5E574600CC4CAE /* EnemyMovements.cpp in Sources */,
+				25766A261C8899A600A9E148 /* sprite_enemy_spinloop_02.cpp in Sources */,
 				25CB2D391C57561F00BC35A1 /* sprite_logo_shooter_h.cpp in Sources */,
 				25CB2D491C57561F00BC35A1 /* tilebank_spacebase.cpp in Sources */,
 				253A56A91C626106008CFFDE /* EnemyBulletManager.cpp in Sources */,
@@ -1065,6 +1082,7 @@
 				25CB2D341C57561F00BC35A1 /* sprite_explosion_big_02.cpp in Sources */,
 				257669E71C84181D00A9E148 /* sprite_playerbullet_laser_06.cpp in Sources */,
 				25A495B31C5BD433003CA51C /* sprite_enemy_sparrow_01.cpp in Sources */,
+				25766A251C8899A600A9E148 /* sprite_enemy_spinloop_01.cpp in Sources */,
 				25B7B1421C5A859F00355A54 /* sprite_impact_bullet_03.cpp in Sources */,
 				25D0ACA01C7E1CEA004EE0AC /* sprite_playerbullet_laser_03.cpp in Sources */,
 				25CB2D941C57565100BC35A1 /* fpmath.cpp in Sources */,

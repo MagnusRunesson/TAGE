@@ -74,7 +74,7 @@ const EnemyDefinition enemy_tallonclaw =
 	&animation_enemy_tallonclaw,
 	1,
 	0,
-	EnemyMovement_02_HalfSinus_MoveLeft
+	&EnemyMovement_02_HalfSinus_MoveLeft
 };
 
 const EnemyDefinition enemy_spacebase_secretpassage =
@@ -93,9 +93,10 @@ const EnemyDefinition enemy_heidelberg =
 	NULL
 };
 
-
-
-
-
-
-
+const EnemyDefinition enemy_spinloop =
+{
+	&animation_enemy_spinloop,
+	2,
+	0,
+	&EnemyMovement_Rotate,
+};

@@ -347,3 +347,43 @@ const AnimationFrameDefinition animation_enemy_heidelberg_fire_frames[] = {
 };
 
 DEFINE_ANIMATION( enemy_heidelberg_fire, true );
+
+
+
+//
+//
+// Spinloop
+//
+//
+const AnimationFrameDefinition animation_enemy_spinloop_frames[] = {
+	{
+		&sprite_enemy_spinloop_00,
+		30,
+		0,
+		3,
+		3,
+	},
+	{
+		&sprite_enemy_spinloop_01,
+		4,
+		0,
+		3,
+		3,
+	},
+	{
+		&sprite_enemy_spinloop_02,
+		4,
+		0,
+		3,
+		3,
+	},
+	{
+		&sprite_enemy_spinloop_01,
+		4,
+		0,
+		3,
+		3,
+	},
+};
+
+DEFINE_ANIMATION( enemy_spinloop, true );
