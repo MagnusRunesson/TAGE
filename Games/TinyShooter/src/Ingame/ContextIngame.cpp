@@ -351,7 +351,7 @@ void spawnSpinloop( int _x )
 		pEnemy->m_movementDirection.y = 32;
 		pEnemy->m_movementTimer = 64 + i*16;
 		pEnemy->Timeout = 1300;
-		pEnemy->pTargetGameObject->GetAnimation()->FrameTime = i*3;
+		pEnemy->pTargetGameObject->GetAnimation()->FrameTime = i*7;
 	}
 }
 

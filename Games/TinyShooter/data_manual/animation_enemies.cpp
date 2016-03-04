@@ -358,7 +358,7 @@ DEFINE_ANIMATION( enemy_heidelberg_fire, true );
 const AnimationFrameDefinition animation_enemy_spinloop_frames[] = {
 	{
 		&sprite_enemy_spinloop_00,
-		30,
+		60,
 		0,
 		3,
 		3,
