@@ -195,10 +195,10 @@ void spawnSparrowsLow( int _x )
 void spawnSpacebaseSecretPassage( int _x )
 {
 	Enemy* pEnemy = enemySpawn( &enemy_spacebase_secretpassage, _x+96, (12*4), NULL );
-	pEnemy->Timeout = 350;
+	pEnemy->Timeout = 1000;
 }
 
-void levelFunc20( int _x )
+void spawnSaucerMid( int _x )
 {
 	fp2d movement( FixedPoint( 0, -50 ), 0 );
 	int i;
@@ -227,6 +227,10 @@ void spawnTallonsHigh( int _x )
 	spawnTallons( _x,  15 );
 }
 
+void spawnTallonsMid( int _x )
+{
+	spawnTallons( _x, 36 );
+}
 void spawnTallonsLow( int _x )
 {
 	spawnTallons( _x,  49 );
@@ -269,7 +273,7 @@ void spawnDoubleDragons( int _x )
 	}
 }
 
-void levelFunc3( int _x )
+void spawnDragonMid( int _x )
 {
 	fp2d movement( 0, 30 );
 	int i;
@@ -285,14 +289,14 @@ void levelFunc3( int _x )
 	}
 }
 
-void levelFunc4( int _x )
+void spawnTurrets( int _x )
 {
 	fp2d movement;
 	int i;
-	for( i=0; i<4; i++ )
+	for( i=0; i<1; i++ )
 	{
-		Enemy* pEnemy = enemySpawn( &enemy_turret, _x+96+(i*8), 55, &movement );
-		pEnemy->Timeout = 1024;
+		Enemy* pEnemy = enemySpawn( &enemy_turret, _x+96+(i*8), 60, &movement );
+		enemyTurretInit( pEnemy );
 	}
 }
 
@@ -304,15 +308,36 @@ void generateGreyTemplate( int _x )
 }
  */
 
-void levelFuncSpawnCargo( int _x )
+void spawnCargo( int _x, int _flag )
 {
 	fp2d movement( FixedPoint( 0, -50 ), FixedPoint( 0, 10 ));
-	enemySpawn( &enemy_cargo, _x+96, 30, &movement )->SpecialFlag = ENEMY_SPECIALFLAG_DROP_LASER;
+	enemySpawn( &enemy_cargo, _x+96, 30, &movement )->SpecialFlag = _flag;
 }
 
-void spawnHeidelberg( int _x )
+void spawnCargoBomb( int _x )
 {
-	Enemy* pEnemy = enemySpawn( &enemy_heidelberg, _x+96, SCREEN_HEIGHT-4, NULL );
+	spawnCargo( _x, ENEMY_SPECIALFLAG_DROP_BOMB );
+}
+
+void spawnCargoPew( int _x )
+{
+	spawnCargo( _x, ENEMY_SPECIALFLAG_DROP_DOUBLEPEW );
+}
+
+void spawnCargoLaser( int _x )
+{
+	spawnCargo( _x, ENEMY_SPECIALFLAG_DROP_LASER );
+}
+
+void spawnHeidelbergMid( int _x )
+{
+	Enemy* pEnemy = enemySpawn( &enemy_heidelberg, _x+96, 40, NULL );
+	enemyHeidelbergInit( pEnemy );
+}
+
+void spawnHeidelbergLow( int _x )
+{
+	Enemy* pEnemy = enemySpawn( &enemy_heidelberg, _x+96, 60, NULL );
 	enemyHeidelbergInit( pEnemy );
 }
 
@@ -347,33 +372,39 @@ const LevelScrollFunc spacebaseFuncs[] = {
 		&spawnTallonsHigh,
 	},
 	{
-		55,
-		&levelFuncSpawnCargo,
+		50,
+		&spawnTurrets
 	},
-	/*
 	{
-		56,
-		&spawnHeidelberg,
+		55,
+		&spawnCargoPew,
 	},
-	 */
 	{
 		70,
 		&spawnSparrowsLow,
 	},
 	{
 		100,
-		&levelFunc20,
+		&spawnSaucerMid,
 	},
 	{
 		110,
-		&levelFunc3
+		&spawnDragonMid
 	},
 	{
 		120,
 		&spawnSpinloop,
 	},
 	{
-		240,
+		200,
+		&spawnTallonsMid,
+	},
+	{
+		248,
+		&spawnHeidelbergLow,
+	},
+	{
+		272,
 		&spawnSpacebaseSecretPassage
 	},
 };

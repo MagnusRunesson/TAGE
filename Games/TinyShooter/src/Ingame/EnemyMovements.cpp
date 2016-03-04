@@ -260,3 +260,74 @@ void EnemyMovement_Rotate( Enemy* _pTarget )
 	_pTarget->m_worldPosition.x = 240 + x;
 	_pTarget->m_worldPosition.y = 32 + y;
 }
+
+void enemyTurretInit( Enemy* _pTarget )
+{
+	_pTarget->pfnMovementUpdate = &EnemyMovement_Turret;
+	_pTarget->Timeout = 1024;
+	_pTarget->m_movementTimer = 3;
+	
+	// Set animation in idle position (pointing up)
+	Animation* pAnimation = _pTarget->pTargetGameObject->GetAnimation();
+	pAnimation->Stop();
+	pAnimation->FrameIndex = 1;
+	pAnimation->RefreshFrame();
+}
+
+void EnemyMovement_Turret( Enemy* _pTarget )
+{
+	int plx = player->GetWorldPositionX();
+	int ply = player->GetWorldPositionY();
+	int myx = _pTarget->pTargetGameObject->GetWorldPositionX();
+	int myy = _pTarget->pTargetGameObject->GetWorldPositionY();
+	
+	int distancex = plx-myx;
+	if( distancex < 0 )
+		distancex = -distancex;
+
+	int distancey = ply-myy;
+	if( distancey < 0 )
+		distancey = -distancey;
+	
+	Animation* pAnimation = _pTarget->pTargetGameObject->GetAnimation();
+	if( distancex < 40 )
+	{
+		int frameFireOffsetX = 0;
+		int frameFireOffsetY = 0;
+		distancey >>= 1;
+		if( distancex < distancey )
+		{
+			frameFireOffsetX = 1;
+			frameFireOffsetY = -5;
+			pAnimation->FrameIndex = 1;
+			pAnimation->RefreshFrame();
+		}
+		else
+		{
+			if( plx < myx )
+			{
+				frameFireOffsetX = -4;
+				frameFireOffsetY = -4;
+				pAnimation->FrameIndex = 0;
+				pAnimation->RefreshFrame();
+			} else
+			{
+				frameFireOffsetX = 4;
+				frameFireOffsetY = -4;
+				pAnimation->FrameIndex = 2;
+				pAnimation->RefreshFrame();
+			}
+		}
+		
+		_pTarget->m_movementTimer--;
+		if( _pTarget->m_movementTimer == 0 )
+		{
+			int bx = _pTarget->pTargetGameObject->GetWorldPositionX() + frameFireOffsetX;
+			int by = _pTarget->pTargetGameObject->GetWorldPositionY() + frameFireOffsetY;
+			Enemy* pEnemyBullet = enemyBulletSpawn( bx, by, player, FixedPoint( 0, 75 ));
+			pEnemyBullet->Timeout = 120;
+			_pTarget->m_movementTimer = 60;
+		}
+
+	}
+}

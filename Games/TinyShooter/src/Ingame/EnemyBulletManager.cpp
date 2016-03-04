@@ -11,14 +11,16 @@
 #include "Engine/Audio/AudioSource.h"
 #include "Engine/Audio/AudioMixer.h"
 #include "Engine/Math/FixedPoint.h"
+#include "Engine/Graphics/Animation.h"
 #include "Engine/Math/fp2d.h"
 #include "Engine/Math/fpmath.h"
 #include "src/Ingame/EnemyBulletManager.h"
 #include "src/Ingame/ContextIngame.h"
 #include "src/Ingame/EnemyManager.h"
+#include "src/Ingame/Enemy.h"
 #include "data/alldata.h"
 
-void enemyBulletSpawn( int _worldX, int _worldY, GameObject* _pTarget, const FixedPoint& _speed )
+Enemy* enemyBulletSpawn( int _worldX, int _worldY, GameObject* _pTarget, const FixedPoint& _speed )
 {
 	fp2d here( _worldX, _worldY );
 	fp2d there( _pTarget->GetWorldPositionX(), _pTarget->GetWorldPositionY());
@@ -27,10 +29,13 @@ void enemyBulletSpawn( int _worldX, int _worldY, GameObject* _pTarget, const Fix
 	dir.Normalize();
 	dir *= _speed;
 	
-	enemyBulletSpawn( _worldX, _worldY, dir );
+	return enemyBulletSpawn( _worldX, _worldY, dir );
 }
 
-void enemyBulletSpawn( int _worldX, int _worldY, const fp2d& _movement )
+Enemy* enemyBulletSpawn( int _worldX, int _worldY, const fp2d& _movement )
 {
-	enemySpawn( &enemy_bullet, _worldX, _worldY, &_movement );
+	Enemy* pEnemy = enemySpawn( &enemy_bullet, _worldX, _worldY, &_movement );
+	pEnemy->pTargetGameObject->GetAnimation()->Play();
+	return pEnemy;
+	
 }
