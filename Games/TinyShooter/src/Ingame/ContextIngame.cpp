@@ -45,6 +45,7 @@
 #include "src/ContextManager.h"
 
 //
+int expectedFrameTime = 16667;
 Camera mainCamera;
 TileRenderer* background;
 TileRenderer* playfield;
@@ -790,7 +791,7 @@ void ingame_loop()
 	
 	// Spin loop to wait. This is ... not ideal
 	sint32 endTime = micros();
-	sint32 dd = 16667 - (endTime-startTime);
+	sint32 dd = expectedFrameTime - (endTime-startTime);
 	if( dd > 0 )
 		delayMicroseconds( dd );
 }
@@ -814,13 +815,18 @@ void ingame_debugTrigger( int _trigger )
 		//debugSpriteRenderer = true;
 	} else if( _trigger == 2 )
 	{
+		debugLog( "player x=%i, y=%i\n", player->GetWorldPositionX(), player->GetWorldPositionY());
+	} else if( _trigger == 3 )
+	{
 		extern int playerInvincibleTimer;
 		playerInvincibleTimer = 60;
 	} else if( _trigger == 8 )
 	{
-		enemyBulletSpawn( mapScroll+90, 32, player, FixedPoint( 0, 25 ));
+		expectedFrameTime = 2000;
+		//enemyBulletSpawn( mapScroll+90, 32, player, FixedPoint( 0, 25 ));
 	} else if( _trigger == 9 )
 	{
-		debugPrintSystems();
+		expectedFrameTime = 16667;
+		//debugPrintSystems();
 	}
 }
