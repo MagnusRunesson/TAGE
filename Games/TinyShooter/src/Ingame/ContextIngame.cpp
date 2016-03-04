@@ -215,6 +215,10 @@ void spawnTallons( int _x, int _y )
 		Enemy* pEnemy = enemySpawn( &enemy_tallonclaw, _x+96+(i*5), 10, &movement );
 		pEnemy->m_movementTimer = 50 - (i*10);
 		pEnemy->Timeout += 120;
+		if((i==1) || (i==5))
+		{
+			pEnemy->AttackTimer = 70 + (i*15);
+		}
 	}
 }
 
