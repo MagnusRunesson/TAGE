@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include "Engine/Scene/GameObjectManager.h"
 #include "Engine/Scene/GameObject.h"
+#include "Engine/Graphics/Sprite.h"
 #include "Engine/Debug.h"
 #include "src/Ingame/EnemyManager.h"
 #include "src/Ingame/Enemy.h"
@@ -70,6 +71,7 @@ Enemy* enemySpawn( const EnemyDefinition* _pEnemyDefinition, int _worldX, int _w
 	pRet->SetDefinition( _pEnemyDefinition );
 	pRet->SetWorldPosition( _worldX, _worldY );
 	pRet->m_movementTimer = 0;
+	pRet->pTargetGameObject->GetSprite()->ClrFlags( SPRITE_FLAG_DRAWWHITE );
 
 	// Set movement direction, if any
 	if( _pMovementDirection )
