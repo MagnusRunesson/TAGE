@@ -23,7 +23,7 @@ AudioSource* sfxExplosion;
 void explosionsInit()
 {
 	sfxExplosion = audioMixer.GetChannel( 3 );
-	sfxExplosion->SetData( &sfx_explosion );
+	sfxExplosion->SetData( &sfx_explosion_short_b );
 
 	//
 	//

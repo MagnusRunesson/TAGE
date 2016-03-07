@@ -27,12 +27,21 @@ const AudioData sfx_player_pickup =
 };
 
 
-extern "C" const unsigned char audiosamples_explosion_s8b_pcm_11025hz[];
-const AudioData sfx_explosion =
+extern "C" const unsigned char audiosamples_explosion_short_a_s8b_pcm_11025hz[];
+const AudioData sfx_explosion_short_a =
+{
+	2647,
+	false,
+	(const sint8*)audiosamples_explosion_short_a_s8b_pcm_11025hz
+};
+
+
+extern "C" const unsigned char audiosamples_explosion_short_b_s8b_pcm_11025hz[];
+const AudioData sfx_explosion_short_b =
 {
 	3086,
 	false,
-	(const sint8*)audiosamples_explosion_s8b_pcm_11025hz
+	(const sint8*)audiosamples_explosion_short_b_s8b_pcm_11025hz
 };
 
 
@@ -44,6 +53,7 @@ const AudioData music_boss =
 	(const sint8*)audiosamples_music_boss_s8b_pcm_11025hz,
 };
 
+/*
 extern "C" const unsigned char audiosamples_music_titlescreen_s8b_pcm_11025hz[];
 const AudioData music_titlescreen =
 {
@@ -51,3 +61,4 @@ const AudioData music_titlescreen =
 	true,
 	(const sint8*)audiosamples_music_titlescreen_s8b_pcm_11025hz,
 };
+*/
