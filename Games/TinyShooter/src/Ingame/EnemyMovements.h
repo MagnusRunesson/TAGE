@@ -13,6 +13,7 @@ class Enemy;
 
 extern void enemyHeidelbergInit( Enemy* _pEnemy );
 extern void enemyTurretInit( Enemy* _pTarget );
+extern void enemySaucerStartingInit( Enemy* _pEnemy, int _delay );
 
 extern void EnemyMovement_00_FollowDirection( Enemy* _pTarget );
 extern void EnemyMovement_01_Sinus_MoveLeft( Enemy* _pTarget );

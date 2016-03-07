@@ -331,3 +331,66 @@ void EnemyMovement_Turret( Enemy* _pTarget )
 
 	}
 }
+
+void enemySaucerStartingUpdate_BeforeStart( Enemy* _pEnemy )
+{
+	if( _pEnemy->m_movementTimer > 0 )
+	{
+		_pEnemy->m_movementTimer--;
+		if( _pEnemy->m_movementTimer == 0 )
+		{
+			_pEnemy->m_movementDirection.x = 0;
+			_pEnemy->m_movementDirection.y = FixedPoint( 0, -50 );
+			_pEnemy->m_movementState = 1;
+			_pEnemy->m_movementTimer = 980;
+		}
+	}
+}
+
+void enemySaucerStartingUpdate_FlyAway( Enemy* _pEnemy )
+{
+	if( _pEnemy->m_movementTimer > 0 )
+	{
+		_pEnemy->m_worldPosition += _pEnemy->m_movementDirection;
+		_pEnemy->m_movementTimer--;
+		if( _pEnemy->m_movementTimer > 950 )
+		{
+			debugLog("up: %i\n", _pEnemy->m_movementTimer );
+		} else if( _pEnemy->m_movementTimer > 900 )
+		{
+			debugLog("swivel: %i\n", _pEnemy->m_movementTimer );
+			_pEnemy->m_movementDirection.x -= FixedPoint( 0, 5 );
+			_pEnemy->m_movementDirection.y += FixedPoint( 0, 1 );
+		}
+		else if( _pEnemy->m_movementTimer > 850 )
+		{
+			debugLog("chill until death: %i\n", _pEnemy->m_movementTimer );
+		} else if( _pEnemy->m_movementTimer == 0 )
+		{
+			debugLog("death!\n");
+			_pEnemy->Kill();
+		}
+	}
+}
+
+void enemySaucerStartingUpdate( Enemy* _pEnemy )
+{
+	switch( _pEnemy->m_movementState )
+	{
+		case 0:
+			enemySaucerStartingUpdate_BeforeStart( _pEnemy );
+			break;
+			
+		case 1:
+			enemySaucerStartingUpdate_FlyAway( _pEnemy );
+			break;
+	}
+}
+
+void enemySaucerStartingInit( Enemy* _pEnemy, int _delay )
+{
+	_pEnemy->pfnMovementUpdate = &enemySaucerStartingUpdate;
+	_pEnemy->m_movementState = 0;
+	_pEnemy->Timeout = 0;
+	_pEnemy->m_movementTimer = _delay;
+}
