@@ -56,7 +56,7 @@ PlayerBullet* playerBulletSpawn( int _worldX, int _worldY, int _type )
 	rpb->type = (uint8)_type;
 
 	GameObject* pb = rpb->pGameObject;
-	pb->SetWorldPosition( _worldX, _worldY );
+	pb->SetWorldPosition( _worldX+4, _worldY+3 );
 	pb->SetEnabled( true );
 	pb->m_customObject = rpb;
 	
@@ -69,6 +69,7 @@ PlayerBullet* playerBulletSpawn( int _worldX, int _worldY, int _type )
 			pb->m_customPreRender = NULL;
 			pb->GetAnimation()->Stop();
 			pb->SetImage( &sprite_pb_01 );
+			pb->SetHotspot( 0, 0 );
 			break;
 
 		case PLAYERBULLET_TYPE_BOMB:
