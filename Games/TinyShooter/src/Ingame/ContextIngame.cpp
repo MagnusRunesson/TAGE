@@ -198,6 +198,17 @@ void spawnSpacebaseSecretPassage( int _x )
 	pEnemy->Timeout = 1000;
 }
 
+void spawnStartingSaucers( int _x )
+{
+	fp2d movement( FixedPoint( 0, -50 ), 0 );
+	int i;
+	for( i=0; i<3; i++ )
+	{
+		Enemy* pEnemy = enemySpawn( &enemy_saucer_easy, _x+96+(i*14), 59, &movement );
+		enemySaucerStartingInit( pEnemy, 160+(i*80) );
+	}
+}
+
 void spawnSaucerMid( int _x )
 {
 	fp2d movement( FixedPoint( 0, -50 ), 0 );
@@ -373,7 +384,7 @@ const LevelScrollFunc spacebaseFuncs[] = {
 	},
 	{
 		50,
-		&spawnTurrets
+		&spawnStartingSaucers
 	},
 	{
 		55,
