@@ -21,15 +21,15 @@ const AnimationFrameDefinition animation_enemy_saucer_frames[] =
 		&sprite_enemy_saucer_00,
 		5,
 		0,
-		0,
-		0,
+		4,
+		5,
 	},
 	{
 		&sprite_enemy_saucer_01,
 		5,
 		0,
-		0,
-		0,
+		4,
+		5,
 	},
 };
 
