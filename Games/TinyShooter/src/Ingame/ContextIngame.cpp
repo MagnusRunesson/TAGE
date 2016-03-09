@@ -95,16 +95,6 @@ void HBlankInterrupt( int _scanline )
 	//printf( "Scanline=%i\n", _scanline );
 }
 
-const PathPoint testPath_nodes[] = {
-	{ 0, 0 },
-	{ 10, 0 },
-};
-
-const Path testPath = {
-	sizeof( testPath_nodes ) / sizeof( PathPoint ),
-	testPath_nodes,
-};
-
 inline uint16 byteswap( uint16 _c )
 {
 	return ((_c&0x00ff)<<8) + ((_c&0xff00)>>8);
@@ -300,44 +290,48 @@ void spawnDragonMid( int _x )
 	}
 }
 
-void spawnTurrets( int _x )
+void spawnTurrets( int _x, int _y, int _numTurrets )
 {
 	fp2d movement;
 	int i;
-	for( i=0; i<1; i++ )
+	for( i=0; i<_numTurrets; i++ )
 	{
-		Enemy* pEnemy = enemySpawn( &enemy_turret, _x+96+(i*8), 60, &movement );
+		Enemy* pEnemy = enemySpawn( &enemy_turret, _x+96+(i*12), _y, &movement );
 		enemyTurretInit( pEnemy );
 	}
 }
 
-/*
-void generateGreyTemplate( int _x )
+void spawnTurretsLow( int _x )
 {
-	int x = _x >> 4;
-	GenerateTemplateGrey( _x, _x+10, _x+20, _x+30 );
+	spawnTurrets( _x, 60, 3 );
 }
- */
 
-void spawnCargo( int _x, int _flag )
+void spawnTurretsMid( int _x )
 {
-	fp2d movement( FixedPoint( 0, -50 ), FixedPoint( 0, 10 ));
-	enemySpawn( &enemy_cargo, _x+96, 30, &movement )->SpecialFlag = _flag;
+	spawnTurrets( _x, 40, 3 );
+}
+
+void spawnCargo( int _x, int _flag, int _y, fp2d& _movement )
+{
+	enemySpawn( &enemy_cargo, _x+96, _y, &_movement )->SpecialFlag = _flag;
 }
 
 void spawnCargoBomb( int _x )
 {
-	spawnCargo( _x, ENEMY_SPECIALFLAG_DROP_BOMB );
+	fp2d movement( FixedPoint( 0, -10 ), FixedPoint( 0, 0 ));
+	spawnCargo( _x, ENEMY_SPECIALFLAG_DROP_BOMB, 50, movement );
 }
 
 void spawnCargoPew( int _x )
 {
-	spawnCargo( _x, ENEMY_SPECIALFLAG_DROP_DOUBLEPEW );
+	fp2d movement( FixedPoint( 0, -50 ), FixedPoint( 0, 10 ));
+	spawnCargo( _x, ENEMY_SPECIALFLAG_DROP_DOUBLEPEW, 30, movement );
 }
 
 void spawnCargoLaser( int _x )
 {
-	spawnCargo( _x, ENEMY_SPECIALFLAG_DROP_LASER );
+	fp2d movement( FixedPoint( 0, -50 ), FixedPoint( 0, 10 ));
+	spawnCargo( _x, ENEMY_SPECIALFLAG_DROP_LASER, 30, movement );
 }
 
 void spawnHeidelbergMid( int _x )
@@ -398,10 +392,12 @@ const LevelScrollFunc spacebaseFuncs[] = {
 		100,
 		&spawnSaucerMid,
 	},
+	/*
 	{
 		110,
 		&spawnDragonMid
 	},
+	 */
 	{
 		120,
 		&spawnSpinloop,
@@ -411,6 +407,10 @@ const LevelScrollFunc spacebaseFuncs[] = {
 		&spawnTallonsMid,
 	},
 	{
+		230,
+		&spawnSparrowsLow,
+	},
+	{
 		248,
 		&spawnHeidelbergLow,
 	},
@@ -418,6 +418,26 @@ const LevelScrollFunc spacebaseFuncs[] = {
 		272,
 		&spawnSpacebaseSecretPassage
 	},
+	{
+		285,
+		&spawnDragonMid,
+	},
+	{
+		290,
+		&spawnTurretsMid,
+	},
+	{
+		316,
+		&spawnTallonsHigh
+	},
+	{
+		332,
+		&spawnCargoBomb,
+	},
+	{
+		360,
+		&spawnDoubleDragons
+	}
 };
 
 int currentFunc;
