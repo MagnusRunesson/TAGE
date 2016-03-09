@@ -355,19 +355,19 @@ void enemySaucerStartingUpdate_FlyAway( Enemy* _pEnemy )
 		_pEnemy->m_movementTimer--;
 		if( _pEnemy->m_movementTimer > 950 )
 		{
-			debugLog("up: %i\n", _pEnemy->m_movementTimer );
+			//debugLog("up: %i\n", _pEnemy->m_movementTimer );
 		} else if( _pEnemy->m_movementTimer > 900 )
 		{
-			debugLog("swivel: %i\n", _pEnemy->m_movementTimer );
+			//debugLog("swivel: %i\n", _pEnemy->m_movementTimer );
 			_pEnemy->m_movementDirection.x -= FixedPoint( 0, 5 );
 			_pEnemy->m_movementDirection.y += FixedPoint( 0, 1 );
 		}
 		else if( _pEnemy->m_movementTimer > 850 )
 		{
-			debugLog("chill until death: %i\n", _pEnemy->m_movementTimer );
+			//debugLog("chill until death: %i\n", _pEnemy->m_movementTimer );
 		} else if( _pEnemy->m_movementTimer == 0 )
 		{
-			debugLog("death!\n");
+			//debugLog("death!\n");
 			_pEnemy->Kill();
 		}
 	}
