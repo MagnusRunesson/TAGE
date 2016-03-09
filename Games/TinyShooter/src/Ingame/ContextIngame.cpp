@@ -688,10 +688,10 @@ void ingame_loop()
 					//
 					playerAlive = false;
 					playerHit( mapScroll, true );
-					explosionsSpawn( camx+i, iScanline, EXPLOSION_TYPE_NORMAL );
-					explosionsSpawn( camx+i-4, iScanline-2, EXPLOSION_TYPE_DEBRIS );
-					explosionsSpawn( camx+i+3, iScanline+4, EXPLOSION_TYPE_DEBRIS );
-					explosionsSpawn( camx+i-1, iScanline+1, EXPLOSION_TYPE_DEBRIS );
+					explosionsSpawn( camx+i, iScanline, EXPLOSION_TYPE_NORMAL, EXPLOSION_AUDIOTYPE_PLAYER );
+					explosionsSpawn( camx+i-4, iScanline-2, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_PLAYER );
+					explosionsSpawn( camx+i+3, iScanline+4, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_PLAYER );
+					explosionsSpawn( camx+i-1, iScanline+1, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_PLAYER );
 				}
 			} else if((pixelCollisionBits & COLLISIONMASK_BACKGROUND_PLAYERBULLET) == COLLISIONMASK_BACKGROUND_PLAYERBULLET)
 			{
@@ -718,7 +718,7 @@ void ingame_loop()
 					if( playerHit( mapScroll, false ))
 					{
 						ENEMY_FROM_SPRITE( enemySprite )->Kill();
-						explosionsSpawn( camx+i, iScanline, EXPLOSION_TYPE_DEBRIS );
+						explosionsSpawn( camx+i, iScanline, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_ENEMY );
 					}
 				}
 			} else if((pixelCollisionBits & COLLISIONMASK_PLAYER_ENEMYBULLET) == COLLISIONMASK_PLAYER_ENEMYBULLET )
@@ -732,10 +732,10 @@ void ingame_loop()
 					if( playerHit( mapScroll, false ))
 					{
 						playerAlive = false;
-						explosionsSpawn( camx+i, iScanline, EXPLOSION_TYPE_NORMAL );
-						explosionsSpawn( camx+i-4, iScanline-2, EXPLOSION_TYPE_DEBRIS );
-						explosionsSpawn( camx+i+3, iScanline+4, EXPLOSION_TYPE_DEBRIS );
-						explosionsSpawn( camx+i-1, iScanline+1, EXPLOSION_TYPE_DEBRIS );
+						explosionsSpawn( camx+i, iScanline, EXPLOSION_TYPE_NORMAL, EXPLOSION_AUDIOTYPE_PLAYER );
+						explosionsSpawn( camx+i-4, iScanline-2, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_PLAYER );
+						explosionsSpawn( camx+i+3, iScanline+4, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_PLAYER );
+						explosionsSpawn( camx+i-1, iScanline+1, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_PLAYER );
 					}
 				}
 			} else if((pixelCollisionBits & COLLISIONMASK_PLAYERBULLET_ENEMY) == COLLISIONMASK_PLAYERBULLET_ENEMY )
@@ -755,7 +755,7 @@ void ingame_loop()
 					Enemy* enemy = (Enemy*)enemyGO->m_customObject;
 					if( enemy->Hit())
 					{
-						explosionsSpawn( camx+i, iScanline, EXPLOSION_TYPE_NORMAL );
+						explosionsSpawn( camx+i, iScanline, EXPLOSION_TYPE_NORMAL, EXPLOSION_AUDIOTYPE_ENEMY );
 						enemyGO->SetEnabled( false );
 						
 						// Spawn the proper pickup
@@ -884,6 +884,15 @@ void ingame_debugTrigger( int _trigger )
 	{
 		extern int playerInvincibleTimer;
 		playerInvincibleTimer = 60;
+	} else if( _trigger == 4 )
+	{
+		playerPickup( PICKUP_TYPE_DOUBLEPEW );
+	} else if( _trigger == 5 )
+	{
+		playerPickup( PICKUP_TYPE_LASER );
+	} else if( _trigger == 6 )
+	{
+		playerPickup( PICKUP_TYPE_BOMB );
 	} else if( _trigger == 8 )
 	{
 		expectedFrameTime = 2000;

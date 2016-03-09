@@ -12,8 +12,12 @@
 #define EXPLOSION_TYPE_NORMAL		(0)
 #define EXPLOSION_TYPE_DEBRIS		(1)
 
+#define EXPLOSION_AUDIOTYPE_ENEMY	(0)
+#define EXPLOSION_AUDIOTYPE_PLAYER	(1)
+#define EXPLOSION_AUDIOTYPE_BOMB	(2)
+
 void explosionsInit();
 void explosionsUpdate();
-void explosionsSpawn( int _worldX, int _worldY, int _explosionType );
+void explosionsSpawn( int _worldX, int _worldY, int _explosionType, int _audioType );
 
 #endif /* Explosions_h */

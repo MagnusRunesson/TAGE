@@ -58,7 +58,7 @@ void explosionsUpdate()
 }
 
 
-void explosionsSpawn( int _worldX, int _worldY, int _explosionType )
+void explosionsSpawn( int _worldX, int _worldY, int _explosionType, int _audioType )
 {
 	GameObject* exp = explosions[ nextExplosion ];
 	nextExplosion++;
@@ -81,5 +81,20 @@ void explosionsSpawn( int _worldX, int _worldY, int _explosionType )
 	exp->GetAnimation()->Play();
 	
 	// Also some sweet sound
+	switch( _audioType )
+	{
+		case EXPLOSION_AUDIOTYPE_ENEMY:
+			sfxExplosion->SetData( &sfx_explosion_short_b );
+			break;
+			
+		case EXPLOSION_AUDIOTYPE_PLAYER:
+			sfxExplosion->SetData( &sfx_explosion_medium_a );
+			break;
+
+		case EXPLOSION_AUDIOTYPE_BOMB:
+			sfxExplosion->SetData( &sfx_explosion_short_b );
+			break;
+	}
+	
 	sfxExplosion->PlayFromBeginning();
 }

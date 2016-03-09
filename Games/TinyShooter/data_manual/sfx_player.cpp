@@ -9,12 +9,40 @@
 #include "data_manual/sfx_player.h"
 #include "Engine/Audio/AudioData.h"
 
+
 extern "C" const unsigned char audiosamples_pew_s8b_pcm_11025hz[];
-const AudioData sfx_player_fire_canon =
+const AudioData sfx_player_fire_pew =
 {
 	1289,
 	false,
 	(const sint8*)audiosamples_pew_s8b_pcm_11025hz,
+};
+
+
+extern "C" const unsigned char audiosamples_double_pew_s8b_pcm_11025hz[];
+const AudioData sfx_player_fire_double_pew =
+{
+	1852,
+	false,
+	(const sint8*)audiosamples_double_pew_s8b_pcm_11025hz
+};
+
+
+extern "C" const unsigned char audiosamples_laser_s8b_pcm_11025hz[];
+const AudioData sfx_player_fire_laser =
+{
+	10789,
+	false,
+	(const sint8*)audiosamples_laser_s8b_pcm_11025hz
+};
+
+
+extern "C" const unsigned char audiosamples_bomb_s8b_pcm_11025hz[];
+const AudioData sfx_player_fire_bomb =
+{
+	4870,
+	false,
+	(const sint8*)audiosamples_bomb_s8b_pcm_11025hz
 };
 
 
@@ -42,6 +70,15 @@ const AudioData sfx_explosion_short_b =
 	3086,
 	false,
 	(const sint8*)audiosamples_explosion_short_b_s8b_pcm_11025hz
+};
+
+
+extern "C" const unsigned char audiosamples_explosion_medium_a_s8b_pcm_11025hz[];
+const AudioData sfx_explosion_medium_a =
+{
+	4973,
+	false,
+	(const sint8*)audiosamples_explosion_medium_a_s8b_pcm_11025hz
 };
 
 

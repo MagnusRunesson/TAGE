@@ -148,6 +148,9 @@ void playerUpdate()
 	 */
 }
 
+extern AudioSource* sfxPlayerFire;
+
+
 void playerInput_Pew( int _plx, int _ply )
 {
 	if( playerFireRateTimerPrimary > 0 )
@@ -169,6 +172,11 @@ void playerInput_Pew( int _plx, int _ply )
 			if( playerUpgraded )
 			{
 				playerBulletSpawn( x+2, y-2, PLAYERBULLET_TYPE_PEW );
+				sfxPlayerFire->SetData( &sfx_player_fire_double_pew );
+			}
+			else
+			{
+				sfxPlayerFire->SetData( &sfx_player_fire_pew );
 			}
 		} else
 		{

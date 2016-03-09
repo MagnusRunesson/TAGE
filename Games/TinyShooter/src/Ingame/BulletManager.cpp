@@ -41,7 +41,7 @@ void playerBulletsInit()
 
 	// Setup sound effect for player bullets
 	sfxPlayerFire = audioMixer.GetChannel( 0 );
-	sfxPlayerFire->SetData( &sfx_player_fire_canon );
+	sfxPlayerFire->SetData( &sfx_player_fire_pew );
 }
 
 void playerBulletUpdate_pew( void* );
@@ -81,6 +81,7 @@ PlayerBullet* playerBulletSpawn( int _worldX, int _worldY, int _type )
 			pAnimation->pSequence = &animation_playerbullet_bomb;
 			pAnimation->Reset();
 			pAnimation->Play();
+			sfxPlayerFire->SetData( &sfx_player_fire_bomb );
 			break;
 			
 		case PLAYERBULLET_TYPE_BOMBDEBRIS:
@@ -91,6 +92,7 @@ PlayerBullet* playerBulletSpawn( int _worldX, int _worldY, int _type )
 			pAnimation->pSequence = &animation_explosion_medium;
 			pAnimation->Reset();
 			pAnimation->Play();
+			sfxPlayerFire->SetData( &sfx_explosion_medium_a );
 			break;
 			
 		case PLAYERBULLET_TYPE_LASER:
@@ -101,6 +103,7 @@ PlayerBullet* playerBulletSpawn( int _worldX, int _worldY, int _type )
 			pAnimation->pSequence = &animation_playerbullet_laser;
 			pAnimation->Reset();
 			pAnimation->Play();
+			sfxPlayerFire->SetData( &sfx_player_fire_laser );
 			break;
 	}
 
