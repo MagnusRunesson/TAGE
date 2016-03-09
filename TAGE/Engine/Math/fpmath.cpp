@@ -37,8 +37,8 @@ const int ftbl2[32]={ 32768,33276,33776,34269,34755,35235,35708,36174,36635,3709
 
 int fisqrt( uint32 val )
 {
-	int cnt=0;
-	int t=val;
+	uint32 cnt=0;
+	uint32 t=val;
 	while (t) {cnt++;t>>=1;}
 	if (6>=cnt)    t=(val<<(6-cnt));
 	else           t=(val>>(cnt-6));
