@@ -285,9 +285,9 @@ void EnemyMovement_Turret( Enemy* _pTarget )
 	if( distancex < 0 )
 		distancex = -distancex;
 
-	int distancey = ply-myy;
+	int distancey = myy-ply;
 	if( distancey < 0 )
-		distancey = -distancey;
+		return;
 	
 	Animation* pAnimation = _pTarget->pTargetGameObject->GetAnimation();
 	if( distancex < 40 )
