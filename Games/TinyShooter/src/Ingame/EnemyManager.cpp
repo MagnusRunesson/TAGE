@@ -72,7 +72,8 @@ Enemy* enemySpawn( const EnemyDefinition* _pEnemyDefinition, int _worldX, int _w
 	pRet->SetWorldPosition( _worldX, _worldY );
 	pRet->m_movementTimer = 0;
 	pRet->pTargetGameObject->GetSprite()->ClrFlags( SPRITE_FLAG_DRAWWHITE );
-
+	pRet->AttackTimer = 0;
+	
 	// Set movement direction, if any
 	if( _pMovementDirection )
 		pRet->m_movementDirection = *_pMovementDirection;
