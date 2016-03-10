@@ -38,4 +38,11 @@ extern void ingame_debugTrigger( int _i );
 #define SPRITE_COLLISION_MASK_PICKUP		(1<<SPRITE_COLLISION_INDEX_PICKUP)
 #define SPRITE_COLLISION_MASK_ENEMYBULLET	(1<<SPRITE_COLLISION_INDEX_ENEMYBULLET)
 
+class LevelScrollFunc
+{
+public:
+	int x;
+	void(*pFunc)(int);
+};
+
 #endif /* Context_Ingame_h */

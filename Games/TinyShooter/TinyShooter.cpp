@@ -21,6 +21,7 @@
 #include "src/Ingame/Player.cpp"
 #include "src/Ingame/HUD.cpp"
 #include "src/Ingame/PickupManager.cpp"
+#include "src/Ingame/spacebase_levelscrollfunc.cpp"
 
 // Title screen
 #include "src/TitleScreen/ContextTitleScreen.cpp"

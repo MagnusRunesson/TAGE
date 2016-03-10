@@ -66,6 +66,7 @@
 		25766A351C8FF3C100A9E148 /* audiosamples_explosion_medium_a_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A331C8FF3C100A9E148 /* audiosamples_explosion_medium_a_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		25766A381C8FF61C00A9E148 /* audiosamples_double_pew_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A361C8FF61C00A9E148 /* audiosamples_double_pew_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		25766A3B1C8FF77F00A9E148 /* audiosamples_laser_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A391C8FF77F00A9E148 /* audiosamples_laser_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
+		25766A3E1C908AB600A9E148 /* spacebase_levelscrollfunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A3C1C908AB600A9E148 /* spacebase_levelscrollfunc.cpp */; settings = {ASSET_TAGS = (); }; };
 		257AB0B21C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		2591BCAE1C5D2A9B00F69102 /* sprite_enemy_dragonhead_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2591BCAC1C5D2A9B00F69102 /* sprite_enemy_dragonhead_00.cpp */; settings = {ASSET_TAGS = (); }; };
 		2591BCB11C5D429100F69102 /* sprite_enemy_dragonbody_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2591BCAF1C5D429100F69102 /* sprite_enemy_dragonbody_00.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -294,6 +295,8 @@
 		25766A371C8FF61C00A9E148 /* audiosamples_double_pew_s8b_pcm_11025hz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audiosamples_double_pew_s8b_pcm_11025hz.h; path = data/audiosamples_double_pew_s8b_pcm_11025hz.h; sourceTree = "<group>"; };
 		25766A391C8FF77F00A9E148 /* audiosamples_laser_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_laser_s8b_pcm_11025hz.cpp; path = data/audiosamples_laser_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
 		25766A3A1C8FF77F00A9E148 /* audiosamples_laser_s8b_pcm_11025hz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audiosamples_laser_s8b_pcm_11025hz.h; path = data/audiosamples_laser_s8b_pcm_11025hz.h; sourceTree = "<group>"; };
+		25766A3C1C908AB600A9E148 /* spacebase_levelscrollfunc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = spacebase_levelscrollfunc.cpp; path = src/Ingame/spacebase_levelscrollfunc.cpp; sourceTree = SOURCE_ROOT; };
+		25766A3D1C908AB600A9E148 /* spacebase_levelscrollfunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = spacebase_levelscrollfunc.h; path = src/Ingame/spacebase_levelscrollfunc.h; sourceTree = SOURCE_ROOT; };
 		257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_music_boss_s8b_pcm_11025hz.cpp; path = data/audiosamples_music_boss_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
 		257AB0B11C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audiosamples_music_boss_s8b_pcm_11025hz.h; path = data/audiosamples_music_boss_s8b_pcm_11025hz.h; sourceTree = "<group>"; };
 		2591BCAC1C5D2A9B00F69102 /* sprite_enemy_dragonhead_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_dragonhead_00.cpp; path = data/sprite_enemy_dragonhead_00.cpp; sourceTree = "<group>"; };
@@ -947,6 +950,8 @@
 				25D99FE41C5E574600CC4CAE /* Player.h */,
 				25AAC74E1C608EF60088880C /* PickupManager.cpp */,
 				25AAC74F1C608EF60088880C /* PickupManager.h */,
+				25766A3C1C908AB600A9E148 /* spacebase_levelscrollfunc.cpp */,
+				25766A3D1C908AB600A9E148 /* spacebase_levelscrollfunc.h */,
 			);
 			name = Ingame;
 			sourceTree = "<group>";
@@ -1047,6 +1052,7 @@
 				25CB2DAC1C57566100BC35A1 /* Timer.cpp in Sources */,
 				25766A091C85F6EC00A9E148 /* sprite_pickup_laser_02.cpp in Sources */,
 				25766A1D1C86BF0000A9E148 /* sprite_enemy_heidelberg_04.cpp in Sources */,
+				25766A3E1C908AB600A9E148 /* spacebase_levelscrollfunc.cpp in Sources */,
 				25CB2D921C57565100BC35A1 /* FixedPoint.cpp in Sources */,
 				2505C22A1C5A376D00E46CDF /* sprite_explosion_medium_07.cpp in Sources */,
 				257AB0B21C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp in Sources */,
