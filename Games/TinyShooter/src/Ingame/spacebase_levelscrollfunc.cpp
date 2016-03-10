@@ -180,15 +180,23 @@ void spawnTurretsMid( int _x )
 	spawnTurrets( _x, 40, 3 );
 }
 
-void spawnCargo( int _x, int _flag, int _y, fp2d& _movement )
+void spawnTurrets48( int _x )
 {
-	enemySpawn( &enemy_cargo, _x+96, _y, &_movement )->SpecialFlag = _flag;
+	spawnTurrets( _x, 48, 2 );
+}
+
+Enemy* spawnCargo( int _x, int _flag, int _y, fp2d& _movement )
+{
+	Enemy* pEnemy = enemySpawn( &enemy_cargo, _x+96, _y, &_movement );
+	pEnemy->SpecialFlag = _flag;
+	return pEnemy;
 }
 
 void spawnCargoBomb( int _x )
 {
 	fp2d movement( FixedPoint( 0, -10 ), FixedPoint( 0, 0 ));
-	spawnCargo( _x, ENEMY_SPECIALFLAG_DROP_BOMB, 50, movement );
+	Enemy* pEnemy = spawnCargo( _x, ENEMY_SPECIALFLAG_DROP_BOMB, 50, movement );
+	pEnemy->Timeout = 1000;
 }
 
 void spawnCargoPew( int _x )
@@ -300,6 +308,10 @@ const LevelScrollFunc spacebase_levelscrollfuncs[] =
 	{
 		360,
 		&spawnDoubleDragons
+	},
+	{
+		376,
+		&spawnTurrets48
 	}
 };
 
