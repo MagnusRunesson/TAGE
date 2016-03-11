@@ -34,11 +34,12 @@ uint8 playerNumLives;
 uint8 playerInvincibleTimer;
 uint8 playerWeaponPrimary;
 uint8 playerWeaponSecondary;
+uint8 playerRespawnY;
 
 void playerReset( int _mapscroll )
 {
 	playerX = _mapscroll+10;
-	playerY = 29;
+	playerY = playerRespawnY;
 	
 	playerFireRateTimerPrimary = 0;
 	playerFireIndexPrimary = 0;
@@ -64,6 +65,8 @@ void playerInit()
 	player->SetHotspot( -5, -3 );
 	playerSpeed = FixedPoint( 0, 50 );
 
+	playerRespawnY = 29;
+	
 	// Setup runtime data for the player
 	playerReset( 0 );
 	
@@ -150,6 +153,10 @@ void playerUpdate()
 
 extern AudioSource* sfxPlayerFire;
 
+void playerSetRespawnY( int _y )
+{
+	playerRespawnY = _y;
+}
 
 void playerInput_Pew( int _plx, int _ply )
 {

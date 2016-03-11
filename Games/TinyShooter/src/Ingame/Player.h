@@ -21,5 +21,6 @@ void playerUpdate();
 void playerUpgrade();
 void playerPickup( int _type );
 bool playerHit( int _mapScroll, bool _forceKill );
+void playerSetRespawnY( int _y );
 
 #endif /* Player_h */
