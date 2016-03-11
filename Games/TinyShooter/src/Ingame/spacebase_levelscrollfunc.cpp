@@ -298,7 +298,7 @@ const LevelScrollFunc spacebase_levelscrollfuncs[] =
 		&spawnSparrowsLow,
 	},
 	{
-		100,
+		118,
 		&spawnSaucerMid,
 	},
 	/*
@@ -316,7 +316,7 @@ const LevelScrollFunc spacebase_levelscrollfuncs[] =
 		&setPlayerSpawnY_24,
 	},
 	{
-		200,
+		180,
 		&spawnTallonsMid,
 	},
 	{
