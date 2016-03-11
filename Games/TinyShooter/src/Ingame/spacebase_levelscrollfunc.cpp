@@ -13,6 +13,7 @@
 #include "src/Ingame/EnemyManager.h"
 #include "src/Ingame/EnemyMovements.h"
 #include "src/Ingame/ContextIngame.h"
+#include "src/Ingame/Player.h"
 #include "data/alldata.h"
 #include "spacebase_levelscrollfunc.h"
 
@@ -237,6 +238,43 @@ void spawnSpinloop( int _x )
 	}
 }
 
+
+
+/************************************************************************************************************************************
+*
+* Playser spawn height adjustments
+*
+************************************************************************************************************************************/
+void setPlayerSpawnY_16( int _x )
+{
+	playerSetRespawnY( 16 );
+}
+
+void setPlayerSpawnY_24( int _x )
+{
+	playerSetRespawnY( 24 );
+}
+
+void setPlayerSpawnY_28( int _x )
+{
+	playerSetRespawnY( 28 );
+}
+
+void setPlayerSpawnY_32( int _x )
+{
+	playerSetRespawnY( 32 );
+}
+
+void setPlayerSpawnY_34( int _x )
+{
+	playerSetRespawnY( 34 );
+}
+
+void setPlayerSpawnY_40( int _x )
+{
+	playerSetRespawnY( 40 );
+}
+
 const LevelScrollFunc spacebase_levelscrollfuncs[] =
 {
 	{
@@ -274,12 +312,20 @@ const LevelScrollFunc spacebase_levelscrollfuncs[] =
 		&spawnSpinloop,
 	},
 	{
+		152,
+		&setPlayerSpawnY_24,
+	},
+	{
 		200,
 		&spawnTallonsMid,
 	},
 	{
 		230,
 		&spawnSparrowsLow,
+	},
+	{
+		232,
+		&setPlayerSpawnY_32,
 	},
 	{
 		248,
@@ -302,6 +348,10 @@ const LevelScrollFunc spacebase_levelscrollfuncs[] =
 		&spawnTallonsHigh
 	},
 	{
+		320,
+		&setPlayerSpawnY_16,
+	},
+	{
 		332,
 		&spawnCargoBomb,
 	},
@@ -312,6 +362,26 @@ const LevelScrollFunc spacebase_levelscrollfuncs[] =
 	{
 		376,
 		&spawnTurrets48
+	},
+	{
+		428,
+		&setPlayerSpawnY_24
+	},
+	{
+		456,
+		&spawnTurretsLow
+	},
+	{
+		480,
+		&setPlayerSpawnY_34
+	},
+	{
+		496,
+		&setPlayerSpawnY_40
+	},
+	{
+		712,
+		&setPlayerSpawnY_24
 	}
 };
 
