@@ -261,11 +261,12 @@ void EnemyMovement_Rotate( Enemy* _pTarget )
 	_pTarget->m_worldPosition.y = 32 + y;
 }
 
-void enemyTurretInit( Enemy* _pTarget )
+void enemyTurretInit( Enemy* _pTarget, const fp2d& _aimOffset )
 {
 	_pTarget->pfnMovementUpdate = &EnemyMovement_Turret;
 	_pTarget->Timeout = 1024;
 	_pTarget->m_movementTimer = 3;
+	_pTarget->m_movementDirection = _aimOffset;
 	
 	// Set animation in idle position (pointing up)
 	Animation* pAnimation = _pTarget->pTargetGameObject->GetAnimation();
@@ -324,7 +325,9 @@ void EnemyMovement_Turret( Enemy* _pTarget )
 		{
 			int bx = _pTarget->pTargetGameObject->GetWorldPositionX() + frameFireOffsetX;
 			int by = _pTarget->pTargetGameObject->GetWorldPositionY() + frameFireOffsetY;
-			Enemy* pEnemyBullet = enemyBulletSpawn( bx, by, player, FixedPoint( 0, 75 ));
+			fp2d aimTarget( player->GetWorldPositionX(), player->GetWorldPositionY());
+			aimTarget += _pTarget->m_movementDirection;
+			Enemy* pEnemyBullet = enemyBulletSpawn( bx, by, aimTarget, FixedPoint( 0, 75 ));
 			pEnemyBullet->Timeout = 120;
 			_pTarget->m_movementTimer = 60;
 		}

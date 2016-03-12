@@ -12,6 +12,7 @@
 class Enemy;
 
 Enemy* enemyBulletSpawn( int _worldX, int _worldY, GameObject* _pTarget, const FixedPoint& _speed );
+Enemy* enemyBulletSpawn( int _worldX, int _worldY, const fp2d& _targetPosition, const FixedPoint& _speed );
 Enemy* enemyBulletSpawn( int _worldX, int _worldY, const fp2d& _movement );
 
 #endif /* EnemyBulletManager_h */

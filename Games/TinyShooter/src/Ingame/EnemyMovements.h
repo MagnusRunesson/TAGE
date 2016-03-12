@@ -10,9 +10,10 @@
 #define EnemyMovements_h
 
 class Enemy;
+class fp2d;
 
 extern void enemyHeidelbergInit( Enemy* _pEnemy );
-extern void enemyTurretInit( Enemy* _pTarget );
+extern void enemyTurretInit( Enemy* _pTarget, const fp2d& _aimOffset );
 extern void enemySaucerStartingInit( Enemy* _pEnemy, int _delay );
 
 extern void EnemyMovement_00_FollowDirection( Enemy* _pTarget );

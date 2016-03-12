@@ -22,9 +22,14 @@
 
 Enemy* enemyBulletSpawn( int _worldX, int _worldY, GameObject* _pTarget, const FixedPoint& _speed )
 {
-	fp2d here( _worldX, _worldY );
 	fp2d there( _pTarget->GetWorldPositionX(), _pTarget->GetWorldPositionY());
-	fp2d dir = there-here;
+	return enemyBulletSpawn( _worldX, _worldY, there, _speed );
+}
+
+Enemy* enemyBulletSpawn( int _worldX, int _worldY, const fp2d& _targetPosition, const FixedPoint& _speed )
+{
+	fp2d here( _worldX, _worldY );
+	fp2d dir = _targetPosition-here;
 	
 	dir.Normalize();
 	dir *= _speed;

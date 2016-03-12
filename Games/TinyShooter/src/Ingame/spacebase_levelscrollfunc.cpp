@@ -160,30 +160,33 @@ void spawnDragonMid( int _x )
 	}
 }
 
-void spawnTurrets( int _x, int _y, int _numTurrets )
+void spawnTurrets( int _x, int _y, int _numTurrets, const fp2d& _aimOffset )
 {
 	fp2d movement;
 	int i;
 	for( i=0; i<_numTurrets; i++ )
 	{
 		Enemy* pEnemy = enemySpawn( &enemy_turret, _x+96+(i*12), _y, &movement );
-		enemyTurretInit( pEnemy );
+		enemyTurretInit( pEnemy, _aimOffset );
 	}
 }
 
 void spawnTurretsLow( int _x )
 {
-	spawnTurrets( _x, 60, 3 );
+	fp2d aimOffset( 20, 0 );
+	spawnTurrets( _x, 60, 3, aimOffset );
 }
 
 void spawnTurretsMid( int _x )
 {
-	spawnTurrets( _x, 40, 3 );
+	fp2d aimOffset( 0, 0 );
+	spawnTurrets( _x, 40, 3, aimOffset );
 }
 
 void spawnTurrets48( int _x )
 {
-	spawnTurrets( _x, 48, 2 );
+	fp2d aimOffset( 0, 0 );
+	spawnTurrets( _x, 48, 2, aimOffset );
 }
 
 Enemy* spawnCargo( int _x, int _flag, int _y, fp2d& _movement )
