@@ -29,10 +29,8 @@ A 2D game engine written for the TinyArcade platform ( https://www.tiny-circuits
 - png2c - Takes a PNG file and generate a RGB565 image in C code, that can be included in the built executable
 
 # External dependencies
-TAGE is built using the TinyScreen library and AudioZero library. I have created forks for them in my GitHub acount, and they are here:
+TAGE is built using the TinyScreen library and SdFat library. They can be found here:
 
 https://github.com/MagnusRunesson/TinyCircuits-TinyScreen_Lib
 
-https://github.com/MagnusRunesson/AudioZero
-
-At the time of writing only AudioZero actually have changes that are required to build TAGE and that change is that TAGE implements its own Audio_Handler to be able to play samples from my own audio mixer, but the TinyScreen library isn't not yet modified in any significant way.
+https://github.com/greiman/SdFat
