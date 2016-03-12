@@ -140,7 +140,7 @@ void titlescreen_setup()
 	sfxPressStart = audioMixer.GetChannel( 1 );
 	sfxPressStart->SetData( &sfx_player_pickup );
 
-	audioMixer.SetFrequency( 32000 );
+	//audioMixer.SetFrequency( 32000 );
 	AudioStream* pStream = audioMixer.GetStream( 0 );
 	pStream->OpenStream( "bgm_title.raw" );
 	pStream->Play();
@@ -173,7 +173,7 @@ void titlescreen_loop()
 		if( padGetPressed() & PAD_KEYMASK_PRIMARY )
 		{
 			audioMixer.GetStream( 0 )->Pause();
-			audioMixer.SetFrequency( 11025 );
+			//audioMixer.SetFrequency( 11025 );
 			titlescreenCloseTimer = TITLESCREEN_CLOSETIMER_TOTALDURATION;
 		}
 	}
