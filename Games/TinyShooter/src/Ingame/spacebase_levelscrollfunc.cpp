@@ -107,15 +107,14 @@ void spawnTallonsLow( int _x )
 	spawnTallons( _x,  49 );
 }
 
-void spawnDoubleDragons( int _x )
+void spawnAscendingDragon( int _x, int _height )
 {
-	int i;
-	
 	//
 	// Spawn bottom dragon
 	//
 	fp2d movement( 0, FixedPoint( 0, -50 ));
 	const EnemyDefinition* pDef = &enemy_dragonbody;
+	int i;
 	for( i=4; i>=0; i-- )
 	{
 		if( i == 0 )
@@ -123,15 +122,24 @@ void spawnDoubleDragons( int _x )
 		
 		Enemy* pEnemy = enemySpawn( pDef, _x+70, 60+(i*5), &movement );
 		pEnemy->m_movementState = 0;
-		pEnemy->m_movementTimer = 50+(i*10);
+		pEnemy->m_movementTimer = _height+(i*10);
 		pEnemy->pfnMovementUpdate = &EnemyMovement_03_DirectionThenLeft;
 	}
-	
+}
+
+void spawnAscendingDragon30( int _x )
+{
+	spawnAscendingDragon( _x, 30 );
+}
+
+void spawnDescendingDragon( int _x )
+{
 	//
 	// Spawn top dragon
 	//
-	movement = fp2d( 0, FixedPoint( 0, 50 ));
-	pDef = &enemy_dragonbody;
+	fp2d movement = fp2d( 0, FixedPoint( 0, 50 ));
+	const EnemyDefinition* pDef = &enemy_dragonbody;
+	int i;
 	for( i=4; i>=0; i-- )
 	{
 		if( i == 0 )
@@ -139,9 +147,15 @@ void spawnDoubleDragons( int _x )
 		
 		Enemy* pEnemy = enemySpawn( pDef, _x+70, -5-(i*5), &movement );
 		pEnemy->m_movementState = 0;
-		pEnemy->m_movementTimer = 50+(i*10);
+		pEnemy->m_movementTimer = 40+(i*10);
 		pEnemy->pfnMovementUpdate = &EnemyMovement_03_DirectionThenLeft;
 	}
+}
+
+void spawnDoubleDragons( int _x )
+{
+	spawnAscendingDragon( _x, 50 );
+	spawnDescendingDragon( _x );
 }
 
 void spawnDragonMid( int _x )
@@ -381,6 +395,10 @@ const LevelScrollFunc spacebase_levelscrollfuncs[] =
 	{
 		496,
 		&setPlayerSpawnY_40
+	},
+	{
+		568,
+		&spawnAscendingDragon30,
 	},
 	{
 		712,
