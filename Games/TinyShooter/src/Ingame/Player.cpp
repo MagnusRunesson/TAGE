@@ -56,7 +56,7 @@ void playerReset( int _mapscroll )
 	hudSetSecondary( HUD_WEAPON_NONE );
 }
 
-void playerInit()
+void playerInit( int _startX )
 {
 	// Create player game object
 	player = gameObjectManager.CreateGameObject( &sprite_player );
@@ -68,7 +68,7 @@ void playerInit()
 	playerRespawnY = 29;
 	
 	// Setup runtime data for the player
-	playerReset( 0 );
+	playerReset( _startX );
 	
 	// Setup the first parameter for when entering the ingame context
 	playerInvincibleTimer = 0;

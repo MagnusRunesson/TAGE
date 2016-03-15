@@ -205,11 +205,22 @@ void ingame_setup()
 	Camera::main = &mainCamera;
 	cameraScroll = 0;
 	mapScroll = 0;
+	
+	// Fast forward in the map
+	int i;
+	for( i=0; i<numFuncs; i++ )
+	{
+		if( levelScrollFuncs[ i ].x < mapScroll )
+			currentFunc++;
+		else
+			break;
+	}
+	
 	cameraScrollSpeed = FixedPoint( 0, 12 );
 	doCameraScroll = true;
 
 	hudInit();
-	playerInit();
+	playerInit( mapScroll );
 	pickupInit();
 	playerBulletsInit();
 	explosionsInit();

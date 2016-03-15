@@ -15,7 +15,7 @@
 #define PLAYERWEAPON_LASER		(3)
 
 void playerReset( int _mapscroll );
-void playerInit();
+void playerInit( int _startX );
 void playerCameraMove( int _cameraMoveDistance );
 void playerUpdate();
 void playerUpgrade();
