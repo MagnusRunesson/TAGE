@@ -68,6 +68,7 @@
 		25766A3B1C8FF77F00A9E148 /* audiosamples_laser_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A391C8FF77F00A9E148 /* audiosamples_laser_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		25766A3E1C908AB600A9E148 /* spacebase_levelscrollfunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A3C1C908AB600A9E148 /* spacebase_levelscrollfunc.cpp */; settings = {ASSET_TAGS = (); }; };
 		257AB0B21C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
+		257EC7F21C96953600650672 /* spacebase_boss.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257EC7F01C96953600650672 /* spacebase_boss.cpp */; settings = {ASSET_TAGS = (); }; };
 		257EC7FB1C97DBCD00650672 /* sprite_spacebase_boss_warninglights_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257EC7F31C97DBCD00650672 /* sprite_spacebase_boss_warninglights_00.cpp */; settings = {ASSET_TAGS = (); }; };
 		257EC7FC1C97DBCD00650672 /* sprite_spacebase_boss_warninglights_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257EC7F51C97DBCD00650672 /* sprite_spacebase_boss_warninglights_01.cpp */; settings = {ASSET_TAGS = (); }; };
 		257EC7FD1C97DBCD00650672 /* sprite_spacebase_boss_warninglights_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257EC7F71C97DBCD00650672 /* sprite_spacebase_boss_warninglights_02.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -303,6 +304,8 @@
 		25766A3D1C908AB600A9E148 /* spacebase_levelscrollfunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = spacebase_levelscrollfunc.h; path = src/Ingame/spacebase_levelscrollfunc.h; sourceTree = SOURCE_ROOT; };
 		257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_music_boss_s8b_pcm_11025hz.cpp; path = data/audiosamples_music_boss_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
 		257AB0B11C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audiosamples_music_boss_s8b_pcm_11025hz.h; path = data/audiosamples_music_boss_s8b_pcm_11025hz.h; sourceTree = "<group>"; };
+		257EC7F01C96953600650672 /* spacebase_boss.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = spacebase_boss.cpp; path = src/Ingame/spacebase_boss.cpp; sourceTree = SOURCE_ROOT; };
+		257EC7F11C96953600650672 /* spacebase_boss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = spacebase_boss.h; path = src/Ingame/spacebase_boss.h; sourceTree = SOURCE_ROOT; };
 		257EC7F31C97DBCD00650672 /* sprite_spacebase_boss_warninglights_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_spacebase_boss_warninglights_00.cpp; path = data/sprite_spacebase_boss_warninglights_00.cpp; sourceTree = "<group>"; };
 		257EC7F41C97DBCD00650672 /* sprite_spacebase_boss_warninglights_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_spacebase_boss_warninglights_00.h; path = data/sprite_spacebase_boss_warninglights_00.h; sourceTree = "<group>"; };
 		257EC7F51C97DBCD00650672 /* sprite_spacebase_boss_warninglights_01.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_spacebase_boss_warninglights_01.cpp; path = data/sprite_spacebase_boss_warninglights_01.cpp; sourceTree = "<group>"; };
@@ -972,6 +975,8 @@
 				25AAC74F1C608EF60088880C /* PickupManager.h */,
 				25766A3C1C908AB600A9E148 /* spacebase_levelscrollfunc.cpp */,
 				25766A3D1C908AB600A9E148 /* spacebase_levelscrollfunc.h */,
+				257EC7F01C96953600650672 /* spacebase_boss.cpp */,
+				257EC7F11C96953600650672 /* spacebase_boss.h */,
 			);
 			name = Ingame;
 			sourceTree = "<group>";
@@ -1053,6 +1058,7 @@
 				2591BCB41C5D574300F69102 /* sprite_hud_weapons.cpp in Sources */,
 				253A56A51C626040008CFFDE /* sprite_enemy_bullet_02.cpp in Sources */,
 				2505C2241C5A376D00E46CDF /* sprite_explosion_medium_01.cpp in Sources */,
+				257EC7F21C96953600650672 /* spacebase_boss.cpp in Sources */,
 				25766A031C85F6EC00A9E148 /* sprite_pickup_bomb_00.cpp in Sources */,
 				25CB2D911C57565100BC35A1 /* TileRenderer.cpp in Sources */,
 				25CB2D4A1C57561F00BC35A1 /* tilemap_spacebase_background.cpp in Sources */,

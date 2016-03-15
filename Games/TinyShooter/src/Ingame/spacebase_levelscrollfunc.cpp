@@ -14,8 +14,9 @@
 #include "src/Ingame/EnemyMovements.h"
 #include "src/Ingame/ContextIngame.h"
 #include "src/Ingame/Player.h"
+#include "src/Ingame/spacebase_levelscrollfunc.h"
+#include "src/Ingame/spacebase_boss.h"
 #include "data/alldata.h"
-#include "spacebase_levelscrollfunc.h"
 
 
 int sparrowSpawnPoint[] = {
@@ -292,6 +293,11 @@ void setPlayerSpawnY_40( int _x )
 	playerSetRespawnY( 40 );
 }
 
+void spawnSpaceBaseBoss( int _x )
+{
+	sbbSpawn();
+}
+
 const LevelScrollFunc spacebase_levelscrollfuncs[] =
 {
 	{
@@ -403,6 +409,10 @@ const LevelScrollFunc spacebase_levelscrollfuncs[] =
 	{
 		712,
 		&setPlayerSpawnY_24
+	},
+	{
+		840,
+		&spawnSpaceBaseBoss,
 	}
 };
 
