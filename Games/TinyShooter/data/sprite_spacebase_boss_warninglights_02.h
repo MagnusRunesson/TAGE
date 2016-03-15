@@ -1,0 +1,6 @@
+#ifndef sprite_spacebase_boss_warninglights_02_data_h
+#define sprite_spacebase_boss_warninglights_02_data_h
+
+extern "C" const Image sprite_spacebase_boss_warninglights_02;
+
+#endif // sprite_spacebase_boss_warninglights_02_data_h
