@@ -68,6 +68,10 @@
 		25766A3B1C8FF77F00A9E148 /* audiosamples_laser_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A391C8FF77F00A9E148 /* audiosamples_laser_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
 		25766A3E1C908AB600A9E148 /* spacebase_levelscrollfunc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 25766A3C1C908AB600A9E148 /* spacebase_levelscrollfunc.cpp */; settings = {ASSET_TAGS = (); }; };
 		257AB0B21C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */; settings = {ASSET_TAGS = (); }; };
+		257EC7FB1C97DBCD00650672 /* sprite_spacebase_boss_warninglights_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257EC7F31C97DBCD00650672 /* sprite_spacebase_boss_warninglights_00.cpp */; settings = {ASSET_TAGS = (); }; };
+		257EC7FC1C97DBCD00650672 /* sprite_spacebase_boss_warninglights_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257EC7F51C97DBCD00650672 /* sprite_spacebase_boss_warninglights_01.cpp */; settings = {ASSET_TAGS = (); }; };
+		257EC7FD1C97DBCD00650672 /* sprite_spacebase_boss_warninglights_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257EC7F71C97DBCD00650672 /* sprite_spacebase_boss_warninglights_02.cpp */; settings = {ASSET_TAGS = (); }; };
+		257EC7FE1C97DBCD00650672 /* sprite_spacebase_boss_warninglights_03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 257EC7F91C97DBCD00650672 /* sprite_spacebase_boss_warninglights_03.cpp */; settings = {ASSET_TAGS = (); }; };
 		2591BCAE1C5D2A9B00F69102 /* sprite_enemy_dragonhead_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2591BCAC1C5D2A9B00F69102 /* sprite_enemy_dragonhead_00.cpp */; settings = {ASSET_TAGS = (); }; };
 		2591BCB11C5D429100F69102 /* sprite_enemy_dragonbody_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2591BCAF1C5D429100F69102 /* sprite_enemy_dragonbody_00.cpp */; settings = {ASSET_TAGS = (); }; };
 		2591BCB41C5D574300F69102 /* sprite_hud_weapons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2591BCB21C5D574300F69102 /* sprite_hud_weapons.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -299,6 +303,14 @@
 		25766A3D1C908AB600A9E148 /* spacebase_levelscrollfunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = spacebase_levelscrollfunc.h; path = src/Ingame/spacebase_levelscrollfunc.h; sourceTree = SOURCE_ROOT; };
 		257AB0B01C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audiosamples_music_boss_s8b_pcm_11025hz.cpp; path = data/audiosamples_music_boss_s8b_pcm_11025hz.cpp; sourceTree = "<group>"; };
 		257AB0B11C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = audiosamples_music_boss_s8b_pcm_11025hz.h; path = data/audiosamples_music_boss_s8b_pcm_11025hz.h; sourceTree = "<group>"; };
+		257EC7F31C97DBCD00650672 /* sprite_spacebase_boss_warninglights_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_spacebase_boss_warninglights_00.cpp; path = data/sprite_spacebase_boss_warninglights_00.cpp; sourceTree = "<group>"; };
+		257EC7F41C97DBCD00650672 /* sprite_spacebase_boss_warninglights_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_spacebase_boss_warninglights_00.h; path = data/sprite_spacebase_boss_warninglights_00.h; sourceTree = "<group>"; };
+		257EC7F51C97DBCD00650672 /* sprite_spacebase_boss_warninglights_01.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_spacebase_boss_warninglights_01.cpp; path = data/sprite_spacebase_boss_warninglights_01.cpp; sourceTree = "<group>"; };
+		257EC7F61C97DBCD00650672 /* sprite_spacebase_boss_warninglights_01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_spacebase_boss_warninglights_01.h; path = data/sprite_spacebase_boss_warninglights_01.h; sourceTree = "<group>"; };
+		257EC7F71C97DBCD00650672 /* sprite_spacebase_boss_warninglights_02.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_spacebase_boss_warninglights_02.cpp; path = data/sprite_spacebase_boss_warninglights_02.cpp; sourceTree = "<group>"; };
+		257EC7F81C97DBCD00650672 /* sprite_spacebase_boss_warninglights_02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_spacebase_boss_warninglights_02.h; path = data/sprite_spacebase_boss_warninglights_02.h; sourceTree = "<group>"; };
+		257EC7F91C97DBCD00650672 /* sprite_spacebase_boss_warninglights_03.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_spacebase_boss_warninglights_03.cpp; path = data/sprite_spacebase_boss_warninglights_03.cpp; sourceTree = "<group>"; };
+		257EC7FA1C97DBCD00650672 /* sprite_spacebase_boss_warninglights_03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_spacebase_boss_warninglights_03.h; path = data/sprite_spacebase_boss_warninglights_03.h; sourceTree = "<group>"; };
 		2591BCAC1C5D2A9B00F69102 /* sprite_enemy_dragonhead_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_dragonhead_00.cpp; path = data/sprite_enemy_dragonhead_00.cpp; sourceTree = "<group>"; };
 		2591BCAD1C5D2A9B00F69102 /* sprite_enemy_dragonhead_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_dragonhead_00.h; path = data/sprite_enemy_dragonhead_00.h; sourceTree = "<group>"; };
 		2591BCAF1C5D429100F69102 /* sprite_enemy_dragonbody_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_dragonbody_00.cpp; path = data/sprite_enemy_dragonbody_00.cpp; sourceTree = "<group>"; };
@@ -585,6 +597,14 @@
 		250DA18B1C4A7FFF00C664DA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				257EC7F31C97DBCD00650672 /* sprite_spacebase_boss_warninglights_00.cpp */,
+				257EC7F41C97DBCD00650672 /* sprite_spacebase_boss_warninglights_00.h */,
+				257EC7F51C97DBCD00650672 /* sprite_spacebase_boss_warninglights_01.cpp */,
+				257EC7F61C97DBCD00650672 /* sprite_spacebase_boss_warninglights_01.h */,
+				257EC7F71C97DBCD00650672 /* sprite_spacebase_boss_warninglights_02.cpp */,
+				257EC7F81C97DBCD00650672 /* sprite_spacebase_boss_warninglights_02.h */,
+				257EC7F91C97DBCD00650672 /* sprite_spacebase_boss_warninglights_03.cpp */,
+				257EC7FA1C97DBCD00650672 /* sprite_spacebase_boss_warninglights_03.h */,
 				25766A391C8FF77F00A9E148 /* audiosamples_laser_s8b_pcm_11025hz.cpp */,
 				25766A3A1C8FF77F00A9E148 /* audiosamples_laser_s8b_pcm_11025hz.h */,
 				25766A361C8FF61C00A9E148 /* audiosamples_double_pew_s8b_pcm_11025hz.cpp */,
@@ -1026,6 +1046,7 @@
 				25D99FE81C5E574600CC4CAE /* EnemyManager.cpp in Sources */,
 				253FC5BE1C7ADAA0005AB533 /* sprite_playerbullet_bomb_01.cpp in Sources */,
 				25766A321C8DE80100A9E148 /* audiosamples_explosion_short_b_s8b_pcm_11025hz.cpp in Sources */,
+				257EC7FB1C97DBCD00650672 /* sprite_spacebase_boss_warninglights_00.cpp in Sources */,
 				25766A2F1C8DE80100A9E148 /* audiosamples_bomb_s8b_pcm_11025hz.cpp in Sources */,
 				25CB2D2E1C57561F00BC35A1 /* audiosamples_pew_s8b_pcm_11025hz.cpp in Sources */,
 				25CB2D561C57563F00BC35A1 /* animation_enemies.cpp in Sources */,
@@ -1088,7 +1109,9 @@
 				25766A261C8899A600A9E148 /* sprite_enemy_spinloop_02.cpp in Sources */,
 				25CB2D391C57561F00BC35A1 /* sprite_logo_shooter_h.cpp in Sources */,
 				25CB2D491C57561F00BC35A1 /* tilebank_spacebase.cpp in Sources */,
+				257EC7FC1C97DBCD00650672 /* sprite_spacebase_boss_warninglights_01.cpp in Sources */,
 				25766A351C8FF3C100A9E148 /* audiosamples_explosion_medium_a_s8b_pcm_11025hz.cpp in Sources */,
+				257EC7FE1C97DBCD00650672 /* sprite_spacebase_boss_warninglights_03.cpp in Sources */,
 				253A56A91C626106008CFFDE /* EnemyBulletManager.cpp in Sources */,
 				25B7B13F1C5A859F00355A54 /* sprite_impact_bullet_00.cpp in Sources */,
 				253FC5AF1C74478A005AB533 /* sprite_enemy_tallonclaw_00.cpp in Sources */,
@@ -1140,6 +1163,7 @@
 				2591BCBA1C5D5C8900F69102 /* sprite_hud_weapon_dual.cpp in Sources */,
 				25BBA4B21C611E1300A35F2F /* sprite_titlescreen_insertcredits.cpp in Sources */,
 				25D99FE71C5E574600CC4CAE /* Enemy.cpp in Sources */,
+				257EC7FD1C97DBCD00650672 /* sprite_spacebase_boss_warninglights_02.cpp in Sources */,
 				25CB2D3B1C57561F00BC35A1 /* sprite_logo_shooter_r.cpp in Sources */,
 				25CB2D331C57561F00BC35A1 /* sprite_explosion_big_01.cpp in Sources */,
 				253FC5C11C7ADAA0005AB533 /* sprite_playerbullet_bomb_04.cpp in Sources */,

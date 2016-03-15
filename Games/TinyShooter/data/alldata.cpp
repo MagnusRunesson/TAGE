@@ -102,7 +102,11 @@
 #include "data/sprite_enemy_bullet_03.cpp"
 #include "data/sprite_enemy_tallonclaw_00.cpp"
 #include "data/sprite_enemy_spacebase_secretpassage.cpp"
-
+#include "data/sprite_spacebase_boss_door.cpp"
+#include "data/sprite_spacebase_boss_warninglights_00.cpp"
+#include "data/sprite_spacebase_boss_warninglights_01.cpp"
+#include "data/sprite_spacebase_boss_warninglights_02.cpp"
+#include "data/sprite_spacebase_boss_warninglights_03.cpp"
 #include "data/tilemap_spacebase.cpp"
 #include "data/tilemap_spacebase_background.cpp"
 
