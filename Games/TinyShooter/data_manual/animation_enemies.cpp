@@ -387,3 +387,174 @@ const AnimationFrameDefinition animation_enemy_spinloop_frames[] = {
 };
 
 DEFINE_ANIMATION( enemy_spinloop, true );
+
+
+
+//
+//
+// Spacebase boss warning lights - idle
+//
+//
+const AnimationFrameDefinition animation_spacebase_boss_warninglights_idle_frames[] = {
+	{
+		&sprite_spacebase_boss_warninglights_00,
+		60,
+		0,
+		0,
+		0,
+	},
+};
+
+DEFINE_ANIMATION( spacebase_boss_warninglights_idle, true );
+
+
+
+//
+//
+// Spacebase boss warning lights - blink
+//
+//
+const AnimationFrameDefinition animation_spacebase_boss_warninglights_blink_frames[] = {
+	{
+		&sprite_spacebase_boss_warninglights_01,
+		2,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_02,
+		2,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_03,
+		2,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_00,
+		4,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_01,
+		2,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_02,
+		2,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_03,
+		2,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_00,
+		4,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_01,
+		2,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_02,
+		2,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_03,
+		2,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_00,
+		4,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_01,
+		2,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_02,
+		2,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_03,
+		2,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_00,
+		4,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_01,
+		2,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_02,
+		2,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_03,
+		2,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_spacebase_boss_warninglights_00,
+		4,
+		0,
+		0,
+		0,
+	},
+};
+
+DEFINE_ANIMATION( spacebase_boss_warninglights_blink, true );
