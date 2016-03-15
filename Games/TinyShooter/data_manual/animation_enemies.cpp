@@ -558,3 +558,99 @@ const AnimationFrameDefinition animation_spacebase_boss_warninglights_blink_fram
 };
 
 DEFINE_ANIMATION( spacebase_boss_warninglights_blink, true );
+
+
+
+//
+//
+// Spacebase boss door - idle
+//
+//
+const AnimationFrameDefinition animation_spacebase_boss_door_idle_frames[] = {
+	{
+		&sprite_spacebase_boss_door,
+		60,
+		0,
+		0,
+		0,
+	},
+};
+
+DEFINE_ANIMATION( spacebase_boss_door_idle, true );
+
+
+
+//
+//
+// Spacebase boss door - open
+//
+//
+#define SPACEBASE_DOOR_OPEN_FRAMETIME (4)
+
+const AnimationFrameDefinition animation_spacebase_boss_door_open_frames[] = {
+	{
+		&sprite_spacebase_boss_door,
+		SPACEBASE_DOOR_OPEN_FRAMETIME,
+		0,
+		0,
+		1,
+	},
+	{
+		&sprite_spacebase_boss_door,
+		SPACEBASE_DOOR_OPEN_FRAMETIME,
+		0,
+		0,
+		2,
+	},
+	{
+		&sprite_spacebase_boss_door,
+		SPACEBASE_DOOR_OPEN_FRAMETIME,
+		0,
+		0,
+		3,
+	},
+	{
+		&sprite_spacebase_boss_door,
+		SPACEBASE_DOOR_OPEN_FRAMETIME,
+		0,
+		0,
+		4,
+	},
+	{
+		&sprite_spacebase_boss_door,
+		SPACEBASE_DOOR_OPEN_FRAMETIME,
+		0,
+		0,
+		5,
+	},
+	{
+		&sprite_spacebase_boss_door,
+		SPACEBASE_DOOR_OPEN_FRAMETIME,
+		0,
+		0,
+		6,
+	},
+	{
+		&sprite_spacebase_boss_door,
+		SPACEBASE_DOOR_OPEN_FRAMETIME,
+		0,
+		0,
+		7,
+	},
+	{
+		&sprite_spacebase_boss_door,
+		SPACEBASE_DOOR_OPEN_FRAMETIME,
+		0,
+		0,
+		8,
+	},
+	{
+		&sprite_spacebase_boss_door,
+		SPACEBASE_DOOR_OPEN_FRAMETIME,
+		0,
+		0,
+		9,
+	},
+};
+
+DEFINE_ANIMATION( spacebase_boss_door_open, true );

@@ -6,21 +6,25 @@
 //  Copyright © 2016 Magnus Runesson. All rights reserved.
 //
 
+#include <stdlib.h>
 #include "Engine/Scene/GameObject.h"
 #include "Engine/Scene/GameObjectManager.h"
 #include "Engine/Graphics/Animation.h"
 #include "src/Ingame/ContextIngame.h"
 #include "src/Ingame/spacebase_boss.h"
+#include "src/Ingame/Enemy.h"
+#include "src/Ingame/EnemyManager.h"
 #include "data/alldata.h"
 
-GameObject* sbbDoor[ 3 ];
+Enemy* sbbDoor[ 3 ];
 GameObject* sbbWarningLights[ 3 ];
 int sbbTimer;
 
-GameObject* sbbCreateDoor( int _x, int _y )
+Enemy* sbbCreateDoor( int _x, int _y )
 {
-	GameObject* pRet = gameObjectManager.CreateGameObject( &sprite_spacebase_boss_door );
-	pRet->SetWorldPosition( _x, _y );
+	Enemy* pRet = enemySpawn( &enemy_spacebase_door, _x, _y, NULL );
+	pRet->Timeout = 0;
+	//pRet->SetWorldPosition( _x, _y );
 	return pRet;
 }
 
@@ -47,6 +51,10 @@ void sbbSpawn()
 
 void sbbUpdate()
 {
-	//sbbTimer++;
+	sbbTimer++;
+	if( sbbTimer == 360 )
+	{
+		sbbDoor[ 0 ]->pTargetGameObject->GetAnimation()->SetSequence( &animation_spacebase_boss_door_open );
+	}
 	//sbbDoor[ 0 ]->SetWorldPosition( 944-(sbbTimer&1), 4 );
 }

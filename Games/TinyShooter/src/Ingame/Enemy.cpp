@@ -116,15 +116,15 @@ void Enemy::Update()
 bool Enemy::Hit()
 {
 	// If player is invincible there is no stopping it
-	if( SpecialFlag == ENEMY_SPECIALFLAG_INVINCIBLE )
-		return false;
-	
+	if( SpecialFlag == ENEMY_SPECIALFLAG_INVINCIBLE ) return false;
+	if( SpecialFlag == ENEMY_SPECIALFLAG_SPACEBASEBOSSDOOR ) return false;
+
 	// Check death. Since Health is an unsigned value we need to
 	// be careful how we subtract and check health. If we are at
 	// 0 and subtract we'll end up at 255, which would be bad.
 	if( Health <= 1 )
 		return true;
-	
+
 	pTargetGameObject->GetSprite()->flags |= SPRITE_FLAG_DRAWWHITE;
 	
 	//
@@ -137,6 +137,9 @@ bool Enemy::Hit()
 
 void Enemy::Kill()
 {
+	if( SpecialFlag == ENEMY_SPECIALFLAG_SPACEBASEBOSSDOOR )
+		return;
+	
 	pTargetGameObject->SetEnabled( false );
 }
 

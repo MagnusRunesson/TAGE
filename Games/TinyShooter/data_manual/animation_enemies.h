@@ -26,5 +26,7 @@ extern "C" const AnimationSequenceDefinition animation_enemy_heidelberg_fire;
 extern "C" const AnimationSequenceDefinition animation_enemy_spinloop;
 extern "C" const AnimationSequenceDefinition animation_spacebase_boss_warninglights_idle;
 extern "C" const AnimationSequenceDefinition animation_spacebase_boss_warninglights_blink;
+extern "C" const AnimationSequenceDefinition animation_spacebase_boss_door_idle;
+extern "C" const AnimationSequenceDefinition animation_spacebase_boss_door_open;
 
 #endif /* defined(__TinyShooter__animation_enemies__) */

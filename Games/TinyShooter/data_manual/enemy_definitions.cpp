@@ -85,6 +85,14 @@ const EnemyDefinition enemy_spacebase_secretpassage =
 	NULL
 };
 
+const EnemyDefinition enemy_spacebase_door =
+{
+	&animation_spacebase_boss_door_idle,
+	0,
+	ENEMY_SPECIALFLAG_SPACEBASEBOSSDOOR,
+	NULL
+};
+
 const EnemyDefinition enemy_heidelberg =
 {
 	&animation_enemy_heidelberg_move,

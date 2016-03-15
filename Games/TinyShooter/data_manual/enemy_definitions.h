@@ -22,5 +22,6 @@ extern "C" const EnemyDefinition enemy_tallonclaw;
 extern "C" const EnemyDefinition enemy_spacebase_secretpassage;
 extern "C" const EnemyDefinition enemy_heidelberg;
 extern "C" const EnemyDefinition enemy_spinloop;
+extern "C" const EnemyDefinition enemy_spacebase_door;
 
 #endif /* defined(__TinyShooter__EnemyDefinitions__) */
