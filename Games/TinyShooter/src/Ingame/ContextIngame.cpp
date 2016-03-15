@@ -74,6 +74,7 @@ int worldWidth;
 #define MIN( a, b ) ((a<b)?a:b)
 
 void(*pfnHBlankInterrupt)(int);
+void(*pfnIngameCallback)();
 
 void HBlankInterrupt( int _scanline )
 {
@@ -183,6 +184,7 @@ void ingame_setup()
 	//
 	debugSpriteRenderer = false;
 	pfnHBlankInterrupt = HBlankInterrupt;
+	pfnIngameCallback = NULL;
 
 	//
 	worldWidth = tilemap_spacebase.Width * tilebank_spacebase.TileWidth;
@@ -302,6 +304,8 @@ void ingame_loop()
 	playerUpdate();
 	playerBulletsUpdate( mapScroll );
 	explosionsUpdate();
+	if( pfnIngameCallback != NULL )
+		pfnIngameCallback();
 	
 	//
 	// Tell all game objects that it is time to be rendered

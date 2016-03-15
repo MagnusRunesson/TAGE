@@ -45,4 +45,6 @@ public:
 	void(*pFunc)(int);
 };
 
+extern void(*pfnIngameCallback)();
+
 #endif /* Context_Ingame_h */
