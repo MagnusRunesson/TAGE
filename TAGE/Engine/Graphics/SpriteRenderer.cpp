@@ -44,6 +44,8 @@ Sprite* SpriteRenderer::AllocateSprite( const Image* _image )
 			return sprite;
 		}
 	}
+	
+	debugLog("Out of sprites, gangstah!\n");
 
 	return NULL;
 }
