@@ -17,23 +17,30 @@ GameObject* sbbDoor[ 3 ];
 GameObject* sbbWarningLights[ 3 ];
 int sbbTimer;
 
+GameObject* sbbCreateDoor( int _x, int _y )
+{
+	GameObject* pRet = gameObjectManager.CreateGameObject( &sprite_spacebase_boss_door );
+	pRet->SetWorldPosition( _x, _y );
+	return pRet;
+}
+
+GameObject* sbbCreateWarningLights( int _x, int _y )
+{
+	GameObject* pRet = gameObjectManager.CreateGameObject( &animation_spacebase_boss_warninglights_idle );
+	pRet->SetWorldPosition( _x, _y );
+	return pRet;
+}
+
 void sbbSpawn()
 {
 	pfnIngameCallback = &sbbUpdate;
-	sbbDoor[ 0 ] = gameObjectManager.CreateGameObject( &sprite_spacebase_boss_door );
-	sbbDoor[ 1 ] = gameObjectManager.CreateGameObject( &sprite_spacebase_boss_door );
-	sbbDoor[ 2 ] = gameObjectManager.CreateGameObject( &sprite_spacebase_boss_door );
-	sbbDoor[ 0 ]->SetWorldPosition( 944, 4 );
-	sbbDoor[ 1 ]->SetWorldPosition( 940, 28 );
-	sbbDoor[ 2 ]->SetWorldPosition( 940, 52 );
+	sbbDoor[ 0 ] = sbbCreateDoor( 944, 3 );
+	sbbDoor[ 1 ] = sbbCreateDoor( 940, 27 );
+	sbbDoor[ 2 ] = sbbCreateDoor( 940, 51 );
 
-	sbbWarningLights[ 0 ] = gameObjectManager.CreateGameObject( &animation_spacebase_boss_warninglights_blink );
-	sbbWarningLights[ 1 ] = gameObjectManager.CreateGameObject( &animation_spacebase_boss_warninglights_idle );
-	sbbWarningLights[ 2 ] = gameObjectManager.CreateGameObject( &animation_spacebase_boss_warninglights_idle );
-	sbbWarningLights[ 0 ]->SetWorldPosition( 949, 4 );
-	sbbWarningLights[ 1 ]->SetWorldPosition( 945, 28 );
-	sbbWarningLights[ 2 ]->SetWorldPosition( 9459, 52 );
-	sbbWarningLights[ 0 ]->GetAnimation()->Play();
+	sbbWarningLights[ 0 ] = sbbCreateWarningLights( 949, 4 );
+	sbbWarningLights[ 1 ] = sbbCreateWarningLights( 945, 28 );
+	sbbWarningLights[ 2 ] = sbbCreateWarningLights( 945, 52 );
 	
 	sbbTimer = 0;
 }
