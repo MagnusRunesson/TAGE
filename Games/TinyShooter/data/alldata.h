@@ -109,10 +109,13 @@
 #include "data/tilebank_spacebase.h"
 
 #include "data/audiosamples_pew_s8b_pcm_11025hz.h"
+#include "data/audiosamples_double_pew_s8b_pcm_11025hz.h"
+#include "data/audiosamples_laser_s8b_pcm_11025hz.h"
 #include "data/audiosamples_bomb_s8b_pcm_11025hz.h"
 #include "data/audiosamples_pickup_s8b_pcm_11025hz.h"
 #include "data/audiosamples_explosion_short_a_s8b_pcm_11025hz.h"
 #include "data/audiosamples_explosion_short_b_s8b_pcm_11025hz.h"
+#include "data/audiosamples_explosion_medium_a_s8b_pcm_11025hz.h"
 //#include "data/audiosamples_music_boss_s8b_pcm_11025hz.h"
 //#include "data/audiosamples_music_titlescreen_s8b_pcm_11025hz.h"
 
