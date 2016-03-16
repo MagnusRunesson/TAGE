@@ -28,6 +28,7 @@ void Animation::Reset()
 {
 	FrameIndex = 0;
 	FrameTime = 0;
+	LoopCount = pSequence->NumLoops;
 	RefreshFrame();
 }
 
@@ -65,8 +66,18 @@ void Animation::Update()
 				// The end of the sequence. What now?
 				if( pSequence->Loop )
 				{
-					// Loop the loop
-					FrameIndex -= pSequence->NumFrames;
+					if( LoopCount > 0 )
+					{
+						LoopCount--;
+						if( LoopCount == 0 )
+						{
+							IsPlaying = false;
+						} else
+						{
+							// Loop the loop
+							FrameIndex -= pSequence->NumFrames;
+						}
+					}
 				} else
 				{
 					IsPlaying = false;

@@ -28,6 +28,7 @@ class AnimationSequenceDefinition
 {
 public:
 	int NumFrames;
+	int NumLoops;
 	bool Loop;
 	const AnimationFrameDefinition* Frames;
 };
@@ -40,9 +41,12 @@ public:
 	bool IsPlaying;
 	int FrameIndex;
 	int FrameTime;
+	int LoopCount;
+	void (*pfnDoneCallback)();
 
 	void Create( const AnimationSequenceDefinition* _pSequence, GameObject* _pTarget );
 	void SetSequence( const AnimationSequenceDefinition* _pSequence );
+	void SetLoopCount( int _numLoops );
 	void Update();
 	void Reset();
 	void Play();
@@ -54,6 +58,16 @@ public:
 const AnimationSequenceDefinition animation_##_name = \
 { \
 	sizeof( animation_##_name##_frames ) / sizeof( AnimationFrameDefinition ), \
+	-1, \
+	_looping, \
+	animation_##_name##_frames \
+}
+
+#define DEFINE_ANIMATION_LOOPFRAMES( _name, _looping, _numLoopFrames ) \
+const AnimationSequenceDefinition animation_##_name = \
+{ \
+	sizeof( animation_##_name##_frames ) / sizeof( AnimationFrameDefinition ), \
+	_numLoopFrames, \
 	_looping, \
 	animation_##_name##_frames \
 }
