@@ -398,14 +398,14 @@ DEFINE_ANIMATION( enemy_spinloop, true );
 const AnimationFrameDefinition animation_spacebase_boss_warninglights_idle_frames[] = {
 	{
 		&sprite_spacebase_boss_warninglights_00,
-		60,
+		0,
 		0,
 		0,
 		0,
 	},
 };
 
-DEFINE_ANIMATION( spacebase_boss_warninglights_idle, true );
+DEFINE_ANIMATION( spacebase_boss_warninglights_idle, false );
 
 
 
@@ -414,150 +414,43 @@ DEFINE_ANIMATION( spacebase_boss_warninglights_idle, true );
 // Spacebase boss warning lights - blink
 //
 //
+#define ASBBWLBFD_B5 (2)	// Animation SpaceBase Boss WarningLights Blink Frame Duration - Brightness 5 - Full white brightness
+#define ASBBWLBFD_B4 (4)	// Animation SpaceBase Boss WarningLights Blink Frame Duration - Brightness 4 - Quite bright
+#define ASBBWLBFD_B3 (6)	// Animation SpaceBase Boss WarningLights Blink Frame Duration - Brightness 3 - Quite dark
+#define ASBBWLBFD_B2 (6)	// Animation SpaceBase Boss WarningLights Blink Frame Duration - Brightness 2 - Completely dark
+
 const AnimationFrameDefinition animation_spacebase_boss_warninglights_blink_frames[] = {
 	{
 		&sprite_spacebase_boss_warninglights_01,
-		2,
+		ASBBWLBFD_B5,
 		0,
 		0,
 		0,
 	},
 	{
 		&sprite_spacebase_boss_warninglights_02,
-		4,
+		ASBBWLBFD_B4,
 		0,
 		0,
 		0,
 	},
 	{
 		&sprite_spacebase_boss_warninglights_03,
-		6,
+		ASBBWLBFD_B3,
 		0,
 		0,
 		0,
 	},
 	{
 		&sprite_spacebase_boss_warninglights_00,
-		6,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_spacebase_boss_warninglights_01,
-		2,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_spacebase_boss_warninglights_02,
-		4,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_spacebase_boss_warninglights_03,
-		6,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_spacebase_boss_warninglights_00,
-		6,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_spacebase_boss_warninglights_01,
-		2,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_spacebase_boss_warninglights_02,
-		4,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_spacebase_boss_warninglights_03,
-		6,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_spacebase_boss_warninglights_00,
-		6,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_spacebase_boss_warninglights_01,
-		2,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_spacebase_boss_warninglights_02,
-		4,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_spacebase_boss_warninglights_03,
-		6,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_spacebase_boss_warninglights_00,
-		6,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_spacebase_boss_warninglights_01,
-		2,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_spacebase_boss_warninglights_02,
-		4,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_spacebase_boss_warninglights_03,
-		6,
-		0,
-		0,
-		0,
-	},
-	{
-		&sprite_spacebase_boss_warninglights_00,
-		6,
+		ASBBWLBFD_B2,
 		0,
 		0,
 		0,
 	},
 };
 
-DEFINE_ANIMATION( spacebase_boss_warninglights_blink, true );
+DEFINE_ANIMATION_LOOPFRAMES( spacebase_boss_warninglights_blink, true, 5 );
 
 
 
@@ -569,14 +462,14 @@ DEFINE_ANIMATION( spacebase_boss_warninglights_blink, true );
 const AnimationFrameDefinition animation_spacebase_boss_door_idle_frames[] = {
 	{
 		&sprite_spacebase_boss_door,
-		60,
+		0,
 		0,
 		0,
 		0,
 	},
 };
 
-DEFINE_ANIMATION( spacebase_boss_door_idle, true );
+DEFINE_ANIMATION( spacebase_boss_door_idle, false );
 
 
 
@@ -653,4 +546,80 @@ const AnimationFrameDefinition animation_spacebase_boss_door_open_frames[] = {
 	},
 };
 
-DEFINE_ANIMATION( spacebase_boss_door_open, true );
+DEFINE_ANIMATION( spacebase_boss_door_open, false );
+
+
+//
+//
+// Spacebase boss door - open
+//
+//
+#define SPACEBASE_DOOR_CLOSE_FRAMETIME (4)
+
+const AnimationFrameDefinition animation_spacebase_boss_door_close_frames[] = {
+	{
+		&sprite_spacebase_boss_door,
+		SPACEBASE_DOOR_CLOSE_FRAMETIME,
+		0,
+		0,
+		8,
+	},
+	{
+		&sprite_spacebase_boss_door,
+		SPACEBASE_DOOR_CLOSE_FRAMETIME,
+		0,
+		0,
+		7,
+	},
+	{
+		&sprite_spacebase_boss_door,
+		SPACEBASE_DOOR_CLOSE_FRAMETIME,
+		0,
+		0,
+		6,
+	},
+	{
+		&sprite_spacebase_boss_door,
+		SPACEBASE_DOOR_CLOSE_FRAMETIME,
+		0,
+		0,
+		5,
+	},
+	{
+		&sprite_spacebase_boss_door,
+		SPACEBASE_DOOR_CLOSE_FRAMETIME,
+		0,
+		0,
+		4,
+	},
+	{
+		&sprite_spacebase_boss_door,
+		SPACEBASE_DOOR_CLOSE_FRAMETIME,
+		0,
+		0,
+		3,
+	},
+	{
+		&sprite_spacebase_boss_door,
+		SPACEBASE_DOOR_CLOSE_FRAMETIME,
+		0,
+		0,
+		2,
+	},
+	{
+		&sprite_spacebase_boss_door,
+		SPACEBASE_DOOR_CLOSE_FRAMETIME,
+		0,
+		0,
+		1,
+	},
+	{
+		&sprite_spacebase_boss_door,
+		SPACEBASE_DOOR_CLOSE_FRAMETIME,
+		0,
+		0,
+		0,
+	},
+};
+
+DEFINE_ANIMATION( spacebase_boss_door_close, false );
