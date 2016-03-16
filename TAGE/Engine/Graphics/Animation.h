@@ -46,6 +46,7 @@ public:
 
 	void Create( const AnimationSequenceDefinition* _pSequence, GameObject* _pTarget );
 	void SetSequence( const AnimationSequenceDefinition* _pSequence );
+	void SetDoneCallback( void(*_pfnDoneCallback)());
 	void SetLoopCount( int _numLoops );
 	void Update();
 	void Reset();

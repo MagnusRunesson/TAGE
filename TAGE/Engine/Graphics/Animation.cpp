@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 Magnus Runesson. All rights reserved.
 //
 
+#include <stdlib.h>
 #include "Engine/Scene/GameObject.h"
 #include "Engine/Graphics/Animation.h"
 
@@ -16,12 +17,18 @@ void Animation::Create( const AnimationSequenceDefinition* _pSequence, GameObjec
 	FrameIndex = 0;
 	FrameTime = 0;
 	IsPlaying = false;
+	pfnDoneCallback = NULL;
 }
 
 void Animation::SetSequence( const AnimationSequenceDefinition* _pSequence )
 {
 	pSequence = _pSequence;
 	Reset();
+}
+
+void Animation::SetDoneCallback( void(*_pfnDoneCallback)())
+{
+	pfnDoneCallback = _pfnDoneCallback;
 }
 
 void Animation::Reset()
@@ -56,6 +63,8 @@ void Animation::Update()
 {
 	if( IsPlaying )
 	{
+		bool callCallback = false;
+		
 		FrameTime++;
 		int duration = pSequence->Frames[ FrameIndex ].Duration;
 		if( FrameTime >= duration )
@@ -71,6 +80,7 @@ void Animation::Update()
 						LoopCount--;
 						if( LoopCount == 0 )
 						{
+							callCallback = true;
 							IsPlaying = false;
 						} else
 						{
@@ -80,6 +90,7 @@ void Animation::Update()
 					}
 				} else
 				{
+					callCallback = true;
 					IsPlaying = false;
 				}
 			}
@@ -90,5 +101,8 @@ void Animation::Update()
 				RefreshFrame();
 			}
 		}
+		
+		if( callCallback && (pfnDoneCallback != NULL))
+		   pfnDoneCallback();
 	}
 }
