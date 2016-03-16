@@ -10,6 +10,7 @@
 #include "Engine/Scene/GameObject.h"
 #include "Engine/Scene/GameObjectManager.h"
 #include "Engine/Graphics/Animation.h"
+#include "Engine/debug.h"
 #include "src/Ingame/ContextIngame.h"
 #include "src/Ingame/spacebase_boss.h"
 #include "src/Ingame/Enemy.h"
@@ -19,15 +20,42 @@
 Enemy* sbbDoor[ 3 ];
 GameObject* sbbWarningLights[ 3 ];
 int sbbTimer;
+void(*pfnBoss)();
 
+//
+// States
+//
+void sbbGotoIntro();
+void sbbGotoWarningLights();
+void sbbGotoOpenDoor();
+void sbbGotoCloseDoor();
+void sbbsIntro();
+//void sbbsWarningLights();
+//void sbbsOpenDoor();
+//void sbbsCloseDoor();
+void sbbsWaitForAnimationCallback();
+void cbDoorOpenDone();
+void cbDoorCloseDone();
+void cbWarningLightDone();
+
+/******************************************************************************************************************************************
+ 
+ Helpers
+ 
+ ******************************************************************************************************************************************/
+//
+//
+//
 Enemy* sbbCreateDoor( int _x, int _y )
 {
 	Enemy* pRet = enemySpawn( &enemy_spacebase_door, _x, _y, NULL );
 	pRet->Timeout = 0;
-	//pRet->SetWorldPosition( _x, _y );
 	return pRet;
 }
 
+//
+//
+//
 GameObject* sbbCreateWarningLights( int _x, int _y )
 {
 	GameObject* pRet = gameObjectManager.CreateGameObject( &animation_spacebase_boss_warninglights_idle );
@@ -35,6 +63,9 @@ GameObject* sbbCreateWarningLights( int _x, int _y )
 	return pRet;
 }
 
+//
+// Public functions
+//
 void sbbSpawn()
 {
 	pfnIngameCallback = &sbbUpdate;
@@ -46,15 +77,150 @@ void sbbSpawn()
 	sbbWarningLights[ 1 ] = sbbCreateWarningLights( 945, 28 );
 	sbbWarningLights[ 2 ] = sbbCreateWarningLights( 945, 52 );
 	
-	sbbTimer = 0;
+	sbbGotoIntro();
 }
 
 void sbbUpdate()
 {
-	sbbTimer++;
-	if( sbbTimer == 360 )
+	pfnBoss();
+}
+
+
+/******************************************************************************************************************************************
+ 
+ State variables
+ 
+ ******************************************************************************************************************************************/
+int sbbDoorIndex;
+
+/******************************************************************************************************************************************
+ 
+ State helpers
+ 
+ ******************************************************************************************************************************************/
+//
+// Goto the intro state
+//
+void sbbGotoIntro()
+{
+	sbbTimer = 360;
+	pfnBoss = &sbbsIntro;
+}
+
+//
+// Flash the warning lights that will indicate which door is about to open
+//
+void sbbGotoWarningLights( int _doorIndex )
+{
+	pfnBoss = &sbbsWaitForAnimationCallback;
+	sbbDoorIndex = _doorIndex;
+	Animation* pAnim = sbbWarningLights[ sbbDoorIndex ]->GetAnimation();
+	pAnim->SetSequence( &animation_spacebase_boss_warninglights_blink );
+	pAnim->SetDoneCallback( &cbWarningLightDone );
+	pAnim->Play();
+	//sbbTimer = (18*5)-1;
+}
+
+//
+// Go to Opening Door state
+//
+void sbbGotoOpenDoor()
+{
+	pfnBoss = &sbbsWaitForAnimationCallback;
+	Animation* pAnim = sbbDoor[ sbbDoorIndex ]->pTargetGameObject->GetAnimation();
+	pAnim->SetSequence( &animation_spacebase_boss_door_open );
+	pAnim->SetDoneCallback( cbDoorOpenDone );
+	pAnim->Play();
+	//sbbTimer = (9*4)-1;
+}
+
+void sbbGotoCloseDoor()
+{
+	pfnBoss = &sbbsWaitForAnimationCallback;
+	Animation* pAnim = sbbDoor[ sbbDoorIndex ]->pTargetGameObject->GetAnimation();
+	pAnim->SetSequence( &animation_spacebase_boss_door_close );
+	pAnim->SetDoneCallback( cbDoorCloseDone );
+	pAnim->Play();
+	//sbbTimer = (9*1)-1;
+}
+
+/******************************************************************************************************************************************
+ 
+ Animation callbacks
+ 
+ ******************************************************************************************************************************************/
+void cbWarningLightDone()
+{
+	debugLog("Warning light done, y'all!\n");
+	sbbGotoOpenDoor();
+}
+
+void cbDoorOpenDone()
+{
+	debugLog("Door open done, yah!\n");
+	sbbGotoCloseDoor();
+}
+
+void cbDoorCloseDone()
+{
+	debugLog("Door close done, yah!\n");
+	sbbGotoIntro();
+}
+
+/******************************************************************************************************************************************
+ 
+ The states
+ 
+******************************************************************************************************************************************/
+//
+// Intro state
+//
+void sbbsIntro()
+{
+	sbbTimer--;
+	if( sbbTimer == 0 )
+		sbbGotoWarningLights( 0 );
+}
+
+/*
+void sbbsWarningLights()
+{
+	sbbTimer--;
+	if( sbbTimer == 0 )
 	{
-		sbbDoor[ 0 ]->pTargetGameObject->GetAnimation()->SetSequence( &animation_spacebase_boss_door_open );
+		sbbWarningLights[ sbbDoorIndex ]->GetAnimation()->SetDoneCallback( NULL );
+		sbbGotoOpenDoor();
 	}
-	//sbbDoor[ 0 ]->SetWorldPosition( 944-(sbbTimer&1), 4 );
+}
+
+//
+// Animate an opening door
+//
+void sbbsOpenDoor()
+{
+	sbbTimer--;
+	if( sbbTimer == 0 )
+	{
+		sbbDoor[ sbbDoorIndex ]->pTargetGameObject->GetAnimation()->SetDoneCallback( NULL );
+		sbbGotoCloseDoor();
+	}
+}
+
+//
+// Animate an opening door
+//
+void sbbsCloseDoor()
+{
+	sbbTimer--;
+	if( sbbTimer == 0 )
+	{
+		sbbDoor[ sbbDoorIndex ]->pTargetGameObject->GetAnimation()->SetDoneCallback( NULL );
+		sbbGotoIntro();
+	}
+}
+*/
+
+void sbbsWaitForAnimationCallback()
+{
+	
 }
