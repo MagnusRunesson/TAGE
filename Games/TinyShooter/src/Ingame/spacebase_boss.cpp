@@ -17,9 +17,15 @@
 #include "src/Ingame/EnemyManager.h"
 #include "data/alldata.h"
 
+uint8 sbbDoorPattern[ 10 ] = {
+	0,2,0,1,2,1,2,0,1,2
+};
+const uint8 sbbDoorPatternLength = sizeof( sbbDoorPattern );
+
 Enemy* sbbDoor[ 3 ];
 GameObject* sbbWarningLights[ 3 ];
 int sbbTimer;
+int sbbDoorPatternIndex;
 void(*pfnBoss)();
 
 //
@@ -77,6 +83,8 @@ void sbbSpawn()
 	sbbWarningLights[ 1 ] = sbbCreateWarningLights( 945, 28 );
 	sbbWarningLights[ 2 ] = sbbCreateWarningLights( 945, 52 );
 	
+	sbbDoorPatternIndex = 0;
+	
 	sbbGotoIntro();
 }
 
@@ -119,6 +127,21 @@ void sbbGotoWarningLights( int _doorIndex )
 	pAnim->SetDoneCallback( &cbWarningLightDone );
 	pAnim->Play();
 	//sbbTimer = (18*5)-1;
+}
+
+void sbbStartNextDoor()
+{
+	// Get current index
+	int currentDoorPatternIndex = sbbDoorPatternIndex;
+	
+	// Increment for next time
+	sbbDoorPatternIndex++;
+	if( sbbDoorPatternIndex >= sbbDoorPatternLength )
+		sbbDoorPatternIndex -= sbbDoorPatternLength;
+	
+	// Fetch door index from pattern
+	int doorIndex = sbbDoorPattern[ currentDoorPatternIndex ];
+	sbbGotoWarningLights( doorIndex );
 }
 
 //
@@ -179,7 +202,7 @@ void sbbsIntro()
 {
 	sbbTimer--;
 	if( sbbTimer == 0 )
-		sbbGotoWarningLights( 0 );
+		sbbStartNextDoor();
 }
 
 /*
