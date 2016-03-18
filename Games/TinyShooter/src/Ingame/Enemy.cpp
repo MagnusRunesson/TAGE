@@ -33,6 +33,11 @@ void Enemy::Reboot()
 {
 	isAlive = false;
 	pTargetGameObject = NULL;
+	pfnHitCallback = NULL;
+	pfnMovementUpdate = NULL;
+	Health = 1;
+	HitTimer = 0;
+	Timeout = 255;
 }
 
 void Enemy::SetDefinition( const EnemyDefinition* _pEnemyDefinition )
