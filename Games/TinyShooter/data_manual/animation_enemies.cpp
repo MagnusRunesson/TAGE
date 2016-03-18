@@ -623,3 +623,54 @@ const AnimationFrameDefinition animation_spacebase_boss_door_close_frames[] = {
 };
 
 DEFINE_ANIMATION( spacebase_boss_door_close, false );
+
+
+//
+//
+// Enemy - wallflower - idle
+//
+//
+const AnimationFrameDefinition animation_enemy_wallflower_idle_frames[] = {
+	{
+		&sprite_enemy_wallflower_00,
+		0,
+		0,
+		0,
+		0,
+	},
+};
+
+DEFINE_ANIMATION( enemy_wallflower_idle, false );
+
+
+
+//
+//
+// Enemy - wallflower - fire
+//
+//
+const AnimationFrameDefinition animation_enemy_wallflower_fire_frames[] = {
+	{
+		&sprite_enemy_wallflower_01,
+		2,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_enemy_wallflower_02,
+		2,
+		0,
+		0,
+		0,
+	},
+	{
+		&sprite_enemy_wallflower_01,
+		2,
+		0,
+		0,
+		0,
+	},
+};
+
+DEFINE_ANIMATION( enemy_wallflower_fire, false );
