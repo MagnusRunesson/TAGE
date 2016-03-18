@@ -44,6 +44,7 @@ void sbbsWaitForAnimationCallback();
 void cbDoorOpenDone();
 void cbDoorCloseDone();
 void cbWarningLightDone();
+void cbWallflowerHit( Enemy* _pEnemy );
 
 /******************************************************************************************************************************************
  
@@ -79,7 +80,8 @@ void sbbSpawn()
 	
 	sbbWallFlower = enemySpawn( &enemy_wallflower, 945, 5, NULL );
 	sbbWallFlower->Timeout = 0;
-	sbbWallFlower->pTargetGameObject->GetSprite()->SetSort( -1 );
+	sbbWallFlower->pTargetGameObject->GetSprite()->SetSort( -2 );
+	sbbWallFlower->pfnHitCallback = &cbWallflowerHit;
 	
 	sbbDoor[ 0 ] = sbbCreateDoor( 944, 3 );
 	sbbDoor[ 1 ] = sbbCreateDoor( 940, 27 );
@@ -161,6 +163,7 @@ void sbbGotoOpenDoor()
 	pAnim->SetDoneCallback( cbDoorOpenDone );
 	pAnim->Play();
 	//sbbTimer = (9*4)-1;
+	sbbWallFlower->SpecialFlag = 0;
 }
 
 void sbbGotoCloseDoor()
@@ -194,6 +197,11 @@ void cbDoorCloseDone()
 {
 	debugLog("Door close done, yah!\n");
 	sbbGotoIntro();
+}
+
+void cbWallflowerHit( Enemy* _pEnemy )
+{
+	_pEnemy->SpecialFlag = ENEMY_SPECIALFLAG_INVINCIBLE;
 }
 
 /******************************************************************************************************************************************
