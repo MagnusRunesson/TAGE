@@ -25,6 +25,9 @@ void SpriteRenderer::Reboot()
 	int i = 0;
 	for( i=0; i<MAX_SPRITES; i++ )
 		m_sprite[ i ].Reboot();
+
+	for( i=0; i<MAX_SPRITES+1; i++ )
+		m_sortedSprites[ i ] = NULL;
 }
 
 Sprite* SpriteRenderer::AllocateSprite( const Image* _image )
@@ -41,6 +44,9 @@ Sprite* SpriteRenderer::AllocateSprite( const Image* _image )
 			SetBit( sprite->flags, SPRITE_FLAG_ENABLED );
 			sprite->rendererIndex = i;
 			//printf("using index %i\n", i );
+			
+			AddSpriteToSortList( sprite );
+			SortAllSprites();
 			return sprite;
 		}
 	}
@@ -48,6 +54,19 @@ Sprite* SpriteRenderer::AllocateSprite( const Image* _image )
 	debugLog("Out of sprites, gangstah!\n");
 
 	return NULL;
+}
+
+void SpriteRenderer::AddSpriteToSortList( Sprite* _pSprite )
+{
+	int i;
+	for( i=0; i<MAX_SPRITES; i++ )
+	{
+		if( m_sortedSprites[ i ] == NULL )
+		{
+			m_sortedSprites[ i ] = _pSprite;
+			return;
+		}
+	}
 }
 
 void SpriteRenderer::FreeSprite( Sprite* _spriteInstance )
@@ -79,7 +98,10 @@ void SpriteRenderer::FrameStart()
 	int iCurr = 0;
 	for( i=0; i<MAX_SPRITES; i++ )
 	{
-		Sprite* sprite = &m_sprite[ i ];
+		Sprite* sprite = m_sortedSprites[ i ]; //&m_sprite[ i ];
+		if( sprite == NULL )
+			break;
+		
 		//printf("Sprite index %i. Image=0x%016llx\n", i, sprite->image );
 		if( HasBit( sprite->flags, SPRITE_FLAG_ENABLED ) && (sprite->image != NULL))
 		{
@@ -100,6 +122,8 @@ void SpriteRenderer::FrameStart()
 			}
 		}
 	}
+	
+	SortScanlineSprites();
 
 	/*
 	// NULL terminated lists
@@ -144,6 +168,7 @@ void SpriteRenderer::NextScanline( bool _debugPrint )
 	//
 	// Then we iterate the potential sprites and add them to the list of scanline sprites
 	//
+	bool sortSprites = false;
 	Sprite** potentialSpriteList = m_potentialSprites;
 	sprite = *potentialSpriteList;
 	while( sprite != NULL )
@@ -153,6 +178,7 @@ void SpriteRenderer::NextScanline( bool _debugPrint )
 			// This sprite should be added to the list of rendered sprites
 			*renderSpriteList = sprite;
 			renderSpriteList++;
+			sortSprites = true;
 			
 			// Also remove this sprite from the list of potential sprites
 			Sprite** removeList = potentialSpriteList;
@@ -173,6 +199,9 @@ void SpriteRenderer::NextScanline( bool _debugPrint )
 		// Next sprite in the potential sprite list
 		sprite = *potentialSpriteList;
 	}
+	
+	if( sortSprites )
+		SortScanlineSprites();
 	
 	//
 	if( _debugPrint )
@@ -440,6 +469,43 @@ void SpriteRenderer::RenderScanline( uint16* _targetBuffer, uint8* _collisionBit
 	}
 }
 
+void SpriteRenderer::SortAllSprites()
+{
+	SortSprites( m_sortedSprites );
+}
+
+void SpriteRenderer::SortScanlineSprites()
+{
+	SortSprites( m_scanlineSprites );
+}
+
+void SpriteRenderer::SortSprites( Sprite** _apSprites )
+{
+	// Bubble sort, woop!
+	bool sortAgain = false;
+
+	do
+	{
+		sortAgain = false;
+		int i;
+		for( i=MAX_SPRITES-2; i>=0; i-- )
+		{
+			Sprite* pSprA = _apSprites[ i+0 ];
+			Sprite* pSprB = _apSprites[ i+1 ];
+			if((pSprA != NULL) && (pSprB != NULL))
+			{
+				if( pSprA->sort > pSprB->sort )
+				{
+					// Sprites in the wrong order. Sort!
+					_apSprites[ i+0 ] = pSprB;
+					_apSprites[ i+1 ] = pSprA;
+					sortAgain = true;
+				}
+			}
+		}
+	} while( sortAgain );
+}
+
 extern const char* stringFromBool( bool );
 
 void SpriteRenderer::debugPrintStats()
@@ -458,6 +524,15 @@ void SpriteRenderer::debugPrintStats()
 			debugLog(" - Image: %s", sprite->image->DEBUG_name );
 		}
 		debugLog("\n");
+	}
+
+	debugLog("Sorted sprites:\n");
+	for( i=0; i<MAX_SPRITES; i++ )
+	{
+		Sprite* sprite = m_sortedSprites[ i ];
+		if( sprite == NULL )
+			break;
+		debugLog("Sprite instance=%i sort=%i\n", sprite->rendererIndex, sprite->sort );
 	}
 	
 	debugLog("Num sprites used: %i / %i\n", numUsed, MAX_SPRITES );

@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include "Engine/Graphics/Sprite.h"
 #include "Engine/Graphics/Image.h"
+#include "Engine/Graphics/SpriteRenderer.h"
 #include "Engine/BitHelpers.h"
 #include "Engine/Debug.h"
 
@@ -21,6 +22,7 @@ void Sprite::Reboot()
 {
 	x = 127;
 	y = 127;
+	sort = 0;
 	flags = 0;
 	image = NULL;
 	collisionIndex = 0;
@@ -108,6 +110,12 @@ void Sprite::SetFlippedY( bool _flipped )
 		SetFlags( SPRITE_FLAG_FLIP_Y );
 	else
 		ClrFlags( SPRITE_FLAG_FLIP_Y );
+}
+
+void Sprite::SetSort( sint8 _newSort )
+{
+	sort = _newSort;
+	spriteRenderer.SortAllSprites();
 }
 
 /*

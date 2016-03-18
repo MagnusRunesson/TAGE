@@ -37,7 +37,8 @@ public:
 	uint8 flags;
 	uint8 collisionIndex;
 	uint8 rendererIndex;	// A reference back to this sprite via the spriteRenderer (so the game code only have to have an uint8 as a handle to this sprite instead of a 4 byte Sprite pointer)
-	
+	sint8 sort;
+
 	sint16 boundsLeft;
 	sint16 boundsRight;
 	sint16 boundsTop;
@@ -56,6 +57,7 @@ public:
 	void SetRotation( int _rotation );
 	void SetFlippedX( bool _flipped );
 	void SetFlippedY( bool _flipped );
+	void SetSort( sint8 _newSort );
 	
 	//
 	void PreRender();
