@@ -93,6 +93,14 @@ const EnemyDefinition enemy_spacebase_door =
 	NULL
 };
 
+const EnemyDefinition enemy_spacebase_warninglights =
+{
+	&animation_spacebase_boss_warninglights_idle,
+	0,
+	ENEMY_SPECIALFLAG_SPACEBASEBOSSDOOR,
+	NULL
+};
+
 const EnemyDefinition enemy_heidelberg =
 {
 	&animation_enemy_heidelberg_move,

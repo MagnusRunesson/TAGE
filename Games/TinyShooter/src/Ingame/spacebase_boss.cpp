@@ -24,7 +24,7 @@ const uint8 sbbDoorPatternLength = sizeof( sbbDoorPattern );
 
 Enemy* sbbDoor[ 3 ];
 Enemy* sbbWallFlower;
-GameObject* sbbWarningLights[ 3 ];
+Enemy* sbbWarningLights[ 3 ];
 int sbbTimer;
 int sbbDoorPatternIndex;
 void(*pfnBoss)();
@@ -64,10 +64,11 @@ Enemy* sbbCreateDoor( int _x, int _y )
 //
 //
 //
-GameObject* sbbCreateWarningLights( int _x, int _y )
+Enemy* sbbCreateWarningLights( int _x, int _y )
 {
-	GameObject* pRet = gameObjectManager.CreateGameObject( &animation_spacebase_boss_warninglights_idle );
-	pRet->SetWorldPosition( _x, _y );
+	Enemy* pRet = enemySpawn( &enemy_spacebase_warninglights, _x, _y, NULL );
+	pRet->Timeout = 0;
+	pRet->pTargetGameObject->GetSprite()->SetSort( -1 );
 	return pRet;
 }
 
@@ -130,7 +131,7 @@ void sbbGotoWarningLights( int _doorIndex )
 {
 	pfnBoss = &sbbsWaitForAnimationCallback;
 	sbbDoorIndex = _doorIndex;
-	Animation* pAnim = sbbWarningLights[ sbbDoorIndex ]->GetAnimation();
+	Animation* pAnim = sbbWarningLights[ sbbDoorIndex ]->pTargetGameObject->GetAnimation();
 	pAnim->SetSequence( &animation_spacebase_boss_warninglights_blink );
 	pAnim->SetDoneCallback( &cbWarningLightDone );
 	pAnim->Play();
