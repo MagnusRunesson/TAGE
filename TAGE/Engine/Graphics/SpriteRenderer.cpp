@@ -123,8 +123,6 @@ void SpriteRenderer::FrameStart()
 		}
 	}
 	
-	SortScanlineSprites();
-
 	/*
 	// NULL terminated lists
 	m_potentialSprites[ iPot ] = NULL;
