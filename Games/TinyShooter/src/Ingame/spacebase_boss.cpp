@@ -87,9 +87,9 @@ void sbbSpawn()
 	sbbDoor[ 1 ] = sbbCreateDoor( 940, 27 );
 	sbbDoor[ 2 ] = sbbCreateDoor( 940, 51 );
 
-	sbbWarningLights[ 0 ] = sbbCreateWarningLights( 949, 4 );
-	sbbWarningLights[ 1 ] = sbbCreateWarningLights( 945, 28 );
-	sbbWarningLights[ 2 ] = sbbCreateWarningLights( 945, 52 );
+	sbbWarningLights[ 0 ] = sbbCreateWarningLights( 948, 3 );
+	sbbWarningLights[ 1 ] = sbbCreateWarningLights( 944, 27 );
+	sbbWarningLights[ 2 ] = sbbCreateWarningLights( 944, 51 );
 	
 	sbbDoorPatternIndex = 0;
 	
