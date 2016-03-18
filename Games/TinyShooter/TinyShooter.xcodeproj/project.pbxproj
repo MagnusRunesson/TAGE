@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2504369E1C9A86B200114B9C /* sprite_enemy_wallflower_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 250436981C9A86B200114B9C /* sprite_enemy_wallflower_00.cpp */; settings = {ASSET_TAGS = (); }; };
+		2504369F1C9A86B200114B9C /* sprite_enemy_wallflower_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2504369A1C9A86B200114B9C /* sprite_enemy_wallflower_01.cpp */; settings = {ASSET_TAGS = (); }; };
+		250436A01C9A86B200114B9C /* sprite_enemy_wallflower_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2504369C1C9A86B200114B9C /* sprite_enemy_wallflower_02.cpp */; settings = {ASSET_TAGS = (); }; };
 		2505C2231C5A376D00E46CDF /* sprite_explosion_medium_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2505C2111C5A376D00E46CDF /* sprite_explosion_medium_00.cpp */; };
 		2505C2241C5A376D00E46CDF /* sprite_explosion_medium_01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2505C2131C5A376D00E46CDF /* sprite_explosion_medium_01.cpp */; };
 		2505C2251C5A376D00E46CDF /* sprite_explosion_medium_02.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2505C2151C5A376D00E46CDF /* sprite_explosion_medium_02.cpp */; };
@@ -183,6 +186,12 @@
 /* Begin PBXFileReference section */
 		250239FF1C57D0BC00543762 /* Tage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Tage.h; path = ../../TAGE/Tage.h; sourceTree = "<group>"; };
 		25023A001C57D41000543762 /* Types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Types.h; path = ../../TAGE/Engine/Types.h; sourceTree = "<group>"; };
+		250436981C9A86B200114B9C /* sprite_enemy_wallflower_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_wallflower_00.cpp; path = data/sprite_enemy_wallflower_00.cpp; sourceTree = "<group>"; };
+		250436991C9A86B200114B9C /* sprite_enemy_wallflower_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_wallflower_00.h; path = data/sprite_enemy_wallflower_00.h; sourceTree = "<group>"; };
+		2504369A1C9A86B200114B9C /* sprite_enemy_wallflower_01.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_wallflower_01.cpp; path = data/sprite_enemy_wallflower_01.cpp; sourceTree = "<group>"; };
+		2504369B1C9A86B200114B9C /* sprite_enemy_wallflower_01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_wallflower_01.h; path = data/sprite_enemy_wallflower_01.h; sourceTree = "<group>"; };
+		2504369C1C9A86B200114B9C /* sprite_enemy_wallflower_02.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_wallflower_02.cpp; path = data/sprite_enemy_wallflower_02.cpp; sourceTree = "<group>"; };
+		2504369D1C9A86B200114B9C /* sprite_enemy_wallflower_02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_wallflower_02.h; path = data/sprite_enemy_wallflower_02.h; sourceTree = "<group>"; };
 		2505C2111C5A376D00E46CDF /* sprite_explosion_medium_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_explosion_medium_00.cpp; path = data/sprite_explosion_medium_00.cpp; sourceTree = "<group>"; };
 		2505C2121C5A376D00E46CDF /* sprite_explosion_medium_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_explosion_medium_00.h; path = data/sprite_explosion_medium_00.h; sourceTree = "<group>"; };
 		2505C2131C5A376D00E46CDF /* sprite_explosion_medium_01.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_explosion_medium_01.cpp; path = data/sprite_explosion_medium_01.cpp; sourceTree = "<group>"; };
@@ -600,6 +609,12 @@
 		250DA18B1C4A7FFF00C664DA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				250436981C9A86B200114B9C /* sprite_enemy_wallflower_00.cpp */,
+				250436991C9A86B200114B9C /* sprite_enemy_wallflower_00.h */,
+				2504369A1C9A86B200114B9C /* sprite_enemy_wallflower_01.cpp */,
+				2504369B1C9A86B200114B9C /* sprite_enemy_wallflower_01.h */,
+				2504369C1C9A86B200114B9C /* sprite_enemy_wallflower_02.cpp */,
+				2504369D1C9A86B200114B9C /* sprite_enemy_wallflower_02.h */,
 				257EC7F31C97DBCD00650672 /* sprite_spacebase_boss_warninglights_00.cpp */,
 				257EC7F41C97DBCD00650672 /* sprite_spacebase_boss_warninglights_00.h */,
 				257EC7F51C97DBCD00650672 /* sprite_spacebase_boss_warninglights_01.cpp */,
@@ -1060,6 +1075,7 @@
 				2505C2241C5A376D00E46CDF /* sprite_explosion_medium_01.cpp in Sources */,
 				257EC7F21C96953600650672 /* spacebase_boss.cpp in Sources */,
 				25766A031C85F6EC00A9E148 /* sprite_pickup_bomb_00.cpp in Sources */,
+				2504369E1C9A86B200114B9C /* sprite_enemy_wallflower_00.cpp in Sources */,
 				25CB2D911C57565100BC35A1 /* TileRenderer.cpp in Sources */,
 				25CB2D4A1C57561F00BC35A1 /* tilemap_spacebase_background.cpp in Sources */,
 				25CB2D8F1C57565100BC35A1 /* TileBank.cpp in Sources */,
@@ -1133,6 +1149,7 @@
 				25CB2D571C57563F00BC35A1 /* animation_explosion_big.cpp in Sources */,
 				253A56B21C66971D008CFFDE /* sprite_enemy_turret_02.cpp in Sources */,
 				25B7B1461C5A85C300355A54 /* animation_impact_bullet.cpp in Sources */,
+				2504369F1C9A86B200114B9C /* sprite_enemy_wallflower_01.cpp in Sources */,
 				25CB2D361C57561F00BC35A1 /* sprite_explosion_big_04.cpp in Sources */,
 				25766A0E1C85F6EC00A9E148 /* sprite_pickup_pew_03.cpp in Sources */,
 				25CB2D411C57561F00BC35A1 /* sprite_logo_tiny_y.cpp in Sources */,
@@ -1162,6 +1179,7 @@
 				25B7B1431C5A859F00355A54 /* sprite_impact_bullet_04.cpp in Sources */,
 				25D99FEC1C5E574600CC4CAE /* PathFollower.cpp in Sources */,
 				25766A0B1C85F6EC00A9E148 /* sprite_pickup_pew_00.cpp in Sources */,
+				250436A01C9A86B200114B9C /* sprite_enemy_wallflower_02.cpp in Sources */,
 				25678FF41C57D86E00B2C95E /* sinetable.cpp in Sources */,
 				25766A071C85F6EC00A9E148 /* sprite_pickup_laser_00.cpp in Sources */,
 				25A495B21C5BD433003CA51C /* sprite_enemy_sparrow_00.cpp in Sources */,
