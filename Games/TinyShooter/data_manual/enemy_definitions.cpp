@@ -108,3 +108,11 @@ const EnemyDefinition enemy_spinloop =
 	0,
 	&EnemyMovement_Rotate,
 };
+
+const EnemyDefinition enemy_wallflower =
+{
+	&animation_enemy_wallflower_idle,
+	2,
+	0,
+	NULL,
+};
