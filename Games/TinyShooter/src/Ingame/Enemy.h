@@ -52,6 +52,7 @@ public:
 	void Update();
 	void PostRender();
 	void(*pfnMovementUpdate)( Enemy* _pTarget );
+	void(*pfnHitCallback)( Enemy* _pTarget );
 
 	bool Hit();		// Return true when the enemy have reached 0 health. Return false if the enemy keeps on living.
 	void Kill();	// Kill the enemy and return the instance to the enemy manager so a new enemy can take its place.

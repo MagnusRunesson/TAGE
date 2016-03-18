@@ -131,6 +131,9 @@ bool Enemy::Hit()
 	Health--;
 	HitTimer = 3;
 	
+	if( pfnHitCallback != NULL )
+		pfnHitCallback( this );
+
 	//
 	return false;
 }
