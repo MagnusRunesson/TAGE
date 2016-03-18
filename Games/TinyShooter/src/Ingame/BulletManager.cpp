@@ -192,10 +192,9 @@ void playerBulletKill( GameObject* _pb )
 
 	//
 	PlayerBullet* pBullet = (PlayerBullet*)_pb->m_customObject;
-	debugLog( "Killing bullet of type %i\n", pBullet->type );
+	//debugLog( "Killing bullet of type %i\n", pBullet->type );
 	if( pBullet->type == PLAYERBULLET_TYPE_BOMB )
 	{
 		playerBulletSpawn( _pb->GetWorldPositionX(), _pb->GetWorldPositionY(), PLAYERBULLET_TYPE_BOMBDEBRIS );
 	}
-	
 }
