@@ -23,6 +23,7 @@ uint8 sbbDoorPattern[ 10 ] = {
 const uint8 sbbDoorPatternLength = sizeof( sbbDoorPattern );
 
 Enemy* sbbDoor[ 3 ];
+Enemy* sbbWallFlower;
 GameObject* sbbWarningLights[ 3 ];
 int sbbTimer;
 int sbbDoorPatternIndex;
@@ -75,6 +76,11 @@ GameObject* sbbCreateWarningLights( int _x, int _y )
 void sbbSpawn()
 {
 	pfnIngameCallback = &sbbUpdate;
+	
+	sbbWallFlower = enemySpawn( &enemy_wallflower, 945, 5, NULL );
+	sbbWallFlower->Timeout = 0;
+	sbbWallFlower->pTargetGameObject->GetSprite()->SetSort( -1 );
+	
 	sbbDoor[ 0 ] = sbbCreateDoor( 944, 3 );
 	sbbDoor[ 1 ] = sbbCreateDoor( 940, 27 );
 	sbbDoor[ 2 ] = sbbCreateDoor( 940, 51 );
