@@ -228,7 +228,6 @@ void cbWarningLightDone()
 void cbDoorOpenDone()
 {
 	debugLog("Door open done, yah!\n");
-	sbbGotoCloseDoor();
 }
 
 void cbDoorCloseDone()
@@ -240,6 +239,7 @@ void cbDoorCloseDone()
 void cbWallflowerHit( Enemy* _pEnemy )
 {
 	_pEnemy->SpecialFlag = ENEMY_SPECIALFLAG_INVINCIBLE;
+	sbbGotoCloseDoor();
 }
 
 /******************************************************************************************************************************************
