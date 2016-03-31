@@ -80,6 +80,18 @@ Enemy* sbbCreateWarningLights( int _x, int _y )
 	return pRet;
 }
 
+int sbbDoorPositionX[] = {
+	944,
+	940,
+	940,
+};
+
+int sbbDoorPositionY[] = {
+	3,
+	27,
+	51,
+};
+
 //
 // Public functions
 //
@@ -87,18 +99,18 @@ void sbbSpawn()
 {
 	pfnIngameCallback = &sbbUpdate;
 	
-	sbbWallFlower = enemySpawn( &enemy_wallflower, 945, 5, NULL );
+	sbbWallFlower = enemySpawn( &enemy_wallflower, sbbDoorPositionX[ 0 ] + 1, sbbDoorPositionY[ 0 ] + 2, NULL );
 	sbbWallFlower->Timeout = 0;
 	sbbWallFlower->pTargetGameObject->GetSprite()->SetSort( -2 );
 	sbbWallFlower->pfnHitCallback = &cbWallflowerHit;
 	
-	sbbDoor[ 0 ] = sbbCreateDoor( 944, 3 );
-	sbbDoor[ 1 ] = sbbCreateDoor( 940, 27 );
-	sbbDoor[ 2 ] = sbbCreateDoor( 940, 51 );
+	sbbDoor[ 0 ] = sbbCreateDoor( sbbDoorPositionX[ 0 ], sbbDoorPositionY[ 0 ]);
+	sbbDoor[ 1 ] = sbbCreateDoor( sbbDoorPositionX[ 1 ], sbbDoorPositionY[ 1 ]);
+	sbbDoor[ 2 ] = sbbCreateDoor( sbbDoorPositionX[ 2 ], sbbDoorPositionY[ 2 ]);
 
-	sbbWarningLights[ 0 ] = sbbCreateWarningLights( 948, 3 );
-	sbbWarningLights[ 1 ] = sbbCreateWarningLights( 944, 27 );
-	sbbWarningLights[ 2 ] = sbbCreateWarningLights( 944, 51 );
+	sbbWarningLights[ 0 ] = sbbCreateWarningLights( sbbDoorPositionX[ 0 ] + 4, sbbDoorPositionY[ 0 ]);
+	sbbWarningLights[ 1 ] = sbbCreateWarningLights( sbbDoorPositionX[ 1 ] + 4, sbbDoorPositionY[ 1 ]);
+	sbbWarningLights[ 2 ] = sbbCreateWarningLights( sbbDoorPositionX[ 2 ] + 4, sbbDoorPositionY[ 2 ]);
 	
 	sbbDoorPatternIndex = 0;
 	
