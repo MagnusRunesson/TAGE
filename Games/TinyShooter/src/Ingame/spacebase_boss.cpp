@@ -33,7 +33,7 @@ void(*pfnBoss)();
 // States
 //
 void sbbGotoIntro();
-void sbbGotoWarningLights();
+void sbbGotoWarningLights( int _doorIndex );
 void sbbGotoOpenDoor();
 void sbbGotoCloseDoor();
 void sbbsIntro();
@@ -125,19 +125,18 @@ void sbbGotoIntro()
 }
 
 //
-// Flash the warning lights that will indicate which door is about to open
+// This function will initiate the next door opening phase. A door opening phase consist of:
+// 1. Flash warning lights
+// 2. Open door
+// 3. Do an enemy routine
+// 3.1. Enemy 1: The red kill part
+// 3.2. Enemy 2: Sparrows
+// 3.3. Enemy 3: Missile
+// 3.4. Enemy 4: Dragons
+// 4. Close door
 //
-void sbbGotoWarningLights( int _doorIndex )
-{
-	pfnBoss = &sbbsWaitForAnimationCallback;
-	sbbDoorIndex = _doorIndex;
-	Animation* pAnim = sbbWarningLights[ sbbDoorIndex ]->pTargetGameObject->GetAnimation();
-	pAnim->SetSequence( &animation_spacebase_boss_warninglights_blink );
-	pAnim->SetDoneCallback( &cbWarningLightDone );
-	pAnim->Play();
-	//sbbTimer = (18*5)-1;
-}
-
+// When the door phase is over we idle for a bit, then open another door at random
+//
 void sbbStartNextDoor()
 {
 	// Get current index
@@ -151,6 +150,21 @@ void sbbStartNextDoor()
 	// Fetch door index from pattern
 	int doorIndex = sbbDoorPattern[ currentDoorPatternIndex ];
 	sbbGotoWarningLights( doorIndex );
+}
+
+
+//
+// Flash the warning lights that will indicate which door is about to open
+//
+void sbbGotoWarningLights( int _doorIndex )
+{
+	pfnBoss = &sbbsWaitForAnimationCallback;
+	sbbDoorIndex = _doorIndex;
+	Animation* pAnim = sbbWarningLights[ sbbDoorIndex ]->pTargetGameObject->GetAnimation();
+	pAnim->SetSequence( &animation_spacebase_boss_warninglights_blink );
+	pAnim->SetDoneCallback( &cbWarningLightDone );
+	pAnim->Play();
+	//sbbTimer = (18*5)-1;
 }
 
 //
