@@ -124,3 +124,11 @@ const EnemyDefinition enemy_wallflower =
 	0,
 	NULL,
 };
+
+const EnemyDefinition enemy_spacebaseboss_wallflower =
+{
+	&animation_enemy_wallflower_idle,
+	20,
+	0,
+	NULL,
+};
