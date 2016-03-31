@@ -122,6 +122,11 @@ void sbbUpdate()
 	pfnBoss();
 }
 
+void sbbSpawnEnemy()
+{
+	sbbWallFlower->SetWorldPosition( sbbDoorPositionX[ sbbDoorIndex ] + 1, sbbDoorPositionY[ sbbDoorIndex ] + 2 );
+}
+
 
 
 /******************************************************************************************************************************************
@@ -186,6 +191,10 @@ void sbbGotoWarningLights( int _doorIndex )
 //
 void sbbGotoOpenDoor()
 {
+	// Spawn the enemy that is behind this door
+	sbbSpawnEnemy();
+	
+	//
 	pfnBoss = &sbbsWaitForAnimationCallback;
 	Animation* pAnim = sbbDoor[ sbbDoorIndex ]->pTargetGameObject->GetAnimation();
 	pAnim->SetSequence( &animation_spacebase_boss_door_open );
