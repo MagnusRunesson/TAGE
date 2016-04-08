@@ -75,18 +75,23 @@ void Animation::Update()
 				// The end of the sequence. What now?
 				if( pSequence->Loop )
 				{
+					bool doLoop = true;
+					
 					if( LoopCount > 0 )
 					{
 						LoopCount--;
 						if( LoopCount == 0 )
 						{
+							doLoop = false;
 							callCallback = true;
 							IsPlaying = false;
-						} else
-						{
-							// Loop the loop
-							FrameIndex -= pSequence->NumFrames;
 						}
+					}
+					
+					if( doLoop )
+					{
+						// Loop the loop
+						FrameIndex -= pSequence->NumFrames;
 					}
 				} else
 				{
