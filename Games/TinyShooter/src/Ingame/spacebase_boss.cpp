@@ -162,13 +162,12 @@ void sbbSpawnEnemy()
 	sbbWallFlower->pTargetGameObject->SetEnabled( false );
 	
 	int enemyType = sbbEnemyPattern[ enemyPatternIndex ];
-	debugLog("Enemy type=%i\n", enemyType );
 	
 	switch( enemyType )
 	{
 		case ENEMYTYPE_DRAGON:
 			break;
-			
+
 		case ENEMYTYPE_MISSILE:
 			break;
 
@@ -291,18 +290,15 @@ void sbbGotoWaitForTimer( int _timeout, void(*_pfnCallback)() )
  ******************************************************************************************************************************************/
 void cbWarningLightDone()
 {
-	debugLog("Warning light done, y'all!\n");
 	sbbGotoOpenDoor();
 }
 
 void cbDoorOpenDone()
 {
-	debugLog("Door open done, yah!\n");
 }
 
 void cbDoorCloseDone()
 {
-	debugLog("Door close done, yah!\n");
 	sbbGotoWaitForTimer( 30, &sbbStartNextDoor );
 }
 
