@@ -20,14 +20,37 @@
 uint8 sbbDoorPattern[ 10 ] = {
 	0,2,0,1,2,1,2,0,1,2
 };
+
+#define ENEMYTYPE_WALLFLOWER (0)
+#define ENEMYTYPE_SPARROWS (1)
+#define ENEMYTYPE_DRAGON (2)
+#define ENEMYTYPE_MISSILE (3)
+
+uint8 sbbEnemyPattern[ 11 ] = {
+	ENEMYTYPE_SPARROWS,
+	ENEMYTYPE_WALLFLOWER,
+	ENEMYTYPE_SPARROWS,
+	ENEMYTYPE_MISSILE,
+	ENEMYTYPE_WALLFLOWER,
+	ENEMYTYPE_MISSILE,
+	ENEMYTYPE_DRAGON,
+	ENEMYTYPE_WALLFLOWER,
+	ENEMYTYPE_MISSILE,
+	ENEMYTYPE_WALLFLOWER,
+	ENEMYTYPE_MISSILE,
+};
+
 const uint8 sbbDoorPatternLength = sizeof( sbbDoorPattern );
+const uint8 sbbEnemyPatternLength = sizeof( sbbEnemyPattern );
 
 Enemy* sbbDoor[ 3 ];
 Enemy* sbbWallFlower;
 Enemy* sbbWarningLights[ 3 ];
 int sbbTimer;
 int sbbDoorPatternIndex;
+int sbbEnemyPatternIndex;
 void(*pfnBoss)();
+void(*pfnWaitForTimerDone)();
 
 /******************************************************************************************************************************************
  
@@ -44,11 +67,13 @@ void sbbGotoIntro();
 void sbbGotoWarningLights( int _doorIndex );
 void sbbGotoOpenDoor();
 void sbbGotoCloseDoor();
+void sbbGotoIdleOpenDoor();
 void sbbsIntro();
 //void sbbsWarningLights();
 //void sbbsOpenDoor();
 //void sbbsCloseDoor();
 void sbbsWaitForAnimationCallback();
+void sbbsWaitForTimer();
 void cbDoorOpenDone();
 void cbDoorCloseDone();
 void cbWarningLightDone();
@@ -113,6 +138,9 @@ void sbbSpawn()
 	sbbWarningLights[ 2 ] = sbbCreateWarningLights( sbbDoorPositionX[ 2 ] + 4, sbbDoorPositionY[ 2 ]);
 	
 	sbbDoorPatternIndex = 0;
+	sbbEnemyPatternIndex = 0;
+	
+	pfnWaitForTimerDone = NULL;
 	
 	sbbGotoIntro();
 }
@@ -124,7 +152,36 @@ void sbbUpdate()
 
 void sbbSpawnEnemy()
 {
-	sbbWallFlower->SetWorldPosition( sbbDoorPositionX[ sbbDoorIndex ] + 1, sbbDoorPositionY[ sbbDoorIndex ] + 2 );
+	int enemyPatternIndex = sbbEnemyPatternIndex;
+	
+	sbbEnemyPatternIndex++;
+	if( sbbEnemyPatternIndex >= sbbEnemyPatternLength )
+		sbbEnemyPatternIndex -= sbbEnemyPatternLength;
+
+	// Disable wall flower, just in camse
+	sbbWallFlower->pTargetGameObject->SetEnabled( false );
+	
+	int enemyType = sbbEnemyPattern[ enemyPatternIndex ];
+	debugLog("Enemy type=%i\n", enemyType );
+	
+	switch( enemyType )
+	{
+		case ENEMYTYPE_DRAGON:
+			break;
+			
+		case ENEMYTYPE_MISSILE:
+			break;
+
+		case ENEMYTYPE_SPARROWS:
+			break;
+
+		case ENEMYTYPE_WALLFLOWER:
+			sbbWallFlower->pTargetGameObject->SetEnabled( true );
+			sbbWallFlower->SetWorldPosition( sbbDoorPositionX[ sbbDoorIndex ] + 1, sbbDoorPositionY[ sbbDoorIndex ] + 2 );
+			break;
+	}
+
+	sbbGotoIdleOpenDoor();
 }
 
 
@@ -191,17 +248,15 @@ void sbbGotoWarningLights( int _doorIndex )
 //
 void sbbGotoOpenDoor()
 {
-	// Spawn the enemy that is behind this door
-	sbbSpawnEnemy();
-	
-	//
-	pfnBoss = &sbbsWaitForAnimationCallback;
 	Animation* pAnim = sbbDoor[ sbbDoorIndex ]->pTargetGameObject->GetAnimation();
 	pAnim->SetSequence( &animation_spacebase_boss_door_open );
 	pAnim->SetDoneCallback( cbDoorOpenDone );
 	pAnim->Play();
 	//sbbTimer = (9*4)-1;
 	sbbWallFlower->SpecialFlag = 0;
+
+	// Spawn the enemy that is behind this door
+	sbbSpawnEnemy();
 }
 
 void sbbGotoCloseDoor()
@@ -212,6 +267,21 @@ void sbbGotoCloseDoor()
 	pAnim->SetDoneCallback( cbDoorCloseDone );
 	pAnim->Play();
 	//sbbTimer = (9*1)-1;
+}
+
+void sbbGotoIdleOpenDoor()
+{
+	sbbTimer = 120;
+	pfnWaitForTimerDone = &sbbGotoCloseDoor;
+	pfnBoss = &sbbsWaitForTimer;
+}
+
+void sbbGotoWaitForTimer( int _timeout, void(*_pfnCallback)() )
+{
+	sbbTimer = _timeout;
+	pfnWaitForTimerDone = _pfnCallback;
+	pfnBoss = &sbbsWaitForTimer;
+
 }
 
 /******************************************************************************************************************************************
@@ -233,7 +303,7 @@ void cbDoorOpenDone()
 void cbDoorCloseDone()
 {
 	debugLog("Door close done, yah!\n");
-	sbbGotoIntro();
+	sbbGotoWaitForTimer( 30, &sbbStartNextDoor );
 }
 
 void cbWallflowerHit( Enemy* _pEnemy )
@@ -298,4 +368,14 @@ void sbbsCloseDoor()
 void sbbsWaitForAnimationCallback()
 {
 	
+}
+
+void sbbsWaitForTimer()
+{
+	sbbTimer--;
+	if( sbbTimer <= 0 )
+	{
+		if( pfnWaitForTimerDone != NULL )
+			pfnWaitForTimerDone();
+	}
 }
