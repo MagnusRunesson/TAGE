@@ -18,7 +18,7 @@
 #include "src/Ingame/EnemyMovements.h"
 #include "data/alldata.h"
 
-uint8 sbbDoorPattern[ 10 ] = {
+uint8 sbbDoorPattern[] = {
 	0,2,0,1,2,1,2,0,1,2
 };
 
@@ -27,7 +27,7 @@ uint8 sbbDoorPattern[ 10 ] = {
 #define ENEMYTYPE_DRAGON (2)
 #define ENEMYTYPE_MISSILE (3)
 
-uint8 sbbEnemyPattern[ 11 ] = {
+uint8 sbbEnemyPattern[] = {
 	ENEMYTYPE_SPARROWS,
 	ENEMYTYPE_WALLFLOWER,
 	ENEMYTYPE_SPARROWS,
