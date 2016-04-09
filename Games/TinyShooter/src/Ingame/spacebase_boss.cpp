@@ -91,6 +91,7 @@ Enemy* sbbCreateDoor( int _x, int _y )
 {
 	Enemy* pRet = enemySpawn( &enemy_spacebase_door, _x, _y, NULL );
 	pRet->Timeout = 0;
+	pRet->pTargetGameObject->GetSprite()->SetSort( 2 );
 	return pRet;
 }
 
@@ -101,7 +102,7 @@ Enemy* sbbCreateWarningLights( int _x, int _y )
 {
 	Enemy* pRet = enemySpawn( &enemy_spacebase_warninglights, _x, _y, NULL );
 	pRet->Timeout = 0;
-	pRet->pTargetGameObject->GetSprite()->SetSort( -1 );
+	pRet->pTargetGameObject->GetSprite()->SetSort( 1 );
 	return pRet;
 }
 
@@ -126,7 +127,6 @@ void sbbSpawn()
 	
 	sbbWallFlower = enemySpawn( &enemy_spacebaseboss_wallflower, sbbDoorPositionX[ 0 ] + 1, sbbDoorPositionY[ 0 ] + 2, NULL );
 	sbbWallFlower->Timeout = 0;
-	sbbWallFlower->pTargetGameObject->GetSprite()->SetSort( -2 );
 	sbbWallFlower->pfnHitCallback = &cbWallflowerHit;
 	
 	sbbDoor[ 0 ] = sbbCreateDoor( sbbDoorPositionX[ 0 ], sbbDoorPositionY[ 0 ]);
