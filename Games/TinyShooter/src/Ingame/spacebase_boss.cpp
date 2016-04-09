@@ -15,6 +15,7 @@
 #include "src/Ingame/spacebase_boss.h"
 #include "src/Ingame/Enemy.h"
 #include "src/Ingame/EnemyManager.h"
+#include "src/Ingame/EnemyMovements.h"
 #include "data/alldata.h"
 
 uint8 sbbDoorPattern[ 10 ] = {
@@ -391,6 +392,20 @@ void sbbsWaitForTimer()
  ******************************************************************************************************************************************/
 void sbbSpawnDragon( int _x, int _y )
 {
+	fp2d movement( FixedPoint( 0, -25 ), _y );
+	int i;
+	
+	const EnemyDefinition* pDef = &enemy_dragonhead;
+	
+	for( i=0; i<5; i++ )
+	{
+		Enemy* pEnemy = enemySpawn( pDef, _x+(i*4), _y, &movement );
+		pEnemy->m_movementTimer = 50 - (i*4);
+		pEnemy->pfnMovementUpdate = &EnemyMovement_02_HalfSinus_MoveLeft;
+		pEnemy->pTargetGameObject->GetSprite()->SetSort( 0 );
+		
+		pDef = &enemy_dragonbody;
+	}
 }
 
 void sbbSpawnSparrows( int _x, int _y )
