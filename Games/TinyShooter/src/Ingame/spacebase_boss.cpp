@@ -163,9 +163,12 @@ void sbbSpawnEnemy()
 	
 	int enemyType = sbbEnemyPattern[ enemyPatternIndex ];
 	
+	int doorX = sbbDoorPositionX[ sbbDoorIndex ];
+	int doorY = sbbDoorPositionY[ sbbDoorIndex ];
 	switch( enemyType )
 	{
 		case ENEMYTYPE_DRAGON:
+			sbbSpawnDragon( doorX+3, doorY+2 );
 			break;
 
 		case ENEMYTYPE_MISSILE:
@@ -176,7 +179,7 @@ void sbbSpawnEnemy()
 
 		case ENEMYTYPE_WALLFLOWER:
 			sbbWallFlower->pTargetGameObject->SetEnabled( true );
-			sbbWallFlower->SetWorldPosition( sbbDoorPositionX[ sbbDoorIndex ] + 1, sbbDoorPositionY[ sbbDoorIndex ] + 2 );
+			sbbWallFlower->SetWorldPosition( doorX+1, doorY+2 );
 			break;
 	}
 
