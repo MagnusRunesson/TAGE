@@ -78,6 +78,10 @@ void cbDoorOpenDone();
 void cbDoorCloseDone();
 void cbWarningLightDone();
 void cbWallflowerHit( Enemy* _pEnemy );
+void sbbSpawnDragon( int _x, int _y );
+void sbbSpawnSparrows( int _x, int _y );
+void sbbSpawnMissile( int _x, int _y );
+void sbbSpawnLaser( int _x, int _y );
 
 /******************************************************************************************************************************************
  
@@ -377,4 +381,29 @@ void sbbsWaitForTimer()
 		if( pfnWaitForTimerDone != NULL )
 			pfnWaitForTimerDone();
 	}
+}
+
+
+/******************************************************************************************************************************************
+
+ Spawning enemies
+ 
+ ******************************************************************************************************************************************/
+void sbbSpawnDragon( int _x, int _y )
+{
+}
+
+void sbbSpawnSparrows( int _x, int _y )
+{
+	
+}
+
+void sbbSpawnMissile( int _x, int _y )
+{
+	
+}
+
+void sbbSpawnLaser( int _x, int _y )
+{
+	
 }
