@@ -26,5 +26,6 @@ extern "C" const EnemyDefinition enemy_spacebase_door;
 extern "C" const EnemyDefinition enemy_spacebase_warninglights;
 extern "C" const EnemyDefinition enemy_wallflower;
 extern "C" const EnemyDefinition enemy_spacebaseboss_wallflower;
+extern "C" const EnemyDefinition enemy_missile;
 
 #endif /* defined(__TinyShooter__EnemyDefinitions__) */

@@ -132,3 +132,11 @@ const EnemyDefinition enemy_spacebaseboss_wallflower =
 	0,
 	NULL,
 };
+
+const EnemyDefinition enemy_missile =
+{
+	&animation_enemy_missile,
+	10,
+	0,
+	NULL,
+};
