@@ -406,7 +406,6 @@ void sbbSpawnDragon( int _x, int _y )
 		Enemy* pEnemy = enemySpawn( pDef, _x+(i*4), _y, &movement );
 		pEnemy->m_movementTimer = 50 - (i*4);
 		pEnemy->pfnMovementUpdate = &EnemyMovement_02_HalfSinus_MoveLeft;
-		pEnemy->pTargetGameObject->GetSprite()->SetSort( 0 );
 		
 		pDef = &enemy_dragonbody;
 	}
