@@ -105,6 +105,7 @@
 #include "data/sprite_enemy_bullet_03.h"
 #include "data/sprite_enemy_tallonclaw_00.h"
 #include "data/sprite_enemy_spacebase_secretpassage.h"
+#include "data/sprite_enemy_missile_00.h"
 #include "data/sprite_spacebase_boss_door.h"
 #include "data/sprite_spacebase_boss_warninglights_00.h"
 #include "data/sprite_spacebase_boss_warninglights_01.h"
