@@ -173,7 +173,7 @@ void sbbSpawnEnemy()
 	switch( enemyType )
 	{
 		case ENEMYTYPE_DRAGON:
-			sbbSpawnDragon( doorX+3, doorY+2 );
+			sbbSpawnDragon( doorX, doorY );
 			break;
 
 		case ENEMYTYPE_MISSILE:
@@ -392,6 +392,10 @@ void sbbsWaitForTimer()
  ******************************************************************************************************************************************/
 void sbbSpawnDragon( int _x, int _y )
 {
+	// Offset from door position
+	_x += 3;
+	_y += 2;
+	
 	fp2d movement( FixedPoint( 0, -25 ), _y );
 	int i;
 	
