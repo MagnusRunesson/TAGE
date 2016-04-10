@@ -674,3 +674,22 @@ const AnimationFrameDefinition animation_enemy_wallflower_fire_frames[] = {
 };
 
 DEFINE_ANIMATION( enemy_wallflower_fire, false );
+
+
+
+//
+//
+// Enemy - missile
+//
+//
+const AnimationFrameDefinition animation_enemy_missile_frames[] = {
+	{
+		&sprite_enemy_missile_00,
+		2,
+		0,
+		0,
+		0,
+	},
+};
+
+DEFINE_ANIMATION( enemy_missile, false );

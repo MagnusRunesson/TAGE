@@ -31,5 +31,6 @@ extern "C" const AnimationSequenceDefinition animation_spacebase_boss_door_open;
 extern "C" const AnimationSequenceDefinition animation_spacebase_boss_door_close;
 extern "C" const AnimationSequenceDefinition animation_enemy_wallflower_idle;
 extern "C" const AnimationSequenceDefinition animation_enemy_wallflower_fire;
+extern "C" const AnimationSequenceDefinition animation_enemy_missile;
 
 #endif /* defined(__TinyShooter__animation_enemies__) */
