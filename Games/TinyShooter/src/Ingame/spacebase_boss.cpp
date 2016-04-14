@@ -418,7 +418,6 @@ void sbbSpawnMissile( int _x, int _y )
 	fp2d movement( FixedPoint( 0, -150 ), 0 );
 	Enemy* pEnemy = enemySpawn( &enemy_missile, _x+40, _y+4, &movement );
 	pEnemy->m_movementTimer = 50;
-	pEnemy->pfnMovementUpdate = &EnemyMovement_00_FollowDirection;
 }
 
 void sbbSpawnLaser( int _x, int _y )
