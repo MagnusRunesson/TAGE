@@ -22,7 +22,7 @@ class SpriteRenderer
 public:
 	Sprite* m_scanlineSprites[ MAX_SPRITES+1 ];		// This list is NULL terminated, so we need to have room for a trailing NULL in case all sprites should be in this list
 	Sprite* m_potentialSprites[ MAX_SPRITES+1 ];	// And so is this
-	Sprite* m_sortedSprites[ MAX_SPRITES+1 ];		// This one too! NULL terminated arrays are the BEST!
+	Sprite* m_sortedSprites[ MAX_SPRITES+1 ];		// This one too! NULL terminated arrays are the BEST!
 	
 	Sprite m_sprite[ MAX_SPRITES ];
 	Sprite* m_collisionSprites[ 8 ];
