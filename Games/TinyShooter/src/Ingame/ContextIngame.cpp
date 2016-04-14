@@ -676,3 +676,8 @@ void ingame_debugTrigger( int _trigger )
 		//debugPrintSystems();
 	}
 }
+
+bool ingameIsGameOver()
+{
+	return gameOver;
+}

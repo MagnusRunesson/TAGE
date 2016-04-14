@@ -53,6 +53,8 @@ int sbbEnemyPatternIndex;
 void(*pfnBoss)();
 void(*pfnWaitForTimerDone)();
 
+extern bool ingameIsGameOver();
+
 /******************************************************************************************************************************************
  
  State variables

@@ -47,4 +47,6 @@ public:
 
 extern void(*pfnIngameCallback)();
 
+bool ingameIsGameOver();
+
 #endif /* Context_Ingame_h */
