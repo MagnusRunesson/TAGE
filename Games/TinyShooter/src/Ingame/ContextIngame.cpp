@@ -666,6 +666,9 @@ void ingame_debugTrigger( int _trigger )
 	} else if( _trigger == 6 )
 	{
 		playerPickup( PICKUP_TYPE_BOMB );
+	} else if( _trigger == 7 )
+	{
+		spriteRenderer.debugPrintStats();
 	} else if( _trigger == 8 )
 	{
 		expectedFrameTime = 2000;
