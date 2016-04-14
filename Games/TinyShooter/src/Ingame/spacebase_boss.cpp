@@ -23,14 +23,14 @@ uint8 sbbDoorPattern[] = {
 };
 
 #define ENEMYTYPE_WALLFLOWER (0)
-#define ENEMYTYPE_SPARROWS (1)
+#define ENEMYTYPE_LASER (1)
 #define ENEMYTYPE_DRAGON (2)
 #define ENEMYTYPE_MISSILE (3)
 
 uint8 sbbEnemyPattern[] = {
-	ENEMYTYPE_SPARROWS,
+	ENEMYTYPE_LASER,
 	ENEMYTYPE_WALLFLOWER,
-	ENEMYTYPE_SPARROWS,
+	ENEMYTYPE_LASER,
 	ENEMYTYPE_MISSILE,
 	ENEMYTYPE_WALLFLOWER,
 	ENEMYTYPE_MISSILE,
@@ -180,7 +180,8 @@ void sbbSpawnEnemy()
 			sbbSpawnMissile( doorX, doorY );
 			break;
 
-		case ENEMYTYPE_SPARROWS:
+		case ENEMYTYPE_LASER:
+			sbbSpawnLaser( doorX, doorY );
 			break;
 
 		case ENEMYTYPE_WALLFLOWER:
@@ -214,7 +215,7 @@ void sbbGotoIntro()
 // 2. Open door
 // 3. Do an enemy routine
 // 3.1. Enemy 1: The red kill part
-// 3.2. Enemy 2: Sparrows
+// 3.2. Enemy 2: Laser
 // 3.3. Enemy 3: Missile
 // 3.4. Enemy 4: Dragons
 // 4. Close door
@@ -412,11 +413,6 @@ void sbbSpawnDragon( int _x, int _y )
 	}
 }
 
-void sbbSpawnSparrows( int _x, int _y )
-{
-	
-}
-
 void sbbSpawnMissile( int _x, int _y )
 {
 	fp2d movement( FixedPoint( 0, -150 ), 0 );
@@ -427,5 +423,6 @@ void sbbSpawnMissile( int _x, int _y )
 
 void sbbSpawnLaser( int _x, int _y )
 {
-	
+	Enemy* pEnemy = enemySpawn( &enemy_spacebase_boss_laser, _x+2, _y+4, NULL );
+	pEnemy->Timeout = 120;
 }
