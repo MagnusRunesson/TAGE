@@ -693,3 +693,163 @@ const AnimationFrameDefinition animation_enemy_missile_frames[] = {
 };
 
 DEFINE_ANIMATION( enemy_missile, false );
+
+
+#define AESBBL_FRAME_TIME (4)
+
+//
+//
+// Enemy - spacebase boss - laser
+//
+//
+const AnimationFrameDefinition animation_enemy_spacebase_boss_laser_frames[] = {
+	{
+		(Image*)0,
+		30,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_00,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_01,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_02,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_03,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_04,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_05,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_04,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_05,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_04,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_05,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_04,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_05,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_04,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_05,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_04,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_05,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_04,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_05,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_04,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+	{
+		&sprite_enemy_spacebase_boss_laser_05,
+		AESBBL_FRAME_TIME,
+		0,
+		14,
+		4,
+	},
+};
+
+DEFINE_ANIMATION( enemy_spacebase_boss_laser, false );
