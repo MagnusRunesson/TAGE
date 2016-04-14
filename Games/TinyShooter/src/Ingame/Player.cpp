@@ -35,6 +35,7 @@ uint8 playerInvincibleTimer;
 uint8 playerWeaponPrimary;
 uint8 playerWeaponSecondary;
 uint8 playerRespawnY;
+bool playerEnabled;
 
 void playerReset( int _mapscroll )
 {
@@ -51,9 +52,16 @@ void playerReset( int _mapscroll )
 	playerInvincibleTimer = 60;
 	playerWeaponPrimary = PLAYERWEAPON_PEW;
 	playerWeaponSecondary = PLAYERWEAPON_NONE;
+	playerEnabled = true;
 	
 	hudSetPrimary( HUD_WEAPON_SINGLEFIRE );
 	hudSetSecondary( HUD_WEAPON_NONE );
+}
+
+void playerDisable()
+{
+	playerEnabled = false;
+	player->SetEnabled( false );
 }
 
 void playerInit( int _startX )
@@ -86,6 +94,9 @@ void playerInput_Bomb( int _plx, int _ply );
 
 void playerUpdate()
 {
+	if( playerEnabled == false )
+		return;
+	
 	bool hide = false;
 	
 	if( playerInvincibleTimer > 0 )
@@ -262,7 +273,7 @@ void playerPickup( int _type )
 	}
 }
 
-bool playerHit( int _mapScroll, bool _forceKill )
+bool playerHit( bool _forceKill )
 {
 	// Assume player is not hit
 	bool ret = false;
@@ -270,7 +281,6 @@ bool playerHit( int _mapScroll, bool _forceKill )
 	if((playerInvincibleTimer == 0) || _forceKill )
 	{
 		// Player was hit
-		playerReset( _mapScroll );
 		playerNumLives--;
 		hudSetNumLives( playerNumLives );
 		
@@ -278,4 +288,9 @@ bool playerHit( int _mapScroll, bool _forceKill )
 	}
 	
 	return ret;
+}
+
+int playerGetNumLives()
+{
+	return playerNumLives;
 }

@@ -16,11 +16,13 @@
 
 void playerReset( int _mapscroll );
 void playerInit( int _startX );
+void playerDisable();
 void playerCameraMove( int _cameraMoveDistance );
 void playerUpdate();
 void playerUpgrade();
 void playerPickup( int _type );
-bool playerHit( int _mapScroll, bool _forceKill );
+bool playerHit( bool _forceKill );
 void playerSetRespawnY( int _y );
+int playerGetNumLives();
 
 #endif /* Player_h */

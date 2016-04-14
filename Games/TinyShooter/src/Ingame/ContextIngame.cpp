@@ -65,6 +65,8 @@ uint8 collisionIndices[ SCREEN_WIDTH*8 ];
 
 bool debugSpriteRenderer;
 bool doCameraScroll;
+bool gameOver;
+int gameOverTimer;
 
 extern TinyScreen display;
 
@@ -185,6 +187,7 @@ void ingame_setup()
 	debugSpriteRenderer = false;
 	pfnHBlankInterrupt = HBlankInterrupt;
 	pfnIngameCallback = NULL;
+	gameOver = false;
 
 	//
 	worldWidth = tilemap_spacebase.Width * tilebank_spacebase.TileWidth;
@@ -432,7 +435,7 @@ void ingame_loop()
 					// Player collided with a wall
 					//
 					playerAlive = false;
-					playerHit( mapScroll, true );
+					playerHit( true );
 					explosionsSpawn( camx+i, iScanline, EXPLOSION_TYPE_NORMAL, EXPLOSION_AUDIOTYPE_PLAYER );
 					explosionsSpawn( camx+i-4, iScanline-2, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_PLAYER );
 					explosionsSpawn( camx+i+3, iScanline+4, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_PLAYER );
@@ -460,10 +463,14 @@ void ingame_loop()
 				{
 					lastCollisionBullet = enemySprite;
 					
-					if( playerHit( mapScroll, false ))
+					if( playerAlive )
 					{
-						ENEMY_FROM_SPRITE( enemySprite )->Kill();
-						explosionsSpawn( camx+i, iScanline, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_ENEMY );
+						if( playerHit( false ))
+						{
+							playerAlive = false;
+							ENEMY_FROM_SPRITE( enemySprite )->Kill();
+							explosionsSpawn( camx+i, iScanline, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_ENEMY );
+						}
 					}
 				}
 			} else if((pixelCollisionBits & COLLISIONMASK_PLAYER_ENEMYBULLET) == COLLISIONMASK_PLAYER_ENEMYBULLET )
@@ -474,7 +481,7 @@ void ingame_loop()
 				{
 					lastCollisionBullet = bulletSprite;
 					
-					if( playerHit( mapScroll, false ))
+					if( playerHit( false ))
 					{
 						playerAlive = false;
 						explosionsSpawn( camx+i, iScanline, EXPLOSION_TYPE_NORMAL, EXPLOSION_AUDIOTYPE_PLAYER );
@@ -587,6 +594,27 @@ void ingame_loop()
 	display.print( buffe );
 #endif
 #endif
+
+	if( playerAlive == false )
+	{
+		// Player died some time during this frame
+		if( playerGetNumLives() == 0 )
+		{
+			gameOver = true;
+			gameOverTimer = 90;
+			playerDisable();
+		} else
+		{
+			playerReset( mapScroll );
+		}
+	}
+	
+	if( gameOver )
+	{
+		gameOverTimer--;
+		if( gameOverTimer == 0 )
+			contextGotoTitleScreen();
+	}
 	
 	//
 	// Reset debug triggers
