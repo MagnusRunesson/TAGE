@@ -138,5 +138,13 @@ const EnemyDefinition enemy_missile =
 	&animation_enemy_missile,
 	10,
 	0,
+	&EnemyMovement_00_FollowDirection,
+};
+
+const EnemyDefinition enemy_spacebase_boss_laser =
+{
+	&animation_enemy_spacebase_boss_laser,
+	1,
+	ENEMY_SPECIALFLAG_SPACEBASEBOSSDOOR,
 	NULL,
 };
