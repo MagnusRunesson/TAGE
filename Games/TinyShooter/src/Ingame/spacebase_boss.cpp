@@ -316,8 +316,12 @@ void cbDoorCloseDone()
 
 void cbWallflowerHit( Enemy* _pEnemy )
 {
-	_pEnemy->SpecialFlag = ENEMY_SPECIALFLAG_INVINCIBLE;
-	sbbGotoCloseDoor();
+	bool isGameOver = ingameIsGameOver();
+	if( isGameOver == false )
+	{
+		_pEnemy->SpecialFlag = ENEMY_SPECIALFLAG_INVINCIBLE;
+		sbbGotoCloseDoor();
+	}
 }
 
 /******************************************************************************************************************************************
