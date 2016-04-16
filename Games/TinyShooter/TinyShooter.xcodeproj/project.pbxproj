@@ -37,6 +37,10 @@
 		253E988C1CBCF2290045461C /* sprite_enemy_spacebase_boss_laser_03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253E98861CBCF2290045461C /* sprite_enemy_spacebase_boss_laser_03.cpp */; settings = {ASSET_TAGS = (); }; };
 		253E988D1CBCF2290045461C /* sprite_enemy_spacebase_boss_laser_04.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253E98871CBCF2290045461C /* sprite_enemy_spacebase_boss_laser_04.cpp */; settings = {ASSET_TAGS = (); }; };
 		253E988E1CBCF2290045461C /* sprite_enemy_spacebase_boss_laser_05.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253E98881CBCF2290045461C /* sprite_enemy_spacebase_boss_laser_05.cpp */; settings = {ASSET_TAGS = (); }; };
+		253E98971CC249030045461C /* sprite_gameover_a.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253E988F1CC249030045461C /* sprite_gameover_a.cpp */; settings = {ASSET_TAGS = (); }; };
+		253E98981CC249030045461C /* sprite_gameover_g.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253E98911CC249030045461C /* sprite_gameover_g.cpp */; settings = {ASSET_TAGS = (); }; };
+		253E98991CC249030045461C /* sprite_gameover_m.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253E98931CC249030045461C /* sprite_gameover_m.cpp */; settings = {ASSET_TAGS = (); }; };
+		253E989A1CC249030045461C /* sprite_gameover_v.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253E98951CC249030045461C /* sprite_gameover_v.cpp */; settings = {ASSET_TAGS = (); }; };
 		253FC5AF1C74478A005AB533 /* sprite_enemy_tallonclaw_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253FC5AD1C74478A005AB533 /* sprite_enemy_tallonclaw_00.cpp */; settings = {ASSET_TAGS = (); }; };
 		253FC5B21C763456005AB533 /* sprite_enemy_spacebase_secretpassage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253FC5B01C763456005AB533 /* sprite_enemy_spacebase_secretpassage.cpp */; settings = {ASSET_TAGS = (); }; };
 		253FC5BD1C7ADAA0005AB533 /* sprite_playerbullet_bomb_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253FC5B31C7ADAA0005AB533 /* sprite_playerbullet_bomb_00.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -247,6 +251,14 @@
 		253E98861CBCF2290045461C /* sprite_enemy_spacebase_boss_laser_03.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_spacebase_boss_laser_03.cpp; path = data/sprite_enemy_spacebase_boss_laser_03.cpp; sourceTree = "<group>"; };
 		253E98871CBCF2290045461C /* sprite_enemy_spacebase_boss_laser_04.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_spacebase_boss_laser_04.cpp; path = data/sprite_enemy_spacebase_boss_laser_04.cpp; sourceTree = "<group>"; };
 		253E98881CBCF2290045461C /* sprite_enemy_spacebase_boss_laser_05.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_spacebase_boss_laser_05.cpp; path = data/sprite_enemy_spacebase_boss_laser_05.cpp; sourceTree = "<group>"; };
+		253E988F1CC249030045461C /* sprite_gameover_a.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_gameover_a.cpp; path = data/sprite_gameover_a.cpp; sourceTree = "<group>"; };
+		253E98901CC249030045461C /* sprite_gameover_a.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_gameover_a.h; path = data/sprite_gameover_a.h; sourceTree = "<group>"; };
+		253E98911CC249030045461C /* sprite_gameover_g.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_gameover_g.cpp; path = data/sprite_gameover_g.cpp; sourceTree = "<group>"; };
+		253E98921CC249030045461C /* sprite_gameover_g.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_gameover_g.h; path = data/sprite_gameover_g.h; sourceTree = "<group>"; };
+		253E98931CC249030045461C /* sprite_gameover_m.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_gameover_m.cpp; path = data/sprite_gameover_m.cpp; sourceTree = "<group>"; };
+		253E98941CC249030045461C /* sprite_gameover_m.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_gameover_m.h; path = data/sprite_gameover_m.h; sourceTree = "<group>"; };
+		253E98951CC249030045461C /* sprite_gameover_v.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_gameover_v.cpp; path = data/sprite_gameover_v.cpp; sourceTree = "<group>"; };
+		253E98961CC249030045461C /* sprite_gameover_v.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_gameover_v.h; path = data/sprite_gameover_v.h; sourceTree = "<group>"; };
 		253FC5AD1C74478A005AB533 /* sprite_enemy_tallonclaw_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_tallonclaw_00.cpp; path = data/sprite_enemy_tallonclaw_00.cpp; sourceTree = "<group>"; };
 		253FC5AE1C74478A005AB533 /* sprite_enemy_tallonclaw_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_tallonclaw_00.h; path = data/sprite_enemy_tallonclaw_00.h; sourceTree = "<group>"; };
 		253FC5B01C763456005AB533 /* sprite_enemy_spacebase_secretpassage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_spacebase_secretpassage.cpp; path = data/sprite_enemy_spacebase_secretpassage.cpp; sourceTree = "<group>"; };
@@ -624,6 +636,14 @@
 		250DA18B1C4A7FFF00C664DA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				253E988F1CC249030045461C /* sprite_gameover_a.cpp */,
+				253E98901CC249030045461C /* sprite_gameover_a.h */,
+				253E98911CC249030045461C /* sprite_gameover_g.cpp */,
+				253E98921CC249030045461C /* sprite_gameover_g.h */,
+				253E98931CC249030045461C /* sprite_gameover_m.cpp */,
+				253E98941CC249030045461C /* sprite_gameover_m.h */,
+				253E98951CC249030045461C /* sprite_gameover_v.cpp */,
+				253E98961CC249030045461C /* sprite_gameover_v.h */,
 				253E98831CBCF2290045461C /* sprite_enemy_spacebase_boss_laser_00.cpp */,
 				253E98841CBCF2290045461C /* sprite_enemy_spacebase_boss_laser_01.cpp */,
 				253E98851CBCF2290045461C /* sprite_enemy_spacebase_boss_laser_02.cpp */,
@@ -1090,8 +1110,10 @@
 				25D99FE81C5E574600CC4CAE /* EnemyManager.cpp in Sources */,
 				253FC5BE1C7ADAA0005AB533 /* sprite_playerbullet_bomb_01.cpp in Sources */,
 				25766A321C8DE80100A9E148 /* audiosamples_explosion_short_b_s8b_pcm_11025hz.cpp in Sources */,
+				253E98971CC249030045461C /* sprite_gameover_a.cpp in Sources */,
 				257EC7FB1C97DBCD00650672 /* sprite_spacebase_boss_warninglights_00.cpp in Sources */,
 				25766A2F1C8DE80100A9E148 /* audiosamples_bomb_s8b_pcm_11025hz.cpp in Sources */,
+				253E98981CC249030045461C /* sprite_gameover_g.cpp in Sources */,
 				25CB2D2E1C57561F00BC35A1 /* audiosamples_pew_s8b_pcm_11025hz.cpp in Sources */,
 				25CB2D561C57563F00BC35A1 /* animation_enemies.cpp in Sources */,
 				2591BCB41C5D574300F69102 /* sprite_hud_weapons.cpp in Sources */,
@@ -1128,6 +1150,7 @@
 				257AB0B21C5D171D008745CA /* audiosamples_music_boss_s8b_pcm_11025hz.cpp in Sources */,
 				253A56B01C66971D008CFFDE /* sprite_enemy_turret_00.cpp in Sources */,
 				25D99FE51C5E574600CC4CAE /* BulletManager.cpp in Sources */,
+				253E98991CC249030045461C /* sprite_gameover_m.cpp in Sources */,
 				25CB2D3A1C57561F00BC35A1 /* sprite_logo_shooter_o.cpp in Sources */,
 				253A56A61C626040008CFFDE /* sprite_enemy_bullet_03.cpp in Sources */,
 				253A56B51C67C8CA008CFFDE /* TinyScreen.cpp in Sources */,
@@ -1143,6 +1166,7 @@
 				253E988B1CBCF2290045461C /* sprite_enemy_spacebase_boss_laser_02.cpp in Sources */,
 				25D99FE61C5E574600CC4CAE /* ContextIngame.cpp in Sources */,
 				25CB2D9B1C57565900BC35A1 /* main.cpp in Sources */,
+				253E989A1CC249030045461C /* sprite_gameover_v.cpp in Sources */,
 				25CB2D591C57563F00BC35A1 /* enemy_definitions.cpp in Sources */,
 				25766A041C85F6EC00A9E148 /* sprite_pickup_bomb_01.cpp in Sources */,
 				257669E81C84181D00A9E148 /* sprite_playerbullet_laser_07.cpp in Sources */,
