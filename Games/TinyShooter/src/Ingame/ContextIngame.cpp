@@ -68,6 +68,10 @@ bool doCameraScroll;
 bool gameOver;
 int gameOverTimer;
 
+void ingameGameOverInit();
+void ingameGameOverStart();
+void ingameGameOverUpdate();
+
 extern TinyScreen display;
 
 int worldWidth;
@@ -230,6 +234,7 @@ void ingame_setup()
 	playerBulletsInit();
 	explosionsInit();
 	enemyManagerInit();
+	ingameGameOverInit();
 	
 #ifdef PERF_FEST
 	avgTime = 0.0f;
@@ -600,8 +605,7 @@ void ingame_loop()
 		// Player died some time during this frame
 		if( playerGetNumLives() == 0 )
 		{
-			gameOver = true;
-			gameOverTimer = 90;
+			ingameGameOverStart();
 			playerDisable();
 		} else
 		{
@@ -611,9 +615,7 @@ void ingame_loop()
 	
 	if( gameOver )
 	{
-		gameOverTimer--;
-		if( gameOverTimer == 0 )
-			contextGotoTitleScreen();
+		ingameGameOverUpdate();
 	}
 	
 	//
@@ -683,4 +685,108 @@ void ingame_debugTrigger( int _trigger )
 bool ingameIsGameOver()
 {
 	return gameOver;
+}
+
+const int NUM_GAMEOVER_SPRITES = 8;
+
+Sprite* gameOverSprites[ NUM_GAMEOVER_SPRITES ];
+const Image* GAMEOVER_IMAGES[ NUM_GAMEOVER_SPRITES ] = {
+	&sprite_gameover_g,
+	&sprite_gameover_a,
+	&sprite_gameover_m,
+	&sprite_logo_shooter_e,
+	&sprite_logo_shooter_o,
+	&sprite_gameover_v,
+	&sprite_logo_shooter_e,
+	&sprite_logo_shooter_r,
+};
+
+int LEFT = 28;
+int TOP = 17;
+
+int GAMEOVER_COORDINATES[ NUM_GAMEOVER_SPRITES * 2 ] = {
+	LEFT, TOP,
+	LEFT+11, TOP,
+	LEFT+21, TOP,
+	LEFT+32, TOP,
+	
+	LEFT+1, TOP+16,
+	LEFT+11, TOP+16,
+	LEFT+21, TOP+16,
+	LEFT+29, TOP+16,
+};
+
+int GAMEOVER_DELTAS[ NUM_GAMEOVER_SPRITES * 2 ] = {
+	-2,-1,
+	-1,-1,
+	1,-1,
+	2,-1,
+	-2,1,
+	-1,1,
+	1,1,
+	2,1,
+};
+
+void ingameGameOverInit()
+{
+	int i;
+	for( i=0; i<NUM_GAMEOVER_SPRITES; i++ )
+	{
+		Sprite* sprite = spriteRenderer.AllocateSprite( GAMEOVER_IMAGES[ i ]);;
+		sprite->x = GAMEOVER_COORDINATES[ (i*2)+0 ];
+		sprite->y = GAMEOVER_COORDINATES[ (i*2)+1 ];
+		sprite->ClrFlags( SPRITE_FLAG_ENABLED );
+		gameOverSprites[ i ] = sprite;
+	}
+}
+
+const int GAMEOVER_DURATION = 240;
+const int GAMEOVER_DURATION_SCROLLIN = 30;
+const int GAMEOVER_SCROLLIN_STOP = GAMEOVER_DURATION-GAMEOVER_DURATION_SCROLLIN;
+
+void ingameGameOverStart()
+{
+	gameOver = true;
+	gameOverTimer = GAMEOVER_DURATION;
+	
+	int i;
+	for( i=0; i<NUM_GAMEOVER_SPRITES; i++ )
+		gameOverSprites[ i ]->SetFlags( SPRITE_FLAG_ENABLED );
+}
+
+void ingameGameOverUpdate()
+{
+	int i;
+
+	if( gameOverTimer >= GAMEOVER_SCROLLIN_STOP)
+	{
+		int t = gameOverTimer - GAMEOVER_SCROLLIN_STOP;
+
+		int ri = 0;
+		for( i=0; i<NUM_GAMEOVER_SPRITES; i++ )
+		{
+			gameOverSprites[ i ]->x = GAMEOVER_COORDINATES[ ri ] + (GAMEOVER_DELTAS[ ri ]*t); ri++;
+			gameOverSprites[ i ]->y = GAMEOVER_COORDINATES[ ri ] + (GAMEOVER_DELTAS[ ri ]*t); ri++;
+		}
+	}
+
+	if( gameOverTimer == GAMEOVER_SCROLLIN_STOP-1 )
+		for( i=0; i<4; i++ )
+			gameOverSprites[ i ]->SetFlags( SPRITE_FLAG_DRAWWHITE );
+	
+	if( gameOverTimer == GAMEOVER_SCROLLIN_STOP-3 )
+		for( i=4; i<8; i++ )
+			gameOverSprites[ i ]->SetFlags( SPRITE_FLAG_DRAWWHITE );
+
+	if( gameOverTimer == GAMEOVER_SCROLLIN_STOP-7 )
+		for( i=0; i<4; i++ )
+			gameOverSprites[ i ]->ClrFlags( SPRITE_FLAG_DRAWWHITE );
+
+	if( gameOverTimer == GAMEOVER_SCROLLIN_STOP-9 )
+		for( i=4; i<8; i++ )
+			gameOverSprites[ i ]->ClrFlags( SPRITE_FLAG_DRAWWHITE );
+	
+	gameOverTimer--;
+	if( gameOverTimer == 0 )
+		contextGotoTitleScreen();
 }
