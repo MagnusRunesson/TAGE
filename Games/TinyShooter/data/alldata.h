@@ -117,6 +117,10 @@
 #include "data/sprite_spacebase_boss_warninglights_01.h"
 #include "data/sprite_spacebase_boss_warninglights_02.h"
 #include "data/sprite_spacebase_boss_warninglights_03.h"
+#include "data/sprite_gameover_a.h"
+#include "data/sprite_gameover_g.h"
+#include "data/sprite_gameover_m.h"
+#include "data/sprite_gameover_v.h"
 #include "data/tilemap_spacebase.h"
 #include "data/tilemap_spacebase_background.h"
 
