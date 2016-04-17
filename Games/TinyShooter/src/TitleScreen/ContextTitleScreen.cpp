@@ -36,6 +36,17 @@
 #define TITLESCREEN_CREDITSTIMER_INVISBLE (30)
 #define TITLESCREEN_CREDITSHEIGHT (45)
 
+#define TITLESCREEN_FLASHTIMER_DURATION_REPEAT (240)
+#define TITLESCREEN_FLASHTIMER_DURATION_INITIAL (60)
+#define TITLESCREEN_FLASHTIMER_LETTER_DURATION (6)
+#define TITLESCREEN_FLASHTIMER_START (56>>3)
+
+const int titleSpriteFlashDelay[ 4+7 ] =
+{
+	43, 28, 21, 8,				// 8, 21, 28, 43,
+	56, 48, 39, 29, 19, 9, 0,	// 0, 9, 19, 29, 39, 48, 56,
+};
+
 extern TinyScreen display;
 extern uint16* lineBuffer;
 
@@ -57,6 +68,7 @@ Sprite* titleScreenInsertCredits;
 Sprite* titleScreenWinners;
 int titlescreenCloseTimer;
 int titleScreenTimer;
+int titleScreenFlashTimer;
 
 extern uint8 collisionBits[];
 extern uint8 collisionIndices[];
@@ -147,6 +159,7 @@ void titlescreen_setup()
 
 	//
 	titlescreenCloseTimer = 0;
+	titleScreenFlashTimer = TITLESCREEN_FLASHTIMER_DURATION_INITIAL;
 }
 
 void titlescreen_loop()
@@ -158,6 +171,27 @@ void titlescreen_loop()
 	//
 	padUpdate();
 	
+	//
+	titleScreenFlashTimer--;
+	if( titleScreenFlashTimer < TITLESCREEN_FLASHTIMER_START )
+	{
+		int i;
+		for( i=0; i<4+7; i++ )
+		{
+			int offset = titleScreenFlashTimer - (titleSpriteFlashDelay[ i ] >> 3);
+			if( offset >= 0 )
+				titleSprites[ i ]->ClrFlags( SPRITE_FLAG_DRAWWHITE );
+			else if( offset <= -TITLESCREEN_FLASHTIMER_LETTER_DURATION )
+				titleSprites[ i ]->ClrFlags( SPRITE_FLAG_DRAWWHITE );
+			else
+				titleSprites[ i ]->SetFlags( SPRITE_FLAG_DRAWWHITE );
+		}
+		
+		if( titleScreenFlashTimer == -TITLESCREEN_FLASHTIMER_START )
+			titleScreenFlashTimer = TITLESCREEN_FLASHTIMER_DURATION_REPEAT;
+	}
+
+	//
 	if( titlescreenCloseTimer == 0 )
 	{
 		titleScreenTimer--;
@@ -175,6 +209,8 @@ void titlescreen_loop()
 			audioMixer.GetStream( 0 )->Pause();
 			//audioMixer.SetFrequency( 11025 );
 			titlescreenCloseTimer = TITLESCREEN_CLOSETIMER_TOTALDURATION;
+			if( titleScreenFlashTimer > TITLESCREEN_FLASHTIMER_START )
+				titleScreenFlashTimer = TITLESCREEN_FLASHTIMER_START;
 		}
 	}
 	else
