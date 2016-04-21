@@ -16,6 +16,7 @@
 #include "src/Ingame/Enemy.h"
 #include "src/Ingame/EnemyManager.h"
 #include "src/Ingame/EnemyMovements.h"
+#include "src/ContextManager.h"
 #include "data/alldata.h"
 
 uint8 sbbDoorPattern[] = {
@@ -48,6 +49,7 @@ Enemy* sbbDoor[ 3 ];
 Enemy* sbbWallFlower;
 Enemy* sbbWarningLights[ 3 ];
 int sbbTimer;
+int sbbHealth;
 int sbbDoorPatternIndex;
 int sbbEnemyPatternIndex;
 void(*pfnBoss)();
@@ -77,6 +79,7 @@ void sbbsIntro();
 //void sbbsCloseDoor();
 void sbbsWaitForAnimationCallback();
 void sbbsWaitForTimer();
+void sbbsPlayerWin();
 void cbDoorOpenDone();
 void cbDoorCloseDone();
 void cbWarningLightDone();
@@ -146,6 +149,7 @@ void sbbSpawn()
 	
 	sbbDoorPatternIndex = 0;
 	sbbEnemyPatternIndex = 0;
+	sbbHealth = 1;
 	
 	pfnWaitForTimerDone = NULL;
 	
@@ -295,6 +299,12 @@ void sbbGotoWaitForTimer( int _timeout, void(*_pfnCallback)() )
 
 }
 
+void sbbGotoPlayerWin()
+{
+	sbbTimer = 90;
+	pfnBoss = &sbbsPlayerWin;
+}
+
 /******************************************************************************************************************************************
  
  Animation callbacks
@@ -302,7 +312,8 @@ void sbbGotoWaitForTimer( int _timeout, void(*_pfnCallback)() )
  ******************************************************************************************************************************************/
 void cbWarningLightDone()
 {
-	sbbGotoOpenDoor();
+	if( sbbHealth > 0 )
+		sbbGotoOpenDoor();
 }
 
 void cbDoorOpenDone()
@@ -311,16 +322,29 @@ void cbDoorOpenDone()
 
 void cbDoorCloseDone()
 {
-	sbbGotoWaitForTimer( 30, &sbbStartNextDoor );
+	if( sbbHealth > 0 )
+		sbbGotoWaitForTimer( 30, &sbbStartNextDoor );
 }
 
 void cbWallflowerHit( Enemy* _pEnemy )
 {
+	// Early out of the boss is already dead
+	if( sbbHealth <= 0 )
+		return;
+	
 	bool isGameOver = ingameIsGameOver();
 	if( isGameOver == false )
 	{
-		_pEnemy->SpecialFlag = ENEMY_SPECIALFLAG_INVINCIBLE;
-		sbbGotoCloseDoor();
+		sbbHealth--;
+		if( sbbHealth == 0 )
+		{
+			sbbGotoPlayerWin();
+		}
+		else
+		{
+			_pEnemy->SpecialFlag = ENEMY_SPECIALFLAG_INVINCIBLE;
+			sbbGotoCloseDoor();
+		}
 	}
 }
 
@@ -392,6 +416,14 @@ void sbbsWaitForTimer()
 	}
 }
 
+void sbbsPlayerWin()
+{
+	sbbTimer--;
+	if( sbbTimer <= 0 )
+	{
+		contextGotoWinScreen();
+	}
+}
 
 /******************************************************************************************************************************************
 
