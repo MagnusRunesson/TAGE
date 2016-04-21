@@ -19,6 +19,8 @@
 #include "src/ContextManager.h"
 #include "data/alldata.h"
 
+#define SBB_INITIAL_HEALTH (5)
+
 uint8 sbbDoorPattern[] = {
 	0,2,0,1,2,1,2,0,1,2
 };
@@ -149,7 +151,7 @@ void sbbSpawn()
 	
 	sbbDoorPatternIndex = 0;
 	sbbEnemyPatternIndex = 0;
-	sbbHealth = 1;
+	sbbHealth = SBB_INITIAL_HEALTH;
 	
 	pfnWaitForTimerDone = NULL;
 	
