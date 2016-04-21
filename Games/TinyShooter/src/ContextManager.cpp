@@ -10,6 +10,7 @@
 #include "src/ContextManager.h"
 #include "src/Ingame/ContextIngame.h"
 #include "src/TitleScreen/ContextTitleScreen.h"
+#include "src/WinScreen/ContextWinScreen.h"
 
 void(*pfnCurrentContextLoop)();
 void(*pfnCurrentContextDebugTrigger)( int );
@@ -76,6 +77,20 @@ void _contextGotoTitleScreen()
 	titlescreen_setup();
 }
 
+void _contextGotoWinScreen()
+{
+	// Clean up previous context
+	pfnCurrentContextExit();
+	
+	// Setup new context function pointesr
+	pfnCurrentContextDebugTrigger = &winscreen_debugTrigger;
+	pfnCurrentContextLoop = &winscreen_loop;
+	pfnCurrentContextExit = &winscreen_exit;
+	
+	// Also initialize the title screen context
+	winscreen_setup();
+}
+
 void contextGotoIngame()
 {
 	pfnContextSwitchTo = &_contextGotoIngame;
@@ -84,4 +99,9 @@ void contextGotoIngame()
 void contextGotoTitleScreen()
 {
 	pfnContextSwitchTo = &_contextGotoTitleScreen;
+}
+
+void contextGotoWinScreen()
+{
+	pfnContextSwitchTo = &_contextGotoWinScreen;
 }

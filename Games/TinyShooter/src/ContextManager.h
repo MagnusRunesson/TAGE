@@ -17,5 +17,6 @@ extern void(*pfnContextSwitchTo)();
 void contextInit();
 void contextGotoIngame();
 void contextGotoTitleScreen();
+void contextGotoWinScreen();
 
 #endif /* ContextManager_h */
