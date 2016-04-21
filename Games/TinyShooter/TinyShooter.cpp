@@ -24,8 +24,9 @@
 #include "src/Ingame/spacebase_levelscrollfunc.cpp"
 #include "src/Ingame/spacebase_boss.cpp"
 
-// Title screen
+// Screens
 #include "src/TitleScreen/ContextTitleScreen.cpp"
+#include "src/WinScreen/ContextWinScreen.cpp"
 
 // Data
 #include "data/alldata.cpp"
