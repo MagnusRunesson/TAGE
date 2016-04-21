@@ -41,6 +41,7 @@
 		253E98981CC249030045461C /* sprite_gameover_g.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253E98911CC249030045461C /* sprite_gameover_g.cpp */; settings = {ASSET_TAGS = (); }; };
 		253E98991CC249030045461C /* sprite_gameover_m.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253E98931CC249030045461C /* sprite_gameover_m.cpp */; settings = {ASSET_TAGS = (); }; };
 		253E989A1CC249030045461C /* sprite_gameover_v.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253E98951CC249030045461C /* sprite_gameover_v.cpp */; settings = {ASSET_TAGS = (); }; };
+		253E989E1CC7DB170045461C /* ContextWinScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253E989C1CC7DB170045461C /* ContextWinScreen.cpp */; settings = {ASSET_TAGS = (); }; };
 		253FC5AF1C74478A005AB533 /* sprite_enemy_tallonclaw_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253FC5AD1C74478A005AB533 /* sprite_enemy_tallonclaw_00.cpp */; settings = {ASSET_TAGS = (); }; };
 		253FC5B21C763456005AB533 /* sprite_enemy_spacebase_secretpassage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253FC5B01C763456005AB533 /* sprite_enemy_spacebase_secretpassage.cpp */; settings = {ASSET_TAGS = (); }; };
 		253FC5BD1C7ADAA0005AB533 /* sprite_playerbullet_bomb_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253FC5B31C7ADAA0005AB533 /* sprite_playerbullet_bomb_00.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -259,6 +260,8 @@
 		253E98941CC249030045461C /* sprite_gameover_m.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_gameover_m.h; path = data/sprite_gameover_m.h; sourceTree = "<group>"; };
 		253E98951CC249030045461C /* sprite_gameover_v.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_gameover_v.cpp; path = data/sprite_gameover_v.cpp; sourceTree = "<group>"; };
 		253E98961CC249030045461C /* sprite_gameover_v.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_gameover_v.h; path = data/sprite_gameover_v.h; sourceTree = "<group>"; };
+		253E989C1CC7DB170045461C /* ContextWinScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ContextWinScreen.cpp; path = src/WinScreen/ContextWinScreen.cpp; sourceTree = SOURCE_ROOT; };
+		253E989D1CC7DB170045461C /* ContextWinScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContextWinScreen.h; path = src/WinScreen/ContextWinScreen.h; sourceTree = SOURCE_ROOT; };
 		253FC5AD1C74478A005AB533 /* sprite_enemy_tallonclaw_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_tallonclaw_00.cpp; path = data/sprite_enemy_tallonclaw_00.cpp; sourceTree = "<group>"; };
 		253FC5AE1C74478A005AB533 /* sprite_enemy_tallonclaw_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_tallonclaw_00.h; path = data/sprite_enemy_tallonclaw_00.h; sourceTree = "<group>"; };
 		253FC5B01C763456005AB533 /* sprite_enemy_spacebase_secretpassage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_spacebase_secretpassage.cpp; path = data/sprite_enemy_spacebase_secretpassage.cpp; sourceTree = "<group>"; };
@@ -584,6 +587,7 @@
 		250DA14C1C4A7F7E00C664DA /* TinyShooter */ = {
 			isa = PBXGroup;
 			children = (
+				253E989B1CC7DB0D0045461C /* WinScreen */,
 				25D99FD01C5E573B00CC4CAE /* Ingame */,
 				25D99FC91C5E4C3300CC4CAE /* TitleScreen */,
 				25CB2CED1C57561700BC35A1 /* TinyShooter.cpp */,
@@ -877,6 +881,15 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		253E989B1CC7DB0D0045461C /* WinScreen */ = {
+			isa = PBXGroup;
+			children = (
+				253E989C1CC7DB170045461C /* ContextWinScreen.cpp */,
+				253E989D1CC7DB170045461C /* ContextWinScreen.h */,
+			);
+			name = WinScreen;
+			sourceTree = "<group>";
+		};
 		255853CE1C536A4200E1A79A /* Data Manual */ = {
 			isa = PBXGroup;
 			children = (
@@ -1133,6 +1146,7 @@
 				25766A311C8DE80100A9E148 /* audiosamples_explosion_short_a_s8b_pcm_11025hz.cpp in Sources */,
 				253FC5C41C7DCC4A005AB533 /* AudioStream.cpp in Sources */,
 				25CB2D901C57565100BC35A1 /* TileMap.cpp in Sources */,
+				253E989E1CC7DB170045461C /* ContextWinScreen.cpp in Sources */,
 				25CB2D4B1C57561F00BC35A1 /* tilemap_spacebase.cpp in Sources */,
 				2591BCB11C5D429100F69102 /* sprite_enemy_dragonbody_00.cpp in Sources */,
 				25D99FCC1C5E4C3300CC4CAE /* ContextTitleScreen.cpp in Sources */,
