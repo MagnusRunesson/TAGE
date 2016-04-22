@@ -452,7 +452,6 @@ void sbbsPlayerWin()
 		
 		// Wait for next explosion
 		sbbPlayerWinExplosionTimer = pExplosionData->duration;
-		debugLog("Wait for %i frames\n", sbbPlayerWinExplosionTimer );
 	}
 	
 	sbbTimer--;
