@@ -16,6 +16,7 @@
 #include "src/Ingame/Enemy.h"
 #include "src/Ingame/EnemyManager.h"
 #include "src/Ingame/EnemyMovements.h"
+#include "src/Ingame/ExplosionManager.h"
 #include "src/ContextManager.h"
 #include "data/alldata.h"
 
@@ -340,6 +341,9 @@ void cbWallflowerHit( Enemy* _pEnemy )
 		sbbHealth--;
 		if( sbbHealth == 0 )
 		{
+			GameObject* pEnemyGO = _pEnemy->pTargetGameObject;
+			explosionsSpawn( pEnemyGO->GetWorldPositionX(), pEnemyGO->GetWorldPositionY(), EXPLOSION_TYPE_NORMAL, EXPLOSION_AUDIOTYPE_BOMB );
+			pEnemyGO->SetEnabled( false );
 			sbbGotoPlayerWin();
 		}
 		else
