@@ -20,30 +20,39 @@
 #include "src/ContextManager.h"
 #include "data/alldata.h"
 
+//
+// Settings
+//
 #define SBB_INITIAL_HEALTH (1)
 
+//
+// Enemies the boss can spawn
+//
 #define ENEMYTYPE_WALLFLOWER (0)
 #define ENEMYTYPE_LASER (1)
 #define ENEMYTYPE_DRAGON (2)
 #define ENEMYTYPE_MISSILE (3)
 
-uint8 sbbDoorPattern[] = {
-	0,2,0,1,2,1,2,0,1,2
-};
-
-int sbbDoorPositionX[] = {
+//
+// Patterns and positions
+//
+const int sbbDoorPositionX[] = {
 	944,
 	940,
 	940,
 };
 
-int sbbDoorPositionY[] = {
+const int sbbDoorPositionY[] = {
 	3,
 	27,
 	51,
 };
 
-uint8 sbbEnemyPattern[] = {
+const uint8 sbbDoorPattern[] = {
+	0,2,0,1,2,1,2,0,1,2
+};
+
+const uint8 sbbEnemyPattern[] = {
 	ENEMYTYPE_MISSILE,
 	ENEMYTYPE_WALLFLOWER,
 	ENEMYTYPE_LASER,
@@ -60,25 +69,32 @@ uint8 sbbEnemyPattern[] = {
 const uint8 sbbDoorPatternLength = sizeof( sbbDoorPattern );
 const uint8 sbbEnemyPatternLength = sizeof( sbbEnemyPattern );
 
+//
+// Game objects
+//
 Enemy* sbbDoor[ 3 ];
 Enemy* sbbWallFlower;
 Enemy* sbbWarningLights[ 3 ];
+
+//
+// Callbacks
+//
+void(*pfnBoss)();
+void(*pfnWaitForTimerDone)();
+
+//
+// Imported functions
+//
+extern bool ingameIsGameOver();
+
+//
+// State variables
+//
+int sbbDoorIndex;
 int sbbTimer;
 int sbbHealth;
 int sbbDoorPatternIndex;
 int sbbEnemyPatternIndex;
-void(*pfnBoss)();
-void(*pfnWaitForTimerDone)();
-
-extern bool ingameIsGameOver();
-
-/******************************************************************************************************************************************
- 
- State variables
- 
- ******************************************************************************************************************************************/
-int sbbDoorIndex;
-
 
 //
 // States
@@ -89,9 +105,6 @@ void sbbGotoOpenDoor();
 void sbbGotoCloseDoor();
 void sbbGotoIdleOpenDoor();
 void sbbsIntro();
-//void sbbsWarningLights();
-//void sbbsOpenDoor();
-//void sbbsCloseDoor();
 void sbbsWaitForAnimationCallback();
 void sbbsWaitForTimer();
 void sbbsPlayerWin();
