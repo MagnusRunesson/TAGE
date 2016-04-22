@@ -19,6 +19,6 @@
 
 void explosionsInit();
 void explosionsUpdate();
-void explosionsSpawn( int _worldX, int _worldY, int _explosionType, int _audioType );
+GameObject* explosionsSpawn( int _worldX, int _worldY, int _explosionType, int _audioType );
 
 #endif /* Explosions_h */

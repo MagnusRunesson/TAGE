@@ -58,7 +58,7 @@ void explosionsUpdate()
 }
 
 
-void explosionsSpawn( int _worldX, int _worldY, int _explosionType, int _audioType )
+GameObject* explosionsSpawn( int _worldX, int _worldY, int _explosionType, int _audioType )
 {
 	GameObject* exp = explosions[ nextExplosion ];
 	nextExplosion++;
@@ -99,4 +99,6 @@ void explosionsSpawn( int _worldX, int _worldY, int _explosionType, int _audioTy
 	
 	if( _audioType != EXPLOSION_AUDIOTYPE_NONE )
 		sfxExplosion->PlayFromBeginning();
+	
+	return exp;
 }
