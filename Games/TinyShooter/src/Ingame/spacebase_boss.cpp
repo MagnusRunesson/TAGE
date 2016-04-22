@@ -48,6 +48,36 @@ const int sbbDoorPositionY[] = {
 	51,
 };
 
+class CsbbEndExplosion
+{
+public:
+	uint16 posX;
+	uint16 posY;
+	uint8 type;
+	uint8 audioType;
+	uint8 duration;
+};
+
+const CsbbEndExplosion sbbPlayerWinExplosion[] = {
+	{ 934, 3, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_BOMB, 7 },
+	{ 930, 51, EXPLOSION_TYPE_NORMAL, EXPLOSION_AUDIOTYPE_ENEMY, 5 },
+	{ 950, 27, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_BOMB, 6 },
+	{ 932, 38, EXPLOSION_TYPE_NORMAL, EXPLOSION_AUDIOTYPE_ENEMY, 10 },
+	{ 945, 12, EXPLOSION_TYPE_NORMAL, EXPLOSION_AUDIOTYPE_ENEMY, 5 },
+	{ 952, 30, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_BOMB, 3 },
+	{ 934, 3, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_BOMB, 8 },
+	{ 930, 51, EXPLOSION_TYPE_NORMAL, EXPLOSION_AUDIOTYPE_ENEMY, 6 },
+	{ 950, 27, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_BOMB, 8 },
+	{ 932, 38, EXPLOSION_TYPE_NORMAL, EXPLOSION_AUDIOTYPE_ENEMY, 3 },
+	{ 945, 12, EXPLOSION_TYPE_NORMAL, EXPLOSION_AUDIOTYPE_ENEMY, 9 },
+	{ 952, 30, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_BOMB, 8 },
+	{ 934, 3, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_BOMB, 5 },
+	{ 930, 51, EXPLOSION_TYPE_NORMAL, EXPLOSION_AUDIOTYPE_ENEMY, 12 },
+	{ 950, 27, EXPLOSION_TYPE_DEBRIS, EXPLOSION_AUDIOTYPE_BOMB, 10 },
+	{ 932, 38, EXPLOSION_TYPE_NORMAL, EXPLOSION_AUDIOTYPE_ENEMY, 15 },
+	{ 945, 12, EXPLOSION_TYPE_NORMAL, EXPLOSION_AUDIOTYPE_ENEMY, 200 },
+};
+
 const uint8 sbbDoorPattern[] = {
 	0,2,0,1,2,1,2,0,1,2
 };
@@ -68,6 +98,7 @@ const uint8 sbbEnemyPattern[] = {
 
 const uint8 sbbDoorPatternLength = sizeof( sbbDoorPattern );
 const uint8 sbbEnemyPatternLength = sizeof( sbbEnemyPattern );
+const uint8 sbbPlayerWinExplosionLength = sizeof( sbbPlayerWinExplosion ) / sizeof( CsbbEndExplosion );
 
 //
 // Game objects
@@ -95,6 +126,8 @@ int sbbTimer;
 int sbbHealth;
 int sbbDoorPatternIndex;
 int sbbEnemyPatternIndex;
+int sbbPlayerWinExplosionIndex;
+int sbbPlayerWinExplosionTimer;
 
 //
 // States
@@ -317,7 +350,9 @@ void sbbGotoWaitForTimer( int _timeout, void(*_pfnCallback)() )
 
 void sbbGotoPlayerWin()
 {
-	sbbTimer = 90;
+	sbbPlayerWinExplosionIndex = 0;
+	sbbPlayerWinExplosionTimer = 22;
+	sbbTimer = 180;
 	pfnBoss = &sbbsPlayerWin;
 }
 
@@ -399,6 +434,24 @@ void sbbsWaitForTimer()
 
 void sbbsPlayerWin()
 {
+	sbbPlayerWinExplosionTimer--;
+	if( sbbPlayerWinExplosionTimer == 0 )
+	{
+		// Fetch the current data
+		const CsbbEndExplosion* pExplosionData = &sbbPlayerWinExplosion[ sbbPlayerWinExplosionIndex ];
+		GameObject* pExplosion = explosionsSpawn( pExplosionData->posX, pExplosionData->posY, pExplosionData->type, pExplosionData->audioType );
+		pExplosion->GetSprite()->SetSort( 3 );
+		
+		// Go to next explosion definition
+		sbbPlayerWinExplosionIndex++;
+		if( sbbPlayerWinExplosionIndex == sbbPlayerWinExplosionLength )
+			sbbPlayerWinExplosionIndex = 0;
+		
+		// Wait for next explosion
+		sbbPlayerWinExplosionTimer = pExplosionData->duration;
+		debugLog("Wait for %i frames\n", sbbPlayerWinExplosionTimer );
+	}
+	
 	sbbTimer--;
 	if( sbbTimer <= 0 )
 	{
