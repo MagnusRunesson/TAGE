@@ -23,7 +23,7 @@
 //
 // Settings
 //
-#define SBB_INITIAL_HEALTH (1)
+#define SBB_INITIAL_HEALTH (5)
 
 //
 // Enemies the boss can spawn
