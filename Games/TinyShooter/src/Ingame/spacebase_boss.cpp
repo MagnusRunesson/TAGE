@@ -34,6 +34,19 @@
 #define ENEMYTYPE_MISSILE (3)
 
 //
+// This class defines the properties for an explosion spawned when the spacebase boss have been destroyed
+//
+class CsbbEndExplosion
+{
+public:
+	uint16 posX;
+	uint16 posY;
+	uint8 type;
+	uint8 audioType;
+	uint8 duration;
+};
+
+//
 // Patterns and positions
 //
 const int sbbDoorPositionX[] = {
@@ -46,16 +59,6 @@ const int sbbDoorPositionY[] = {
 	3,
 	27,
 	51,
-};
-
-class CsbbEndExplosion
-{
-public:
-	uint16 posX;
-	uint16 posY;
-	uint8 type;
-	uint8 audioType;
-	uint8 duration;
 };
 
 const CsbbEndExplosion sbbPlayerWinExplosion[] = {
