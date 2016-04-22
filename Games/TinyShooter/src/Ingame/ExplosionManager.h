@@ -15,6 +15,7 @@
 #define EXPLOSION_AUDIOTYPE_ENEMY	(0)
 #define EXPLOSION_AUDIOTYPE_PLAYER	(1)
 #define EXPLOSION_AUDIOTYPE_BOMB	(2)
+#define EXPLOSION_AUDIOTYPE_NONE	(3)
 
 void explosionsInit();
 void explosionsUpdate();

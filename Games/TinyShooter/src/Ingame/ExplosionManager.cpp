@@ -76,6 +76,7 @@ void explosionsSpawn( int _worldX, int _worldY, int _explosionType, int _audioTy
 			exp->GetAnimation()->SetSequence( &animation_explosion_big );
 			break;
 	}
+	
 	exp->SetWorldPosition( _worldX, _worldY );
 	exp->GetAnimation()->Reset();
 	exp->GetAnimation()->Play();
@@ -86,7 +87,7 @@ void explosionsSpawn( int _worldX, int _worldY, int _explosionType, int _audioTy
 		case EXPLOSION_AUDIOTYPE_ENEMY:
 			sfxExplosion->SetData( &sfx_explosion_short_b );
 			break;
-			
+
 		case EXPLOSION_AUDIOTYPE_PLAYER:
 			sfxExplosion->SetData( &sfx_explosion_medium_a );
 			break;
@@ -96,5 +97,6 @@ void explosionsSpawn( int _worldX, int _worldY, int _explosionType, int _audioTy
 			break;
 	}
 	
-	sfxExplosion->PlayFromBeginning();
+	if( _audioType != EXPLOSION_AUDIOTYPE_NONE )
+		sfxExplosion->PlayFromBeginning();
 }
