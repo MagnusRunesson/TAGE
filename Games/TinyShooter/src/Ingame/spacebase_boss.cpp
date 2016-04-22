@@ -20,16 +20,28 @@
 #include "src/ContextManager.h"
 #include "data/alldata.h"
 
-#define SBB_INITIAL_HEALTH (5)
-
-uint8 sbbDoorPattern[] = {
-	0,2,0,1,2,1,2,0,1,2
-};
+#define SBB_INITIAL_HEALTH (1)
 
 #define ENEMYTYPE_WALLFLOWER (0)
 #define ENEMYTYPE_LASER (1)
 #define ENEMYTYPE_DRAGON (2)
 #define ENEMYTYPE_MISSILE (3)
+
+uint8 sbbDoorPattern[] = {
+	0,2,0,1,2,1,2,0,1,2
+};
+
+int sbbDoorPositionX[] = {
+	944,
+	940,
+	940,
+};
+
+int sbbDoorPositionY[] = {
+	3,
+	27,
+	51,
+};
 
 uint8 sbbEnemyPattern[] = {
 	ENEMYTYPE_MISSILE,
@@ -118,18 +130,6 @@ Enemy* sbbCreateWarningLights( int _x, int _y )
 	pRet->pTargetGameObject->GetSprite()->SetSort( 1 );
 	return pRet;
 }
-
-int sbbDoorPositionX[] = {
-	944,
-	940,
-	940,
-};
-
-int sbbDoorPositionY[] = {
-	3,
-	27,
-	51,
-};
 
 //
 // Public functions
@@ -368,44 +368,6 @@ void sbbsIntro()
 	if( sbbTimer == 0 )
 		sbbStartNextDoor();
 }
-
-/*
-void sbbsWarningLights()
-{
-	sbbTimer--;
-	if( sbbTimer == 0 )
-	{
-		sbbWarningLights[ sbbDoorIndex ]->GetAnimation()->SetDoneCallback( NULL );
-		sbbGotoOpenDoor();
-	}
-}
-
-//
-// Animate an opening door
-//
-void sbbsOpenDoor()
-{
-	sbbTimer--;
-	if( sbbTimer == 0 )
-	{
-		sbbDoor[ sbbDoorIndex ]->pTargetGameObject->GetAnimation()->SetDoneCallback( NULL );
-		sbbGotoCloseDoor();
-	}
-}
-
-//
-// Animate an opening door
-//
-void sbbsCloseDoor()
-{
-	sbbTimer--;
-	if( sbbTimer == 0 )
-	{
-		sbbDoor[ sbbDoorIndex ]->pTargetGameObject->GetAnimation()->SetDoneCallback( NULL );
-		sbbGotoIntro();
-	}
-}
-*/
 
 void sbbsWaitForAnimationCallback()
 {
