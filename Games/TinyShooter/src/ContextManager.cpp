@@ -19,34 +19,46 @@ void(*pfnContextSwitchTo)();
 
 int contextSwitchTo;
 
-void contextInit()
+void startTitle()
 {
-	pfnContextSwitchTo = NULL;
-	
-	//*
-
 	//
-	// Initialize function pointers with the title screen as the initial context
+	// Title screen
 	//
 	pfnCurrentContextDebugTrigger = &titlescreen_debugTrigger;
 	pfnCurrentContextLoop = &titlescreen_loop;
 	pfnCurrentContextExit = &titlescreen_exit;
-	 
 	titlescreen_setup();
+}
 
-	/*/
-	
+void startIngame()
+{
 	//
-	// Initialize function pointers with ingame for the initial context
+	// Ingame
 	//
-	
 	pfnCurrentContextDebugTrigger = &ingame_debugTrigger;
 	pfnCurrentContextLoop = &ingame_loop;
 	pfnCurrentContextExit = &ingame_exit;
-	
 	ingame_setup();
+}
 
-	/**/
+void startWinScreen()
+{
+	//
+	// Win screen
+	//
+	pfnCurrentContextDebugTrigger = &winscreen_debugTrigger;
+	pfnCurrentContextLoop = &winscreen_loop;
+	pfnCurrentContextExit = &winscreen_exit;
+	winscreen_setup();
+}
+
+void contextInit()
+{
+	pfnContextSwitchTo = NULL;
+
+	startTitle();
+	//startIngame();
+	//startWinScreen();
 }
 
 void _contextGotoIngame()
