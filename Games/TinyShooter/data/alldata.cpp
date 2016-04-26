@@ -121,6 +121,10 @@
 #include "data/sprite_gameover_g.cpp"
 #include "data/sprite_gameover_m.cpp"
 #include "data/sprite_gameover_v.cpp"
+#include "data/sprite_winscreen_0.cpp"
+#include "data/sprite_winscreen_1.cpp"
+#include "data/sprite_winscreen_2.cpp"
+#include "data/sprite_winscreen_3.cpp"
 #include "data/tilemap_spacebase.cpp"
 #include "data/tilemap_spacebase_background.cpp"
 
