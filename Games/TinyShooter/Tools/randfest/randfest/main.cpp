@@ -6,10 +6,24 @@
 //  Copyright © 2016 Magnus Runesson. All rights reserved.
 //
 
-#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, const char * argv[]) {
 	// insert code here...
-	std::cout << "Hello, World!\n";
+	int i;
+	for( i=0; i<64; i++ )
+	{
+		/*
+		// Star positions
+		//int r = (rand() >> 23)-127;
+		int r = (rand() & 65535) - 32767;
+		/*/
+		// Star speeds
+		int r = -32 - (rand() & 127);
+		/**/
+		
+		printf("%i,\n", r );
+	}
     return 0;
 }
