@@ -175,6 +175,22 @@ void spawnDragonMid( int _x )
 	}
 }
 
+void spawnDragonHigh( int _x )
+{
+	fp2d movement( 0, 15 );
+	int i;
+	
+	const EnemyDefinition* pDef = &enemy_dragonhead;
+	
+	for( i=0; i<5; i++ )
+	{
+		Enemy* pEnemy = enemySpawn( pDef, _x+96+(i*4), 10, &movement );
+		pEnemy->m_movementTimer = 50 - (i*4);
+		
+		pDef = &enemy_dragonbody;
+	}
+}
+
 void spawnTurrets( int _x, int _y, int _numTurrets, const fp2d& _aimOffset )
 {
 	fp2d movement;
@@ -226,8 +242,8 @@ void spawnCargoPew( int _x )
 
 void spawnCargoLaser( int _x )
 {
-	fp2d movement( FixedPoint( 0, -50 ), FixedPoint( 0, 10 ));
-	spawnCargo( _x, ENEMY_SPECIALFLAG_DROP_LASER, 30, movement );
+	fp2d movement( FixedPoint( 0, -50 ), FixedPoint( 0, 0 ));
+	spawnCargo( _x, ENEMY_SPECIALFLAG_DROP_LASER, 10, movement );
 }
 
 void spawnHeidelbergMid( int _x )
@@ -401,6 +417,14 @@ const LevelScrollFunc spacebase_levelscrollfuncs[] =
 	{
 		496,
 		&setPlayerSpawnY_40
+	},
+	{
+		500,
+		&spawnCargoLaser,
+	},
+	{
+		520,
+		spawnDragonHigh
 	},
 	{
 		568,
