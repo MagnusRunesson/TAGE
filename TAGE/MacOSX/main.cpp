@@ -71,7 +71,7 @@ bool init()
 		success = false;
 	} else
 	{
-		window = SDL_CreateWindow("TinyArcade", 10, 10, SCREEN_WIDTH*SCREEN_PIXELSIZE, SCREEN_HEIGHT*SCREEN_PIXELSIZE, SDL_WINDOW_INPUT_FOCUS );
+		window = SDL_CreateWindow("TinyArcade", 600, 100, SCREEN_WIDTH*SCREEN_PIXELSIZE, SCREEN_HEIGHT*SCREEN_PIXELSIZE, SDL_WINDOW_INPUT_FOCUS );
 		if( window == NULL )
 		{
 			printf("Failed to create window. Error: %s\n", SDL_GetError());
