@@ -294,7 +294,7 @@ void winscreen_setup()
 
 	//audioMixer.SetFrequency( 32000 );
 	AudioStream* pStream = audioMixer.GetStream( 0 );
-	pStream->OpenStream( "bgm_title.raw" );
+	pStream->OpenStream( "bgm_winscreen.raw" );
 	pStream->Play();
 
 	titlescreenCloseTimer = 0;
