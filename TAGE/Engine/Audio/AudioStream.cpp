@@ -50,17 +50,33 @@ void AudioStream::OpenStream( const char *_pszFileName )
 #ifdef TAGE_TARGET_MACOSX
 	
 #else
-	char buffe[ 100 ];
-
-	snprintf( buffe, 99, "/Tiny Shooter/%s", _pszFileName );
-
 	// Initialize SD lib
 	sd.begin( 10, SPI_FULL_SPEED );
 	
-	// Open the file and read some stuffs
+	char buffe[ 100 ];
+
+	// Try path with space in it first
+	snprintf( buffe, 99, "/Tiny Shooter/%s", _pszFileName );
 	file.open( buffe, O_READ );
-	file.read( m_streamBufferA, STREAM_BUFFER_SIZE );
-	file.read( m_streamBufferB, STREAM_BUFFER_SIZE );
+	
+	if( !file.isOpen())
+	{
+		// Failed. Try path without space in it.
+		snprintf( buffe, 99, "/TinyShooter/%s", _pszFileName );
+		file.open( buffe, O_READ );
+		
+		// If this fail too it would be possible to scan the SD card
+		// to find the folder of the game. If only there was time to
+		// implement that functionality too. :)
+	}
+
+	// First verify that a file was opened
+	if( file.isOpen())
+	{
+		// Read first two audio buffers
+		file.read( m_streamBufferA, STREAM_BUFFER_SIZE );
+		file.read( m_streamBufferB, STREAM_BUFFER_SIZE );
+	}
 	
 #endif
 }
