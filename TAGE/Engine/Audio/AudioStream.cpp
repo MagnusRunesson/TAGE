@@ -41,6 +41,7 @@ void AudioStream::Reset()
 	m_streamBuffers[ 0 ] = m_streamBufferA;
 	m_streamBuffers[ 1 ] = m_streamBufferB;
 	m_isPlaying = false;
+	CloseStream();
 }
 
 void AudioStream::OpenStream( const char *_pszFileName )
@@ -84,6 +85,11 @@ void AudioStream::OpenStream( const char *_pszFileName )
 void AudioStream::CloseStream()
 {
 	Pause();
+#ifdef TAGE_TARGET_MACOSX
+	
+#else
+	file.close();
+#endif
 }
 
 void AudioStream::Play()
