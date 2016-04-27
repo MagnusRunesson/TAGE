@@ -18,6 +18,7 @@
 #include "src/Ingame/spacebase_boss.h"
 #include "data/alldata.h"
 
+extern void sbbSpawnMissile( int _x, int _y );
 
 int sparrowSpawnPoint[] = {
 	0, 0,
@@ -291,6 +292,20 @@ void spawnSpinloop( int _x )
 	}
 }
 
+void spawnMissileHigh( int _x )
+{
+	sbbSpawnMissile( _x+96, 3 );
+}
+
+void spawnMissileMed( int _x )
+{
+	sbbSpawnMissile( _x+96, 27 );
+}
+
+void spawnMissileLow( int _x )
+{
+	sbbSpawnMissile( _x+96, 51 );
+}
 
 
 /************************************************************************************************************************************
@@ -446,8 +461,16 @@ const LevelScrollFunc spacebase_levelscrollfuncs[] =
 		spawnDragonHigh
 	},
 	{
+		535,
+		&spawnMissileLow,
+	},
+	{
 		568,
 		&spawnAscendingDragon30,
+	},
+	{
+		608,
+		&spawnMissileMed,
 	},
 	{
 		712,
