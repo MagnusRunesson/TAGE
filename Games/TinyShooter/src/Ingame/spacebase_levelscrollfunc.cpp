@@ -125,6 +125,12 @@ void spawnAscendingDragon( int _x, int _height )
 		pEnemy->m_movementState = 0;
 		pEnemy->m_movementTimer = _height+(i*10);
 		pEnemy->pfnMovementUpdate = &EnemyMovement_03_DirectionThenLeft;
+
+		if( i == 0 ) pEnemy->AttackTimer = 50;
+		if( i == 1 ) pEnemy->AttackTimer = 75;
+		if( i == 2 ) pEnemy->AttackTimer = 150;
+		if( i == 3 ) pEnemy->AttackTimer = 125;
+		if( i == 4 ) pEnemy->AttackTimer = 100;
 	}
 }
 
@@ -150,6 +156,12 @@ void spawnDescendingDragon( int _x )
 		pEnemy->m_movementState = 0;
 		pEnemy->m_movementTimer = 40+(i*10);
 		pEnemy->pfnMovementUpdate = &EnemyMovement_03_DirectionThenLeft;
+
+		if( i == 0 ) pEnemy->AttackTimer = 50;
+		if( i == 1 ) pEnemy->AttackTimer = 75;
+		if( i == 2 ) pEnemy->AttackTimer = 150;
+		if( i == 3 ) pEnemy->AttackTimer = 125;
+		if( i == 4 ) pEnemy->AttackTimer = 100;
 	}
 }
 
@@ -177,15 +189,22 @@ void spawnDragonMid( int _x )
 
 void spawnDragonHigh( int _x )
 {
-	fp2d movement( 0, 15 );
+	fp2d movement( FixedPoint(0, -25), 12 );
 	int i;
 	
 	const EnemyDefinition* pDef = &enemy_dragonhead;
 	
 	for( i=0; i<5; i++ )
 	{
-		Enemy* pEnemy = enemySpawn( pDef, _x+96+(i*4), 10, &movement );
+		Enemy* pEnemy = enemySpawn( pDef, _x+96+(i*4), 7, &movement );
 		pEnemy->m_movementTimer = 50 - (i*4);
+		pEnemy->pfnMovementUpdate = &EnemyMovement_02_HalfSinus_MoveLeft;
+		pEnemy->Timeout = 700;
+		if( i == 0 ) pEnemy->AttackTimer = 50;
+		if( i == 1 ) pEnemy->AttackTimer = 250;
+		if( i == 2 ) pEnemy->AttackTimer = 150;
+		if( i == 3 ) pEnemy->AttackTimer = 175;
+		if( i == 4 ) pEnemy->AttackTimer = 200;
 		
 		pDef = &enemy_dragonbody;
 	}
