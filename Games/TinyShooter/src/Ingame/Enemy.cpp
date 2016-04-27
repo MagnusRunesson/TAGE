@@ -106,7 +106,8 @@ void Enemy::Update()
 		if( AttackTimer == 0 )
 		{
 			// Attack the player
-			enemyBulletSpawn( m_worldPosition.x.GetInteger(), m_worldPosition.y.GetInteger(), player, FixedPoint( 0, 50 ));
+			fp2d targetPosition = fp2d( player->GetWorldPositionX()+20, player->GetWorldPositionY()+3 );
+			enemyBulletSpawn( m_worldPosition.x.GetInteger(), m_worldPosition.y.GetInteger(), targetPosition, FixedPoint( 0, 50 ));
 		}
 	}
 	
