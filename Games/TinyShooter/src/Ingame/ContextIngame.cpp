@@ -194,7 +194,7 @@ void ingame_setup()
 	gameOver = false;
 
 	//
-	worldWidth = tilemap_spacebase.Width * tilebank_spacebase.TileWidth;
+	worldWidth = (tilemap_spacebase.Width-2) * tilebank_spacebase.TileWidth;
 	playfield = new TileRenderer( &tilemap_spacebase, &tilebank_spacebase );
 	background = new TileRenderer( &tilemap_spacebase_background, &tilebank_spacebase );
 	//bgm = audioMixer.GetChannel( 2 );

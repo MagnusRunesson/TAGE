@@ -50,9 +50,9 @@ public:
 // Patterns and positions
 //
 const int sbbDoorPositionX[] = {
-	944,
-	940,
-	940,
+	944-8,
+	940-8,
+	940-8,
 };
 
 const int sbbDoorPositionY[] = {

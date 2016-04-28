@@ -477,7 +477,7 @@ const LevelScrollFunc spacebase_levelscrollfuncs[] =
 		&setPlayerSpawnY_24
 	},
 	{
-		840,
+		836,
 		&spawnSpaceBaseBoss,
 	}
 };
