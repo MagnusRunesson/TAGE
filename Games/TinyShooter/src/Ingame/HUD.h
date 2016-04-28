@@ -12,6 +12,8 @@
 #define HUD_WEAPON_NONE				(0)
 #define HUD_WEAPON_SINGLEFIRE		(1)
 #define HUD_WEAPON_DUALFIRE			(2)
+#define HUD_WEAPON_LASER			(3)
+#define HUD_WEAPON_BOMB				(4)
 
 void hudInit();
 void hudSetPrimary( int _weapon );

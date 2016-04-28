@@ -267,9 +267,11 @@ void playerPickup( int _type )
 	} else if( _type == PICKUP_TYPE_BOMB )
 	{
 		playerWeaponSecondary = PLAYERWEAPON_BOMB;
+		hudSetSecondary( HUD_WEAPON_BOMB );
 	} else if( _type == PICKUP_TYPE_LASER )
 	{
 		playerWeaponPrimary = PLAYERWEAPON_LASER;
+		hudSetPrimary( HUD_WEAPON_LASER );
 	}
 }
 

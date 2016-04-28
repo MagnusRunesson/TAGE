@@ -31,6 +31,8 @@
 #include "data/sprite_playerbullet_laser_09.h"
 #include "data/sprite_hud_weapons.h"
 #include "data/sprite_hud_weapon_dual.h"
+#include "data/sprite_hud_weapon_laser.h"
+#include "data/sprite_hud_weapon_bomb.h"
 #include "data/sprite_hud_life.h"
 #include "data/sprite_pickup_pew_00.h"
 #include "data/sprite_pickup_pew_01.h"

@@ -22,7 +22,10 @@
 
 Sprite* spriteHudWeaponsBG;
 Sprite* spriteHudCurrentWeapon;
+Sprite* spriteHudCurrentWeaponSecondary;
 Sprite* spriteHudLife[ 5 ];
+
+int hudSecondaryWeapon;
 
 void hudInit()
 {
@@ -35,6 +38,9 @@ void hudInit()
 	spriteHudWeaponsBG->y = SCREEN_HEIGHT-spriteHudWeaponsBG->image->h;
 	
 	spriteHudCurrentWeapon = spriteRenderer.AllocateSprite( &sprite_pb_01 );
+	spriteHudCurrentWeaponSecondary = spriteRenderer.AllocateSprite( &sprite_hud_weapon_bomb );
+	spriteHudCurrentWeaponSecondary->x = 8;
+	spriteHudCurrentWeaponSecondary->y = 60;
 
 	int i;
 	for( i=0; i<MAX_LIVES; i++ )
@@ -46,6 +52,7 @@ void hudInit()
 	}
 	
 	hudSetPrimary( HUD_WEAPON_SINGLEFIRE );
+	hudSetSecondary( HUD_WEAPON_NONE );
 }
 
 void hudSetPrimary( int _weapon )
@@ -54,7 +61,7 @@ void hudSetPrimary( int _weapon )
 	return;
 #endif
 	
-	int x, y;
+	int x=0, y=0;
 	const Image* pImage = NULL;
 	switch( _weapon )
 	{
@@ -67,6 +74,12 @@ void hudSetPrimary( int _weapon )
 		case HUD_WEAPON_DUALFIRE:
 			pImage = &sprite_hud_weapon_dual;
 			x = 1;
+			y = SCREEN_HEIGHT-4;
+			break;
+			
+		case HUD_WEAPON_LASER:
+			pImage = &sprite_hud_weapon_laser;
+			x = 0;
 			y = SCREEN_HEIGHT-4;
 			break;
 	}
@@ -83,7 +96,11 @@ void hudSetPrimary( int _weapon )
 
 void hudSetSecondary( int _weapon )
 {
-	
+	hudSecondaryWeapon = _weapon;
+	if( _weapon == HUD_WEAPON_NONE )
+		spriteHudCurrentWeaponSecondary->ClrFlags( SPRITE_FLAG_ENABLED );
+	else
+		spriteHudCurrentWeaponSecondary->SetFlags( SPRITE_FLAG_ENABLED );
 }
 
 void hudSetNumLives( int _numLives )
