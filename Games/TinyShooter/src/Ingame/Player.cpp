@@ -97,15 +97,17 @@ void playerUpdate()
 	if( playerEnabled == false )
 		return;
 	
-	bool hide = false;
-	
 	if( playerInvincibleTimer > 0 )
 	{
+		bool hide = false;
 		playerInvincibleTimer--;
-		if( (playerInvincibleTimer >> 2) & 1 )
-		{
+		if((playerInvincibleTimer >> 2) & 1 )
 			hide = true;
-		}
+
+		if( hide )
+			player->GetSprite()->SetFlags( SPRITE_FLAG_DRAWWHITE );
+		else
+			player->GetSprite()->ClrFlags( SPRITE_FLAG_DRAWWHITE );
 	}
 	
 	//
@@ -127,11 +129,8 @@ void playerUpdate()
 	
 	int plx = playerX.GetInteger();
 	int ply = playerY.GetInteger();
+	player->SetWorldPosition( plx, ply );
 	
-	if( hide )
-		player->SetWorldPosition( 0, -10 );
-	else
-		player->SetWorldPosition( plx, ply );
 	
 	//
 	// Do primary weapon
