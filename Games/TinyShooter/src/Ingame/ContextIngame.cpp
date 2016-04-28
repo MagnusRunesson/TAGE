@@ -736,6 +736,7 @@ void ingameGameOverInit()
 		sprite->x = GAMEOVER_COORDINATES[ (i*2)+0 ];
 		sprite->y = GAMEOVER_COORDINATES[ (i*2)+1 ];
 		sprite->ClrFlags( SPRITE_FLAG_ENABLED );
+		sprite->sort = 10;
 		gameOverSprites[ i ] = sprite;
 	}
 }
