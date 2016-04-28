@@ -14,7 +14,7 @@
 
 class Animation;
 
-#define MAX_GAMEOBJECTS (64)
+#define MAX_GAMEOBJECTS (74)
 
 class GameObjectManager
 {
