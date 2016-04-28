@@ -16,7 +16,7 @@
 #include "src/Ingame/Enemy.h"
 #include "data/alldata.h"
 
-#define NUM_ENEMIES			(30)
+#define NUM_ENEMIES			(40)
 
 Enemy enemyObjects[ NUM_ENEMIES ];
 int nextEnemy;
