@@ -92,6 +92,8 @@ void playerInput_Pew( int _plx, int _ply );
 void playerInput_Laser( int _plx, int _ply );
 void playerInput_Bomb( int _plx, int _ply );
 
+extern int mapScroll;
+
 void playerUpdate()
 {
 	if( playerEnabled == false )
@@ -117,6 +119,8 @@ void playerUpdate()
 		FixedPoint x = ix;
 		x *= playerSpeed;
 		playerX += x;
+		if( playerX < mapScroll-10 ) playerX = mapScroll-10;
+		if( playerX > mapScroll+86 ) playerX = mapScroll+86;
 	}
 	
 	int iy = padGetY();
@@ -125,7 +129,11 @@ void playerUpdate()
 		FixedPoint y = iy;
 		y *= playerSpeed;
 		playerY += y;
+		if( playerY < -5 ) playerY = -5;
+		if( playerY > 57 ) playerY = 57;
 	}
+	
+	
 	
 	int plx = playerX.GetInteger();
 	int ply = playerY.GetInteger();
