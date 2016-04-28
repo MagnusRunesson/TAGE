@@ -54,6 +54,26 @@ void spawnSparrowsLow( int _x )
 	}
 }
 
+void spawnSparrowsLowFlat( int _x )
+{
+	int* spawnPoint = sparrowSpawnPoint;
+	int i;
+	for( i=0; i<5; i++ )
+	{
+		int xofs = *spawnPoint; spawnPoint++;
+		int yofs = *spawnPoint; spawnPoint++;
+		fp2d speed = sparrowSpawnSpeed[ i ];
+		speed.y.SetRawValue( speed.y.GetDebugRawValue() >> 1 );
+		Enemy* pEnemy = enemySpawn( &enemy_sparrow, _x+107+xofs, 50+yofs, &speed );
+		pEnemy->Timeout = 350;
+		pEnemy->pTargetGameObject->GetAnimation()->FrameIndex = i%4;
+		
+		// Some sparrows should attack the player
+		if((i==0) || (i==3))
+			pEnemy->AttackTimer = 45+(i*15);
+	}
+}
+
 void spawnSpacebaseSecretPassage( int _x )
 {
 	Enemy* pEnemy = enemySpawn( &enemy_spacebase_secretpassage, _x+96, (12*4), NULL );
@@ -100,6 +120,11 @@ void spawnTallonsHigh( int _x )
 	spawnTallons( _x,  15 );
 }
 
+void spawnTallonsHigher( int _x )
+{
+	spawnTallons( _x, 12 );
+}
+
 void spawnTallonsMid( int _x )
 {
 	spawnTallons( _x, 36 );
@@ -140,7 +165,7 @@ void spawnAscendingDragon30( int _x )
 	spawnAscendingDragon( _x, 30 );
 }
 
-void spawnDescendingDragon( int _x )
+void spawnDescendingDragonTo( int _x, int _height )
 {
 	//
 	// Spawn top dragon
@@ -155,9 +180,9 @@ void spawnDescendingDragon( int _x )
 		
 		Enemy* pEnemy = enemySpawn( pDef, _x+70, -5-(i*5), &movement );
 		pEnemy->m_movementState = 0;
-		pEnemy->m_movementTimer = 40+(i*10);
+		pEnemy->m_movementTimer = _height+(i*10);
 		pEnemy->pfnMovementUpdate = &EnemyMovement_03_DirectionThenLeft;
-
+		
 		if( i == 0 ) pEnemy->AttackTimer = 50;
 		if( i == 1 ) pEnemy->AttackTimer = 75;
 		if( i == 2 ) pEnemy->AttackTimer = 150;
@@ -166,6 +191,15 @@ void spawnDescendingDragon( int _x )
 	}
 }
 
+void spawnDescendingDragon( int _x )
+{
+	spawnDescendingDragonTo( _x, 40 );
+}
+
+void spawnDescendingDragon10( int _x )
+{
+	spawnDescendingDragonTo( _x, 23 );
+}
 void spawnDoubleDragons( int _x )
 {
 	spawnAscendingDragon( _x, 50 );
@@ -299,12 +333,12 @@ void spawnMissileHigh( int _x )
 
 void spawnMissileMed( int _x )
 {
-	sbbSpawnMissile( _x+96, 27 );
+	sbbSpawnMissile( _x+96, 30 );
 }
 
 void spawnMissileLow( int _x )
 {
-	sbbSpawnMissile( _x+96, 51 );
+	sbbSpawnMissile( _x+96, 49 );
 }
 
 
@@ -465,6 +499,14 @@ const LevelScrollFunc spacebase_levelscrollfuncs[] =
 		&spawnMissileLow,
 	},
 	{
+		540,
+		&spawnTallonsHigher,
+	},
+	{
+		545,
+		&spawnSparrowsLowFlat,
+	},
+	{
 		568,
 		&spawnAscendingDragon30,
 	},
@@ -473,8 +515,44 @@ const LevelScrollFunc spacebase_levelscrollfuncs[] =
 		&spawnMissileMed,
 	},
 	{
+		635,
+		&spawnDescendingDragon10,
+	},
+	{
+		650,
+		&spawnTallonsLow,
+	},
+	{
+		670,
+		&spawnMissileHigh,
+	},
+	{
+		680,
+		&spawnSparrowsLow,
+	},
+	{
+		710,
+		&spawnDescendingDragon,
+	},
+	{
 		712,
 		&setPlayerSpawnY_24
+	},
+	{
+		720,
+		&spawnMissileHigh,
+	},
+	{
+		740,
+		&spawnDragonMid,
+	},
+	{
+		780,
+		&spawnMissileLow,
+	},
+	{
+		810,
+		&spawnMissileMed,
 	},
 	{
 		836,
