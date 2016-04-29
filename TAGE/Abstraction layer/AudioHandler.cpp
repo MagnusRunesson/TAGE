@@ -39,7 +39,7 @@ void Audio_Handler (void)
 		audioMixer.outputReadPosition = 0;
 	
 	while( DAC->STATUS.bit.SYNCBUSY == 1 );
-	DAC->DATA.reg = 127 + audioMixer.pOutputBuffer[ audioMixer.outputReadPosition ];
+	DAC->DATA.reg = (127 + audioMixer.pOutputBuffer[ audioMixer.outputReadPosition ]) << 2;
 	while( DAC->STATUS.bit.SYNCBUSY == 1 );
 	
 	// Clear the interrupt
