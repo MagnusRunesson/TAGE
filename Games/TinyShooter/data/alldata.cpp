@@ -127,6 +127,9 @@
 #include "data/sprite_winscreen_1.cpp"
 #include "data/sprite_winscreen_2.cpp"
 #include "data/sprite_winscreen_3.cpp"
+#include "data/sprite_credits_gameby.cpp"
+#include "data/sprite_credits_me.cpp"
+#include "data/sprite_credits_rasmus.cpp"
 #include "data/tilemap_spacebase.cpp"
 #include "data/tilemap_spacebase_background.cpp"
 

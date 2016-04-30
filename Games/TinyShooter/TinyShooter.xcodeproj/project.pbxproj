@@ -48,6 +48,9 @@
 		253E98A61CCF38520045461C /* sprite_winscreen_3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253E98A21CCF38520045461C /* sprite_winscreen_3.cpp */; settings = {ASSET_TAGS = (); }; };
 		253E98BE1CD220590045461C /* sprite_hud_weapon_bomb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253E98BA1CD220590045461C /* sprite_hud_weapon_bomb.cpp */; settings = {ASSET_TAGS = (); }; };
 		253E98BF1CD220590045461C /* sprite_hud_weapon_laser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253E98BC1CD220590045461C /* sprite_hud_weapon_laser.cpp */; settings = {ASSET_TAGS = (); }; };
+		253E98C61CD4EFB10045461C /* sprite_credits_gameby.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253E98C01CD4EFB10045461C /* sprite_credits_gameby.cpp */; settings = {ASSET_TAGS = (); }; };
+		253E98C71CD4EFB10045461C /* sprite_credits_me.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253E98C21CD4EFB10045461C /* sprite_credits_me.cpp */; settings = {ASSET_TAGS = (); }; };
+		253E98C81CD4EFB10045461C /* sprite_credits_rasmus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253E98C41CD4EFB10045461C /* sprite_credits_rasmus.cpp */; settings = {ASSET_TAGS = (); }; };
 		253FC5AF1C74478A005AB533 /* sprite_enemy_tallonclaw_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253FC5AD1C74478A005AB533 /* sprite_enemy_tallonclaw_00.cpp */; settings = {ASSET_TAGS = (); }; };
 		253FC5B21C763456005AB533 /* sprite_enemy_spacebase_secretpassage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253FC5B01C763456005AB533 /* sprite_enemy_spacebase_secretpassage.cpp */; settings = {ASSET_TAGS = (); }; };
 		253FC5BD1C7ADAA0005AB533 /* sprite_playerbullet_bomb_00.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 253FC5B31C7ADAA0005AB533 /* sprite_playerbullet_bomb_00.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -276,6 +279,12 @@
 		253E98BB1CD220590045461C /* sprite_hud_weapon_bomb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_hud_weapon_bomb.h; path = data/sprite_hud_weapon_bomb.h; sourceTree = "<group>"; };
 		253E98BC1CD220590045461C /* sprite_hud_weapon_laser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_hud_weapon_laser.cpp; path = data/sprite_hud_weapon_laser.cpp; sourceTree = "<group>"; };
 		253E98BD1CD220590045461C /* sprite_hud_weapon_laser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_hud_weapon_laser.h; path = data/sprite_hud_weapon_laser.h; sourceTree = "<group>"; };
+		253E98C01CD4EFB10045461C /* sprite_credits_gameby.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_credits_gameby.cpp; path = data/sprite_credits_gameby.cpp; sourceTree = "<group>"; };
+		253E98C11CD4EFB10045461C /* sprite_credits_gameby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_credits_gameby.h; path = data/sprite_credits_gameby.h; sourceTree = "<group>"; };
+		253E98C21CD4EFB10045461C /* sprite_credits_me.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_credits_me.cpp; path = data/sprite_credits_me.cpp; sourceTree = "<group>"; };
+		253E98C31CD4EFB10045461C /* sprite_credits_me.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_credits_me.h; path = data/sprite_credits_me.h; sourceTree = "<group>"; };
+		253E98C41CD4EFB10045461C /* sprite_credits_rasmus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_credits_rasmus.cpp; path = data/sprite_credits_rasmus.cpp; sourceTree = "<group>"; };
+		253E98C51CD4EFB10045461C /* sprite_credits_rasmus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_credits_rasmus.h; path = data/sprite_credits_rasmus.h; sourceTree = "<group>"; };
 		253FC5AD1C74478A005AB533 /* sprite_enemy_tallonclaw_00.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_tallonclaw_00.cpp; path = data/sprite_enemy_tallonclaw_00.cpp; sourceTree = "<group>"; };
 		253FC5AE1C74478A005AB533 /* sprite_enemy_tallonclaw_00.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sprite_enemy_tallonclaw_00.h; path = data/sprite_enemy_tallonclaw_00.h; sourceTree = "<group>"; };
 		253FC5B01C763456005AB533 /* sprite_enemy_spacebase_secretpassage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sprite_enemy_spacebase_secretpassage.cpp; path = data/sprite_enemy_spacebase_secretpassage.cpp; sourceTree = "<group>"; };
@@ -654,6 +663,12 @@
 		250DA18B1C4A7FFF00C664DA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				253E98C01CD4EFB10045461C /* sprite_credits_gameby.cpp */,
+				253E98C11CD4EFB10045461C /* sprite_credits_gameby.h */,
+				253E98C21CD4EFB10045461C /* sprite_credits_me.cpp */,
+				253E98C31CD4EFB10045461C /* sprite_credits_me.h */,
+				253E98C41CD4EFB10045461C /* sprite_credits_rasmus.cpp */,
+				253E98C51CD4EFB10045461C /* sprite_credits_rasmus.h */,
 				253E98BA1CD220590045461C /* sprite_hud_weapon_bomb.cpp */,
 				253E98BB1CD220590045461C /* sprite_hud_weapon_bomb.h */,
 				253E98BC1CD220590045461C /* sprite_hud_weapon_laser.cpp */,
@@ -1224,6 +1239,7 @@
 				25CB2D391C57561F00BC35A1 /* sprite_logo_shooter_h.cpp in Sources */,
 				25CB2D491C57561F00BC35A1 /* tilebank_spacebase.cpp in Sources */,
 				257EC7FC1C97DBCD00650672 /* sprite_spacebase_boss_warninglights_01.cpp in Sources */,
+				253E98C71CD4EFB10045461C /* sprite_credits_me.cpp in Sources */,
 				253E98A41CCF38520045461C /* sprite_winscreen_1.cpp in Sources */,
 				253E98BE1CD220590045461C /* sprite_hud_weapon_bomb.cpp in Sources */,
 				25766A351C8FF3C100A9E148 /* audiosamples_explosion_medium_a_s8b_pcm_11025hz.cpp in Sources */,
@@ -1248,6 +1264,7 @@
 				25CB2D361C57561F00BC35A1 /* sprite_explosion_big_04.cpp in Sources */,
 				25766A0E1C85F6EC00A9E148 /* sprite_pickup_pew_03.cpp in Sources */,
 				25CB2D411C57561F00BC35A1 /* sprite_logo_tiny_y.cpp in Sources */,
+				253E98C61CD4EFB10045461C /* sprite_credits_gameby.cpp in Sources */,
 				25D0AC9F1C7E1CEA004EE0AC /* sprite_playerbullet_laser_02.cpp in Sources */,
 				25EACD201C5FBBE4006AA181 /* sprite_titlescreen_winnersdontusedrugs.cpp in Sources */,
 				25CB2D341C57561F00BC35A1 /* sprite_explosion_big_02.cpp in Sources */,
@@ -1294,6 +1311,7 @@
 				25766A1C1C86BF0000A9E148 /* sprite_enemy_heidelberg_03.cpp in Sources */,
 				25766A191C86BF0000A9E148 /* sprite_enemy_heidelberg_00.cpp in Sources */,
 				25766A3B1C8FF77F00A9E148 /* audiosamples_laser_s8b_pcm_11025hz.cpp in Sources */,
+				253E98C81CD4EFB10045461C /* sprite_credits_rasmus.cpp in Sources */,
 				253FC5C01C7ADAA0005AB533 /* sprite_playerbullet_bomb_03.cpp in Sources */,
 				25CB2D481C57561F00BC35A1 /* sprite_spacebase_boss_door.cpp in Sources */,
 				2505C2271C5A376D00E46CDF /* sprite_explosion_medium_04.cpp in Sources */,

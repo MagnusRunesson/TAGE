@@ -31,7 +31,7 @@
 #include "src/ContextManager.h"
 
 //
-#define WINSCREEN_CLOSETIMER_DURATION (100)
+#define WINSCREEN_CLOSETIMER_DURATION (800)
 #define WINSCREEN_CLOSETIMER_SFXSTOP (WINSCREEN_CLOSETIMER_DURATION-5)
 #define WINSCREEN_SKIPBUTTONINACTIVE (600)
 
@@ -50,6 +50,8 @@ void(*pfnHBlankInterruptWinScreen)(int);
 
 Sprite* wsTextSprite[4];
 Sprite* wsPlayerSprite;
+
+Sprite* wsCreditsSprite[3];
 
 #define NUM_STARS (64)
 
@@ -212,6 +214,26 @@ Sprite* getHBlankSprite( int _scanline )
 	return NULL;
 }
 
+Sprite* getHBlankSpriteCredits( int _scanline, int* _pOutLeft )
+{
+	int i;
+	for( i=0; i<3; i++ )
+	{
+		Sprite* spr = wsCreditsSprite[ i ];
+		int top = spr->y;
+		int bottom = top + spr->image->h;
+		if((_scanline >= top) && (_scanline <= bottom))
+		{
+			if( i == 0 ) *_pOutLeft = 30;
+			else if( i == 1 ) *_pOutLeft = 18;
+			else if( i == 2 ) *_pOutLeft = 12;
+			return spr;
+		}
+	}
+	
+	return NULL;
+}
+
 void winscreenLoopTextClip()
 {
 	wsTextClipY++;
@@ -257,12 +279,45 @@ void HBlankInterruptWinScreen_Outro( int _scanline )
 	}
 }
 
+void HBlankInterruptWinScreen_Credits_Intro( int _scanline )
+{
+	int left;
+	Sprite* spr = getHBlankSpriteCredits( _scanline, &left );
+	if( spr )
+	{
+		int thisFrame = wsTextClipY;
+		if( _scanline > thisFrame )
+			spr->boundsLeft = 96;
+	}
+}
+
+void HBlankInterruptWinScreen_Credits_Outro( int _scanline )
+{
+	int left;
+	Sprite* spr = getHBlankSpriteCredits( _scanline, &left );
+	if( spr )
+	{
+		int thisFrame = wsTextClipY;
+		if( _scanline < thisFrame )
+			spr->boundsLeft = 96;
+		else
+			spr->boundsLeft = left;
+	}
+}
+
 const Image* wsLineImage[ 4 ] =
 {
 	&sprite_winscreen_0,
 	&sprite_winscreen_1,
 	&sprite_winscreen_2,
 	&sprite_winscreen_3,
+};
+
+const Image* wsCreditsLineImage[ 3 ] =
+{
+	&sprite_credits_gameby,
+	&sprite_credits_me,
+	&sprite_credits_rasmus,
 };
 
 void spawnLine( int _iLine )
@@ -275,6 +330,30 @@ void spawnLine( int _iLine )
 		spr->y = 12 + (_iLine*8);
 	
 	wsTextSprite[ _iLine ] = spr;
+	
+}
+
+void spawnCreditsLine( int _iLine )
+{
+	Sprite* spr = spriteRenderer.AllocateSprite( wsCreditsLineImage[ _iLine ]);
+	if( _iLine == 0 )
+	{
+		spr->x = 30;
+		spr->y = 12;
+	} else if( _iLine == 1 )
+	{
+		spr->x = 18;
+		spr->y = 22;
+	}
+	else if( _iLine == 2 )
+	{
+		spr->x = 12;
+		spr->y = 41;
+	}
+	
+	// DIsable from the start
+	spr->ClrFlags( SPRITE_FLAG_ENABLED );
+	wsCreditsSprite[ _iLine ] = spr;
 	
 }
 
@@ -302,6 +381,9 @@ void winscreen_setup()
 	int i;
 	for( i=0; i<4; i++ )
 		spawnLine( i );
+
+	for( i=0; i<3; i++ )
+		spawnCreditsLine( i );
 	
 	int iStar;
 	for( iStar=0; iStar<NUM_STARS; iStar++ )
@@ -357,18 +439,47 @@ void winscreenLoopMovePlayerShip()
 	wsPlayerSprite->x = wsPlayerShipX >> 2;
 }
 
+void winscreenLoopCredits()
+{
+	if( titlescreenCloseTimer == (WINSCREEN_CLOSETIMER_DURATION-100))
+	{
+		// Start the credits screen
+		
+		int i;
+		for( i=0; i<3; i++ )
+			wsCreditsSprite[ i ]->SetFlags( SPRITE_FLAG_ENABLED );
+		
+		for( i=0; i<4; i++ )
+			wsTextSprite[ i ]->ClrFlags( SPRITE_FLAG_ENABLED );
+		
+		//
+		pfnHBlankInterruptWinScreen = &HBlankInterruptWinScreen_Credits_Intro;
+		wsTextClipY = 0;
+	}
+	
+	if( titlescreenCloseTimer == 92 )
+	{
+		pfnHBlankInterruptWinScreen = &HBlankInterruptWinScreen_Credits_Outro;
+		wsTextClipY = 0;
+	}
+}
+
 void winscreen_loop()
 {
 	winscreenLoopFadeIn();
 	winscreenLoopMovePlayerShip();
 	winscreenLoopTextClip();
+	winscreenLoopCredits();
 	
-	int i;
-	for( i=0; i<4; i++ )
+	if((titlescreenCloseTimer==0) || (titlescreenCloseTimer > (WINSCREEN_CLOSETIMER_DURATION-100)))
 	{
-		Sprite* spr = wsTextSprite[ i ];
-		spr->ClrFlags( SPRITE_FLAG_DRAWWHITE );
-		spr->SetFlags( SPRITE_FLAG_ENABLED );
+		int i;
+		for( i=0; i<4; i++ )
+		{
+			Sprite* spr = wsTextSprite[ i ];
+			spr->ClrFlags( SPRITE_FLAG_DRAWWHITE );
+			spr->SetFlags( SPRITE_FLAG_ENABLED );
+		}
 	}
 	
 	uint32 startTime = micros();
@@ -409,6 +520,12 @@ void winscreen_loop()
 		if( titlescreenCloseTimer == WINSCREEN_CLOSETIMER_SFXSTOP )
 			sfxPressStart->PlayFromBeginning();
 
+		if((titlescreenCloseTimer > 93) && (titlescreenCloseTimer < WINSCREEN_CLOSETIMER_DURATION-120))
+		{
+			if( padGetPressed() & PAD_KEYMASK_PRIMARY )
+				titlescreenCloseTimer = 93;
+		}
+		
 		// Timer has run out. Start the game
 		if( titlescreenCloseTimer == 0 )
 			contextGotoTitleScreen();

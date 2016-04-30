@@ -127,6 +127,9 @@
 #include "data/sprite_winscreen_1.h"
 #include "data/sprite_winscreen_2.h"
 #include "data/sprite_winscreen_3.h"
+#include "data/sprite_credits_gameby.h"
+#include "data/sprite_credits_me.h"
+#include "data/sprite_credits_rasmus.h"
 #include "data/tilemap_spacebase.h"
 #include "data/tilemap_spacebase_background.h"
 
