@@ -474,10 +474,12 @@ const LevelScrollFunc spacebase_levelscrollfuncs[] =
 		428,
 		&setPlayerSpawnY_24
 	},
+	/*
 	{
 		440,
 		&spawnHeidelbergLow
 	},
+	 */
 	{
 		456,
 		&spawnTurretsLow
