@@ -17,6 +17,7 @@
 #include "src/Ingame/EnemyManager.h"
 #include "src/Ingame/EnemyMovements.h"
 #include "src/Ingame/ExplosionManager.h"
+#include "src/Ingame/EnemyBulletManager.h"
 #include "src/ContextManager.h"
 #include "data/alldata.h"
 
@@ -24,6 +25,10 @@
 // Settings
 //
 #define SBB_INITIAL_HEALTH (5)
+#define SBB_BULLET_FIRST_A (280)
+#define SBB_BULLET_FIRST_B (410)
+#define SBB_BULLET_REPEATING_A (116)
+#define SBB_BULLET_REPEATING_B (192)
 
 //
 // Enemies the boss can spawn
@@ -131,6 +136,8 @@ int sbbDoorPatternIndex;
 int sbbEnemyPatternIndex;
 int sbbPlayerWinExplosionIndex;
 int sbbPlayerWinExplosionTimer;
+int sbbFireBulletTimerA;
+int sbbFireBulletTimerB;
 
 //
 // States
@@ -202,14 +209,44 @@ void sbbSpawn()
 	sbbDoorPatternIndex = 0;
 	sbbEnemyPatternIndex = 0;
 	sbbHealth = SBB_INITIAL_HEALTH;
+	sbbFireBulletTimerA = SBB_BULLET_FIRST_A;
+	sbbFireBulletTimerB = SBB_BULLET_FIRST_B;
 	
 	pfnWaitForTimerDone = NULL;
 	
 	sbbGotoIntro();
 }
 
+extern GameObject* player;
+
 void sbbUpdate()
 {
+	if( sbbHealth > 0 )
+	{
+		//
+		// Boss is still alive, spawn more bullets
+		//
+		sbbFireBulletTimerA--;
+		if( sbbFireBulletTimerA <= 0 )
+		{
+			sbbFireBulletTimerA = SBB_BULLET_REPEATING_A;
+			fp2d targetPosition = fp2d( player->GetWorldPositionX() + 12, player->GetWorldPositionY() + 9 );
+			
+			FixedPoint speed( 0, 50 );
+			enemyBulletSpawn( 943, 19, targetPosition, speed );
+		}
+		
+		sbbFireBulletTimerB--;
+		if( sbbFireBulletTimerB <= 0 )
+		{
+			sbbFireBulletTimerB = SBB_BULLET_REPEATING_B;
+			fp2d targetPosition = fp2d( player->GetWorldPositionX() + 12, player->GetWorldPositionY() + 9 );
+			
+			FixedPoint speed( 0, 50 );
+			enemyBulletSpawn( 943, 43, targetPosition, speed );
+		}
+	}
+
 	pfnBoss();
 }
 
