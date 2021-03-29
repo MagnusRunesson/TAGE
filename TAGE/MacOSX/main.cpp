@@ -71,7 +71,7 @@ bool init()
 		success = false;
 	} else
 	{
-		window = SDL_CreateWindow("TinyArcade", 600, 100, SCREEN_WIDTH*SCREEN_PIXELSIZE, SCREEN_HEIGHT*SCREEN_PIXELSIZE, SDL_WINDOW_INPUT_FOCUS );
+		window = SDL_CreateWindow("TinyArcade", 600, 100, SCREEN_WIDTH*SCREEN_PIXELSIZE, SCREEN_HEIGHT*SCREEN_PIXELSIZE, SDL_WINDOW_INPUT_FOCUS | SDL_WINDOW_OPENGL );
 		if( window == NULL )
 		{
 			printf("Failed to create window. Error: %s\n", SDL_GetError());
@@ -115,7 +115,7 @@ extern void Audio_Handler_SDL( void *udata, Uint8 *stream, int len );
 
 void audioInit( int _frequency )
 {
-	if( dev != NULL )
+	if( dev == 0 )
 		SDL_CloseAudioDevice( dev );
 	
 	SDL_AudioSpec want, have;
