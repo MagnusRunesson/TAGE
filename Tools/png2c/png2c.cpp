@@ -35,7 +35,7 @@ void writeHeader( FILE* f, char* _symbolNameBase, SDL_Surface* image, bool _useF
 	fprintf( f, "\n" );
 }
 
-void writePixels( FILE* f, char* _symbolNameBase, SDL_Surface* image, int* _pTotalOutputSize, bool _useFloats )
+void writePixels( FILE* f, char* _symbolNameBase, SDL_Surface* image, int* _pTotalOutputSize, bool _useFloats, bool _flipBytes, bool _includeDebug )
 {
 	fprintf( f, "const %s %s_pixels[] =\n{\n", _useFloats?"float":"uint16", _symbolNameBase );
 
@@ -50,6 +50,11 @@ void writePixels( FILE* f, char* _symbolNameBase, SDL_Surface* image, int* _pTot
 			unsigned char b = pixels[ rofs+0 ];
 			unsigned char g = pixels[ rofs+1 ];
 			unsigned char r = pixels[ rofs+2 ];
+
+			if( _includeDebug )
+			{
+				fprintf(f, "/* r=%d, g=%d, b=%d */", r, g, b);
+			}
 			
 			if( _useFloats )
 			{
@@ -63,9 +68,13 @@ void writePixels( FILE* f, char* _symbolNameBase, SDL_Surface* image, int* _pTot
 				g >>= 2;
 				b >>= 3;
 				unsigned short outcol = (r<<11) + (g<<5) + b;
-				unsigned short nc = ((outcol&0x00ff)<<8) + ((outcol&0xff00)>>8);
+				if( _flipBytes )
+				{
+					unsigned short nc = ((outcol&0x00ff)<<8) + ((outcol&0xff00)>>8);
+					outcol = nc;
+				}
 				//printf("r=%i, g=%i, b=%i, a=%i\n", r, g, b, a);
-				fprintf( f, "0x%04x,", nc );
+				fprintf( f, "0x%04x,", outcol );
 			}
 		}
 		fprintf( f, "\n" );
@@ -180,12 +189,23 @@ FILE* openOutfileH( char* _baseOutFileName )
 	return f;
 }
 
+bool argInclude( int _numArgs, char** _apszArgs, const char* _pszArg )
+{
+	for(int i=0; i<_numArgs; i++) {
+		if( !strcmp( _apszArgs[i], _pszArg ))
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
 int main( int _numargs, char** _apszArgh )
 {
 	if( _numargs < 4 )
 	{
 		printf("Usage error: Program need 3 arguments:\n");
-		printf("  png2c <in_file.png> <out_file_base> <symbol_name> -floats\n");
+		printf("  png2c <in_file.png> <out_file_base> <symbol_name> -floats -nobyteflip -includedebug\n");
 		return -1;
 	}
 
@@ -193,9 +213,10 @@ int main( int _numargs, char** _apszArgh )
 	char* pszOutFilenameBase = _apszArgh[ 2 ];
 	char* pszSymbolNameBase = _apszArgh[ 3 ];
 	
-	// Assume that if a fifth argument is added it is "-floats", that is cool
-	bool useFloats = _numargs == 5;
-		
+	// Check additional arguments
+	bool flipBytes = !argInclude(_numargs, _apszArgh, "-nobyteflip");
+	bool useFloats = argInclude(_numargs, _apszArgh, "-floats");
+	bool includeDebug = argInclude(_numargs, _apszArgh, "-includedebug");
 	
 	//
 	SDL_Surface* image = LoadImage( pszInFileName );
@@ -207,7 +228,7 @@ int main( int _numargs, char** _apszArgh )
 
 	int totalOutputSize = 0;
 	writeHeader( f, pszSymbolNameBase, image, useFloats );
-	writePixels( f, pszSymbolNameBase, image, &totalOutputSize, useFloats );
+	writePixels( f, pszSymbolNameBase, image, &totalOutputSize, useFloats, flipBytes, includeDebug );
 	if( SDL_ISPIXELFORMAT_ALPHA( image->format->format ))
 		writeAlpha( f, pszSymbolNameBase, image, &totalOutputSize, useFloats );
 	writeImage( f, pszSymbolNameBase, image, &totalOutputSize, useFloats );
