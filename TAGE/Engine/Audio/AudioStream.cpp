@@ -8,7 +8,7 @@
 
 #include "AudioStream.h"
 
-#ifndef TAGE_TARGET_MACOSX
+#ifdef TAGE_TARGET_TINYARCADE
 
 #include <SdFat.h>
 

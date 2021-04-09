@@ -1,4 +1,4 @@
-#include "Engine/Graphics/Tilebank.h"
+#include "Engine/Graphics/TileBank.h"
 
 const uint16 tilebank_spacebase_pixels[] =
 {

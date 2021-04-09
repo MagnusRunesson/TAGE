@@ -10,7 +10,7 @@
 #include "Engine/Scene/GameObject.h"
 #include "Engine/Scene/GameObjectManager.h"
 #include "Engine/Graphics/Animation.h"
-#include "Engine/debug.h"
+#include "Engine/Debug.h"
 #include "src/Ingame/ContextIngame.h"
 #include "src/Ingame/spacebase_boss.h"
 #include "src/Ingame/Enemy.h"

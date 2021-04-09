@@ -12,7 +12,7 @@
 
 // TinyArcade game engine
 #include "Engine/Graphics/Screen.h"
-#include "Engine/types.h"
+#include "Engine/Types.h"
 #include "Engine/Math/FixedPoint.h"
 #include "Abstraction layer/Joypad.h"
 #include "Engine/Math/fpmath.h"
@@ -23,7 +23,7 @@
 #include "Engine/Debug.h"
 
 // Project specifics
-#include "Data/alldata.h"
+#include "data/alldata.h"
 
 #include "src/Ingame/ContextIngame.h"
 #include "src/TitleScreen/ContextTitleScreen.h"
@@ -31,7 +31,7 @@
 
 TinyScreen display = TinyScreen( TinyScreenPlus );
 
-#ifndef TAGE_TARGET_MACOSX
+#ifdef TAGE_TARGET_TINYARCADE
 void tcConfigure( uint32 sampleRate );
 void tcStart();
 #endif
@@ -41,7 +41,7 @@ void tage_setup()
 	debugInit();
 	padInit();
 	
-#ifndef TAGE_TARGET_MACOSX
+#ifdef TAGE_TARGET_TINYARCADE
 	analogWrite( A0, 0 );
 	tcConfigure( 11025 );
 	tcStart();
@@ -56,7 +56,7 @@ void tage_setup()
 	contextInit();
 }
 
-#ifndef TAGE_TARGET_MACOSX
+#ifdef TAGE_TARGET_TINYARCADE
 
 bool tcIsSyncing()
 {

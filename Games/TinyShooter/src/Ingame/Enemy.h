@@ -9,7 +9,7 @@
 #ifndef __TinyShooter__Enemy__
 #define __TinyShooter__Enemy__
 
-#include "Engine/types.h"
+#include "Engine/Types.h"
 #include "Engine/Math/fp2d.h"
 
 #define ENEMY_FROM_SPRITE( spr ) ((Enemy*)(spr->owner->m_customObject))

@@ -15,7 +15,7 @@
 // TinyArcade game engine
 #include "Engine/Graphics/Screen.h"
 #include "Engine/Graphics/Image.h"
-#include "Engine/types.h"
+#include "Engine/Types.h"
 #include "Engine/Math/FixedPoint.h"
 #include "Engine/Math/fpmath.h"
 #include "Engine/Scene/Camera.h"
@@ -25,8 +25,8 @@
 #include "Engine/Audio/AudioMixer.h"
 #include "Engine/Audio/AudioSource.h"
 #include "Engine/Debug.h"
-#include "Abstraction Layer/Joypad.h"
-#include "Abstraction Layer/Timer.h"
+#include "Abstraction layer/Joypad.h"
+#include "Abstraction layer/Timer.h"
 
 // Project specifics
 #include "data/alldata.h"

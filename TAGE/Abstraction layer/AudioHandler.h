@@ -9,7 +9,7 @@
 #ifndef AudioHandler_h
 #define AudioHandler_h
 
-#include "types.h"
+#include "Types.h"
 
 void Audio_Handler_SDL( void *udata, uint8 *stream, int len );
 

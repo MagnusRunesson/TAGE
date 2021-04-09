@@ -10,7 +10,7 @@
 #include <chrono>
 
 #include "Timer.h"
-#include "types.h"
+#include "Types.h"
 
 uint32 timerStartMicros;
 uint32 timerStartMillis;

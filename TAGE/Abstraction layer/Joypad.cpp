@@ -7,7 +7,7 @@
 //
 
 #include "Engine/Types.h"
-#include "Abstraction Layer/Joypad.h"
+#include "Abstraction layer/Joypad.h"
 #include "Engine/BitHelpers.h"
 
 #ifdef TAGE_TARGET_MACOSX

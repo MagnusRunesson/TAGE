@@ -1,3 +1,5 @@
+#define TAGE_TARGET_TINYARCADE
+
 #include <Tage.h>
 #include <TinyShooter.h>
 

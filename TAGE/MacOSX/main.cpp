@@ -12,7 +12,7 @@
 #include "Image.h"
 #include "Joypad.h"
 #include "Screen.h"
-#include "types.h"
+#include "Types.h"
 #include "bithelpers.h"
 
 #include "timer.h"

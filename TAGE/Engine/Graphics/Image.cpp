@@ -8,7 +8,7 @@
 
 #include "Engine/Types.h"
 #include "Engine/Graphics/Image.h"
-#include "Engine/Graphics/screen.h"
+#include "Engine/Graphics/Screen.h"
 #include "Engine/Math/fpmath.h"
 
 #if 0
