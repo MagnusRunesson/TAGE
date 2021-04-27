@@ -538,8 +538,9 @@ void ingame_loop()
 			lineBuffer[ x ] = nc;
 		}
 		display.writeBuffer( (uint8*)lineBuffer, SCREEN_WIDTH*2 );
-#else
+#elif TAGE_TARGET_TINYARCADE
 		display.writeBufferDMA((uint8*)lineBuffer, SCREEN_WIDTH*2 );
+#elif TAGE_TARGET_GW
 #endif
 		
 		if( lineBuffer == (uint16*)lineBufferA32 )
@@ -585,7 +586,7 @@ void ingame_loop()
 	
 #ifdef TAGE_TARGET_MACOSX
 	debugLog( "Frame render time: %6i - average: %6.0f ::: Specific timer: %6i - average: %6.0f\n", duration, avgTime, renderTimer, avgTime2 );
-#else
+#elif TAGE_TARGET_TINYARCADE
 
 	char buffe[ 100 ];
 	display.setFont( thinPixel7_10ptFontInfo );
@@ -597,6 +598,8 @@ void ingame_loop()
 	snprintf( buffe, 99, "us: %i", ((int)avgTime2) );
 	display.setCursor( 0, 56 );
 	display.print( buffe );
+#elif TAGE_TARGET_GW
+    
 #endif
 #endif
 

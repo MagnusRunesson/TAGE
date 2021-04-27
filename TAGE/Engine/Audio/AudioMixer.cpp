@@ -128,11 +128,15 @@ void AudioMixer::Update()
 
 extern void audioInit( int _frequency );
 
-#else
+#elif TAGE_TARGET_TINYARCADE
 
 void tcConfigure( uint32 sampleRate );
 void tcStart();
 void tcStop();
+
+#elif TAGE_TARGET_GW
+
+extern void audioInit( int _frequency );
 
 #endif
 
@@ -142,10 +146,11 @@ void AudioMixer::SetFrequency( int _frequency )
 	
 #ifdef TAGE_TARGET_MACOSX
 	audioInit( _frequency );
-#else
+#elif TAGE_TARGET_TINYARCADE
 	tcStop();
 	tcConfigure( _frequency );
 	tcStart();
+#elif TAGE_TARGET_GW
 #endif
 }
 

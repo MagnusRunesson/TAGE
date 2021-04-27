@@ -578,9 +578,10 @@ void winscreen_loop()
 			lineBuffer[ x ] = newrgb2;
 		}
 		display.writeBuffer( (uint8*)lineBuffer, SCREEN_WIDTH*2 );
-#else
+#elif TAGE_TARGET_TINYARCADE
 		display.writeBufferDMA((uint8*)lineBuffer, SCREEN_WIDTH*2 );
 		while( !display.getReadyStatusDMA());
+#elif TAGE_TARGET_GW
 #endif
 		
 		spriteRenderer.NextScanline( debugSpriteRenderer );

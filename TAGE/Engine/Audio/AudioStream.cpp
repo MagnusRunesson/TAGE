@@ -48,9 +48,7 @@ void AudioStream::OpenStream( const char *_pszFileName )
 {
 	Reset();
 	
-#ifdef TAGE_TARGET_MACOSX
-	
-#else
+#ifdef TAGE_TARGET_TINYARCADE
 	// Initialize SD lib
 	sd.begin( 10, SPI_FULL_SPEED );
 	
@@ -87,8 +85,9 @@ void AudioStream::CloseStream()
 	Pause();
 #ifdef TAGE_TARGET_MACOSX
 	
-#else
+#elif TAGE_TARGET_TINYARCADE
 	file.close();
+#elif TAGE_TARGET_GW
 #endif
 }
 
@@ -106,7 +105,7 @@ void AudioStream::Update()
 {
 #ifdef TAGE_TARGET_MACOSX
 	
-#else
+#elif TAGE_TARGET_TINYARCADE
 	// Wait until we started streaming from the last page we read
 	if( m_lastStreamBufferPage != m_currentStreamBufferPage )
 		return;
@@ -132,6 +131,7 @@ void AudioStream::Update()
 		// There is enough data left in the file, just read the whole page
 		file.read( m_streamBuffers[ m_lastStreamBufferPage ], STREAM_BUFFER_SIZE );
 	}
+#elif TAGE_TARGET_GW
 #endif
 }
 

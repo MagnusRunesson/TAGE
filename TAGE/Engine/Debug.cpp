@@ -11,15 +11,17 @@
 #include "Debug.h"
 
 #ifdef TAGE_TARGET_MACOSX
-#else
+#elif TAGE_TARGET_TINYARCADE
 #include <Arduino.h>
+#elif TAGE_TARGET_GW
 #endif
 
 void debugInit()
 {
 #ifdef TAGE_TARGET_MACOSX
-#else
+#elif TAGE_TARGET_TINYARCADE
 	Serial.begin( 9600 );
+#elif TAGE_TARGET_GW
 #endif
 }
 
@@ -33,8 +35,9 @@ void debugLog( const char* _pszFormat, ... )
 	vsnprintf( buffer, SIZE-1, _pszFormat, args );
 #ifdef TAGE_TARGET_MACOSX
 	printf( "%s", buffer );
-#else
+#elif TAGE_TARGET_TINYARCADE
 	Serial.print( buffer );
+#elif TAGE_TARGET_GW
 #endif
 	
 	va_end( args );
