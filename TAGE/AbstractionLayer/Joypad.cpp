@@ -7,7 +7,7 @@
 //
 
 #include "Engine/Types.h"
-#include "Abstraction layer/Joypad.h"
+#include "AbstractionLayer/Joypad.h"
 #include "Engine/BitHelpers.h"
 
 #ifdef TAGE_TARGET_MACOSX
@@ -76,7 +76,7 @@ uint8 padGetReleased()
 	return ret;
 }
 
-#else
+#elif TAGE_TARGET_TINYARCADE
 
 uint8 gkeys;
 int gKeyBuff;
@@ -167,4 +167,5 @@ uint32 nanos()
 	return 0;
 }
 
+#elif TAGE_TARGET_GW
 #endif

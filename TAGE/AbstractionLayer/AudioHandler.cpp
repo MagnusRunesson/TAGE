@@ -26,7 +26,7 @@ void Audio_Handler_SDL( void *udata, uint8 *stream, int len )
 	}
 }
 
-#else
+#elif TAGE_TARGET_TINYARCADE
 
 #ifdef __cplusplus
 extern "C" {
@@ -52,4 +52,6 @@ void TC5_Handler (void) __attribute__ ((weak, alias("Audio_Handler")));
 }
 #endif
 
+#elif TAGE_TARGET_GW
 #endif
+

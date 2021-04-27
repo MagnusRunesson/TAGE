@@ -6,7 +6,7 @@
 //  Copyright © 2016 Magnus Runesson. All rights reserved.
 //
 
-#include "SDL2/SDL.h"
+//#include "SDL2/SDL.h"
 #include <chrono>
 
 #include "Timer.h"
@@ -38,12 +38,12 @@ uint32 nanos()
 
 void delay( uint32 milliseconds )
 {
-	SDL_Delay( milliseconds );
+	//SDL_Delay( milliseconds );
 }
 
 void delayMicroseconds( uint32 microseconds )
 {
-	delay( microseconds / 1000 );
+	//delay( microseconds / 1000 );
 }
 
 void timerInit()

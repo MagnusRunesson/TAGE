@@ -25,8 +25,8 @@
 #include "Engine/Audio/AudioMixer.h"
 #include "Engine/Audio/AudioSource.h"
 #include "Engine/Debug.h"
-#include "Abstraction layer/Joypad.h"
-#include "Abstraction layer/Timer.h"
+#include "AbstractionLayer/Joypad.h"
+#include "AbstractionLayer/Timer.h"
 
 // Project specifics
 #include "data/alldata.h"
