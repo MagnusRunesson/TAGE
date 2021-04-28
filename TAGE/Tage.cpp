@@ -28,5 +28,5 @@
 #include "Engine/Scene/GameObjectTemplate.cpp"
 #include "Engine/BitHelpers.cpp"
 #include "Engine/Debug.cpp"
-#include "Abstraction Layer/Joypad.cpp"
-#include "Abstraction Layer/AudioHandler.cpp"
+#include "AbstractionLayer/Joypad.cpp"
+#include "AbstractionLayer/AudioHandler.cpp"
